@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.apiserver.service</groupId>
+    <artifactId>coldfusion</artifactId>
+    <packaging>bundle</packaging>
+    <name>service.ColdFusion Bundle</name>
+    <version>1.0</version>
+    <url>http://www.springframework.org/osgi</url>
+
+    <properties>
+        <java-version>1.6</java-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <slf4j.version>1.4.3</slf4j.version>
+        <spring.maven.artifact.version>2.5.1</spring.maven.artifact.version>
+        <spring.osgi.version>1.0.2</spring.osgi.version>
+        <equinox.ver>3.2.2</equinox.ver>
+
+		<!-- path to extracted war file -->
+		<cfusion.war>../../resources/ColdFusion10/cfusion.war</cfusion.war>
+		<extracted.cfusion.war>../../resources/ColdFusion10/cfusion</extracted.cfusion.war>
+    </properties>
+
+
+    <dependencies>
+        <!--
+             * Add ColdFusion jars to your local repository
+               todo this: run this command (edit the <path(s)> first)
+            mvn install:install-file -Dfile=/<local path>/ColdFusion10/cfusion/WEB-INF/cfusion/lib/cfusion.jar -DgroupId=com.adobe -DartifactId=ColdFusion -Dversion=10 -Dpackaging=jar -DlocalRepositoryPath=/Users/<username>/.m2/repository/
+               -->
+        <dependency>
+            <groupId>com.adobe</groupId>
+            <artifactId>ColdFusion</artifactId>
+            <version>10</version>
+            <scope>provided</scope>
+        </dependency>
+
+		<dependency>
+			<groupId>library.service</groupId>
+			<artifactId>interfaces</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.10.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xmlParserAPIs</artifactId>
+            <version>2.6.2</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.maven.artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.maven.artifact.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.maven.artifact.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl104-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+
+        <!-- test scoped dependencies
+        <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>junit.osgi</artifactId>
+            <version>3.8.2-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.maven.artifact.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>spring-osgi-test</artifactId>
+            <version>${spring.osgi.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>spring-osgi-annotation</artifactId>
+            <version>${spring.osgi.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>aopalliance.osgi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+         -->
+        <!-- Equinox OSGi platform
+        <dependency>
+            <groupId>org.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.osgi</artifactId>
+            <version>${equinox.ver}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.osgi</groupId>
+            <artifactId>log4j.osgi</artifactId>
+            <version>1.2.15-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+         -->
+    </dependencies>
+
+
+    <repositories>
+        <repository>
+            <id>spring-osgified-artifacts</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <name>Springframework Maven OSGified Artifacts Repository</name>
+            <url>http://maven.springframework.org/osgi</url>
+        </repository>
+    </repositories>
+
+    <!-- for packaging as an OSGi bundle, we use the maven-bundle-plugin -->
+
+
+
+    <!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more info -->
+    <build>
+        <resources>
+            <!-- standard Maven folder -->
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- plus root folder -->
+            <resource>
+                <directory>.</directory>
+                <includes>
+                    <include>plugin.xml</include>
+                    <include>META-INF/*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+
+			<!--
+				Unzip cfusion.war
+				-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>prepare</id>
+						<phase>validate</phase>
+						<configuration>
+							<tasks>
+								<echo message="prepare cfusion WAR" />
+								<unzip src="${cfusion.war}" dest="${extracted.cfusion.war}/" />
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+            <!-- generate manifest automatically once the classes are processed -->
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bundle-manifest</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>manifest</goal>
+                        </goals>
+
+                        <configuration>
+                            <instructions>
+                              <Bundle-SymbolicName>service.ColdFusion</Bundle-SymbolicName>
+                              <Bundle-Classpath>.,WEB-INF/classes,WEB-INF/lib/*.jar,WEB-INF/cfusion/lib/*.jar</Bundle-Classpath>
+
+
+                              <Export-Package>com.apiserver.service.coldfusion.*</Export-Package>
+                              <Import-Package>
+                                   javax.servlet
+                                  ,javax.servlet.http
+                                  ,javax.servlet.resources
+								  ,libraries.service.interfaces
+                              </Import-Package>
+
+
+                               <!--DynamicImport-Package>javax.*, org.xml.sax, org.xml.sax.*, org.w3c.*</DynamicImport-Package-->
+
+
+                              <!--Embed-Dependency>*;scope=compile|runtime</Embed-Dependency-->
+                              <!--Embed-Transitive>true</Embed-Transitive-->
+
+                              <!--Fragment-Host>org.springframework.bundle.osgi.web.extender</Fragment-Host-->
+
+                              <Web-ContextPath>cfusion</Web-ContextPath>
+                              <Webapp-Context>cfusion</Webapp-Context>
+                            </instructions>
+                        </configuration>
+
+                    </execution>
+                </executions>
+                <configuration>
+                    <supportedProjectTypes>
+                        <supportedProjectType>jar</supportedProjectType>
+                        <supportedProjectType>bundle</supportedProjectType>
+                        <supportedProjectType>war</supportedProjectType>
+                    </supportedProjectTypes>
+                    <instructions></instructions>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <!--archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive-->
+                    <webResources>
+                        <resource>
+                            <directory>${extracted.cfusion.war}</directory>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                            <excludes>
+                                <exlude>**/web.xml</exlude>
+                            </excludes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

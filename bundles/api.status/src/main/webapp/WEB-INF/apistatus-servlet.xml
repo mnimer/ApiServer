@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean name="statusController" class="api.status.StatusController"></bean>
+
+
+
+	<!-- Define the view resolver to use jsp files within the jsp folder -->
+	<bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+
+				<!-- don't comment back in, until there is code to do the same as @JSonIgnore for xml (in User object), otherwise this is a security error and will return sensitive data about the user -->
+				<!--entry key="xml" value="application/xml" /-->
+			</map>
+		</property>
+		<property name="defaultViews">
+			<list>
+
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+				</bean>
+
+				<!--bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+					<property name="marshaller">
+						<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
+							<property name="autodetectAnnotations" value="true" />
+							<property name="supportedClasses">
+								<list>
+									<value>java.util.Collection</value>
+									<value>java.util.HashMap</value>
+									<value>com.shelfluv.models.v1.beans.User</value>
+								</list>
+							</property>
+						</bean>
+					</property>
+				</bean-->
+			</list>
+		</property>
+	</bean>
+
+
+</beans>
+

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Export-Package: library.service.interfaces;uses:=javax.servlet.http;ve
+ rsion=1.0
+Tool: Bnd-0.0.160
+Bundle-Name: library.service.interfaces Bundle
+Created-By: 1.6.0_33 (Apple Inc.)
+Bundle-Version: 1.0
+Bnd-LastModified: 1345242480474
+Bundle-ManifestVersion: 2
+Bundle-Description: Set of interfaces that other bundles can implement
+ , allowing for multiple implementation options linked to different ap
+ i's
+Import-Package: javax.servlet.http,library.service.interfaces;version=
+ 1.0
+Bundle-SymbolicName: library.service.interfaces
+Include-Resource: src/main/resources
+Originally-Created-By: 1.6.0_33 (Apple Inc.)
+

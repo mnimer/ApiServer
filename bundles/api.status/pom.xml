@@ -1,0 +1,265 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.apiserver.api</groupId>
+	<artifactId>status</artifactId>
+	<packaging>bundle</packaging>
+	<version>0.1.0</version>
+	<name>api.status Bundle</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<org.codehaus.jackson.version>1.7.0</org.codehaus.jackson.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- other bundles -->
+		<!-- configure the dependecy between bundle projects -->
+		<!--dependency>
+			<groupId>com.apiserver.service</groupId>
+			<artifactId>coldfusion</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency-->
+
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!--
+   Jackson JSON
+-->
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.9</version>
+		</dependency>
+		<!--
+
+
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-asl</artifactId>
+			<version>0.9.5</version>
+		</dependency>
+
+		  <dependency>
+			  <groupId>org.codehaus.jackson</groupId>
+			  <artifactId>jackson-lgpl</artifactId>
+			  <version>0.9.5</version>
+		  </dependency>
+
+		  <dependency>
+			  <groupId>org.codehaus.jackson</groupId>
+			  <artifactId>jackson-jaxrs</artifactId>
+			  <version>1.9.9</version>
+		  </dependency>
+
+		  <dependency>
+			  <groupId>org.codehaus.jackson</groupId>
+			  <artifactId>jackson-mrbean</artifactId>
+			  <version>1.9.2</version>
+		  </dependency>
+
+		  <dependency>
+			  <groupId>org.codehaus.jackson</groupId>
+			  <artifactId>jackson-smile</artifactId>
+			  <version>1.9.2</version>
+		  </dependency>
+
+		  <dependency>
+			  <groupId>org.codehaus.jackson</groupId>
+			  <artifactId>jackson-xc</artifactId>
+			  <version>1.9.9</version>
+		  </dependency>
+		   -->
+
+
+		<!-- for compile only, your container will provide this  -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-core</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-annotation</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-web</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.osgi</groupId>
+			<artifactId>spring-osgi-web-extender</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>spring-maven-milestone</id>
+			<name>Springframework Maven Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+		<repository>
+			<id>spring-maven-snapshot</id>
+			<snapshots><enabled>true</enabled></snapshots>
+			<name>Springframework Maven SNAPSHOT Repository</name>
+			<url>http://maven.springframework.org/snapshot</url>
+		</repository>
+		<repository>
+			<id>spring-osgified-artifacts</id>
+			<snapshots><enabled>true</enabled></snapshots>
+			<name>Springframework Maven OSGified Artifacts Repository</name>
+			<url>http://maven.springframework.org/osgi</url>
+		</repository>
+
+	</repositories>
+
+	<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more info -->
+	<build>
+		<finalName>api.status-${pom.version}</finalName>
+
+		<plugins>
+
+			<!-- generate manifest automatically once the classes are processed -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>1.0.0</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<id>bundle-manifest</id>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>manifest</goal>
+						</goals>
+						<configuration>
+							<instructions>
+								<Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
+								<Bundle-Name>${pom.artifactId}</Bundle-Name>
+								<Bundle-Version>0.1.0</Bundle-Version>
+
+								<Export-Package>*</Export-Package>
+								<Import-Package>
+									javax.servlet
+									,javax.servlet.http
+									,javax.servlet.resources
+									,library.service.interfaces
+									,org.apache.catalina,org.apache.catalina.connector
+								</Import-Package>
+
+								<!--DynamicImport-Package>javax.*, org.xml.sax, org.xml.sax.*, org.w3c.*</DynamicImport-Package-->
+
+
+								<!--Embed-Dependency>*;scope=compile|runtime</Embed-Dependency-->
+								<!--Embed-Transitive>true</Embed-Transitive-->
+
+								<!--Fragment-Host>org.springframework.bundle.osgi.web.extender</Fragment-Host-->
+
+								<Web-ContextPath>api-status</Web-ContextPath>
+								<Webapp-Context>api-status</Webapp-Context>
+							</instructions>
+						</configuration>
+
+					</execution>
+				</executions>
+				<configuration>
+					<supportedProjectTypes>
+						<supportedProjectType>jar</supportedProjectType>
+						<supportedProjectType>bundle</supportedProjectType>
+						<supportedProjectType>war</supportedProjectType>
+					</supportedProjectTypes>
+					<instructions></instructions>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
