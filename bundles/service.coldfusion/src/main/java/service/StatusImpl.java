@@ -2,7 +2,7 @@ package service;
 
 import coldfusion.cfc.CFCProxy;
 import coldfusion.runtime.Struct;
-import library.service.interfaces.*;
+//import library.service.interfaces.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URL;
@@ -12,7 +12,7 @@ import java.util.Map;
  * User: mnimer
  * Date: 8/17/12
  */
-public class StatusImpl implements library.service.interfaces.Status
+public class StatusImpl // implements library.service.interfaces.Status
 {
 
     public Map ping(HttpServletRequest request)

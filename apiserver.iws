@@ -2,49 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/ColdFusion10/cfusion.war" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver.ipr" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/api.status.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/help.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/build.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/java/library/service/interfaces/Cache.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/java/library/service/interfaces/Status.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context-osgi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/src/test/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context-osgi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/build.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/readme.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context-osgi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.cf9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/services-inf/components/Status.cfc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/test/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/index.cfm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/api.status.iml" afterPath="$PROJECT_DIR$/bundles/api.status/api.status.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,21 +68,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="bundle-context.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="-6.818182">
+            <state line="264" column="32" selection-start="9055" selection-end="9055" vertical-scroll-proportion="0.7717391">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bundle-context-osgi.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context-osgi.xml">
-          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+      <file leaf-file-name="web.cf9.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.cf9.xml">
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+            <state />
+          </provider>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+            <state />
+          </provider>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
@@ -126,19 +95,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/pom.xml">
+      <file leaf-file-name="StatusImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="18" selection-start="392" selection-end="392" vertical-scroll-proportion="0.13931888">
-              <folding />
+            <state line="12" column="34" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml">
+        <entry file="file://$PROJECT_DIR$/bundles/api.status/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="21" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+            <state line="20" column="21" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -147,16 +118,28 @@
       <file leaf-file-name=".project" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/.project">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="14" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
+            <state line="2" column="10" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/pom.xml">
+      <file leaf-file-name="BundleContextListener.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+            <state line="19" column="34" selection-start="483" selection-end="504" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1349#1365#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="21" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -177,7 +160,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="-6.818182">
+            <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -197,9 +180,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/help.jsp" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/index.jsp" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context.xml" />
         <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/services-inf/components/Status.cfc" />
         <option value="$PROJECT_DIR$/library.service.interfaces/src/main/java/library/service/interfaces/Status.java" />
@@ -207,12 +187,15 @@
         <option value="$PROJECT_DIR$/library.service.interfaces/src/main/java/library/service/interfaces/Cache.java" />
         <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/com/apiserver/service/coldfusion/StatusImpl.java" />
         <option value="$PROJECT_DIR$/bundles/api.status/src/main/java/com/apiserver/api/status/StatusController.java" />
-        <option value="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
         <option value="$PROJECT_DIR$/library.service.interfaces/pom.xml" />
         <option value="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" />
         <option value="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context.xml" />
         <option value="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context.xml" />
         <option value="$PROJECT_DIR$/bundles/api.status/pom.xml" />
+        <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java" />
+        <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java" />
+        <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/index.cfm" />
+        <option value="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
       </list>
     </option>
   </component>
@@ -227,7 +210,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="$PROJECT_DIR$/../../libraries/maven/apache-maven-3.0.3 2" />
-        <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -248,6 +230,24 @@
           <option name="myItemId" value="service.ColdFusion Bundle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Dependencies" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$DependenciesNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="service.ColdFusion Bundle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
       </PATH>
       <PATH>
         <PATH_ELEMENT>
@@ -267,48 +267,6 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="library.service.interfaces Bundle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="library.service.interfaces Bundle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="api.status Bundle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="api.status Bundle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -344,23 +302,216 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service.coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="activator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="APIs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleGroupNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api.status" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -781,19 +932,20 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1920" height="1174" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.4957265" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39981008" sideWeight="0.7809829" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32763532" sideWeight="0.3926282" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50427353" sideWeight="0.40064102" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -802,10 +954,10 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23504274" sideWeight="0.67236465" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23504274" sideWeight="0.4957265" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21581197" sideWeight="0.67236465" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32763532" sideWeight="0.60363245" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21581197" sideWeight="0.4957265" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.50427353" sideWeight="0.5956197" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -872,40 +1024,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="675" selection-end="675" vertical-scroll-proportion="-8.181818" />
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-core/1.1.0/spring-osgi-core-1.1.0.pom">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="2" vertical-scroll-proportion="-1.4339908" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context-osgi.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context.xml">
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="43" selection-start="581" selection-end="588" vertical-scroll-proportion="-6.818182" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/services-inf/components/Status.cfc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="64" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.875" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/META-INF/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="13" selection-start="193" selection-end="194" vertical-scroll-proportion="0.11013216" />
@@ -913,16 +1031,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="16" selection-start="793" selection-end="793" vertical-scroll-proportion="0.72687227">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="68" selection-start="321" selection-end="321" vertical-scroll-proportion="0.2290749">
-          <folding />
-        </state>
+        <state line="33" column="16" selection-start="793" selection-end="793" vertical-scroll-proportion="0.72687227" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context.xml">
@@ -930,7 +1039,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="-6.818182">
+        <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="-0.6818182">
           <folding />
         </state>
       </provider>
@@ -940,16 +1049,12 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/.project">
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/readme.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="14" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context.xml">
@@ -957,35 +1062,87 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="-6.818182">
-          <folding />
-        </state>
+        <state line="10" column="2" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="21" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0">
+        <state line="20" column="21" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar!/javax/servlet/ServletContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="17" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.40819424">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="34" selection-start="483" selection-end="504" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1349#1365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/.project">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="10" selection-start="67" selection-end="67" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bundles/api.status/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="64" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0">
+        <state line="20" column="21" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/readme.txt">
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/index.cfm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="30" selection-start="41" selection-end="41" vertical-scroll-proportion="0.023622047">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../libraries/java/servers/ColdFusion10/cfusion/WEB-INF/lib/cfmx_bootstrap.jar!/coldfusion/bootstrap/BootstrapServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="158" selection-end="158" vertical-scroll-proportion="0.096618354">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.cf9.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="34" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="18" selection-start="392" selection-end="392" vertical-scroll-proportion="0.13931888">
+        <state line="264" column="32" selection-start="9055" selection-end="9055" vertical-scroll-proportion="0.7717391">
           <folding />
         </state>
       </provider>
@@ -1050,7 +1207,6 @@
             <option name="proportions">
               <list>
                 <option value="0.25990677" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

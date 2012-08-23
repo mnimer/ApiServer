@@ -4,7 +4,6 @@
     <facet type="Osmorc" name="OSGi">
       <configuration manifestGenerationMode="OsmorcControlled" manifestLocation="" jarfileLocation="interfaces-1.0.jar" outputPathType="CompilerOutputPath" bndFileLocation="" bundlorFileLocation="" bundleActivator="" bundleSymbolicName="library.service.interfaces" bundleVersion="1.0.0" ignoreFilePattern="" useProjectDefaultManifestFileLocation="true" alwaysRebuildBundleJAR="false" doNotSynchronizeWithMaven="false">
         <additionalProperties>
-          <property key="Bundle-Description" value="Set of interfaces that other bundles can implement, allowing for multiple implementation options linked to different api's" />
           <property key="Export-Package" value="library.service.interfaces*" />
           <property key="Import-Package" value="*" />
           <property key="Include-Resource" value="$MODULE_DIR$/src/main/resources" />
