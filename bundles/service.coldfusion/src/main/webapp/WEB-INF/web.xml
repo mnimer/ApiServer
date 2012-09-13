@@ -30,7 +30,7 @@
     <context-param id="coldfusion_context_88">
         <param-name>cf.class.path</param-name>
         <param-value>
-            ./WEB-INF/cfusion/lib/updates,./WEB-INF/cfusion/lib,./WEB-INF/cfusion/gateway/lib,./WEB-INF/flex/jars,./WEB-INF/cfform/jars,./WEB-INF/cfusion/lib/axis2</param-value>
+			./WEB-INF/classes,./WEB-INF/cfusion/lib/updates,./WEB-INF/cfusion/lib,./WEB-INF/cfusion/gateway/lib,./WEB-INF/flex/jars,./WEB-INF/cfform/jars,./WEB-INF/cfusion/lib/axis2</param-value>
     </context-param>
     <context-param id="coldfusion_context_89">
         <param-name>cf.lib.path</param-name>

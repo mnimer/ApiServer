@@ -10,6 +10,10 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
           <root url="file://$MODULE_DIR$/../../resources/ColdFusion10/cfusion" relative="/" />
         </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </sourceRoots>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
@@ -47,7 +51,7 @@
     <orderEntry type="library" name="Maven: org.osgi:org.osgi.core:4.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.felix:org.apache.felix.framework:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.felix:org.osgi.core:1.0.0" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.7.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: xerces:xercesImpl:2.10.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: xml-apis:xml-apis:1.4.01" level="project" />

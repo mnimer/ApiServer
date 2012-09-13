@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Export-Package: activator;uses:="coldfusion,org.osgi.util.tracker,org.
+ osgi.framework,javax.servlet";version="1.0.0",service;uses:="coldfusi
+ on.runtime,javax.servlet.http,coldfusion.cfc";version="1.0.0"
+Built-By: mnimer
+Build-Jdk: 1.6.0_33
+Bundle-Version: 1.0.0
+Tool: Bnd-1.43.0
+Bundle-Name: service.ColdFusion Bundle
+Bnd-LastModified: 1345734458326
+Created-By: Apache Maven Bundle Plugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.apiserver.service.coldfusion
+Import-Package: javax.servlet;version="[
+ 1.0,2)",javax.servlet.http;version="[1.0,2)",org.osgi.framework;versi
+ on="[1.6,2)",org.osgi.util.tracker;version="[1.0,2)"
+
