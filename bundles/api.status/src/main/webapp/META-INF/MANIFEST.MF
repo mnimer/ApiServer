@@ -1,5 +1,3 @@
 Manifest-Version: 1.0
-Created-By: Apache Maven
-Built-By: mnimer
-Build-Jdk: 1.6.0_33
-
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven Bundle Plugin

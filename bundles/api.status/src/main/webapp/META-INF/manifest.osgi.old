@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven Bundle Plugin
+#Built-By: mnimer
+#Build-Jdk: 1.6.0_33
+#Bundle-Name: api-status
+#Bundle-Version: 0.1.0
+#Bundle-ManifestVersion: 2
+#Bundle-SymbolicName: com.apiserver.api.status
+#Webapp-Context: api-status
+#Web-ContextPath: api-status
+#Export-Package: api.status.StatusController
+#DynamicImport-Package: javax.*, org.xml.sax, org.xml.sax.*, org.w3c.*
+#Import-Package: javax.servlet;version="[2.4,3)",
+#    javax.servlet.http;version="[2.4,3)",
+#   javax.servlet.resources;version="[2.4,3)"
+#Embed-Dependency: *;scope=compile|runtime
+

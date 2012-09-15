@@ -11,7 +11,7 @@
 	<properties>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<org.codehaus.jackson.version>1.7.0</org.codehaus.jackson.version>
-		<spring.maven.artifact.version>2.5.1</spring.maven.artifact.version>
+		<spring.maven.artifact.version>3.0.5.RELEASE</spring.maven.artifact.version>
 		<spring.osgi.version>1.0.2</spring.osgi.version>
 		<equinox.ver>3.2.2</equinox.ver>
 		<slf4j.version>1.4.3</slf4j.version>
@@ -94,13 +94,14 @@
 
 
 		<!-- for compile only, your container will provide this  -->
-		<!--
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+		<!--
+
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -179,6 +180,13 @@
 
 
 		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>4.3.0</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.maven.artifact.version}</version>
@@ -223,12 +231,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.osgi</groupId>
-			<artifactId>org.osgi.core</artifactId>
-			<version>4.0</version>
-		</dependency>
-
 		<!-- test scoped dependencies -->
 		<dependency>
 			<groupId>org.springframework.osgi</groupId>
@@ -265,14 +267,14 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Equinox OSGi platform -->
+		<!-- Equinox OSGi platform
 		<dependency>
 			<groupId>org.eclipse.osgi</groupId>
 			<artifactId>org.eclipse.osgi</artifactId>
 			<version>${equinox.ver}</version>
 			<type>jar</type>
 			<scope>test</scope>
-		</dependency>
+		</dependency>   -->
 
 		<dependency>
 			<groupId>org.springframework.osgi</groupId>
@@ -308,7 +310,7 @@
 
 	<!-- see http://felix.apache.org/site/maven-bundle-plugin-bnd.html for more info -->
 	<build>
-		<finalName>api.status-${pom.version}</finalName>
+		<finalName>api.status-${project.version}</finalName>
 
 		<plugins>
 
@@ -325,35 +327,6 @@
 						<goals>
 							<goal>manifest</goal>
 						</goals>
-						<configuration>
-							<instructions>
-								<Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
-								<Bundle-Name>${pom.artifactId}</Bundle-Name>
-								<Bundle-Version>0.1.0</Bundle-Version>
-								<Bundle-Classpath>.,WEB-INF/classes,WEB-INF/lib/*.jar</Bundle-Classpath>
-
-								<Export-Package>*</Export-Package>
-								<Import-Package>
-									javax.servlet
-									,javax.servlet.http
-									,javax.servlet.resources
-									,org.apache.catalina,org.apache.catalina.connector
-								</Import-Package>
-
-								<DynamicImport-Package>javax.*, org.xml.sax, org.xml.sax.*, org.w3c.*</DynamicImport-Package>
-
-
-								<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
-								<!--Embed-Transitive>true</Embed-Transitive-->
-
-								<!--Fragment-Host>org.springframework.bundle.osgi.web.extender</Fragment-Host-->
-								<Fragment-Host>org.springframework.osgi.catalina.start.osgi</Fragment-Host>
-
-								<Web-ContextPath>api-status</Web-ContextPath>
-								<Webapp-Context>api-status</Webapp-Context>
-							</instructions>
-						</configuration>
-
 					</execution>
 				</executions>
 				<configuration>
@@ -362,7 +335,31 @@
 						<supportedProjectType>bundle</supportedProjectType>
 						<supportedProjectType>war</supportedProjectType>
 					</supportedProjectTypes>
-					<instructions></instructions>
+					<instructions>
+						<Bundle-SymbolicName>${pom.groupId}.${pom.artifactId}</Bundle-SymbolicName>
+						<Bundle-Name>${pom.artifactId}</Bundle-Name>
+						<Bundle-Version>0.1.0</Bundle-Version>
+						<Bundle-Classpath>.,WEB-INF/classes,WEB-INF/lib/*.jar</Bundle-Classpath>
+
+						<Export-Package>!*</Export-Package>
+						<Import-Package>
+							javax.servlet; version="[2.4.0, 4.0.0)",
+							javax.servlet.http; version="[2.4.0, 4.0.0)",
+							javax.servlet.jsp.jstl.core; version="[1.2,2.0)",
+							javax.servlet.resources; version="[2.4.0, 4.0.0)",
+							org.springframework.beans.factory.config,
+							org.springframework.osgi.web.context.support; version="[1.2,2.0)",
+							org.springframework.stereotype,
+							org.springframework.web.bind.annotation,
+							org.springframework.web.servlet,
+							org.springframework.web.servlet.view,
+							*
+						</Import-Package>
+
+						<Web-ContextPath>api-status</Web-ContextPath>
+						<Webapp-Context>api-status</Webapp-Context>
+
+					</instructions>
 				</configuration>
 			</plugin>
 
@@ -372,8 +369,10 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
+					<!-- Make a skinny WAR -->
+					<!--packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes-->
 					<archive>
-						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>sky
+						<manifestFile>${project.build.directory}/${project.build.finalName}/META-INF/MANIFEST.MF</manifestFile>sky
 					</archive>
 				</configuration>
 			</plugin>

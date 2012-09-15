@@ -10,10 +10,6 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
           <root url="file://$MODULE_DIR$/../../resources/ColdFusion10/cfusion" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </sourceRoots>
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
@@ -29,7 +25,7 @@
         <additionalProperties>
           <property key="Bundle-Description" value="null" />
           <property key="Bundle-Name" value="service.ColdFusion Bundle" />
-          <property key="Include-Resource" value="log4j.properties=$MODULE_DIR$/src/main/resources/log4j.properties,META-INF/spring/bundle-context-osgi.xml=$MODULE_DIR$/src/main/resources/META-INF/spring/bundle-context-osgi.xml,META-INF/spring/bundle-context.xml=$MODULE_DIR$/src/main/resources/META-INF/spring/bundle-context.xml,META-INF/readme.txt=$MODULE_DIR$/META-INF/readme.txt" />
+          <property key="Include-Resource" value="log4j.properties=/Users/mnimer/Development/github/API-OSGi-Server/bundles/service.coldfusion/src/main/resources/log4j.properties,META-INF/spring/bundle-context-osgi.xml=/Users/mnimer/Development/github/API-OSGi-Server/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context-osgi.xml,META-INF/spring/bundle-context.xml=/Users/mnimer/Development/github/API-OSGi-Server/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context.xml,META-INF/readme.txt=/Users/mnimer/Development/github/API-OSGi-Server/bundles/service.coldfusion/META-INF/readme.txt" />
         </additionalProperties>
         <additionalJARContents />
       </configuration>
@@ -43,7 +39,13 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/annotations" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target/antrun" />
+      <excludeFolder url="file://$MODULE_DIR$/target/classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target/coldfusion-1.0" />
+      <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
+      <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
