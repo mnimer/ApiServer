@@ -2,17 +2,67 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/image/CaptchaController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/image/ImageSizingController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfFormController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfHtmlController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/StatusController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/bus/service/StatusBusService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/Cache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/buildnumber.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/security-config.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_status-esb.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/api.status.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/api.status.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/resources/log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/resources/spring/bundle-context-osgi.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/resources/spring/bundle-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/manifest.osgi.old" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/help.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/build.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/java/library/service/interfaces/Cache.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/java/library/service/interfaces/Status.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context-osgi.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/META-INF/spring/bundle-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/main/resources/log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/src/test/resources/log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/.classpath" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/.project" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context-osgi.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/META-INF/spring/bundle-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/build.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/readme.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/service/StatusImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context-osgi.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/META-INF/spring/bundle-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/resources/log4j.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.cf9.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/index.cfm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/services-inf/components/Status.cfc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/src/test/resources/log4j.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/api.status.iml" afterPath="$PROJECT_DIR$/bundles/api.status/api.status.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/pom.xml" afterPath="$PROJECT_DIR$/bundles/api.status/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" afterPath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" afterPath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +80,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" line="28" class="api.status.StatusController" package="api.status">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
@@ -88,80 +124,7 @@
     <favorites_list name="Current task" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="372" column="24" selection-start="10084" selection-end="10084" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="13" selection-start="7400" selection-end="7400" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml">
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-            <state />
-          </provider>
-          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="20" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apistatus-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="60" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatusController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manifest.osgi.old" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/manifest.osgi.old">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="0" selection-end="612" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MANIFEST.MF" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="0" selection-end="95" vertical-scroll-proportion="0.077319585">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -174,22 +137,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/bundles/service.coldfusion/src/main/java/activator/BundleContextListener.java" />
-        <option value="$PROJECT_DIR$/test.api/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/resources/spring/bundle-context.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/resources/spring/bundle-context-osgi.xml" />
-        <option value="$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/myapp-servlet.xml" />
-        <option value="$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$USER_HOME$/Downloads/myapp/pom.xml" />
-        <option value="$USER_HOME$/Downloads/myapp/src/main/webapp/META-INF/MANIFEST.MF" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/manifest.osgi.old" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml" />
-        <option value="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/resources/buildnumber.properties" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/application-context.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/rest/json/view/ExtendedMappingJacksonJsonView.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/rest/json/view/JaxbJacksonObjectMapper.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/rest/json/JaxbJacksonObjectMapper.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/api-status-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/bus/service/StatusBusService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/security-config.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/api-status-esb.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/api-status-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/StatusController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/status.cfc" />
       </list>
     </option>
   </component>
@@ -210,7 +173,6 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="$PROJECT_DIR$/../../libraries/maven/apache-maven-3.0.3 2" />
-        <option name="usePluginRegistry" value="true" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -230,14 +192,8 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
-      </PATH>
-      <PATH>
         <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="greenpages.web" />
+          <option name="myItemId" value="apiserver-core Application" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -247,69 +203,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="greenpages.web" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="greenpages.core" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="greenpages.core" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="GreenPages App Build" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="api.status Bundle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="api.status Bundle" />
+          <option name="myItemId" value="apiserver-core Application" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -385,7 +279,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -395,7 +289,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -417,7 +311,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -433,7 +327,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,7 +337,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cfservices-inf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -465,7 +393,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -477,11 +405,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,7 +415,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api.status" />
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -500,6 +424,120 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="status" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="status" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -518,10 +556,12 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="MavenSettings" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/myapp/pom.xml" />
-    <property name="project.structure.side.proportion" value="0.25990677" />
+    <property name="project.structure.side.proportion" value="0.24941725" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="DefaultCfmlFileTemplate" value="ColdFusion File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -543,20 +583,30 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="apiserver.services.v1_0.cache" />
+      <recent name="apiserver.services.v1_0.status" />
       <recent name="com.apiserver.service.coldfusion" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/resources" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF" />
       <recent name="$PROJECT_DIR$/bundles/api.status/src/main/resources" />
-      <recent name="$PROJECT_DIR$/bundles/api.status/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/bundles/service.coldfusion/src/main/webapp/WEB-INF" />
-      <recent name="$PROJECT_DIR$/services/service.coldfusion/META-INF/spring" />
-      <recent name="\" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/resources/apiconfig" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="rest.json" />
       <recent name="library.service.interfaces" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.api-status">
+  <component name="RunManager" selected="Tomcat Server.apiserver-core">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -829,13 +879,81 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="api.status:war exploded" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
-    <list size="1">
+    <configuration default="false" name="apiserver-core" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/v1-0/status/ping.json" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="apiserver-core:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="apiserver-core_apiserver" />
+      </server-settings>
+      <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57271" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method />
+    </configuration>
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.api-status" />
+      <item index="1" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -872,26 +990,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="22" width="1919" height="1174" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39981008" sideWeight="0.7809829" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39981008" sideWeight="0.77148956" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42165244" sideWeight="0.41911373" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39981008" sideWeight="0.2247731" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.6001068" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23438334" sideWeight="0.57834756" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23438334" sideWeight="0.6001899" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21516284" sideWeight="0.57834756" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42165244" sideWeight="0.577149" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21516284" sideWeight="0.6001899" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42165244" sideWeight="0.57180995" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
@@ -901,7 +1020,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.4957265" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.44527495" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -963,76 +1081,66 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/java/org/appfuse/web/web/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="32" selection-start="687" selection-end="687" vertical-scroll-proportion="0.5412371" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/myapp-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="6" selection-start="1370" selection-end="1370" vertical-scroll-proportion="0.6977153" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/urlrewrite.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/webapp/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="21" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.60966545">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/pom.xml">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/myapp/src/main/webapp/META-INF/MANIFEST.MF">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.1.0.RELEASE/spring-web-3.1.0.RELEASE-sources.jar!/org/springframework/web/bind/annotation/support/HandlerMethodInvoker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="69" selection-start="2694" selection-end="2694" vertical-scroll-proportion="0.9484536" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/maven/lib/maven.jar!/schemas/maven-4.0.0.xsd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="12" selection-start="13904" selection-end="13904" vertical-scroll-proportion="0.3328336">
+        <state line="184" column="0" selection-start="8241" selection-end="8241" vertical-scroll-proportion="0.3322314">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/java/api/status/StatusController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE-sources.jar!/org/springframework/util/MultiValueMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0">
+        <state line="27" column="17" selection-start="841" selection-end="841" vertical-scroll-proportion="0.29752067">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaEE/lib/javaee-impl.jar!/standardSchemas/web-app_2_3.dtd">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE-sources.jar!/org/springframework/util/LinkedMultiValueMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="476" column="10" selection-start="15524" selection-end="15524" vertical-scroll-proportion="0.34767026">
+        <state line="37" column="57" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.08429752">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/security-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="519" selection-end="519" vertical-scroll-proportion="0.20516717">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_status-esb.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="2089" selection-end="2089" vertical-scroll-proportion="0.7619048">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="33" selection-start="657" selection-end="657" vertical-scroll-proportion="-7.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/bus/service/StatusBusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="48" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#559#575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml">
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
         <state />
       </provider>
@@ -1043,43 +1151,60 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="20" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
+        <state line="50" column="3" selection-start="1265" selection-end="1265" vertical-scroll-proportion="-34.090908">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/WEB-INF/apistatus-servlet.xml">
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/PlainSocketImpl.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="60" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+        <state line="103" column="24" selection-start="4539" selection-end="4539" vertical-scroll-proportion="0.41722974">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/pom.xml">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="372" column="24" selection-start="10084" selection-end="10084" vertical-scroll-proportion="0.0">
+        <state line="36" column="8" selection-start="2214" selection-end="2214" vertical-scroll-proportion="0.7760141">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/service.coldfusion/pom.xml">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-qofq.cfc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="13" selection-start="7400" selection-end="7400" vertical-scroll-proportion="0.0">
+        <state line="14" column="2" selection-start="476" selection-end="476" vertical-scroll-proportion="0.36144578">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/manifest.osgi.old">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-pdfurl.cfc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="0" selection-end="612" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bundles/api.status/src/main/webapp/META-INF/MANIFEST.MF">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-cfpresentation.cfc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="0" selection-end="95" vertical-scroll-proportion="0.077319585">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="112" selection-start="327" selection-end="327" vertical-scroll-proportion="0.25817555">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/StatusController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="87" selection-start="2019" selection-end="2019" vertical-scroll-proportion="0.5067568">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1306#1322#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1089,11 +1214,11 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>api.status:war exploded</last-edited>
+          <last-edited>apiserver-core:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.25990677" />
+                <option value="0.24941725" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1102,7 +1227,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web (api.status)|Web</last-edited>
+          <last-edited>Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1138,11 +1263,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|api.status|APIs</last-edited>
+          <last-edited>apiserver-core</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.25990677" />
+                <option value="0.24941725" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1166,7 +1292,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.25990677" />
+                <option value="0.24941725" />
               </list>
             </option>
           </splitter-proportions>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:ctx="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:si="http://www.springframework.org/schema/integration"
+	   xmlns:http="http://www.springframework.org/schema/integration/http"
+	   xmlns:oxm="http://www.springframework.org/schema/oxm"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+
+
+	<!-- SERVICES -->
+	<bean id="statusService" class="apiserver.apis.v1_0.status.bus.service.StatusBusService"/>
+
+
+	<!-- ESB configuration -->
+	<si:channel id="pingInputChannel"/>
+	<si:channel id="pingOutputChannel"/>
+
+
+	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
+	<si:service-activator
+			input-channel="pingOutputChannel"
+			ref="statusService"
+			method="noOpHandler"/>
+
+
+	<!--
+		SIMPLE HEALTH PING CHAIN
+	-->
+	<si:chain input-channel="pingInputChannel" output-channel="pingOutputChannel">
+		<si:service-activator
+			ref="statusService"
+			method="pingHandler"/>
+	</si:chain>
+
+
+</beans>
+

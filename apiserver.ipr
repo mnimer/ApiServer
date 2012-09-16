@@ -4,101 +4,55 @@
     <defaultAnt bundledAnt="true" />
   </component>
   <component name="ArtifactManager">
-    <artifact type="war" name="service.coldfusion:war">
-      <output-path>$PROJECT_DIR$/bundles/service.coldfusion/target</output-path>
-      <root id="archive" name="coldfusion-1.0.war">
-        <element id="artifact" artifact-name="service.coldfusion:war exploded" />
+    <artifact type="war" name="apiserver-core:war">
+      <output-path>$PROJECT_DIR$/apiserver-core/target</output-path>
+      <root id="archive" name="apiserver-core-0.1.0.war">
+        <element id="artifact" artifact-name="apiserver-core:war exploded" />
       </root>
     </artifact>
-    <artifact type="exploded-war" name="service.coldfusion:war exploded">
-      <output-path>$PROJECT_DIR$/bundles/service.coldfusion/target/coldfusion-1.0</output-path>
+    <artifact type="exploded-war" build-on-make="true" name="apiserver-core:war exploded">
+      <output-path>$PROJECT_DIR$/apiserver-core/target/apiserver-core-0.1.0</output-path>
       <root id="root">
-        <element id="javaee-facet-resources" facet="service.coldfusion/web/Web" />
+        <element id="javaee-facet-resources" facet="apiserver-core/web/Web" />
         <element id="directory" name="WEB-INF">
           <element id="directory" name="classes">
-            <element id="module-output" name="service.coldfusion" />
+            <element id="module-output" name="apiserver-core" />
           </element>
           <element id="directory" name="lib">
-            <element id="library" level="project" name="Maven: org.osgi:org.osgi.core:4.3.0" />
-            <element id="library" level="project" name="Maven: org.apache.felix:org.apache.felix.framework:1.0.0" />
-            <element id="library" level="project" name="Maven: org.apache.felix:org.osgi.core:1.0.0" />
-            <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
             <element id="library" level="project" name="Maven: org.xerial:sqlite-jdbc:3.7.2" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-core:2.5.1" />
-            <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context:2.5.1" />
-            <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-beans:2.5.1" />
-            <element id="library" level="project" name="Maven: org.slf4j:jcl104-over-slf4j:1.4.3" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.4.3" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.4.3" />
-            <element id="library" level="project" name="Maven: log4j:log4j:1.2.13" />
-          </element>
-        </element>
-      </root>
-    </artifact>
-    <artifact type="war" build-on-make="true" name="api.status:war">
-      <output-path>$PROJECT_DIR$/bundles/api.status/target</output-path>
-      <root id="archive" name="api.status-0.1.0.war">
-        <element id="artifact" artifact-name="api.status:war exploded" />
-      </root>
-    </artifact>
-    <artifact type="exploded-war" build-on-make="true" name="api.status:war exploded">
-      <output-path>$PROJECT_DIR$/bundles/api.status/target/api.status-0.1.0</output-path>
-      <root id="root">
-        <element id="javaee-facet-resources" facet="api.status/web/Web" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="api.status" />
-          </element>
-          <element id="directory" name="lib">
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
-            <element id="library" level="project" name="Maven: org.osgi:org.osgi.core:4.3.0" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-core:3.0.5.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.0.5.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.0.5.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.0.5.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.0.5.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.0.5.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-tx:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-oxm:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
             <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.slf4j:jcl104-over-slf4j:1.4.3" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.4.3" />
-            <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.4.3" />
-            <element id="library" level="project" name="Maven: log4j:log4j:1.2.13" />
-          </element>
-        </element>
-      </root>
-    </artifact>
-    <artifact type="war" name="myapp:war">
-      <output-path>$USER_HOME$/Downloads/myapp/target</output-path>
-      <root id="archive" name="myapp.war">
-        <element id="artifact" artifact-name="myapp:war exploded" />
-      </root>
-    </artifact>
-    <artifact type="exploded-war" name="myapp:war exploded">
-      <output-path>$USER_HOME$/Downloads/myapp/target/myapp</output-path>
-      <root id="root">
-        <element id="javaee-facet-resources" facet="myapp/web/myapp" />
-        <element id="directory" name="WEB-INF">
-          <element id="directory" name="classes">
-            <element id="module-output" name="myapp" />
-          </element>
-          <element id="directory" name="lib">
-            <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:2.5.2" />
-            <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.1" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-beans:2.5.2" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-core:2.5.2" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context:2.5.2" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context-support:2.5.2" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-web:2.5.2" />
-            <element id="library" level="project" name="Maven: org.tuckey:urlrewritefilter:3.0.4" />
-            <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.12" />
-            <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.3" />
+            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-jms:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-core:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-jms:3.0.7.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-jmx:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.6.8" />
+            <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.6.8" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-xml:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.ws:spring-xml:2.0.3.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-security:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-http:2.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-event:2.1.0.RELEASE" />
           </element>
         </element>
       </root>
@@ -126,16 +80,7 @@
       <profile default="false" name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <processorPath useClasspath="true" />
-        <module name="api.status" />
-        <module name="greenpages" />
-        <module name="greenpages-top-level" />
-        <module name="greenpages.core" />
-        <module name="greenpages.db" />
-        <module name="greenpages.jpa" />
-        <module name="greenpages.parent" />
-        <module name="greenpages.web" />
-        <module name="library.service.interfaces" />
-        <module name="service.coldfusion" />
+        <module name="apiserver-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -155,6 +100,7 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/apiserver-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/bundles/service.coldfusion" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
@@ -167,6 +113,7 @@
     <file type="Osmorc" url="file://$PROJECT_DIR$/library.service.interfaces" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/services/service.coldfusion" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/test.api" />
+    <file type="web" url="file://$PROJECT_DIR$/apiserver-core" />
     <file type="web" url="file://$PROJECT_DIR$/bundles/api.status" />
     <file type="web" url="file://$PROJECT_DIR$/bundles/service.coldfusion" />
     <file type="web" url="file://$PROJECT_DIR$/services/service.coldfusion" />
@@ -178,10 +125,7 @@
       <list>
         <option value="$PROJECT_DIR$/pingWar/pom.xml" />
         <option value="$PROJECT_DIR$/services/service.coldfusion/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/service.coldfusion/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/api.status/pom.xml" />
-        <option value="$PROJECT_DIR$/bundles/library.service.interfaces/pom.xml" />
-        <option value="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -314,16 +258,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bundles/api.status/api.status.iml" filepath="$PROJECT_DIR$/bundles/api.status/api.status.iml" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages-top-level.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages-top-level.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.core.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.core.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.db.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.db.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.jpa.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.jpa.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.parent.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.parent.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.web.iml" filepath="$USER_HOME$/Downloads/greenpages-2.5.0.RELEASE/greenpages.web.iml" group="greenpages-top-level and modules" />
-      <module fileurl="file://$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" filepath="$PROJECT_DIR$/bundles/library.service.interfaces/library.service.interfaces.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" filepath="$PROJECT_DIR$/bundles/service.coldfusion/service.coldfusion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apiserver-core/apiserver-core.iml" filepath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
     </modules>
   </component>
   <component name="ProjectResources">
@@ -361,26 +296,15 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.h2database:com.springsource.org.h2:1.0.71">
+    <library name="Maven: commons-lang:commons-lang:2.5">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/h2database/com.springsource.org.h2/1.0.71/com.springsource.org.h2-1.0.71.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.5/commons-lang-2.5.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/h2database/com.springsource.org.h2/1.0.71/com.springsource.org.h2-1.0.71-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.5/commons-lang-2.5-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/h2database/com.springsource.org.h2/1.0.71/com.springsource.org.h2-1.0.71-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: commons-logging:commons-logging:1.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1/commons-logging-1.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1/commons-logging-1.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1/commons-logging-1.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.5/commons-lang-2.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-logging:commons-logging:1.1.1">
@@ -394,39 +318,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: javax.persistence:com.springsource.javax.persistence:1.0.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/com.springsource.javax.persistence/1.0.0/com.springsource.javax.persistence-1.0.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/com.springsource.javax.persistence/1.0.0/com.springsource.javax.persistence-1.0.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/com.springsource.javax.persistence/1.0.0/com.springsource.javax.persistence-1.0.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet:com.springsource.javax.servlet:2.5.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/com.springsource.javax.servlet/2.5.0/com.springsource.javax.servlet-2.5.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/com.springsource.javax.servlet/2.5.0/com.springsource.javax.servlet-2.5.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/com.springsource.javax.servlet/2.5.0/com.springsource.javax.servlet-2.5.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet:javax.servlet:3.0.0.v201103241009">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet/3.0.0.v201103241009/javax.servlet-3.0.0.v201103241009.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet/3.0.0.v201103241009/javax.servlet-3.0.0.v201103241009-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet/3.0.0.v201103241009/javax.servlet-3.0.0.v201103241009-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: javax.servlet:servlet-api:2.5">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/" />
@@ -438,114 +329,26 @@
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: junit:junit:3.8.1">
+    <library name="Maven: org.aspectj:aspectjrt:1.6.8">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.6.8/aspectjrt-1.6.8.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.6.8/aspectjrt-1.6.8-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/3.8.1/junit-3.8.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjrt/1.6.8/aspectjrt-1.6.8-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: junit:junit:4.10">
+    <library name="Maven: org.aspectj:aspectjweaver:1.6.8">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: log4j:log4j:1.2.13">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.13/log4j-1.2.13.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.13/log4j-1.2.13-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.13/log4j-1.2.13-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.aopalliance:com.springsource.org.aopalliance:1.0.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aopalliance/com.springsource.org.aopalliance/1.0.0/com.springsource.org.aopalliance-1.0.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aopalliance/com.springsource.org.aopalliance/1.0.0/com.springsource.org.aopalliance-1.0.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aopalliance/com.springsource.org.aopalliance/1.0.0/com.springsource.org.aopalliance-1.0.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.commons:com.springsource.org.apache.commons.dbcp:1.2.2.osgi">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.dbcp/1.2.2.osgi/com.springsource.org.apache.commons.dbcp-1.2.2.osgi.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.dbcp/1.2.2.osgi/com.springsource.org.apache.commons.dbcp-1.2.2.osgi-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.dbcp/1.2.2.osgi/com.springsource.org.apache.commons.dbcp-1.2.2.osgi-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.commons:com.springsource.org.apache.commons.pool:1.3.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.pool/1.3.0/com.springsource.org.apache.commons.pool-1.3.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.pool/1.3.0/com.springsource.org.apache.commons.pool-1.3.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/com.springsource.org.apache.commons.pool/1.3.0/com.springsource.org.apache.commons.pool-1.3.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.felix:org.apache.felix.framework:1.0.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.apache.felix.framework/1.0.0/org.apache.felix.framework-1.0.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.apache.felix.framework/1.0.0/org.apache.felix.framework-1.0.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.apache.felix.framework/1.0.0/org.apache.felix.framework-1.0.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.felix:org.osgi.core:1.0.0">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.osgi.core/1.0.0/org.osgi.core-1.0.0.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.osgi.core/1.0.0/org.osgi.core-1.0.0-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/felix/org.osgi.core/1.0.0/org.osgi.core-1.0.0-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.apache.log4j:com.springsource.org.apache.log4j:1.2.16">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/log4j/com.springsource.org.apache.log4j/1.2.16/com.springsource.org.apache.log4j-1.2.16.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/log4j/com.springsource.org.apache.log4j/1.2.16/com.springsource.org.apache.log4j-1.2.16-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/apache/log4j/com.springsource.org.apache.log4j/1.2.16/com.springsource.org.apache.log4j-1.2.16-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.aspectj:com.springsource.org.aspectj.weaver:1.6.12.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/com.springsource.org.aspectj.weaver/1.6.12.RELEASE/com.springsource.org.aspectj.weaver-1.6.12.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/com.springsource.org.aspectj.weaver/1.6.12.RELEASE/com.springsource.org.aspectj.weaver-1.6.12.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/com.springsource.org.aspectj.weaver/1.6.12.RELEASE/com.springsource.org.aspectj.weaver-1.6.12.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9">
@@ -570,488 +373,169 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.9/jackson-mapper-asl-1.9.9-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.eclipse.osgi:org.eclipse.osgi:3.2.2">
+    <library name="Maven: org.springframework.integration:spring-integration-core:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/osgi/org.eclipse.osgi/3.2.2/org.eclipse.osgi-3.2.2.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/2.1.0.RELEASE/spring-integration-core-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/osgi/org.eclipse.osgi/3.2.2/org.eclipse.osgi-3.2.2-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/2.1.0.RELEASE/spring-integration-core-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/osgi/org.eclipse.osgi/3.2.2/org.eclipse.osgi-3.2.2-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/2.1.0.RELEASE/spring-integration-core-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.eclipse.persistence:com.springsource.org.eclipse.persistence.antlr:1.0.0">
+    <library name="Maven: org.springframework.integration:spring-integration-event:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.antlr/1.0.0/com.springsource.org.eclipse.persistence.antlr-1.0.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-event/2.1.0.RELEASE/spring-integration-event-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.antlr/1.0.0/com.springsource.org.eclipse.persistence.antlr-1.0.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-event/2.1.0.RELEASE/spring-integration-event-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.antlr/1.0.0/com.springsource.org.eclipse.persistence.antlr-1.0.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-event/2.1.0.RELEASE/spring-integration-event-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.eclipse.persistence:com.springsource.org.eclipse.persistence.asm:1.0.0">
+    <library name="Maven: org.springframework.integration:spring-integration-http:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.asm/1.0.0/com.springsource.org.eclipse.persistence.asm-1.0.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/2.1.0.RELEASE/spring-integration-http-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.asm/1.0.0/com.springsource.org.eclipse.persistence.asm-1.0.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/2.1.0.RELEASE/spring-integration-http-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.asm/1.0.0/com.springsource.org.eclipse.persistence.asm-1.0.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/2.1.0.RELEASE/spring-integration-http-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.eclipse.persistence:com.springsource.org.eclipse.persistence.jpa:1.0.0">
+    <library name="Maven: org.springframework.integration:spring-integration-jms:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.jpa/1.0.0/com.springsource.org.eclipse.persistence.jpa-1.0.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jms/2.1.0.RELEASE/spring-integration-jms-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.jpa/1.0.0/com.springsource.org.eclipse.persistence.jpa-1.0.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jms/2.1.0.RELEASE/spring-integration-jms-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence.jpa/1.0.0/com.springsource.org.eclipse.persistence.jpa-1.0.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jms/2.1.0.RELEASE/spring-integration-jms-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.eclipse.persistence:com.springsource.org.eclipse.persistence:1.0.0">
+    <library name="Maven: org.springframework.integration:spring-integration-jmx:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence/1.0.0/com.springsource.org.eclipse.persistence-1.0.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/2.1.0.RELEASE/spring-integration-jmx-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence/1.0.0/com.springsource.org.eclipse.persistence-1.0.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/2.1.0.RELEASE/spring-integration-jmx-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/persistence/com.springsource.org.eclipse.persistence/1.0.0/com.springsource.org.eclipse.persistence-1.0.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/2.1.0.RELEASE/spring-integration-jmx-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.freemarker:com.springsource.freemarker:2.3.18">
+    <library name="Maven: org.springframework.integration:spring-integration-security:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/freemarker/com.springsource.freemarker/2.3.18/com.springsource.freemarker-2.3.18.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-security/2.1.0.RELEASE/spring-integration-security-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/freemarker/com.springsource.freemarker/2.3.18/com.springsource.freemarker-2.3.18-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-security/2.1.0.RELEASE/spring-integration-security-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/freemarker/com.springsource.freemarker/2.3.18/com.springsource.freemarker-2.3.18-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-security/2.1.0.RELEASE/spring-integration-security-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.hamcrest:hamcrest-core:1.1">
+    <library name="Maven: org.springframework.integration:spring-integration-xml:2.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-xml/2.1.0.RELEASE/spring-integration-xml-2.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-xml/2.1.0.RELEASE/spring-integration-xml-2.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-xml/2.1.0.RELEASE/spring-integration-xml-2.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.junit:com.springsource.org.junit:4.7.0">
+    <library name="Maven: org.springframework.security:spring-security-config:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/junit/com.springsource.org.junit/4.7.0/com.springsource.org.junit-4.7.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.1.0.RELEASE/spring-security-config-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/junit/com.springsource.org.junit/4.7.0/com.springsource.org.junit-4.7.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.1.0.RELEASE/spring-security-config-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/junit/com.springsource.org.junit/4.7.0/com.springsource.org.junit-4.7.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/3.1.0.RELEASE/spring-security-config-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.osgi:org.osgi.core:4.3.0">
+    <library name="Maven: org.springframework.security:spring-security-core:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.3.0/org.osgi.core-4.3.0.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.3.0/org.osgi.core-4.3.0-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/osgi/org.osgi.core/4.3.0/org.osgi.core-4.3.0-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/3.1.0.RELEASE/spring-security-core-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.slf4j:jcl104-over-slf4j:1.4.3">
+    <library name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl104-over-slf4j/1.4.3/jcl104-over-slf4j-1.4.3.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-crypto/3.1.0.RELEASE/spring-security-crypto-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl104-over-slf4j/1.4.3/jcl104-over-slf4j-1.4.3-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-crypto/3.1.0.RELEASE/spring-security-crypto-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jcl104-over-slf4j/1.4.3/jcl104-over-slf4j-1.4.3-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-crypto/3.1.0.RELEASE/spring-security-crypto-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.slf4j:slf4j-api:1.4.3">
+    <library name="Maven: org.springframework.security:spring-security-web:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.4.3/slf4j-api-1.4.3.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.4.3/slf4j-api-1.4.3-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.4.3/slf4j-api-1.4.3-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/3.1.0.RELEASE/spring-security-web-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.slf4j:slf4j-log4j12:1.4.3">
+    <library name="Maven: org.springframework.ws:spring-xml:2.0.3.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.4.3/slf4j-log4j12-1.4.3.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-xml/2.0.3.RELEASE/spring-xml-2.0.3.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.4.3/slf4j-log4j12-1.4.3-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-xml/2.0.3.RELEASE/spring-xml-2.0.3.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.4.3/slf4j-log4j12-1.4.3-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-xml/2.0.3.RELEASE/spring-xml-2.0.3.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.osgi:aopalliance.osgi:1.0-SNAPSHOT">
+    <library name="Maven: org.springframework:spring-aop:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/aopalliance.osgi/1.0-SNAPSHOT/aopalliance.osgi-1.0-SNAPSHOT.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/aopalliance.osgi/1.0-SNAPSHOT/aopalliance.osgi-1.0-SNAPSHOT-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/aopalliance.osgi/1.0-SNAPSHOT/aopalliance.osgi-1.0-SNAPSHOT-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.osgi:asm.osgi:2.2.3-SNAPSHOT">
+    <library name="Maven: org.springframework:spring-asm:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/asm.osgi/2.2.3-SNAPSHOT/asm.osgi-2.2.3-SNAPSHOT.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/asm.osgi/2.2.3-SNAPSHOT/asm.osgi-2.2.3-SNAPSHOT-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/asm.osgi/2.2.3-SNAPSHOT/asm.osgi-2.2.3-SNAPSHOT-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework.osgi:junit.osgi:3.8.2-SNAPSHOT">
+    <library name="Maven: org.springframework:spring-beans:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/junit.osgi/3.8.2-SNAPSHOT/junit.osgi-3.8.2-SNAPSHOT.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/junit.osgi/3.8.2-SNAPSHOT/junit.osgi-3.8.2-SNAPSHOT-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/junit.osgi/3.8.2-SNAPSHOT/junit.osgi-3.8.2-SNAPSHOT-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:log4j.osgi:1.2.15-SNAPSHOT">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/log4j.osgi/1.2.15-SNAPSHOT/log4j.osgi-1.2.15-SNAPSHOT.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/log4j.osgi/1.2.15-SNAPSHOT/log4j.osgi-1.2.15-SNAPSHOT-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/log4j.osgi/1.2.15-SNAPSHOT/log4j.osgi-1.2.15-SNAPSHOT-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:spring-osgi-annotation:1.0.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-annotation/1.0.2/spring-osgi-annotation-1.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-annotation/1.0.2/spring-osgi-annotation-1.0.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-annotation/1.0.2/spring-osgi-annotation-1.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:spring-osgi-core:1.0.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-core/1.0.2/spring-osgi-core-1.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-core/1.0.2/spring-osgi-core-1.0.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-core/1.0.2/spring-osgi-core-1.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:spring-osgi-extender:1.0.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-extender/1.0.2/spring-osgi-extender-1.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-extender/1.0.2/spring-osgi-extender-1.0.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-extender/1.0.2/spring-osgi-extender-1.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:spring-osgi-io:1.0.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-io/1.0.2/spring-osgi-io-1.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-io/1.0.2/spring-osgi-io-1.0.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-io/1.0.2/spring-osgi-io-1.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework.osgi:spring-osgi-test:1.0.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-test/1.0.2/spring-osgi-test-1.0.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-test/1.0.2/spring-osgi-test-1.0.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/osgi/spring-osgi-test/1.0.2/spring-osgi-test-1.0.2-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.aop:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aop/3.0.5.RELEASE/org.springframework.aop-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aop/3.0.5.RELEASE/org.springframework.aop-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aop/3.0.5.RELEASE/org.springframework.aop-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.asm:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.asm/3.0.5.RELEASE/org.springframework.asm-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.asm/3.0.5.RELEASE/org.springframework.asm-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.asm/3.0.5.RELEASE/org.springframework.asm-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.aspects:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aspects/3.0.5.RELEASE/org.springframework.aspects-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aspects/3.0.5.RELEASE/org.springframework.aspects-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.aspects/3.0.5.RELEASE/org.springframework.aspects-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.beans:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.beans/3.0.5.RELEASE/org.springframework.beans-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.beans/3.0.5.RELEASE/org.springframework.beans-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.beans/3.0.5.RELEASE/org.springframework.beans-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.context.support:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context.support/3.0.5.RELEASE/org.springframework.context.support-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context.support/3.0.5.RELEASE/org.springframework.context.support-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context.support/3.0.5.RELEASE/org.springframework.context.support-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.context:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context/3.0.5.RELEASE/org.springframework.context-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context/3.0.5.RELEASE/org.springframework.context-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.context/3.0.5.RELEASE/org.springframework.context-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.core:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.core/3.0.5.RELEASE/org.springframework.core-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.core/3.0.5.RELEASE/org.springframework.core-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.core/3.0.5.RELEASE/org.springframework.core-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.expression:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.expression/3.0.5.RELEASE/org.springframework.expression-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.expression/3.0.5.RELEASE/org.springframework.expression-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.expression/3.0.5.RELEASE/org.springframework.expression-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.instrument:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.instrument/3.0.5.RELEASE/org.springframework.instrument-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.instrument/3.0.5.RELEASE/org.springframework.instrument-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.instrument/3.0.5.RELEASE/org.springframework.instrument-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.jdbc:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jdbc/3.0.5.RELEASE/org.springframework.jdbc-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jdbc/3.0.5.RELEASE/org.springframework.jdbc-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jdbc/3.0.5.RELEASE/org.springframework.jdbc-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.jms:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jms/3.0.5.RELEASE/org.springframework.jms-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jms/3.0.5.RELEASE/org.springframework.jms-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.jms/3.0.5.RELEASE/org.springframework.jms-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.orm:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.orm/3.0.5.RELEASE/org.springframework.orm-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.orm/3.0.5.RELEASE/org.springframework.orm-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.orm/3.0.5.RELEASE/org.springframework.orm-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.oxm:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.oxm/3.0.5.RELEASE/org.springframework.oxm-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.oxm/3.0.5.RELEASE/org.springframework.oxm-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.oxm/3.0.5.RELEASE/org.springframework.oxm-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.test:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.0.5.RELEASE/org.springframework.test-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.0.5.RELEASE/org.springframework.test-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.0.5.RELEASE/org.springframework.test-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.transaction:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.transaction/3.0.5.RELEASE/org.springframework.transaction-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.transaction/3.0.5.RELEASE/org.springframework.transaction-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.transaction/3.0.5.RELEASE/org.springframework.transaction-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.web.portlet:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.portlet/3.0.5.RELEASE/org.springframework.web.portlet-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.portlet/3.0.5.RELEASE/org.springframework.web.portlet-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.portlet/3.0.5.RELEASE/org.springframework.web.portlet-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.web.servlet:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.servlet/3.0.5.RELEASE/org.springframework.web.servlet-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.servlet/3.0.5.RELEASE/org.springframework.web.servlet-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web.servlet/3.0.5.RELEASE/org.springframework.web.servlet-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.web:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web/3.0.5.RELEASE/org.springframework.web-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web/3.0.5.RELEASE/org.springframework.web-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.web/3.0.5.RELEASE/org.springframework.web-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:spring-aop:2.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/2.5.1/spring-aop-2.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/2.5.1/spring-aop-2.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/2.5.1/spring-aop-2.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:spring-aop:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.0.5.RELEASE/spring-aop-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:spring-asm:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.0.5.RELEASE/spring-asm-3.0.5.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:spring-beans:2.5.1">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/2.5.1/spring-beans-2.5.1.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/2.5.1/spring-beans-2.5.1-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/2.5.1/spring-beans-2.5.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:spring-beans:3.0.5.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.0.5.RELEASE/spring-beans-3.0.5.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework:spring-context-support:3.1.0.RELEASE">
@@ -1065,81 +549,103 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context-support/3.1.0.RELEASE/spring-context-support-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-context:2.5.1">
+    <library name="Maven: org.springframework:spring-context:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/2.5.1/spring-context-2.5.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/2.5.1/spring-context-2.5.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/2.5.1/spring-context-2.5.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-context:3.0.5.RELEASE">
+    <library name="Maven: org.springframework:spring-core:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/3.0.5.RELEASE/spring-context-3.0.5.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-core:2.5.1">
+    <library name="Maven: org.springframework:spring-expression:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/2.5.1/spring-core-2.5.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/2.5.1/spring-core-2.5.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/2.5.1/spring-core-2.5.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-core:3.0.5.RELEASE">
+    <library name="Maven: org.springframework:spring-jdbc:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/3.0.5.RELEASE/spring-core-3.0.5.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jdbc/3.1.0.RELEASE/spring-jdbc-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-expression:3.0.5.RELEASE">
+    <library name="Maven: org.springframework:spring-jms:3.0.7.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jms/3.0.7.RELEASE/spring-jms-3.0.7.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jms/3.0.7.RELEASE/spring-jms-3.0.7.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.0.5.RELEASE/spring-expression-3.0.5.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jms/3.0.7.RELEASE/spring-jms-3.0.7.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-test:2.5.1">
+    <library name="Maven: org.springframework:spring-orm:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5.1/spring-test-2.5.1.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.1.0.RELEASE/spring-orm-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5.1/spring-test-2.5.1-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.1.0.RELEASE/spring-orm-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5.1/spring-test-2.5.1-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-orm/3.1.0.RELEASE/spring-orm-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.springframework:spring-test:3.0.5.RELEASE">
+    <library name="Maven: org.springframework:spring-oxm:3.1.0.RELEASE">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-oxm/3.1.0.RELEASE/spring-oxm-3.1.0.RELEASE.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-oxm/3.1.0.RELEASE/spring-oxm-3.1.0.RELEASE-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-oxm/3.1.0.RELEASE/spring-oxm-3.1.0.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.springframework:spring-test:3.1.0.RELEASE">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.1.0.RELEASE/spring-test-3.1.0.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.1.0.RELEASE/spring-test-3.1.0.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.1.0.RELEASE/spring-test-3.1.0.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.springframework:spring-tx:3.1.0.RELEASE">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/3.1.0.RELEASE/spring-tx-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework:spring-web:3.1.0.RELEASE">
