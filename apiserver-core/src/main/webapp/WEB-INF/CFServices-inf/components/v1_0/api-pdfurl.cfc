@@ -13,7 +13,7 @@
 
 
         <cfset results = structNew()>
-        <cfset results['pdf'] = pdf>
+        <cfset results['pdfs'] = pdf>
         <cfreturn results>
     </cffunction>
 </cfcomponent>

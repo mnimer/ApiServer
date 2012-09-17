@@ -5,14 +5,14 @@
 
         <!--cfdump var="#html#" output="console"/-->
 
-        <!---cfset fileName =  "#getTempDirectory()#/#createUUID()#.pdf"--->
+        <!---cfset fileName =  "#getTempDirectory()#/#createUUID()#.pdfs"--->
 
-        <cfdocument name="pdf" format="pdf" >
+        <cfdocument name="pdf" format="pdfs" >
             <cfoutput>#arguments.html#</cfoutput>
         </cfdocument>
 
         <cfset results = structNew()>
-        <cfset results['pdf'] = pdf>
+        <cfset results['pdfs'] = pdf>
         <cfreturn results>
     </cffunction>
 
@@ -23,7 +23,7 @@
         <cfargument name="artistQuery"/>
 
 
-        <cfdocument name="pdf" format="pdf" bookmark="true">
+        <cfdocument name="pdf" format="pdfs" bookmark="true">
             <cfoutput>
                 <cfdocumentitem type="header">
                     Current Page Number: #cfdocument.currentpagenumber#
@@ -46,7 +46,7 @@
 
 
         <cfset results = structNew()>
-        <cfset results['pdf'] = pdf>
+        <cfset results['pdfs'] = pdf>
         <cfreturn results>
     </cffunction>
 

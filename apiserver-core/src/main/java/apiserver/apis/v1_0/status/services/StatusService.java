@@ -1,10 +1,7 @@
-package apiserver.apis.v1_0.status.bus.service;
+package apiserver.apis.v1_0.status.services;
 
 import org.springframework.integration.Message;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +10,7 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/15/12
  */
-public class StatusBusService
+public class StatusService
 {
     public Object noOpHandler(Message<?> message)
     {

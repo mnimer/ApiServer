@@ -16,7 +16,7 @@
 
         <cfpdfform name="myForm"
                 action="populate"
-                source="#expandPath('/demos-inf/pdfs/EFTAuthorization.pdf')#">
+                source="#expandPath('/demos-inf/pdfs/EFTAuthorization.pdfs')#">
             <cfpdfformparam name="ViewPolicy*PolicyNum" value="#PolicyNum#">
             <cfpdfformparam name="ViewPolicy*strInsuredName" value="#strInsuredName#">
             <cfpdfformparam name="ViewPolicy*address1" value="#address1#">
@@ -33,11 +33,11 @@
         <cfset binaryPdf = ToBinary(myForm)>
 
         <cffile action="write"
-                file="#expandPath('/demos-inf/pdfs/populatedForm.pdf')#"
+                file="#expandPath('/demos-inf/pdfs/populatedForm.pdfs')#"
                 output="#binaryPdf#"/>
 
         <cfset results = structNew()>
-        <cfset results['pdf'] = binaryPdf>
+        <cfset results['pdfs'] = binaryPdf>
         <cfreturn results>
     </cffunction>
 
@@ -47,12 +47,12 @@
     <cffunction name="readPdf">
         <cfpdfform
                 action="read"
-                source="#expandPath('/demos-inf/pdfs/populatedForm.pdf')#"
+                source="#expandPath('/demos-inf/pdfs/populatedForm.pdfs')#"
                 result="pdfResult"/>
 
 
         <cfset results = structNew()>
-        <cfset results['pdf'] = pdfResult>
+        <cfset results['pdfs'] = pdfResult>
         <cfreturn results>
     </cffunction>
 

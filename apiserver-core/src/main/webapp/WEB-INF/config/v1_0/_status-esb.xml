@@ -15,7 +15,7 @@
 
 
 	<!-- SERVICES -->
-	<bean id="statusService" class="apiserver.apis.v1_0.status.bus.service.StatusBusService"/>
+	<bean id="statusService" class="apiserver.apis.v1_0.status.services.StatusService"/>
 
 
 	<!-- ESB configuration -->

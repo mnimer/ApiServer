@@ -278,7 +278,7 @@ database. --->
                 </cfchart>
             </cfpresentationslide>
 
-<!--- The following code creates the third slide in the presentation. The table is populated with data from the query. The table also contains an image located relative to the CFM page on the server. --->
+<!--- The following code creates the third slide in the presentation. The table is populated with data from the query. The table also contains an images located relative to the CFM page on the server. --->
             <cfpresentationslide title="Salary Details" presenter="Paul"
                     duration="10" audio="myAudio1.mp3">
                 <h3>Employee Salary Details</h3>

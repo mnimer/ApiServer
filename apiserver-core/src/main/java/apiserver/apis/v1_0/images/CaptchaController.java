@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.image;
+package apiserver.apis.v1_0.images;
 
 /**
  * User: mnimer

@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.pdf;
+package apiserver.apis.v1_0.pdfs;
 
 /**
  * User: mnimer
