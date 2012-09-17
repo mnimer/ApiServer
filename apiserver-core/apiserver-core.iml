@@ -8,11 +8,8 @@
         </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../resources/ColdFusion10/cfusion" relative="/" />
         </webroots>
-        <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
-          <root url="file://$MODULE_DIR$/target/generated-sources/annotations" />
-        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -28,9 +25,39 @@
       <excludeFolder url="file://$MODULE_DIR$/target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/target/maven-archiver" />
       <excludeFolder url="file://$MODULE_DIR$/target/surefire" />
+      <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../resources/ColdFusion10/cfusion/WEB-INF/lib/cfx.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../resources/ColdFusion10/cfusion/WEB-INF/lib/cfmx_bootstrap.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../palladium/library/dist/com.mikenimer.palladium.1.0.75.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../palladium/library/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.adobe:ColdFusion:10" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.7.2" level="project" />

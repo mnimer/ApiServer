@@ -337,18 +337,17 @@
 					<!--archive>
 						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>sky
 					</archive-->
-					<!--webResources>
+					<webResources>
 						<resource>
 							<directory>${extracted.cfusion.war}</directory>
 							<includes>
 								<include>**</include>
 							</includes>
 							<excludes>
-								<exlude>**/MANIFEST.MF</exlude>
 								<exlude>**/web.xml</exlude>
 							</excludes>
 						</resource>
-					</webResources-->
+					</webResources>
 				</configuration>
 			</plugin>
 		</plugins>

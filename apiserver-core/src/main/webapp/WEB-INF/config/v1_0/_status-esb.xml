@@ -16,16 +16,23 @@
 
 	<!-- SERVICES -->
 	<bean id="statusService" class="apiserver.apis.v1_0.status.services.StatusService"/>
+	<bean id="coldFusionStatusService" class="apiserver.apis.v1_0.status.services.ColdFusionStatusService"/>
 
 
 	<!-- ESB configuration -->
-	<si:channel id="pingInputChannel"/>
-	<si:channel id="pingOutputChannel"/>
+	<si:channel id="healthInputChannel"/>
+	<si:channel id="healthOutputChannel"/>
+	<si:channel id="coldFusionInputChannel"/>
+	<si:channel id="coldFusionOutputChannel"/>
 
 
 	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
 	<si:service-activator
-			input-channel="pingOutputChannel"
+			input-channel="healthOutputChannel"
+			ref="statusService"
+			method="noOpHandler"/>
+	<si:service-activator
+			input-channel="coldFusionOutputChannel"
 			ref="statusService"
 			method="noOpHandler"/>
 
@@ -33,10 +40,21 @@
 	<!--
 		SIMPLE HEALTH PING CHAIN
 	-->
-	<si:chain input-channel="pingInputChannel" output-channel="pingOutputChannel">
+	<si:chain input-channel="healthInputChannel" output-channel="healthOutputChannel">
 		<si:service-activator
 			ref="statusService"
-			method="pingHandler"/>
+			method="healthHandler"/>
+
+	</si:chain>
+
+
+	<!--
+		COLDFUSION HEALTH PING CHAIN
+	-->
+	<si:chain input-channel="coldFusionInputChannel" output-channel="coldFusionOutputChannel">
+		<si:service-activator
+			ref="coldFusionStatusService"
+			method="healthHandler"/>
 	</si:chain>
 
 

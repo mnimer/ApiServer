@@ -1,10 +1,10 @@
-<cfcomponent extends="WEB-INF.cfservices-inf.components.v1_0.debug">
+<cfcomponent>
 
-    <cffunction name="ping" access="remote">
+    <cffunction name="health" access="remote">
         <cfset view = StructNew()>
-        <cfset view['status'] = "ok">
-        <cfset view['timestamp'] = now()>
-        <cfset view['server'] = server>
+        <cfset view['coldfusion']['status'] = "ok">
+        <cfset view['coldfusion']['timestamp'] = now()>
+        <cfset view['coldfusion']['server']['productversion'] = server.get("coldfusion").get("productversion")>
         <cfreturn view>
     </cffunction>
 

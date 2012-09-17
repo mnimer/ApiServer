@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.status;
 
+import apiserver.ApiServerConstants;
 import coldfusion.cfc.CFCProxy;
 import coldfusion.runtime.Struct;
 import org.springframework.beans.factory.annotation.Autowire;
@@ -30,58 +31,60 @@ import java.util.Map;
 public class StatusController
 {
 
-    public MessageChannel pingInputChannel;
+    public MessageChannel healthInputChannel;
+    public MessageChannel coldFusionInputChannel;
+
 
     @Autowired
-    public void setPingInputChannel(MessageChannel pingInputChannel)
+    public void setHealthInputChannel(MessageChannel healthInputChannel)
     {
-        this.pingInputChannel = pingInputChannel;
+        this.healthInputChannel = healthInputChannel;
     }
 
 
-    @RequestMapping("/ping")
+    @Autowired
+    public void setColdFusionInputChannel(MessageChannel coldFusionInputChannel)
+    {
+        this.coldFusionInputChannel = coldFusionInputChannel;
+    }
+
+
+    private ModelAndView invokeChannel(HttpServletRequest request, HttpServletResponse response, Map arguments, MessageChannel channel)
+    {
+        if( arguments == null )
+        {
+            arguments = new HashMap<String, Object>();
+        }
+        arguments.put(ApiServerConstants.HTTP_REQUEST, request);
+        arguments.put(ApiServerConstants.HTTP_RESPONSE, response);
+        arguments.putAll(arguments);
+
+        GenericMessage msg = new GenericMessage( arguments );
+        channel.send(msg);
+
+        Map payload = (Map)msg.getPayload();
+        payload.remove(ApiServerConstants.HTTP_REQUEST);
+        payload.remove(ApiServerConstants.HTTP_RESPONSE);
+
+        ModelAndView view = new ModelAndView("help");
+        view.addAllObjects( payload );
+        return view;
+    }
+
+
+    @RequestMapping("/health")
     public ModelAndView systemCheck(HttpServletRequest request, HttpServletResponse response)
     {
-        Map<String, Object> arguments = new HashMap<String, Object>();
-        GenericMessage msg = new GenericMessage( arguments );
-        pingInputChannel.send(msg);
-
-
-        ModelAndView view = new ModelAndView("help");
-        view.addAllObjects( (Map)msg.getPayload() );
-        return view;
+        return invokeChannel(request, response, null, healthInputChannel);
     }
 
 
 
-    @RequestMapping("/coldfusion/ping")
+
+
+    @RequestMapping("/coldfusion/health")
     public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        URL location = coldfusion.runtime.NeoPageContext.class.getProtectionDomain().getCodeSource().getLocation();
-        //System.out.print(location);
-
-        Struct cfcResult = null;
-        String cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/status.cfc"); //cache this lookup for performance
-
-        long start = System.currentTimeMillis();
-        try
-        {
-            CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = {};
-            cfcResult = (Struct)myCFC.invoke("ping", myArgs);
-        }
-        catch (Throwable e)
-        {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-        long end = System.currentTimeMillis();
-
-
-        ModelAndView view = new ModelAndView("help");
-        view.addObject("status", cfcResult.get("status") );
-        view.addObject("timestamp", cfcResult.get("data") );
-        view.addObject("cflocation", location );
-        return view;
+        return invokeChannel(request, response, null, coldFusionInputChannel);
     }
 }

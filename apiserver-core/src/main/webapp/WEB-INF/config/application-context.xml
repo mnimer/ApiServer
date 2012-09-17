@@ -8,7 +8,7 @@
 
 	<context:annotation-config />
 
-	<import resource="security-config.xml" />
+	<!--import resource="security-config.xml" /-->
 
 	<!-- public API endpoints -->
 	<import resource="v1_0/apis-servlet.xml"/>

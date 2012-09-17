@@ -18,7 +18,7 @@ public class StatusService
     }
 
 
-    public Object pingHandler(Message<?> message)
+    public Object healthHandler(Message<?> message)
     {
         Map<String, Object> props = new HashMap<String, Object>();
         props.put("status", "ok");
