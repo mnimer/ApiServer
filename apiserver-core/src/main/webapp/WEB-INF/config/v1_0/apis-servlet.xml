@@ -18,7 +18,7 @@
 
 
 	<!-- Spring MVC CONTROLLERS -->
-	<bean name="statusController" class="apiserver.apis.v1_0.status.StatusController"/>
+	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
 
 
 

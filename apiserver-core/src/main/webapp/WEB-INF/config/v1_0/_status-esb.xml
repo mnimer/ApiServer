@@ -15,6 +15,7 @@
 
 
 	<!-- SERVICES -->
+	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
 	<bean id="statusService" class="apiserver.apis.v1_0.status.services.StatusService"/>
 	<bean id="coldFusionStatusService" class="apiserver.apis.v1_0.status.services.ColdFusionStatusService"/>
 
@@ -29,11 +30,11 @@
 	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
 	<si:service-activator
 			input-channel="healthOutputChannel"
-			ref="statusService"
+			ref="noOpService"
 			method="noOpHandler"/>
 	<si:service-activator
 			input-channel="coldFusionOutputChannel"
-			ref="statusService"
+			ref="noOpService"
 			method="noOpHandler"/>
 
 

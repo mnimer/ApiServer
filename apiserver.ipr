@@ -19,7 +19,13 @@
             <element id="module-output" name="apiserver-core" />
           </element>
           <element id="directory" name="lib">
+            <element id="library" level="project" name="Maven: com.mikenimer:Palladium:1.0.75" />
             <element id="library" level="project" name="Maven: org.xerial:sqlite-jdbc:3.7.2" />
+            <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache:2.6.0" />
+            <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.0" />
+            <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.6.1" />
+            <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-terracotta:2.6.0" />
+            <element id="library" level="project" name="Maven: org.terracotta:terracotta-toolkit-1.6-runtime:5.0.0" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
             <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" />
@@ -101,7 +107,6 @@
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/apiserver-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bundles/service.coldfusion" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -256,6 +261,15 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="mnimer">
+      <words>
+        <w>bicubic</w>
+        <w>coldfusion</w>
+        <w>executiontime</w>
+      </words>
+    </dictionary>
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/apiserver-core/apiserver-core.iml" filepath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
@@ -296,6 +310,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: com.mikenimer:Palladium:1.0.75">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/mikenimer/Palladium/1.0.75/Palladium-1.0.75.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/mikenimer/Palladium/1.0.75/Palladium-1.0.75-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/mikenimer/Palladium/1.0.75/Palladium-1.0.75-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: commons-lang:commons-lang:2.5">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.5/commons-lang-2.5.jar!/" />
@@ -327,6 +352,39 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: net.sf.ehcache:ehcache-core:2.6.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-core/2.6.0/ehcache-core-2.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-core/2.6.0/ehcache-core-2.6.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-core/2.6.0/ehcache-core-2.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: net.sf.ehcache:ehcache-terracotta:2.6.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-terracotta/2.6.0/ehcache-terracotta-2.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-terracotta/2.6.0/ehcache-terracotta-2.6.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-terracotta/2.6.0/ehcache-terracotta-2.6.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: net.sf.ehcache:ehcache:2.6.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.6.0/ehcache-2.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.6.0/ehcache-2.6.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.6.0/ehcache-2.6.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.aspectj:aspectjrt:1.6.8">
@@ -371,6 +429,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.9.9/jackson-mapper-asl-1.9.9-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.slf4j:slf4j-api:1.6.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.1/slf4j-api-1.6.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.integration:spring-integration-core:2.1.0.RELEASE">
@@ -668,6 +737,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.0.RELEASE/spring-webmvc-3.1.0.RELEASE-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.terracotta:terracotta-toolkit-1.6-runtime:5.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/terracotta/terracotta-toolkit-1.6-runtime/5.0.0/terracotta-toolkit-1.6-runtime-5.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/terracotta/terracotta-toolkit-1.6-runtime/5.0.0/terracotta-toolkit-1.6-runtime-5.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/terracotta/terracotta-toolkit-1.6-runtime/5.0.0/terracotta-toolkit-1.6-runtime-5.0.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.xerial:sqlite-jdbc:3.7.2">

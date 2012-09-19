@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:ctx="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:si="http://www.springframework.org/schema/integration"
+	   xmlns:http="http://www.springframework.org/schema/integration/http"
+	   xmlns:oxm="http://www.springframework.org/schema/oxm"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+
+
+
+	<!-- CHANNELS -->
+	<si:channel id="captchaInputChannel"/>
+	<si:channel id="captchaOutputChannel"/>
+
+	<si:channel id="imageCacheAddInputChannel"/>
+	<si:channel id="imageCacheAddOutputChannel"/>
+
+	<si:channel id="imageCacheGetInputChannel"/>
+	<si:channel id="imageCacheGetOutputChannel"/>
+
+	<si:channel id="imageCacheDeleteInputChannel"/>
+	<si:channel id="imageCacheDeleteOutputChannel"/>
+
+	<si:channel id="imageSizeInputChannel"/>
+	<si:channel id="imageSizeOutputChannel"/>
+
+	<si:channel id="imageMetadataInputChannel"/>
+	<si:channel id="imageMetadataOutputChannel"/>
+
+	<si:channel id="imageRotateInputChannel"/>
+	<si:channel id="imageRotateOutputChannel"/>
+
+	<si:channel id="imageResizeInputChannel"/>
+	<si:channel id="imageResizeOutputChannel"/>
+
+	<si:channel id="imageDrawBorderInputChannel"/>
+	<si:channel id="imageDrawBorderOutputChannel"/>
+
+	<si:channel id="imageDrawTextInputChannel"/>
+	<si:channel id="imageDrawTextOutputChannel"/>
+
+
+	<!-- ROUTERS -->
+
+
+	<!-- SERVICES -->
+	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
+
+
+
+
+	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
+	<si:service-activator
+			input-channel="captchaOutputChannel"
+			ref="noOpService"
+			method="noOpHandler"/>
+
+
+	<!--
+		GENERATE CAPTCHA
+	-->
+	<si:chain input-channel="captchaInputChannel" output-channel="captchaOutputChannel">
+
+		<si:service-activator
+			method="generateCaptchaHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ColdFusionCaptchaService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+	<!--
+		CACHE ADD
+	-->
+	<si:chain input-channel="imageCacheAddInputChannel" output-channel="imageCacheAddOutputChannel">
+
+	</si:chain>
+
+
+	<!--
+		CACHE GET
+	-->
+	<si:chain input-channel="imageCacheGetInputChannel" output-channel="imageCacheGetOutputChannel">
+
+	</si:chain>
+
+
+	<!--
+		CACHE DELETE
+	-->
+	<si:chain input-channel="imageCacheDeleteInputChannel" output-channel="imageCacheDeleteOutputChannel">
+
+	</si:chain>
+
+
+
+
+	<!--
+		Image Size Info
+	-->
+	<si:chain input-channel="imageSizeInputChannel" output-channel="imageSizeOutputChannel">
+
+		<si:service-activator
+				method="imageSizeHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageInfoColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<!--
+		Image Embedded Metadata
+	-->
+	<si:chain input-channel="imageMetadataInputChannel" output-channel="imageMetadataOutputChannel">
+
+		<si:service-activator
+				method="imageMetadataHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageInfoColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+
+	<!--
+		Image ROTATE
+	-->
+	<si:chain input-channel="imageRotateInputChannel" output-channel="imageRotateOutputChannel">
+
+		<si:service-activator
+				method="imageRotateHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageManipulationColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+
+	<!--
+		Image RESIZE
+	-->
+	<si:chain input-channel="imageResizeInputChannel" output-channel="imageResizeOutputChannel">
+
+		<si:service-activator
+				method="imageResizeHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageManipulationColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+
+	<!--
+		Image ADD Border
+	-->
+	<si:chain input-channel="imageDrawBorderInputChannel" output-channel="imageDrawBorderOutputChannel">
+
+		<si:service-activator
+				method="imageBorderHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageDrawingColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+
+	<!--
+		Image RESIZE
+	-->
+	<si:chain input-channel="imageDrawTextInputChannel" output-channel="imageDrawTextOutputChannel">
+
+		<si:service-activator
+				method="imageDrawTextHandler">
+			<bean class="apiserver.apis.v1_0.images.service.ImageDrawingColdFusionService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+</beans>
+
+
+

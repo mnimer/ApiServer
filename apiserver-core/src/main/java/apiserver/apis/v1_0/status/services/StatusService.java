@@ -12,10 +12,6 @@ import java.util.Map;
  */
 public class StatusService
 {
-    public Object noOpHandler(Message<?> message)
-    {
-        return null;
-    }
 
 
     public Object healthHandler(Message<?> message)

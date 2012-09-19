@@ -39,6 +39,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.mikenimer</groupId>
+			<artifactId>Palladium</artifactId>
+			<version>1.0.75</version>
+		</dependency>
+
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
@@ -64,6 +70,45 @@
 			<version>2.6.2</version>
 			<scope>provided</scope>
 		</dependency>
+
+
+
+
+
+
+
+		<!--
+		   Caching Libraries
+		-->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.6.0</version>
+		</dependency>
+
+
+		<!--
+		  <dependency>
+			  <groupId>net.sf.ehcache</groupId>
+			  <artifactId>ehcache-jmsreplication</artifactId>
+			  <version>0.4</version>
+		  </dependency>
+		  <dependency>
+			  <groupId>net.sf.ehcache</groupId>
+			  <artifactId>ehcache-core</artifactId>
+			  <version>2.6.0</version>
+		  </dependency>
+		  <dependency>
+			  <groupId>net.sf.ehcache</groupId>
+			  <artifactId>ehcache-terracotta</artifactId>
+			  <version>2.6.0</version>
+		  </dependency>
+		  <dependency>
+			  <groupId>net.sf.ehcache</groupId>
+			  <artifactId>ehcache-web</artifactId>
+			  <version>2.0.4</version>
+		  </dependency>
+		  -->
 
 
 
