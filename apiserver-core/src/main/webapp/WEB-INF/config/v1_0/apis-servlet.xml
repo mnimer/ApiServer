@@ -17,6 +17,15 @@
            http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
 	<context:annotation-config />
+
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<util:list>
+				<bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+			</util:list>
+		</property>
+	</bean>
+
 	<import resource="_status-esb.xml" />
 	<import resource="_images-esb.xml" />
 
@@ -27,6 +36,11 @@
 
 	<!-- Spring MVC CONTROLLERS -->
 	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
+	<bean name="captchaController" class="apiserver.apis.v1_0.images.controllers.CaptchaController"/>
+	<bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
+	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
+	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
+	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
 
 
 

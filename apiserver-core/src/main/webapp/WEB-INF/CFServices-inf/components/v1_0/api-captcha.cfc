@@ -1,24 +1,31 @@
 <cfcomponent>
 
     <cffunction name="generateCaptcha">
+        <cfargument name="text"/>
         <cfargument name="difficulty"/>
         <cfargument name="width"/>
         <cfargument name="height"/>
-        <cfargument name="text"/>
-        <cfargument name="fontSize" default="40"/>
-        <cfargument name="fontFamily" default="Verdana,Arial,Courier New,Courier"/>
+        <cfargument name="debug" default="false" type="boolean"/>
+        <cfargument name="fontSize" default="40" type="numeric"/>
+        <cfargument name="fontFamily" default="Verdana,Arial,Courier New,Courier" type="string"/>
+
+
+        <cfif arguments.debug>
+            <cfdump var=#arguments# output="console">
+        </cfif>
 
         <cfimage
                 action="captcha"
-                difficulty="#arguments.difficulty#"
-                width="#arguments.width#"
-                height="#arguments.height#"
-                text="#arguments.text#"
+                difficulty="#difficulty#"
+                width="#width#"
+                height="#height#"
+                text="#text#"
                 fontSize="#fontSize#"
                 fonts="#fontFamily#"
                 name="cfimage">
 
         <cfreturn cfimage/>
+
     </cffunction>
 
 

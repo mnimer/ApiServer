@@ -53,7 +53,7 @@ public class ImageInfoController
      * @param urlOrId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/size", method = RequestMethod.GET)
+    @RequestMapping(value = "/size2", method = RequestMethod.GET)
     public ModelAndView imageInfoById(
             HttpServletRequest request
             , HttpServletResponse response
@@ -62,7 +62,8 @@ public class ImageInfoController
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, urlOrId);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageInfoInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageInfoInputChannel);
+        return view;
     }
 
 
@@ -95,7 +96,7 @@ public class ImageInfoController
      * @param urlOrId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/metadata", method = RequestMethod.GET)
+    @RequestMapping(value = "/metadata2", method = RequestMethod.GET)
     public ModelAndView imageMetadataById(
             HttpServletRequest request
             , HttpServletResponse response

@@ -4,6 +4,8 @@ import apiserver.services.v1_0.CacheFactory;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.config.CacheConfiguration;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +38,7 @@ public class ImageConfigMBean
 
     private String captchaEngine = "coldfusion";
     private String imageResizingEngine = "coldfusion";
+
 
 
     public CacheManager getCacheManager()

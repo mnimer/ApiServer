@@ -2,21 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/README.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/categories/ColdFusionTests.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/webapp/README.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/api-status-servlet.xml" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/StatusService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/StatusService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ColdFusionCaptchaService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ColdFusionCaptchaService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
     </list>
@@ -78,6 +74,32 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" line="61" class="apiserver.apis.v1_0.images.controllers.ImageInfoController" package="apiserver.apis.v1_0.images.controllers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" line="76" class="integrationTests.v1_0.images.ImageInfoTests" package="integrationTests.v1_0.images">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll">
       <breakpoint>
@@ -121,12 +143,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ColdFusionStatusIT.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java">
+      <file leaf-file-name="ImageInfoTests.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="91" selection-start="2128" selection-end="2128" vertical-scroll-proportion="0.4777563">
+            <state line="76" column="0" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.33333334">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageInfoController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="39" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#2079#2095#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageInfoColdFusionService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ImageInfoColdFusionService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectiveCallable.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.9/junit-4.9-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="36" selection-start="2934" selection-end="2934" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apis-servlet.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="11" selection-start="1800" selection-end="1800" vertical-scroll-proportion="-15.772727">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -143,22 +217,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/webapp/README.txt" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/java/README.txt" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/webapp/v1_0/apis/status/StatusTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/webapp/coldfusion/status/StatusTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/webapp/coldfusion/v1_0/apis/status/StatusTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/tests/java/v1_0/apis/status/ColdFusionStatusTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/v1_0/apis/status/ColdFusionStatusTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/v1_0/apis/status/StatusTests.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTests.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/CaptchaGeneratorIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
+        <option value="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.0.RELEASE/spring-webmvc-3.1.0.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/HttpChannelInvoker.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ColdFusionCaptchaService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" />
       </list>
     </option>
   </component>
@@ -415,6 +489,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="status" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -433,6 +511,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -459,11 +567,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -482,6 +586,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testImages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -572,6 +684,44 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -684,14 +834,14 @@
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="integrationTests.v1_0.images" />
       <recent name="unitTests.v1_0.status" />
       <recent name="coldfusion.v1_0.apis.status" />
       <recent name="v1_0.apis.status" />
       <recent name="apiserver.services.v1_0" />
-      <recent name="apiserver.apis.v1_0.common" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.apiserver-core">
+  <component name="RunManager" selected="JUnit.ImageInfoTests">
     <configuration default="false" name="StatusTests" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -831,6 +981,70 @@
         <option name="loggingEnabled" value="false" />
         <option name="transport" value="0" />
         <option name="useBootstrapDefaults" value="true" />
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CaptchaGeneratorIT" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
+      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.CaptchaGeneratorIT" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ImageInfoTests" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
+      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageInfoTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
@@ -1166,11 +1380,13 @@
       </ConfigurationWrapper>
       <method />
     </configuration>
-    <list size="4">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.StatusTests" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.ColdFusionStatusIT" />
       <item index="2" class="java.lang.String" itemvalue="Maven.apiserver-core [org.apache.maven.plugins:maven-failsafe-plugin:2.12.3:integration-test]" />
       <item index="3" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CaptchaGeneratorIT" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.ImageInfoTests" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1207,7 +1423,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1920" height="1174" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1215,7 +1431,8 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48338082" sideWeight="0.6524293" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49386013" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48338082" sideWeight="0.6524293" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48338082" sideWeight="0.34383342" order="10" side_tool="true" content_ui="tabs" />
@@ -1237,7 +1454,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.4957265" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49386013" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1300,72 +1516,58 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10.jar!/coldfusion/server/ServiceBase.class">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="22" selection-start="169" selection-end="169" vertical-scroll-proportion="0.12116317" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10.jar!/coldfusion/server/Service.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="164" selection-end="164" vertical-scroll-proportion="0.1146789" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10.jar!/coldfusion/server/RuntimeService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="102" selection-start="534" selection-end="534" vertical-scroll-proportion="0.4587156" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/categories/ColdFusionTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="32" selection-start="94" selection-end="94" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="78" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="52" selection-start="4442" selection-end="4442" vertical-scroll-proportion="0.0" />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="46" selection-start="708" selection-end="708" vertical-scroll-proportion="-10.227273">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="515" column="16" selection-start="14666" selection-end="14666" vertical-scroll-proportion="0.7670807">
+        <state line="41" column="0" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.0.RELEASE/spring-webmvc-3.1.0.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/annotation/AnnotationMethodHandlerExceptionResolver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="1" selection-start="31" selection-end="31" vertical-scroll-proportion="0.031120332">
+        <state line="417" column="0" selection-start="16399" selection-end="16399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10.jar!/coldfusion/image/CaptchaMaker.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="0" selection-start="2411" selection-end="2411" vertical-scroll-proportion="1.3939394">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE-sources.jar!/org/springframework/expression/spel/support/ReflectiveMethodExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="2389" selection-end="2389" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ColdFusionCaptchaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="0" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="27" selection-start="719" selection-end="719" vertical-scroll-proportion="-13.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10.jar!/coldfusion/image/Image.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="18" selection-start="3148" selection-end="3148" vertical-scroll-proportion="0.3507307">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="96" selection-start="4007" selection-end="4021" vertical-scroll-proportion="0.34647304">
+        <state line="26" column="11" selection-start="1800" selection-end="1800" vertical-scroll-proportion="-15.772727">
           <folding />
         </state>
       </provider>
@@ -1373,40 +1575,65 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.9/junit-4.9-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="405" selection-end="405" vertical-scroll-proportion="0.40618956">
+        <state line="70" column="23" selection-start="2008" selection-end="2269" vertical-scroll-proportion="0.86262625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.73887813">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="9" selection-start="2116" selection-end="2116" vertical-scroll-proportion="0.8373016">
+        <state line="72" column="9" selection-start="1203" selection-end="2402" vertical-scroll-proportion="-1.3340249">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="0" selection-start="1662" selection-end="1662" vertical-scroll-proportion="1.073501">
+        <state line="74" column="56" selection-start="2402" selection-end="2402" vertical-scroll-proportion="0.9191919">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.9/junit-4.9-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="91" selection-start="2128" selection-end="2128" vertical-scroll-proportion="0.4777563">
+        <state line="16" column="0" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ImageInfoColdFusionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="39" selection-start="3218" selection-end="3218" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#2079#2095#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="36" selection-start="2934" selection-end="2934" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2678" selection-end="2678" vertical-scroll-proportion="0.33333334">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

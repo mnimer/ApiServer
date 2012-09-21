@@ -35,15 +35,40 @@ public class ColdFusionCaptchaService
 
         try
         {
+            props.remove(ApiServerConstants.HTTP_REQUEST);
+            props.remove(ApiServerConstants.HTTP_RESPONSE);
+
             long start = System.currentTimeMillis();
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
+
+
             Object[] myArgs = {};
-            Struct cfcResult = (Struct)myCFC.invoke("generateCaptcha", myArgs);
+            if( props.size() > 0 )
+            {
+                myArgs = new Object[props.size()];
+            }
+
+            int indx = 0;
+            for (Object key : props.keySet())
+            {
+                myArgs[indx++] = props.get(key);
+            }
+            props.clear();
+
+
+            Object cfcResult = myCFC.invoke("generateCaptcha", myArgs);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
-            payload.putAll(cfcResult);
+            if( cfcResult instanceof  Map )
+            {
+                payload.putAll( (Map)cfcResult );
+            }
+            else
+            {
+                payload.put("result", cfcResult);
+            }
 
 
             Map cfData = new HashMap();

@@ -39,13 +39,9 @@ public class ColdFusionStatusIT
     @Autowired
     public MapFactoryBean unitTestProperties;
 
+    @Autowired
     public StatusController statusController;
 
-    @Autowired
-    public void setStatusController(StatusController statusController)
-    {
-        this.statusController = statusController;
-    }
 
     private String getUrlBase() throws Exception
     {
