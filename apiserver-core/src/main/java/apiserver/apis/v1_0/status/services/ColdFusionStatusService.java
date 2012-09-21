@@ -6,12 +6,8 @@ import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
 import coldfusion.runtime.Struct;
 import org.springframework.integration.Message;
-import org.springframework.jms.MessageEOFException;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -33,7 +29,8 @@ public class ColdFusionStatusService
             {
                 throw new MessageConfigException(MessageConfigException.MISSING_REQUEST_PROPERTY);
             }
-            cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc");
+            //cfcPath = request.getServletContext().getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc");
+            cfcPath = "/Users/mnimer/Development/github/API-OSGi-Server/apiserver-core/target/apiserver-core-0.1.0/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc";
         }
 
         try

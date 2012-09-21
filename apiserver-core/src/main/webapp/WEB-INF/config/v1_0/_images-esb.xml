@@ -28,6 +28,9 @@
 	<si:channel id="imageCacheDeleteInputChannel"/>
 	<si:channel id="imageCacheDeleteOutputChannel"/>
 
+	<si:channel id="imageInfoInputChannel"/>
+	<si:channel id="imageInfoOutputChannel"/>
+
 	<si:channel id="imageSizeInputChannel"/>
 	<si:channel id="imageSizeOutputChannel"/>
 
@@ -78,26 +81,26 @@
 
 	<!--
 		CACHE ADD
-	-->
+
 	<si:chain input-channel="imageCacheAddInputChannel" output-channel="imageCacheAddOutputChannel">
 
-	</si:chain>
+	</si:chain> -->
 
 
 	<!--
 		CACHE GET
-	-->
+
 	<si:chain input-channel="imageCacheGetInputChannel" output-channel="imageCacheGetOutputChannel">
 
-	</si:chain>
+	</si:chain>  -->
 
 
 	<!--
 		CACHE DELETE
-	-->
+
 	<si:chain input-channel="imageCacheDeleteInputChannel" output-channel="imageCacheDeleteOutputChannel">
 
-	</si:chain>
+	</si:chain>  -->
 
 
 

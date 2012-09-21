@@ -14,7 +14,7 @@ public class StatusService
 {
 
 
-    public Object healthHandler(Message<?> message)
+    public Message<?> healthHandler(Message<?> message)
     {
         Map<String, Object> props = new HashMap<String, Object>();
         props.put("status", "ok");
@@ -24,6 +24,6 @@ public class StatusService
         // Could be a HashMap or a MultiValueMap
         Map payload = (Map) message.getPayload();
         payload.putAll(props);
-        return payload;
+        return message;
     }
 }

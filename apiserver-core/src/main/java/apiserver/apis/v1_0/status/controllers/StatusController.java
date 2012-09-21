@@ -25,9 +25,9 @@ public class StatusController
     public MessageChannel healthInputChannel;
     public MessageChannel coldFusionInputChannel;
 
-    @Autowired
-    public HttpChannelInvoker channelInvoker;
 
+    @Autowired
+    public HttpChannelInvoker httpChannelInvoker;
 
     @Autowired
     public void setHealthInputChannel(MessageChannel healthInputChannel)
@@ -48,7 +48,7 @@ public class StatusController
     @RequestMapping("/health")
     public ModelAndView systemCheck(HttpServletRequest request, HttpServletResponse response)
     {
-        return channelInvoker.invokeGenericChannel(request, response, null, healthInputChannel);
+        return httpChannelInvoker.invokeGenericChannel(request, response, null, healthInputChannel);
     }
 
 
@@ -58,6 +58,6 @@ public class StatusController
     @RequestMapping("/coldfusion/health")
     public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        return channelInvoker.invokeGenericChannel(request, response, null, coldFusionInputChannel);
+        return httpChannelInvoker.invokeGenericChannel(request, response, null, coldFusionInputChannel);
     }
 }
