@@ -26,6 +26,17 @@
 		</property>
 	</bean>
 
+	<!--bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"-->
+		<!-- 25 mb max -->
+		<!--property name="maxUploadSize" value="26214400"/-->
+	<!--/bean-->
+
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</bean>
+
+
 	<import resource="_status-esb.xml" />
 	<import resource="_images-esb.xml" />
 
@@ -104,7 +115,7 @@
 		</property>
 		<property name="sourceMap">
 			<map>
-				<entry key="tomcatHost" value="localhost" />
+				<entry key="tomcatHost" value="127.0.0.1" />
 				<entry key="tomcatPort" value="8080" />
 				<entry key="tomcatContextRoot" value="/apiserver-core" />
 			</map>

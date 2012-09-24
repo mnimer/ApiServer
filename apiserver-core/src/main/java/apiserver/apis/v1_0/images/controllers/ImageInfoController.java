@@ -73,13 +73,13 @@ public class ImageInfoController
      * @param response
      * @param file
      * @return   height,width, pixel size, transparency
+     * , @RequestPart("meta-data") Object metadata
      */
     @RequestMapping(value = "/size", method = RequestMethod.POST)
     public ModelAndView imageInfoByImage(
             HttpServletRequest request
             , HttpServletResponse response
-            , @RequestPart("meta-data") Object metadata
-            , @RequestPart("file-data") MultipartFile file)
+            , @RequestParam MultipartFile file)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);

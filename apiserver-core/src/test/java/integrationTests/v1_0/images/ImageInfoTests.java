@@ -1,6 +1,7 @@
 package integrationTests.v1_0.images;
 
 import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.InputStreamRequestEntity;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
@@ -20,10 +21,8 @@ import org.springframework.util.Assert;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * User: mnimer
@@ -58,25 +57,48 @@ public class ImageInfoTests
         int width = 232;
         int height = 167;
         String difficulty = "high";
-        String fileName = "testImages/IMG_5932.JPG";
+        String fileName = "testImages/IMG_5932_sm.png";
 
         File f = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
-        String url = getUrlBase() + "/v1-0/image/info/size.json";
-        PostMethod filePost = new PostMethod(url);
-
-        Part[] parts = {new FilePart(fileName, f)};
-        filePost.setRequestEntity(new MultipartRequestEntity(parts, filePost.getParams()));
-
         HttpClient client = new HttpClient();
-        int status = client.executeMethod(filePost);
-        //String resultUUid = filePost.getResponseBodyAsString();
-        filePost.releaseConnection();
+        String url = getUrlBase() + "/v1-0/image/info/size.json";
+        PostMethod postMethod = new PostMethod(url);
 
 
-        if (status <= 201)
+        postMethod.setRequestHeader("Content-type", "multipart/form-data; charset=UTF-8");
+
+        Part[] parts = {
+                new FilePart(f.getName(), f)
+        };
+
+        postMethod.setRequestEntity(
+                new MultipartRequestEntity(parts, postMethod.getParams())
+        );
+
+        client.getHttpConnectionManager().getParams().setConnectionTimeout(5000);
+
+
+        int status = 0;
+        try
         {
-            BufferedReader in = new BufferedReader(new InputStreamReader(filePost.getResponseBodyAsStream()));
+            status = client.executeMethod(postMethod);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            throw ex;
+        }
+        finally
+        {
+            postMethod.releaseConnection();
+        }
+
+
+        Assert.isTrue(status == 201, "Upload failed with status code: " +status);
+        if (status == 201)
+        {
+            BufferedReader in = new BufferedReader(new InputStreamReader(postMethod.getResponseBodyAsStream()));
 
             ObjectMapper mapper = new ObjectMapper();
             JsonNode root = mapper.readTree(in);
@@ -86,11 +108,6 @@ public class ImageInfoTests
 
             in.close();
         }
-        else
-        {
-            System.out.println("error");
-        }
-
 
     }
 

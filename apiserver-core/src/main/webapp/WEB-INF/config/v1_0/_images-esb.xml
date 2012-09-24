@@ -16,7 +16,16 @@
 
 
 	<!-- CHANNELS -->
-	<si:channel id="captchaInputChannel"/>
+	<si:channel id="analyticsChannel"/>
+
+
+	<si:channel id="captchaInputChannel">
+		<!--si:interceptors-->
+			<!--ref bean="tokenAccessInterceptor"/-->
+			<!--bean class="apiserver.apis.v1_0.common.messageHandlers.PreOrPostWireTap" postChannel="analyticsChannel"/-->
+		<!--/si:interceptors-->
+	</si:channel>
+
 	<si:channel id="captchaOutputChannel"/>
 
 	<si:channel id="imageCacheAddInputChannel"/>
@@ -50,6 +59,10 @@
 	<si:channel id="imageDrawTextOutputChannel"/>
 
 
+	<!-- INTERCEPTORS -->
+	<bean id="tokenAccessInterceptor" class="apiserver.apis.v1_0.common.interceptors.TokenAccessInterceptor"/>
+
+
 	<!-- ROUTERS -->
 
 
@@ -57,6 +70,13 @@
 	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
 
 
+
+	<!-- Special Channel adapter to collect analytics
+	<si:outbound-channel-adapter
+		channel="analyticsChannel" >
+		<bean class="apiserver.apis.v1_0.common.messageHandlers.TokenAnalyticsCollector"/>
+	</si:outbound-channel-adapter>
+	-->
 
 
 	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
