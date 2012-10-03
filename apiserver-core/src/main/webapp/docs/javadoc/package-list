@@ -1,0 +1,2 @@
+apiserver.apis.v1_0.images.controllers
+apiserver.apis.v1_0.status.controllers

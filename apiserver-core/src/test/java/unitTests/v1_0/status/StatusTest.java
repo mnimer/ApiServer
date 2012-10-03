@@ -45,7 +45,7 @@ public class StatusTest
         MockHttpServletRequest request = new MockHttpServletRequest();
         MockHttpServletResponse response = new MockHttpServletResponse();
 
-        Object view = statusController.systemCheck(request, response);
+        Object view = statusController.systemCheck();//request, response);
 
         Assert.isInstanceOf(ModelAndView.class, view);
         Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));

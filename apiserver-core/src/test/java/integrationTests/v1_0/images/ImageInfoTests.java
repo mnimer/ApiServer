@@ -1,28 +1,27 @@
 package integrationTests.v1_0.images;
 
-import org.apache.commons.httpclient.HttpClient;
-import org.apache.commons.httpclient.methods.InputStreamRequestEntity;
-import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.commons.httpclient.methods.multipart.FilePart;
-import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
-import org.apache.commons.httpclient.methods.multipart.Part;
+import integrationTests.v1_0.HttpTest;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.MapFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
-import java.awt.image.RenderedImage;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: mnimer
@@ -32,82 +31,76 @@ import java.io.*;
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
-public class ImageInfoTests
+public class ImageInfoTests extends HttpTest
 {
     @Autowired
     ApplicationContext context;
-
-    @Autowired
-    public MapFactoryBean unitTestProperties;
-
-
-    private String getUrlBase() throws Exception
-    {
-        String host = unitTestProperties.getObject().get("tomcatHost").toString();
-        String port = unitTestProperties.getObject().get("tomcatPort").toString();
-        String contextRoot = unitTestProperties.getObject().get("tomcatContextRoot").toString();
-
-        return "http://" + host + ":" + port + contextRoot;
-    }
 
 
     @Test
     public void testImageSize() throws ServletException, IOException, Exception
     {
-        int width = 232;
-        int height = 167;
+        int width = 500;
+        int height = 296;
         String difficulty = "high";
-        String fileName = "testImages/IMG_5932_sm.png";
+        String fileName = "IMG_5932_sm.png";
+        String url = "/v1-0/image/info/size.json";
 
-        File f = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
-
-        HttpClient client = new HttpClient();
-        String url = getUrlBase() + "/v1-0/image/info/size.json";
-        PostMethod postMethod = new PostMethod(url);
-
-
-        postMethod.setRequestHeader("Content-type", "multipart/form-data; charset=UTF-8");
-
-        Part[] parts = {
-                new FilePart(f.getName(), f)
-        };
-
-        postMethod.setRequestEntity(
-                new MultipartRequestEntity(parts, postMethod.getParams())
-        );
-
-        client.getHttpConnectionManager().getParams().setConnectionTimeout(5000);
+        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+        Map<String, String> args = new HashMap<String, String>();
+        args.put("difficulty", difficulty);
 
 
         int status = 0;
-        try
-        {
-            status = client.executeMethod(postMethod);
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-            throw ex;
-        }
-        finally
-        {
-            postMethod.releaseConnection();
-        }
+        // Here we go!
+        HttpResponse response = invokeHttpPost(url, file, args);
+        status = response.getStatusLine().getStatusCode();
 
 
-        Assert.isTrue(status == 201, "Upload failed with status code: " +status);
-        if (status == 201)
-        {
-            BufferedReader in = new BufferedReader(new InputStreamReader(postMethod.getResponseBodyAsStream()));
+        Assert.isTrue(status == HttpStatus.SC_OK, "Upload failed with status code: " + status);
 
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode root = mapper.readTree(in);
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
-            //Assert.notNull(root.get("coldfusion"));
-            //Assert.isTrue(  ((JsonNode)root.get("coldfusion").get("status")).getTextValue().equals("ok") );
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(in);
 
-            in.close();
-        }
+        //Assert.notNull(root.get("coldfusion"));
+        Assert.isTrue(((JsonNode) root.get("width")).getIntValue() == width, "Received=" + ((JsonNode) root.get("width")).getIntValue() + " expected=" + width);
+        Assert.isTrue(((JsonNode) root.get("height")).getIntValue() == height, "Received=" + ((JsonNode) root.get("height")).getIntValue() + " expected=" + height);
+
+        in.close();
+
+    }
+
+    @Test
+    public void testMetadata() throws ServletException, IOException, Exception
+    {
+        int width = 500;
+        int height = 296;
+        String fileName = "staff-photographer-metadata-example.jpg";
+        String url = "/v1-0/image/info/metadata.json";
+
+        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+
+
+        int status = 0;
+        // Here we go!
+        HttpResponse response = invokeHttpPost(url, file, null);
+        status = response.getStatusLine().getStatusCode();
+
+
+        Assert.isTrue(status == HttpStatus.SC_OK, response.getStatusLine().toString() );
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(in);
+
+        //Assert.notNull(root.get("coldfusion"));
+        Assert.isTrue(((JsonNode) root.get("width")).getIntValue() == width, "Received=" + ((JsonNode) root.get("width")).getIntValue() + " expected=" + width); //todo, change this
+
+
+        in.close();
 
     }
 

@@ -23,7 +23,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/image/cache")
+@RequestMapping("/image-cache")
 public class ImageCacheController
 {
     @Autowired
@@ -56,7 +56,10 @@ public class ImageCacheController
         args.put(ImageConfigMBean.FILE, file);
         args.put(ImageConfigMBean.TIME_TO_LIVE, timeToLiveInSeconds);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageCacheAddInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageCacheAddInputChannel);
+        view.getModel().remove(ImageConfigMBean.FILE);
+        view.getModel().remove(ImageConfigMBean.TIME_TO_LIVE);
+        return view;
     }
 
 

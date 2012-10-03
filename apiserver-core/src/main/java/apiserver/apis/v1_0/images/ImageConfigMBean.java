@@ -1,14 +1,17 @@
 package apiserver.apis.v1_0.images;
 
-import apiserver.services.v1_0.CacheFactory;
+import apiserver.exceptions.FactoryException;
+import apiserver.services.v1_0.cache.CacheFactory;
+import apiserver.services.v1_0.cache.CacheServiceMBean;
+import apiserver.services.v1_0.cache.ICacheService;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.config.CacheConfiguration;
-import org.springframework.web.bind.MissingServletRequestParameterException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * User: mnimer
@@ -34,62 +37,65 @@ public class ImageConfigMBean
     public static String Y = "y";
 
 
-    private CacheManager cacheManager = null;
-
-    private String captchaEngine = "coldfusion";
-    private String imageResizingEngine = "coldfusion";
-
+    private String cacheName = "imageApiCache";
+    private String cacheLibrary = CacheServiceMBean.EHCACHE;
+    private Map<String, Cache> imageApiCache = new HashMap<String, Cache>();
 
 
-    public CacheManager getCacheManager()
+
+    public Cache getCache() throws FactoryException
     {
-        if( cacheManager == null )
+        if( imageApiCache.get(getCacheName()) == null )
         {
-            cacheManager = CacheManager.newInstance();
+            Cache _cache = new Cache(new CacheConfiguration(getCacheName(), 1000).eternal(true).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.CLOCK));
+            _cache.initialise();
+
+            imageApiCache.put(getCacheName(), _cache);
         }
-        return cacheManager;
-    }
+        return imageApiCache.get(getCacheName());
+        /**
 
+        Object _cacheManager = CacheFactory.getCacheManager(getCacheName());
 
-    public Cache getCacheByName( String name )
-    {
-
-        Cache _cache = CacheFactory.getCacheManager().getCache(name);
-        if( _cache == null )
+        if( _cacheManager instanceof net.sf.ehcache.CacheManager )
         {
-            // create new cache
-            cacheManager.addCache(name); //todo replace default cache config with cache configuration argument
+            Cache _cache = ((CacheManager)_cacheManager).getCache(getCacheName());
+            if( _cache == null )
+            {
+                // create new cache
+                //_cache = ((CacheManager)_cacheManager).getCache(getCacheName());
 
-            _cache = cacheManager.getCache(name);
+            }
+
+            return _cache;
         }
 
-        return _cache;
+        return null;
+         **/
     }
 
 
-
-    public String getCaptchaEngine()
+    public String getCacheName()
     {
-        return captchaEngine;
+        return cacheName;
     }
 
 
-    public void setCaptchaEngine(String captchaEngine)
+    public void setCacheName(String cacheName)
     {
-        this.captchaEngine = captchaEngine;
+        this.cacheName = cacheName;
     }
 
 
-    public String getImageResizingEngine()
+    public String getCacheLibrary()
     {
-        return imageResizingEngine;
+        return cacheLibrary;
     }
 
 
-    public void setImageResizingEngine(String imageResizingEngine)
+    public void setCacheLibrary(String cacheLibrary)
     {
-        this.imageResizingEngine = imageResizingEngine;
+        this.cacheLibrary = cacheLibrary;
     }
-
 
 }

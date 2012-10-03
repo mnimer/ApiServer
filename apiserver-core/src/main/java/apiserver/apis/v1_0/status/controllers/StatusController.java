@@ -2,9 +2,12 @@ package apiserver.apis.v1_0.status.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
@@ -21,6 +24,8 @@ import java.io.IOException;
 @RequestMapping("/status")
 public class StatusController
 {
+    private @Autowired HttpServletRequest request;
+
 
     public MessageChannel healthInputChannel;
     public MessageChannel coldFusionInputChannel;
@@ -45,19 +50,19 @@ public class StatusController
 
 
 
-    @RequestMapping("/health")
-    public ModelAndView systemCheck(HttpServletRequest request, HttpServletResponse response)
+    @RequestMapping(value="/health", method = RequestMethod.GET)
+    public ModelAndView systemCheck()
     {
-        return httpChannelInvoker.invokeGenericChannel(request, response, null, healthInputChannel);
+        return httpChannelInvoker.invokeGenericChannel(request, null, null, healthInputChannel);
     }
 
 
 
 
 
-    @RequestMapping("/coldfusion/health")
-    public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    @RequestMapping(value="/coldfusion/health", method = RequestMethod.GET)
+    public ModelAndView coldFusionCheck() throws ServletException, IOException
     {
-        return httpChannelInvoker.invokeGenericChannel(request, response, null, coldFusionInputChannel);
+        return httpChannelInvoker.invokeGenericChannel(request, null, null, coldFusionInputChannel);
     }
 }

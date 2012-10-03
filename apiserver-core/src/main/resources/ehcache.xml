@@ -1,0 +1,5 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:noNamespaceSchemaLocation="ehcache.xsd"
+		 maxBytesLocalHeap="1M" maxBytesLocalOffHeap="16M">
+	<defaultCache eternal="true" overflowToOffHeap="true"/>
+</ehcache>

@@ -5,15 +5,25 @@
 
         <cfimage
                 action="info"
-                source="#expandPath(arguments.image)#"
-                structname="cfimage">
+                source="#arguments.image#"
+                structname="imageInfo">
 
-        <cfreturn cfimage/>
+
+        <cfset results = structNew()>
+        <cfset results['width'] = imageInfo.width>
+        <cfset results['height'] = imageInfo.height>
+        <cfreturn results/>
     </cffunction>
 
 
     <cffunction name="imageMetadata">
-        <cfthrow detail="Not Implemented Yet"/>
+        <cfargument name="image"/>
+        <cfimage
+                action="read"
+                source="#arguments.image#"
+                name="cfimage">
+
+        <cfreturn cfimage/>
     </cffunction>
 
 
@@ -29,7 +39,7 @@
         <cfimage
                 action="rotate"
                 angle="#arguments.angle#"
-                source="#expandPath(arguments.image)#"
+                source="#arguments.image#"
                 name="cfimage">
 
         <cfreturn cfimage/>
@@ -38,9 +48,9 @@
 
     <cffunction name="resizeImage">
         <cfargument name="image"/>
-        <cfargument name="interpolation" default="bicubic"/>
         <cfargument name="width" default="1024"/>
         <cfargument name="height" default="768"/>
+        <cfargument name="interpolation" default="bicubic"/>
         <cfargument name="scaleToFit" default="false"/>
 
         <CFIF arguments.scaleToFit>
@@ -52,7 +62,7 @@
                 action="resize"
                 width="#arguments.width#"
                 height="#arguments.height#"
-                source="#expandPath(arguments.image)#"
+                source="#arguments.image#"
                 interpolation="#arguments.interpolation#"
                 name="cfimage">
 
@@ -69,7 +79,7 @@
                 action="border"
                 color="#arguments.color#"
                 thickness="#arguments.thickness#"
-                source="#expandPath(arguments.image)#"
+                source="#arguments.image#"
                 name="cfimage">
 
         <cfreturn cfimage/>

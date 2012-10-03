@@ -22,7 +22,7 @@ import java.util.Map;
  * Date: 9/18/12
  */
 @Controller
-@RequestMapping("/image/draw")
+@RequestMapping("/image-draw")
 public class ImageDrawingController
 {
 

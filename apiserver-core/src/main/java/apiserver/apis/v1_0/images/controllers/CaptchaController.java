@@ -30,7 +30,7 @@ import java.util.Map;
  * Date: 9/15/12
  */
 @Controller
-@RequestMapping("/image/captcha")
+@RequestMapping("/image-captcha")
 public class CaptchaController
 {
     @Autowired

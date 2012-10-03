@@ -8,6 +8,7 @@
 	   xmlns:si="http://www.springframework.org/schema/integration"
 	   xmlns:http="http://www.springframework.org/schema/integration/http"
 	   xmlns:oxm="http://www.springframework.org/schema/oxm"
+	   xmlns:p="http://www.springframework.org/schema/p"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
@@ -17,6 +18,7 @@
            http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
 	<context:annotation-config />
+	<mvc:annotation-driven/>
 
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -26,15 +28,14 @@
 		</property>
 	</bean>
 
-	<!--bean id="multipartResolver"
-		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"-->
-		<!-- 25 mb max -->
-		<!--property name="maxUploadSize" value="26214400"/-->
-	<!--/bean-->
 
 	<bean id="multipartResolver"
-		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!--property name="maxUploadSize" value="10000000"/-->
 	</bean>
+	<!--bean id="multipartResolver"
+		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</bean-->
 
 
 	<import resource="_status-esb.xml" />
@@ -43,6 +44,10 @@
 
 
 	<bean id="httpChannelInvoker" class="apiserver.apis.v1_0.common.HttpChannelInvoker"/>
+
+
+	<!-- MBeans -->
+	<bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBean"/>
 
 
 	<!-- Spring MVC CONTROLLERS -->
@@ -54,6 +59,11 @@
 	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
 
 
+
+	<bean id="documentationController" class="com.mangofactory.swagger.springmvc.controller.DocumentationController"
+		  p:apiVersion="1.0"
+		  p:swaggerVersion="1.0"
+		  p:basePath="http://localhost:8080/apiserver-core/v1-1/" />
 
 	<!-- handler mapping implementation that is aware of inbound Spring Integration
 			http inbound gateway's and inbound adapter's with "path" attributes -->
