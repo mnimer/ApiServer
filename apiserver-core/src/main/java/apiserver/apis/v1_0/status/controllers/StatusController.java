@@ -24,7 +24,8 @@ import java.io.IOException;
 @RequestMapping("/status")
 public class StatusController
 {
-    private @Autowired HttpServletRequest request;
+    @Autowired(required = false)
+    private HttpServletRequest request;
 
 
     public MessageChannel healthInputChannel;

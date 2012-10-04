@@ -28,7 +28,7 @@ import java.util.Map;
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
-public class ImageResizeTests extends HttpTest
+public class ImageResizeIT extends HttpTest
 {
 
 

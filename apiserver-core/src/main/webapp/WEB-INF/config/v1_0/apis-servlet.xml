@@ -63,7 +63,8 @@
 	<bean id="documentationController" class="com.mangofactory.swagger.springmvc.controller.DocumentationController"
 		  p:apiVersion="1.0"
 		  p:swaggerVersion="1.0"
-		  p:basePath="http://localhost:8080/apiserver-core/v1-1/" />
+		  p:basePath="http://localhost:8080/apiserver-core/v1-0/resources/"
+		  p:testBasePath="http://localhost:8080/apiserver-core/v1-0/" />
 
 	<!-- handler mapping implementation that is aware of inbound Spring Integration
 			http inbound gateway's and inbound adapter's with "path" attributes -->

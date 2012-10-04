@@ -4,12 +4,6 @@
     <defaultAnt bundledAnt="true" />
   </component>
   <component name="ArtifactManager">
-    <artifact type="war" build-on-make="true" name="apiserver-core:war">
-      <output-path>$PROJECT_DIR$/apiserver-core/target</output-path>
-      <root id="archive" name="apiserver-core-0.1.0.war">
-        <element id="artifact" artifact-name="apiserver-core:war exploded" />
-      </root>
-    </artifact>
     <artifact type="exploded-war" build-on-make="true" name="apiserver-core:war exploded">
       <output-path>$PROJECT_DIR$/apiserver-core/target/apiserver-core-0.1.0</output-path>
       <root id="root">
@@ -35,7 +29,6 @@
             <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.2.1" />
             <element id="library" level="project" name="Maven: commons-io:commons-io:1.4" />
             <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
-            <element id="library" level="project" name="Maven: com.mangofactory:swagger-springmvc:0.2.2" />
             <element id="library" level="project" name="Maven: com.wordnik:swagger-core_2.9.1:1.0.1" />
             <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.3" />
@@ -45,25 +38,17 @@
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-xc:1.8.5" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.0.RELEASE" />
-            <element id="library" level="project" name="Maven: com.google.guava:guava:11.0.1" />
-            <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:1.3.9" />
-            <element id="library" level="project" name="Maven: cglib:cglib:2.2" />
-            <element id="library" level="project" name="Maven: asm:asm:3.1" />
-            <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.3" />
-            <element id="library" level="project" name="Maven: org.scala-lang:scala-library:2.9.1" />
             <element id="library" level="project" name="Maven: javax.cache:cache-api:0.5" />
             <element id="library" level="project" name="Maven: javax.cache.implementation:cache-annotations-ri-spring:0.4" />
             <element id="library" level="project" name="Maven: javax.cache.implementation:cache-annotations-ri-common:0.4" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-core:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-asm:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-context:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-aop:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-beans:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-expression:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.5.0" />
             <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-terracotta:2.5.0" />
             <element id="library" level="project" name="Maven: org.terracotta:terracotta-toolkit-1.4-runtime:4.0.0" />
@@ -72,6 +57,8 @@
             <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-orm:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-oxm:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.0.RELEASE" />
+            <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-crypto:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.1.0.RELEASE" />
@@ -91,6 +78,50 @@
             <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
           </element>
         </element>
+      </root>
+    </artifact>
+    <artifact type="jar" build-on-make="true" name="swagger-springmvc (2):jar">
+      <output-path>$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib</output-path>
+      <root id="archive" name="swagger-springmvc (2).jar">
+        <element id="module-output" name="swagger-springmvc (2)" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-aop/3.1.0.RELEASE/spring-aop-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-context-support/3.1.0.RELEASE/spring-context-support-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.0.0/jackson-databind-2.0.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-context/3.1.0.RELEASE/spring-context-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/asm/asm/3.1/asm-3.1.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.4/commons-lang-2.4.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-log4j12/1.6.3/slf4j-log4j12-1.6.3.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.0.4/jackson-annotations-2.0.4.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/wordnik/swagger-annotations_2.9.1/1.1.0/swagger-annotations_2.9.1-1.1.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.0.RELEASE/spring-beans-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-scala/2.0.0/jackson-module-scala-2.0.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-asm/3.1.0.RELEASE/spring-asm-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-web/3.1.0.RELEASE/spring-web-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/scalastuff/scalabeans/0.2/scalabeans-0.2.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.0.0/jackson-core-2.0.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/guava/guava/11.0.1/guava-11.0.1.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/cglib/cglib/2.2/cglib-2.2.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.0.0/jackson-module-jaxb-annotations-2.0.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/log4j/log4j/1.2.16/log4j-1.2.16.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/wordnik/swagger-core_2.9.1/1.1.0/swagger-core_2.9.1-1.1.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.0.0/jackson-jaxrs-json-provider-2.0.0.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.1.0.RELEASE/spring-expression-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.6.3/slf4j-api-1.6.3.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-core/3.1.0.RELEASE/spring-core-3.1.0.RELEASE.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" path-in-jar="/" />
+        <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/3.1.0.RELEASE/spring-webmvc-3.1.0.RELEASE.jar" path-in-jar="/" />
+      </root>
+    </artifact>
+    <artifact type="war" name="apiserver-core:war">
+      <output-path>$PROJECT_DIR$/apiserver-core/target</output-path>
+      <root id="archive" name="apiserver-core-0.1.0.war">
+        <element id="artifact" artifact-name="apiserver-core:war exploded" />
       </root>
     </artifact>
   </component>
@@ -158,6 +189,9 @@
     <option name="USE_PROJECT_PROFILE" value="true" />
     <version value="1.0" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-target 1.6" />
+  </component>
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs" />
     <option name="OPTION_SCOPE" value="public" />
@@ -183,7 +217,13 @@
         <option value="$PROJECT_DIR$/services/service.coldfusion/pom.xml" />
         <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
         <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/pom.xml" />
+        <option value="$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="Palette2">
@@ -319,7 +359,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/apiserver-core/apiserver-core.iml" filepath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../swagger/swagger-springmvc/swagger-springmvc.iml" filepath="$PROJECT_DIR$/../swagger/swagger-springmvc/swagger-springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/swagger-springmvc (2).iml" filepath="$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/swagger-springmvc (2).iml" />
     </modules>
   </component>
   <component name="ProjectResources">
@@ -331,7 +371,6 @@
   <component name="RegexUtilComponent" text="1900-01-01 2007/08/13 1900.01.01 1900 01 01 1900-01.01 1900 13 01 1900 02 31" flags="0" regex="(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])" mode="0" />
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../swagger/swagger-springmvc" vcs="Git" />
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
@@ -380,6 +419,72 @@
         <root url="intellijad://intellijad" />
       </SOURCES>
     </library>
+    <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.0.4">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.0.4/jackson-annotations-2.0.4.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.0.4/jackson-annotations-2.0.4-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.0.4/jackson-annotations-2.0.4-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.0.0/jackson-core-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.0.0/jackson-core-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.0.0/jackson-core-2.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.0.0/jackson-databind-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.0.0/jackson-databind-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.0.0/jackson-databind-2.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.0.0/jackson-jaxrs-json-provider-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.0.0/jackson-jaxrs-json-provider-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/2.0.0/jackson-jaxrs-json-provider-2.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.0.0/jackson-module-jaxb-annotations-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.0.0/jackson-module-jaxb-annotations-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-jaxb-annotations/2.0.0/jackson-module-jaxb-annotations-2.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.fasterxml.jackson.module:jackson-module-scala:2.0.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-scala/2.0.0/jackson-module-scala-2.0.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-scala/2.0.0/jackson-module-scala-2.0.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-scala/2.0.0/jackson-module-scala-2.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.google.code.findbugs:jsr305:1.3.9">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar!/" />
@@ -402,17 +507,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/11.0.1/guava-11.0.1-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: com.mangofactory:swagger-springmvc:0.2.2">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: com.mikenimer:Palladium:1.0.75">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/mikenimer/Palladium/1.0.75/Palladium-1.0.75.jar!/" />
@@ -422,6 +516,28 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/mikenimer/Palladium/1.0.75/Palladium-1.0.75-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.thoughtworks.paranamer:paranamer:2.3">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.wordnik:swagger-annotations_2.9.1:1.1.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-annotations_2.9.1/1.1.0/swagger-annotations_2.9.1-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-annotations_2.9.1/1.1.0/swagger-annotations_2.9.1-1.1.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-annotations_2.9.1/1.1.0/swagger-annotations_2.9.1-1.1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.wordnik:swagger-core_2.9.1:1.0.1">
@@ -436,6 +552,17 @@
         <root url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java" />
         <root url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java" />
         <root url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.wordnik:swagger-core_2.9.1:1.1.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-core_2.9.1/1.1.0/swagger-core_2.9.1-1.1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-core_2.9.1/1.1.0/swagger-core_2.9.1-1.1.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-core_2.9.1/1.1.0/swagger-core_2.9.1-1.1.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: commons-codec:commons-codec:1.7">
@@ -568,6 +695,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: javax.ws.rs:jsr311-api:1.1.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: javax.xml.bind:jaxb-api:2.0">
@@ -779,17 +917,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/aspectj/aspectjweaver/1.6.8/aspectjweaver-1.6.8-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.codehaus.jackson:jackson-core-asl:1.8.5">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.8.5/jackson-core-asl-1.8.5.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.8.5/jackson-core-asl-1.8.5-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.8.5/jackson-core-asl-1.8.5-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.9">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.9/jackson-core-asl-1.9.9.jar!/" />
@@ -801,17 +928,6 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-core-asl/1.9.9/jackson-core-asl-1.9.9-sources.jar!/" />
       </SOURCES>
     </library>
-    <library name="Maven: org.codehaus.jackson:jackson-jaxrs:1.8.5">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.8.5/jackson-jaxrs-1.8.5.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.8.5/jackson-jaxrs-1.8.5-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.8.5/jackson-jaxrs-1.8.5-sources.jar!/" />
-      </SOURCES>
-    </library>
     <library name="Maven: org.codehaus.jackson:jackson-jaxrs:1.9.9">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.9.9/jackson-jaxrs-1.9.9.jar!/" />
@@ -821,17 +937,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-jaxrs/1.9.9/jackson-jaxrs-1.9.9-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.8.5">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.8.5/jackson-mapper-asl-1.8.5.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.8.5/jackson-mapper-asl-1.8.5-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/jackson/jackson-mapper-asl/1.8.5/jackson-mapper-asl-1.8.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.9">
@@ -931,6 +1036,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.scalastuff:scalabeans:0.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scalastuff/scalabeans/0.2/scalabeans-0.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scalastuff/scalabeans/0.2/scalabeans-0.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/scalastuff/scalabeans/0.2/scalabeans-0.2-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.slf4j:slf4j-api:1.6.1">
@@ -1096,17 +1212,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/springframework/ws/spring-xml/2.0.3.RELEASE/spring-xml-2.0.3.RELEASE-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: org.springframework:org.springframework.test:3.1.0.RELEASE">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.1.0.RELEASE/org.springframework.test-3.1.0.RELEASE.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.1.0.RELEASE/org.springframework.test-3.1.0.RELEASE-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/org.springframework.test/3.1.0.RELEASE/org.springframework.test-3.1.0.RELEASE-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework:spring-aop:3.1.0.RELEASE">

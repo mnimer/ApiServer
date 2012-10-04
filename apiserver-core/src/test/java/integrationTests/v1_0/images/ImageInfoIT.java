@@ -28,10 +28,10 @@ import java.util.Map;
  * Date: 9/21/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
-public class ImageInfoTests extends HttpTest
+public class ImageInfoIT extends HttpTest
 {
     @Autowired
     ApplicationContext context;
@@ -44,7 +44,7 @@ public class ImageInfoTests extends HttpTest
         int height = 296;
         String difficulty = "high";
         String fileName = "IMG_5932_sm.png";
-        String url = "/v1-0/image/info/size.json";
+        String url = "/v1-0/image-info/size.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
         Map<String, String> args = new HashMap<String, String>();
@@ -78,7 +78,7 @@ public class ImageInfoTests extends HttpTest
         int width = 500;
         int height = 296;
         String fileName = "staff-photographer-metadata-example.jpg";
-        String url = "/v1-0/image/info/metadata.json";
+        String url = "/v1-0/image-info/metadata.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

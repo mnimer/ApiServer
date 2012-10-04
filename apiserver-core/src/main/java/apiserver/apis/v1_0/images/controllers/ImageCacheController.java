@@ -26,6 +26,9 @@ import java.util.Map;
 @RequestMapping("/image-cache")
 public class ImageCacheController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
+
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
@@ -39,24 +42,20 @@ public class ImageCacheController
 
     /**
      * put image into cache, usable for future manipulations of the image
-     * @param request
-     * @param response
      * @param file
      * @param timeToLiveInSeconds
      * @return cache ID
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView addImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam(required = true) MultipartFile file
+            @RequestParam(required = true) MultipartFile file
             , @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);
         args.put(ImageConfigMBean.TIME_TO_LIVE, timeToLiveInSeconds);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageCacheAddInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageCacheAddInputChannel);
         view.getModel().remove(ImageConfigMBean.FILE);
         view.getModel().remove(ImageConfigMBean.TIME_TO_LIVE);
         return view;
@@ -66,42 +65,34 @@ public class ImageCacheController
 
     /**
      * pull image out of cache
-     * @param request
-     * @param response
      * @param cacheId
      * @return
      */
-    @RequestMapping(value = "/{cacheId}/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView getImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable(value = "cacheId") String cacheId )
+            @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, cacheId);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageCacheGetInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageCacheGetInputChannel);
     }
 
 
 
     /**
      * pull image out of cache
-     * @param request
-     * @param response
      * @param cacheId
      * @return
      */
-    @RequestMapping(value = "/{cacheId}/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
     public ModelAndView deleteImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable(value = "cacheId") String cacheId )
+            @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, cacheId);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageCacheDeleteInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageCacheDeleteInputChannel);
     }
 
 

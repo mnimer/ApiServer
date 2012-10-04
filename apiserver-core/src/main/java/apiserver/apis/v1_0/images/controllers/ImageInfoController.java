@@ -2,6 +2,9 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
+import com.wordnik.swagger.core.Api;
+import com.wordnik.swagger.core.ApiOperation;
+import com.wordnik.swagger.core.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -27,6 +30,9 @@ import java.util.Map;
 @RequestMapping("/image-info")
 public class ImageInfoController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
+
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
@@ -36,7 +42,6 @@ public class ImageInfoController
     public MessageChannel imageMetadataInputChannel;
 
 
-    //TODO: Add ImageGrayscale
     //TODO: Add ImageNegative
     //TODO: Add ImageOverlay
     //TODO: Add ImageFlip
@@ -49,29 +54,24 @@ public class ImageInfoController
 
     /**
      * get basic info
-     * @param request
-     * @param response
-     * @param id - any valid URL or cache ID
+     * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/{id}/size", method = RequestMethod.GET)
+    @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
+    @RequestMapping(value = "/{cacheId}/size", method =  {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView imageInfoById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable("id") String cacheId)
+            @ApiParam(value = "cache id returned by /image-cache/add", required = true) @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, cacheId);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageSizeInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageSizeInputChannel);
         return view;
     }
 
 
     /**
      * get basic info
-     * @param request
-     * @param response
      * @param file
      * @return   height,width, pixel size, transparency
      * , @RequestPart("meta-data") Object metadata
@@ -79,16 +79,15 @@ public class ImageInfoController
     , @RequestParam MultipartFile file
 
      */
-    @RequestMapping(value = "/size", method = RequestMethod.POST)
+    @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
+    @RequestMapping(value = "/size", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView imageInfoByImage(
-            MultipartHttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam MultipartFile file)
+            @ApiParam(value = "uploaded file to process", required = true) @RequestParam("file") MultipartFile file)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageSizeInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageSizeInputChannel);
 
         return view;
     }
@@ -97,41 +96,35 @@ public class ImageInfoController
 
     /**
      * get embedded metadata
-     * @param request
-     * @param response
-     * @param urlOrId - any valid URL or cache ID
+     * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/{id}/metadata", method = RequestMethod.GET)
+    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
+    @RequestMapping(value = "/{cacheId}/metadata", method =  {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView imageMetadataById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable("id") String cacheId)
+            @ApiParam(value = "cache id returned by /image-cache/add", required = true) @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, cacheId);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageMetadataInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
     }
 
 
     /**
      * get embedded metadata
-     * @param request
-     * @param response
      * @param file
      * @return   height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/metadata", method = RequestMethod.POST)
+    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
+    @RequestMapping(value = "/metadata", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView imageMetadataByImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam MultipartFile file )
+            @ApiParam(value = "uploaded file to process", required = true) @RequestParam("file") MultipartFile file )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageMetadataInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
     }
 
 

@@ -5,15 +5,11 @@ import apiserver.apis.v1_0.images.ImageConfigMBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +21,8 @@ import java.util.Map;
 @RequestMapping("/image-draw")
 public class ImageDrawingController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
 
     @Autowired
     public HttpChannelInvoker channelInvoker;
@@ -39,23 +37,21 @@ public class ImageDrawingController
      *
      * @param request
      * @param response
-     * @param urlOrId - any valid URL or cache ID
+     * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/border", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cacheId}/border", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView drawBorderById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam(required = true) String urlOrId
+            @PathVariable(value = "cacheId") String cacheId
             , @RequestParam(required = true) String color
             , @RequestParam(required = true) Integer thickness )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, urlOrId);
+        args.put(ImageConfigMBean.KEY, cacheId);
         args.put(ImageConfigMBean.COLOR, color);
         args.put(ImageConfigMBean.THICKNESS, thickness);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageDrawBorderInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
 
 
@@ -66,11 +62,9 @@ public class ImageDrawingController
      * @param file
      * @return   height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/border", method = RequestMethod.POST)
+    @RequestMapping(value = "/border", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView drawBorderByImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestPart("meta-data") Object metadata
+            @RequestPart("meta-data") Object metadata
             , @RequestPart("file-data") MultipartFile file
             , @RequestParam(required = true) String color
             , @RequestParam(required = true) String thickness )
@@ -80,7 +74,7 @@ public class ImageDrawingController
         args.put(ImageConfigMBean.COLOR, color);
         args.put(ImageConfigMBean.THICKNESS, thickness);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageDrawBorderInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
 
 
@@ -96,14 +90,12 @@ public class ImageDrawingController
      *
      * @param request
      * @param response
-     * @param urlOrId - any valid URL or cache ID
+     * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/watermark", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cacheId}/watermark", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView drawWatermarkById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam(required = true) String urlOrId
+            @PathVariable(value = "cacheId") String cacheId
             , @RequestParam(required = true) String text
             , @RequestParam(required = true) String color
             , @RequestParam(required = true) String fontSize
@@ -113,7 +105,7 @@ public class ImageDrawingController
             , @RequestParam(required = true) Integer y )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, urlOrId);
+        args.put(ImageConfigMBean.KEY, cacheId);
         args.put(ImageConfigMBean.TEXT, text);
         args.put(ImageConfigMBean.COLOR, color);
         args.put(ImageConfigMBean.FONT_SIZE, fontSize);
@@ -123,7 +115,7 @@ public class ImageDrawingController
         args.put(ImageConfigMBean.X, x);
         args.put(ImageConfigMBean.Y, y);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageDrawBorderInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
 
 
@@ -134,12 +126,9 @@ public class ImageDrawingController
      * @param file
      * @return   height,width, pixel size, transparency
      */
-    @RequestMapping(value = "/watermark", method = RequestMethod.POST)
+    @RequestMapping(value = "/watermark", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView drawWatermarkByImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestPart("meta-data") Object metadata
-            , @RequestPart("file-data") MultipartFile file
+            @RequestPart("file-data") MultipartFile file
             , @RequestParam(required = true) String text
             , @RequestParam(required = true) String color
             , @RequestParam(required = true) String fontSize
@@ -158,6 +147,6 @@ public class ImageDrawingController
         args.put(ImageConfigMBean.X, x);
         args.put(ImageConfigMBean.Y, y);
 
-        return channelInvoker.invokeGenericChannel(request, response, args, imageDrawBorderInputChannel);
+        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +34,9 @@ import java.util.Map;
 @RequestMapping("/image-captcha")
 public class CaptchaController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
+
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
@@ -50,12 +54,10 @@ public class CaptchaController
      * @param height
      * @return
      */
-    @RequestMapping("/generate")
+    @RequestMapping(value = "/generate", method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> getCaptcha(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam(required = true) String text
+            @RequestParam(required = true) String text
             , @RequestParam(required = true) Integer width
             , @RequestParam(required = true) Integer height
             , @RequestParam(required = true) Integer fontSize
@@ -70,7 +72,7 @@ public class CaptchaController
         args.put("fontSize", fontSize);
         //args.put("fontFamily", fontFamily);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, captchaInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, captchaInputChannel);
 
 
         //todo: log CF execution time to MBean analytics

@@ -57,8 +57,8 @@ public class ColdFusionStatusIT
     public void testColdFusionStatus() throws ServletException, IOException, Exception
     {
 
-        URL oracle = new URL( getUrlBase() +"/v1-0/status/coldfusion/health.json");
-        BufferedReader in = new BufferedReader( new InputStreamReader(oracle.openStream()) );
+        URL url = new URL( getUrlBase() +"/v1-0/status/coldfusion/health.json");
+        BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
 
         ObjectMapper mapper = new ObjectMapper();

@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,13 @@ import java.util.Map;
 @RequestMapping("/image-filters")
 public class ImageFiltersController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
 
 
-    @RequestMapping(value = "/${id}/grayscale", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}/grayscale", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView imageInfoById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable("id") String cacheId)
+            @PathVariable("id") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.KEY, cacheId);
@@ -39,11 +40,9 @@ public class ImageFiltersController
     }
 
 
-    @RequestMapping(value = "/grayscale", method = RequestMethod.POST)
+    @RequestMapping(value = "/grayscale", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView imageInfoById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam MultipartFile file)
+            @RequestParam MultipartFile file)
     {
         Map<String, Object> args = new HashMap<String, Object>();
 

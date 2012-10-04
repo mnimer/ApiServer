@@ -58,7 +58,7 @@ public class CaptchaGeneratorIT
         String difficulty = "high";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -80,7 +80,7 @@ public class CaptchaGeneratorIT
         String difficulty = "MEDIUM";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -102,7 +102,7 @@ public class CaptchaGeneratorIT
         String difficulty = "low";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -123,7 +123,7 @@ public class CaptchaGeneratorIT
         String difficulty = "low low low";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         try

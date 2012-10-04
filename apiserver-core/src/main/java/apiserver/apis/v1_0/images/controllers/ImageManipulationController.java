@@ -23,10 +23,13 @@ import java.util.Map;
 @RequestMapping("/image")
 public class ImageManipulationController
 {
+    @Autowired(required = false)
+    private HttpServletRequest request;
+
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
-   @Autowired
+    @Autowired
     public MessageChannel imageRotateInputChannel;
     @Autowired
     public MessageChannel imageResizeInputChannel;
@@ -34,74 +37,63 @@ public class ImageManipulationController
 
     /**
      * rotate an image
-     * @param request
-     * @param response
-     * @param cacheId - any valid URL or cache ID
+     *
+     * @param cacheId  - any valid URL or cache ID
      * @param angle
      * @return
      */
-    @RequestMapping(value = "/{id}/rotate", method = RequestMethod.GET)
+    @RequestMapping(value = "/{cacheId}/rotate", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public byte[] rotateImageById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable("id") String cacheId
+            @PathVariable("cacheId") String cacheId
             , @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, cacheId);
         args.put(ImageConfigMBean.ANGLE, angle);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageRotateInputChannel);
-        return (byte[])view.getModel().get("image");
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
+        return (byte[]) view.getModel().get("image");
     }
 
 
     /**
      * rotate an image
-     * @param request
-     * @param response
+     *
      * @param file
      * @param angle
      * @return
      */
-    @RequestMapping(value = "/rotate", method = RequestMethod.POST)
+    @RequestMapping(value = "/rotate", method = {RequestMethod.POST, RequestMethod.PUT})
     @ResponseBody
     public byte[] rotateImageByImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam MultipartFile file
+            @RequestParam MultipartFile file
             , @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);
         args.put(ImageConfigMBean.ANGLE, angle);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageRotateInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
-        return (byte[])view.getModel().get("image");
+        return (byte[]) view.getModel().get("image");
     }
-
 
 
     /**
      * Resize an image
      *
-     * @param request
-     * @param response
      * @param cacheId
      * @param width
      * @param height
      * @param interpolation - highestQuality,highQuality,mediumQuality,highestPerformance,highPerformance,mediumPerformance,nearest,bilinear,bicubic,bessel,blackman,hamming,hanning,hermite,lanczos,mitchell,quadratic
-     * @param scaleToFit (false)
+     * @param scaleToFit    (false)
      * @return
      */
-    @RequestMapping(value = "/{id}/resize", method = RequestMethod.POST)
+    @RequestMapping(value = "/{cacheId}/resize", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public byte[] resizeImageById(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @PathVariable("id") String cacheId
+            @PathVariable("cacheId") String cacheId
             , @RequestParam(required = true) Integer width
             , @RequestParam(required = true) Integer height
             , @RequestParam(required = false, defaultValue = "bicubic") String interpolation
@@ -114,29 +106,24 @@ public class ImageManipulationController
         args.put(ImageConfigMBean.INTERPOLATION, interpolation);
         args.put(ImageConfigMBean.SCALE_TO_FIT, scaleToFit);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageResizeInputChannel);
-        return (byte[])view.getModel().get("image");
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
+        return (byte[]) view.getModel().get("image");
     }
-
 
 
     /**
      * Resize an image
      *
-     * @param request
-     * @param response
      * @param file
      * @param interpolation - highestQuality,highQuality,mediumQuality,highestPerformance,highPerformance,mediumPerformance,nearest,bilinear,bicubic,bessel,blackman,hamming,hanning,hermite,lanczos,mitchell,quadratic
      * @param width
      * @param height
      * @return
      */
-    @RequestMapping(value = "/resize", method = RequestMethod.POST)
+    @RequestMapping(value = "/resize", method = {RequestMethod.POST, RequestMethod.PUT})
     @ResponseBody
     public byte[] resizeImageByImage(
-            HttpServletRequest request
-            , HttpServletResponse response
-            , @RequestParam MultipartFile file
+            @RequestParam MultipartFile file
             , @RequestParam(required = true) Integer width
             , @RequestParam(required = true) Integer height
             , @RequestParam(required = false, defaultValue = "bicubic") String interpolation
@@ -149,9 +136,9 @@ public class ImageManipulationController
         args.put(ImageConfigMBean.HEIGHT, height);
         args.put(ImageConfigMBean.SCALE_TO_FIT, scaleToFit);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, response, args, imageResizeInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 
-        return (byte[])view.getModel().get("image");
+        return (byte[]) view.getModel().get("image");
     }
 
 

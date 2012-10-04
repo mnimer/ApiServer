@@ -7,66 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/pet_store_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/wordnik_api.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/independent-photographer-metadata-example.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/staff-photographer-metadata-example.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/cache/ImageCacheService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/wrappers/CachedImage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/FactoryException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/CacheServiceMBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/ehcache.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/css/screen.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/backbone-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/handlebars.runtime-1.0.0.beta.6.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.ba-bbq.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.slideto.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.wiggle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/swagger.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/underscore-min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/swagger-ui.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/swagger-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeCacheTests.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeTests.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateCacheTests.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateTests.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/EhcacheService.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ColdFusionCaptchaService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/CaptchaCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ImageDrawingColdFusionService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ImageInfoColdFusionService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/ImageManipulationColdFusionService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/CacheFactory.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/CacheFactory.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/Cache.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/ICacheService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/testImages/IMG_5932.JPG" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/IMG_5932.JPG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/testImages/IMG_5932_sm.png" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/IMG_5932_sm.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/testImages/IMG_5934.JPG" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/IMG_5934.JPG" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/testImages/IMG_5938.JPG" afterPath="$PROJECT_DIR$/apiserver-core/src/test/resources/IMG_5938.JPG" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeCacheTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeCacheIT.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeIT.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateCacheTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateCacheIT.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateIT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageCacheController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageCacheController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/MessageConfigException.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/MessageConfigException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" afterPath="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,127 +46,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_rules default_suspend_policy="SuspendAll" />
-    <ui_properties default_suspend_policy="SuspendAll" />
-    <line_breakpoints default_suspend_policy="SuspendAll">
-      <breakpoint url="file://$PROJECT_DIR$/../palladium/library/src/com/mikenimer/palladium/bootstrap/SpringContextLoaderListener.java" line="22" class="com.mikenimer.palladium.bootstrap.SpringContextLoaderListener" package="com.mikenimer.palladium.bootstrap">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/../palladium/library/src/com/mikenimer/palladium/bootstrap/SpringContextLoaderListener.java" line="2" class="SpringContextLoaderListener.java" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" line="2" class="ColdFusionStatusService.java" package="">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/services/v1_0/cache/CacheFactory.java" line="30" class="apiserver.services.v1_0.cache.CacheFactory" package="apiserver.services.v1_0.cache">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/cache/ImageCacheService.java" line="104" class="apiserver.apis.v1_0.images.service.cache.ImageCacheService" package="apiserver.apis.v1_0.images.service.cache">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" line="42" class="com.mangofactory.swagger.springmvc.controller.DocumentationController" package="com.mangofactory.swagger.springmvc.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" line="60" class="com.mangofactory.swagger.springmvc.controller.DocumentationController" package="com.mangofactory.swagger.springmvc.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" line="54" class="com.mangofactory.swagger.springmvc.controller.DocumentationController" package="com.mangofactory.swagger.springmvc.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" line="48" class="com.mangofactory.swagger.springmvc.controller.DocumentationController" package="com.mangofactory.swagger.springmvc.controller">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any default_suspend_policy="SuspendAll">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -218,8 +59,8 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -233,10 +74,13 @@
         <option name="CONDITION_ENABLED" value="false" />
         <option name="CLASS_FILTERS_ENABLED" value="false" />
         <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
+        <option name="CONDITION" value="&#13;&#13;JAVA" />
+        <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" />
+    <breakpoint_rules default_suspend_policy="SuspendAll" />
+    <ui_properties default_suspend_policy="SuspendAll" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -246,7 +90,103 @@
     <favorites_list name="Current task" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ImageInfoController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="0" selection-start="3059" selection-end="3059" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#3105#3121#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageRotateIT.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateIT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="80" column="0" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageInfoCFService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="13" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageResizeIT.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeIT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="138" column="16" selection-start="4707" selection-end="4707" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageRotateCacheIT.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateCacheIT.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="49" column="0" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="4" selection-start="4121" selection-end="4156" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apis-servlet.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
+          <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="71" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.48">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageManipulationController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="13" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageManipulationCFService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="0" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -257,26 +197,26 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoTests.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/src/test/java/com/mangofactory/swagger/springmvc/ApiMethodReaderTest.java" />
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/MvcApiReader.java" />
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/ControllerDocumentation.java" />
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/pom.xml" />
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/controller/DocumentationController.java" />
-        <option value="$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/ApiMethodReader.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageCacheController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageCacheController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeCacheIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" />
+        <option value="$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/pom.xml" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
       </list>
     </option>
@@ -306,7 +246,6 @@
         <option name="downloadDocsAutomatically" value="true" />
         <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
-        <option name="keepSourceFolders" value="false" />
         <option name="lookForNested" value="true" />
       </MavenImportingSettings>
     </option>
@@ -427,6 +366,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -441,99 +390,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="swagger-springmvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger-springmvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger-springmvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger-springmvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger-springmvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="swagger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="springmvc" />
+              <option name="myItemId" value="williamvoor-swagger-springmvc-2f8d677" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -558,6 +415,58 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -690,62 +599,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -804,44 +657,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="status" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="status" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -984,6 +799,48 @@
               <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1025,28 +882,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_directory_selection" value="$PROJECT_DIR$/library.service.interfaces/src/main/java/library/service/interfaces" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="project.structure.proportion" value="0.09832842" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bitbucket/applications/twitterStockSentiment/twitterStocks.ipr" />
     <property name="project.structure.side.proportion" value="0.10989011" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -1080,18 +927,11 @@
       <recent name="com.apiserver.service.coldfusion" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/test/resources" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib" />
-      <recent name="$PROJECT_DIR$/apiserver-core/src/tests/java" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc" />
-      <recent name="$PROJECT_DIR$/apiserver-core/src/test/resources" />
-      <recent name="$PROJECT_DIR$/apiserver-core/src/tests/java/v1_0/apis/status" />
-      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0" />
-      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="apiserver.apis.v1_0.images.service.cache" />
@@ -1100,19 +940,90 @@
       <recent name="unitTests.v1_0.status" />
       <recent name="coldfusion.v1_0.apis.status" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/test/resources" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/tests/java/v1_0/apis/status" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0" />
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF" />
+    </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.apiserver-core">
-    <configuration default="false" name="integrationTests.v1_0 in apiserver-core" type="JUnit" factoryName="JUnit" temporary="true">
+  <component name="RunManager" selected="JUnit.integrationTests.v1_0 in apiserver-core">
+    <configuration default="false" name="ColdFusionStatusIT" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="integrationTests.v1_0.*" />
+          <option name="PATTERN" value="integrationTests.v1_0.status.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="apiserver-core" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="integrationTests.v1_0" />
+      <option name="PACKAGE_NAME" value="integrationTests.v1_0.status" />
+      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.status.ColdFusionStatusIT" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="StatusTest" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="unitTests.v1_0.status.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="unitTests.v1_0.status" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.status.StatusTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="integrationTests.v1_0.images in apiserver-core" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
@@ -1134,7 +1045,7 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <configuration default="false" name="ImageResizeTests" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="ImageRotateIT.testJpgRotate" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="integrationTests.v1_0.images.*" />
@@ -1145,40 +1056,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageResizeTests" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ImageResizeTests.testPngResize" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="apiserver-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageResizeTests" />
-      <option name="METHOD_NAME" value="testPngResize" />
+      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageRotateIT" />
+      <option name="METHOD_NAME" value="testJpgRotate" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1198,52 +1077,20 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <configuration default="false" name="ImageResizeCacheTests" type="JUnit" factoryName="JUnit" temporary="true">
+    <configuration default="false" name="integrationTests.v1_0 in apiserver-core" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
+          <option name="PATTERN" value="integrationTests.v1_0.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="apiserver-core" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageResizeCacheTests" />
+      <option name="PACKAGE_NAME" value="integrationTests.v1_0" />
+      <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ImageRotateCacheTests" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="integrationTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="apiserver-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="integrationTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="integrationTests.v1_0.images.ImageRotateCacheTests" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1472,7 +1319,7 @@
       </method>
     </configuration>
     <configuration default="false" name="apiserver-core" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/apiserver-core/v1-0/status/health.json" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/apiserver-core/index.html" />
       <option name="COMMON_VM_ARGUMENTS" value="-XX:MaxPermSize=128m  -Xmx2048m" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -1590,12 +1437,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.integrationTests.v1_0 in apiserver-core" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ImageResizeTests" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.ImageResizeTests.testPngResize" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTests" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTests" />
-      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ColdFusionStatusIT" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StatusTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.integrationTests.v1_0.images in apiserver-core" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ImageRotateIT.testJpgRotate" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.integrationTests.v1_0 in apiserver-core" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1642,29 +1489,29 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.49386013" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39221272" sideWeight="0.9722222" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3931624" sideWeight="0.9722222" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48338082" sideWeight="0.34383342" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668567" sideWeight="0.51521623" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32668567" sideWeight="0.51521623" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26068377" sideWeight="0.60683763" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18696581" sideWeight="0.60778725" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18696581" sideWeight="0.67331433" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19871795" sideWeight="0.60778725" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19871795" sideWeight="0.67331433" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42070276" sideWeight="0.56059796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.4957265" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.49386013" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1734,79 +1581,109 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="718" selection-end="718" vertical-scroll-proportion="0.28546712">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="55" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.0">
+        <state line="28" column="13" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/CaptchaController.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeCacheIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="24" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.0">
+        <state line="43" column="34" selection-start="1332" selection-end="1332" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="34" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/CaptchaGeneratorIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="54" selection-start="4084" selection-end="4084" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="2619" selection-end="2619" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="13" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageResizeIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="16" selection-start="4707" selection-end="4707" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="36" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0">
+        <state line="86" column="0" selection-start="3059" selection-end="3059" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#3105#3121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="0" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1485" selection-end="1485" vertical-scroll-proportion="0.0">
+        <state line="23" column="13" selection-start="718" selection-end="718" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2.jar!/com/mangofactory/swagger/springmvc/controller/DocumentationController.class">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="16" selection-start="2127" selection-end="2127" vertical-scroll-proportion="0.766436">
+        <state line="16" column="0" selection-start="365" selection-end="365" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/wordnik/swagger-core_2.9.1/1.0.1/swagger-core_2.9.1-1.0.1.jar!/com/wordnik/swagger/core/DocumentationEndPoint.class">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="130" selection-start="4554" selection-end="4554" vertical-scroll-proportion="0.0">
+        <state line="55" column="0" selection-start="1878" selection-end="1878" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/MvcApiResource.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageRotateCacheIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="56" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.3449848">
+        <state line="49" column="0" selection-start="1589" selection-end="1589" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../swagger/swagger-springmvc/src/main/java/com/mangofactory/swagger/springmvc/MvcApiReader.java">
+    <entry file="file://$PROJECT_DIR$/../williamvoor-swagger-springmvc-2f8d677/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="55" selection-start="2647" selection-end="2647" vertical-scroll-proportion="0.23708206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2.jar!/com/mangofactory/swagger/springmvc/MvcApiReader.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="50" selection-start="2496" selection-end="2496" vertical-scroll-proportion="0.74418604">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2-sources.jar!/com/mangofactory/swagger/springmvc/controller/DocumentationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="31" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.5955882">
+        <state line="126" column="4" selection-start="4121" selection-end="4156" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1816,35 +1693,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="108" selection-start="3513" selection-end="3513" vertical-scroll-proportion="0.43410853">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="108" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.17835365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2-sources.jar!/com/mangofactory/swagger/springmvc/MvcApiReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="28" selection-start="5114" selection-end="5114" vertical-scroll-proportion="1.4117647">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/mangofactory/swagger-springmvc/0.2.2/swagger-springmvc-0.2.2-sources.jar!/com/mangofactory/swagger/ControllerDocumentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="13" selection-start="469" selection-end="469" vertical-scroll-proportion="-0.4117647">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/HttpChannelInvoker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="718" selection-end="718" vertical-scroll-proportion="0.3529412">
+        <state line="66" column="71" selection-start="3429" selection-end="3429" vertical-scroll-proportion="0.48">
           <folding />
         </state>
       </provider>
@@ -1855,7 +1704,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>apiserver-core:war</last-edited>
+          <last-edited>apiserver-core:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

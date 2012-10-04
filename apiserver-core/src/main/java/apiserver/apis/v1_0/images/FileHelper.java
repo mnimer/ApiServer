@@ -14,7 +14,7 @@ public class FileHelper
     {
         if( uploadedFile instanceof CommonsMultipartFile)
         {
-            return ((CommonsMultipartFile)uploadedFile).getName();
+            return ((CommonsMultipartFile)uploadedFile).getOriginalFilename();
         }
         else if( uploadedFile instanceof CachedImage)
         {
