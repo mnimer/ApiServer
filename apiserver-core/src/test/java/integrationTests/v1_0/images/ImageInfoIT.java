@@ -44,7 +44,7 @@ public class ImageInfoIT extends HttpTest
         int height = 296;
         String difficulty = "high";
         String fileName = "IMG_5932_sm.png";
-        String url = "/v1-0/image-info/size.json";
+        String url = "/v1-0/image/info/size.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
         Map<String, String> args = new HashMap<String, String>();
@@ -78,7 +78,7 @@ public class ImageInfoIT extends HttpTest
         int width = 500;
         int height = 296;
         String fileName = "staff-photographer-metadata-example.jpg";
-        String url = "/v1-0/image-info/metadata.json";
+        String url = "/v1-0/image/info/metadata.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

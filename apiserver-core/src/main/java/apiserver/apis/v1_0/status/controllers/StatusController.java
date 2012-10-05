@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.status.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import com.wordnik.swagger.core.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.integration.MessageChannel;
@@ -21,6 +22,7 @@ import java.io.IOException;
  * Date: 8/17/12
  */
 @Controller
+@Api("/apidoc")
 @RequestMapping("/status")
 public class StatusController
 {

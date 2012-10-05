@@ -31,7 +31,7 @@ import java.util.Map;
  * Date: 9/27/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ImageResizeCacheIT extends HttpTest
@@ -41,7 +41,7 @@ public class ImageResizeCacheIT extends HttpTest
     @Before
     public void setup() throws Exception
     {
-        String url = "/v1-0/image-cache/add";
+        String url = "/v1-0/image/cache/add";
         String fileName = "IMG_5932_sm.png";
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

@@ -1,6 +1,9 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +24,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/image-filters")
+@RequestMapping("/image/filters")
 public class ImageFiltersController
 {
     @Autowired(required = false)

@@ -18,7 +18,7 @@
            http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
 	<context:annotation-config />
-	<mvc:annotation-driven/>
+
 
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -59,12 +59,6 @@
 	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
 
 
-
-	<bean id="documentationController" class="com.mangofactory.swagger.springmvc.controller.DocumentationController"
-		  p:apiVersion="1.0"
-		  p:swaggerVersion="1.0"
-		  p:basePath="http://localhost:8080/apiserver-core/v1-0/resources/"
-		  p:contextPath="/apiserver-core/v1-0"/>
 
 	<!-- handler mapping implementation that is aware of inbound Spring Integration
 			http inbound gateway's and inbound adapter's with "path" attributes -->

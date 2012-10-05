@@ -12,10 +12,10 @@
 
 
 	<properties>
-		<java-version>1.6</java-version>
+		<java-version>1.7</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>3.1.0.RELEASE</spring.version>
+		<spring.version>3.1.2.RELEASE</spring.version>
 		<spring-integration.version>2.1.0.RELEASE</spring-integration.version>
 
 		<!-- path to extracted war file -->
@@ -95,7 +95,6 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.2.1</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -114,14 +113,12 @@
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.7</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -148,12 +145,54 @@
 			<version>0.2.2</version>
 		</dependency-->
 
+
+
+
+
+		<!--
+		 Dependencies for SWAGGER code
+		-->
 		<dependency>
 			<groupId>com.wordnik</groupId>
 			<artifactId>swagger-core_2.9.1</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.wordnik</groupId>
+			<artifactId>swagger-annotations_2.9.1</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.10.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>11.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.0-rc1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 
 		<!--
@@ -243,11 +282,13 @@
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-asm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
@@ -356,7 +397,6 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
-			<scope>test</scope>
 		</dependency>
 
 
@@ -438,30 +478,10 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-logging-juli</artifactId>
-			<version>7.0.26</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.eclipse.jdt.core.compiler</groupId>
 			<artifactId>ecj</artifactId>
 			<version>3.7.1</version>
 			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-jasper</artifactId>
-			<version>7.0.26</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.9</version>
 		</dependency>
 
 		<dependency>
@@ -470,6 +490,9 @@
 			<version>4.9</version>
 			<scope>test</scope>
 		</dependency>
+
+
+
 
 	</dependencies>
 
@@ -490,6 +513,9 @@
 			<name>Spring Framework Maven Snapshot Repository</name>
 			<url>http://maven.springframework.org/snapshot</url>
 		</repository>
+
+
+
 	</repositories>
 
 

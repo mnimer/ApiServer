@@ -30,7 +30,7 @@ import java.util.Map;
  * Date: 9/28/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ImageRotateCacheIT extends HttpTest

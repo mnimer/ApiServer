@@ -1,8 +1,5 @@
 package integrationTests.v1_0.images;
 
-import apiserver.apis.v1_0.status.controllers.StatusController;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -13,14 +10,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
+import org.springframework.web.context.support.XmlWebApplicationContext;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 
 /**
@@ -28,7 +23,7 @@ import java.net.URL;
  * Date: 9/20/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class CaptchaGeneratorIT
@@ -58,7 +53,7 @@ public class CaptchaGeneratorIT
         String difficulty = "high";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -80,7 +75,7 @@ public class CaptchaGeneratorIT
         String difficulty = "MEDIUM";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -102,7 +97,7 @@ public class CaptchaGeneratorIT
         String difficulty = "low";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         BufferedImage bimg = ImageIO.read(url);
@@ -123,7 +118,7 @@ public class CaptchaGeneratorIT
         String difficulty = "low low low";
 
 
-        URL url = new URL( getUrlBase() +"/v1-0/image-captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
+        URL url = new URL( getUrlBase() +"/v1-0/image/captcha/generate?text=Super&width=" +width +"&height=" +height +"&difficulty=" +difficulty +"&fontSize=40");
         //BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
         try

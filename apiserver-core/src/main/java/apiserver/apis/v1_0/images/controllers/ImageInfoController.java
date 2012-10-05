@@ -2,22 +2,20 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.core.Api;
-import com.wordnik.swagger.core.ApiOperation;
-import com.wordnik.swagger.core.ApiParam;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.net.URL;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +25,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/image-info")
+@RequestMapping("/image/info")
 public class ImageInfoController
 {
     @Autowired(required = false)
@@ -38,6 +36,7 @@ public class ImageInfoController
 
     @Autowired
     public MessageChannel imageSizeInputChannel;
+
     @Autowired
     public MessageChannel imageMetadataInputChannel;
 

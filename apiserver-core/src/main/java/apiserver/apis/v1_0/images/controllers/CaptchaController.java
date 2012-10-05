@@ -2,7 +2,9 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import coldfusion.image.Image;
-import coldfusion.runtime.Struct;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,13 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -31,7 +28,7 @@ import java.util.Map;
  * Date: 9/15/12
  */
 @Controller
-@RequestMapping("/image-captcha")
+@RequestMapping("/image/captcha")
 public class CaptchaController
 {
     @Autowired(required = false)
@@ -54,6 +51,7 @@ public class CaptchaController
      * @param height
      * @return
      */
+    @ApiOperation(value = "Get a new image to use for captcha checks")
     @RequestMapping(value = "/generate", method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> getCaptcha(

@@ -2,6 +2,9 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -10,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
