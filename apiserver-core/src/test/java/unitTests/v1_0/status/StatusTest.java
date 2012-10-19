@@ -7,16 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
-import javax.servlet.ServletException;
-import java.io.IOException;
-import java.lang.Object;
 
 /**
  * User: mnimer
@@ -24,7 +18,7 @@ import java.lang.Object;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
 @Profile("dev")
 public class StatusTest
 {

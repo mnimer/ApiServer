@@ -23,7 +23,7 @@ import java.net.URL;
  * Date: 9/20/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class CaptchaGeneratorIT

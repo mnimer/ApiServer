@@ -28,7 +28,7 @@ import java.util.Map;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ColdFusionStatusIT
@@ -38,9 +38,6 @@ public class ColdFusionStatusIT
 
     @Autowired
     public MapFactoryBean unitTestProperties;
-
-    @Autowired
-    public StatusController statusController;
 
 
     private String getUrlBase() throws Exception

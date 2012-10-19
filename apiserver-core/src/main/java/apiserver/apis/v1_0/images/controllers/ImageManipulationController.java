@@ -51,7 +51,7 @@ public class ImageManipulationController
             , @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, cacheId);
+        args.put(ImageConfigMBean.KEY, cacheId);
         args.put(ImageConfigMBean.ANGLE, angle);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
@@ -105,7 +105,7 @@ public class ImageManipulationController
         args.put(ImageConfigMBean.KEY, cacheId);
         args.put(ImageConfigMBean.WIDTH, width);
         args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, interpolation);
+        args.put(ImageConfigMBean.INTERPOLATION, interpolation.toUpperCase());
         args.put(ImageConfigMBean.SCALE_TO_FIT, scaleToFit);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);

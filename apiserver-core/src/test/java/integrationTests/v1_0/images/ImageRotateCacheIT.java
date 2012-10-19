@@ -30,7 +30,7 @@ import java.util.Map;
  * Date: 9/28/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ImageRotateCacheIT extends HttpTest
@@ -62,8 +62,8 @@ public class ImageRotateCacheIT extends HttpTest
     @Test
     public void testPngResize() throws ServletException, IOException, Exception
     {
-        int width = 148;
-        int height = 250;
+        int width = 296;
+        int height = 500;
         String url = "/v1-0/image/" + key +"/rotate";
 
 

@@ -142,7 +142,7 @@
 
 		<si:service-activator
 				method="imageSizeHandler">
-			<bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageInfoCFService"/>
+			<bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageSizeService"/>
 		</si:service-activator>
 
 	</si:chain>
@@ -161,7 +161,7 @@
 
 		<si:service-activator
 				method="imageMetadataHandler">
-			<bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageInfoCFService"/>
+			<bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
 		</si:service-activator>
 
 	</si:chain>

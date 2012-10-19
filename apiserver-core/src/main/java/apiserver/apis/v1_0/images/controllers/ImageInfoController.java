@@ -123,7 +123,10 @@ public class ImageInfoController
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBean.FILE, file);
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
+
+        view.getModel().remove(ImageConfigMBean.FILE);
+        return view;
     }
 
 

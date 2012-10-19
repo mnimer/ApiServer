@@ -28,7 +28,7 @@ import java.util.Map;
  * Date: 9/21/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-test.xml"})
+@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ImageInfoIT extends HttpTest
@@ -77,7 +77,7 @@ public class ImageInfoIT extends HttpTest
     {
         int width = 500;
         int height = 296;
-        String fileName = "staff-photographer-metadata-example.jpg";
+        String fileName = "Apple iPhone 4.jpeg";
         String url = "/v1-0/image/info/metadata.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
@@ -97,7 +97,9 @@ public class ImageInfoIT extends HttpTest
         JsonNode root = mapper.readTree(in);
 
         //Assert.notNull(root.get("coldfusion"));
-        Assert.isTrue(((JsonNode) root.get("width")).getIntValue() == width, "Received=" + ((JsonNode) root.get("width")).getIntValue() + " expected=" + width); //todo, change this
+        Assert.isTrue( ((JsonNode) root.get("Jpeg")) != null );
+        Assert.isTrue( ((JsonNode) root.get("GPS")) != null );
+        Assert.isTrue( ((JsonNode) root.get("Exif IFD0")) != null );
 
 
         in.close();
