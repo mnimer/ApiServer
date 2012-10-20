@@ -1,10 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -50,9 +47,9 @@ public class ImageDrawingController
             , @RequestParam(required = true) Integer thickness )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
-        args.put(ImageConfigMBean.COLOR, color);
-        args.put(ImageConfigMBean.THICKNESS, thickness);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.COLOR, color);
+        args.put(ImageConfigMBeanImpl.THICKNESS, thickness);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
@@ -73,9 +70,9 @@ public class ImageDrawingController
             , @RequestParam(required = true) String thickness )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
-        args.put(ImageConfigMBean.COLOR, color);
-        args.put(ImageConfigMBean.THICKNESS, thickness);
+        args.put(ImageConfigMBeanImpl.FILE, file);
+        args.put(ImageConfigMBeanImpl.COLOR, color);
+        args.put(ImageConfigMBeanImpl.THICKNESS, thickness);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
@@ -108,15 +105,15 @@ public class ImageDrawingController
             , @RequestParam(required = true) Integer y )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
-        args.put(ImageConfigMBean.TEXT, text);
-        args.put(ImageConfigMBean.COLOR, color);
-        args.put(ImageConfigMBean.FONT_SIZE, fontSize);
-        args.put(ImageConfigMBean.FONT_STYLE, fontStyle);
-        args.put(ImageConfigMBean.FONT_STYLE, fontStyle);
-        args.put(ImageConfigMBean.ANGLE, angle);
-        args.put(ImageConfigMBean.X, x);
-        args.put(ImageConfigMBean.Y, y);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.TEXT, text);
+        args.put(ImageConfigMBeanImpl.COLOR, color);
+        args.put(ImageConfigMBeanImpl.FONT_SIZE, fontSize);
+        args.put(ImageConfigMBeanImpl.FONT_STYLE, fontStyle);
+        args.put(ImageConfigMBeanImpl.FONT_STYLE, fontStyle);
+        args.put(ImageConfigMBeanImpl.ANGLE, angle);
+        args.put(ImageConfigMBeanImpl.X, x);
+        args.put(ImageConfigMBeanImpl.Y, y);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }
@@ -141,14 +138,14 @@ public class ImageDrawingController
             , @RequestParam(required = true) Integer y)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
-        args.put(ImageConfigMBean.TEXT, text);
-        args.put(ImageConfigMBean.COLOR, color);
-        args.put(ImageConfigMBean.FONT_SIZE, fontSize);
-        args.put(ImageConfigMBean.FONT_STYLE, fontStyle);
-        args.put(ImageConfigMBean.ANGLE, angle);
-        args.put(ImageConfigMBean.X, x);
-        args.put(ImageConfigMBean.Y, y);
+        args.put(ImageConfigMBeanImpl.FILE, file);
+        args.put(ImageConfigMBeanImpl.TEXT, text);
+        args.put(ImageConfigMBeanImpl.COLOR, color);
+        args.put(ImageConfigMBeanImpl.FONT_SIZE, fontSize);
+        args.put(ImageConfigMBeanImpl.FONT_STYLE, fontStyle);
+        args.put(ImageConfigMBeanImpl.ANGLE, angle);
+        args.put(ImageConfigMBeanImpl.X, x);
+        args.put(ImageConfigMBeanImpl.Y, y);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
     }

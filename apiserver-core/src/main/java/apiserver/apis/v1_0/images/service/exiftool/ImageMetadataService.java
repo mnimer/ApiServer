@@ -2,11 +2,9 @@ package apiserver.apis.v1_0.images.service.exiftool;
 
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import coldfusion.cfc.CFCProxy;
-import coldfusion.runtime.Struct;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
@@ -14,7 +12,6 @@ import com.drew.metadata.Tag;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +43,7 @@ public class ImageMetadataService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBean.FILE);
+            Object file = props.get(ImageConfigMBeanImpl.FILE);
 
 
 

@@ -1,10 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,12 +51,12 @@ public class ImageCacheController
             , @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
-        args.put(ImageConfigMBean.TIME_TO_LIVE, timeToLiveInSeconds);
+        args.put(ImageConfigMBeanImpl.FILE, file);
+        args.put(ImageConfigMBeanImpl.TIME_TO_LIVE, timeToLiveInSeconds);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageCacheAddInputChannel);
-        view.getModel().remove(ImageConfigMBean.FILE);
-        view.getModel().remove(ImageConfigMBean.TIME_TO_LIVE);
+        view.getModel().remove(ImageConfigMBeanImpl.FILE);
+        view.getModel().remove(ImageConfigMBeanImpl.TIME_TO_LIVE);
         return view;
     }
 
@@ -76,7 +72,7 @@ public class ImageCacheController
             @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageCacheGetInputChannel);
     }
@@ -93,7 +89,7 @@ public class ImageCacheController
             @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageCacheDeleteInputChannel);
     }

@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.service.cache;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.FactoryException;
 import apiserver.exceptions.MessageConfigException;
 import net.sf.ehcache.Element;
@@ -10,12 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.rmi.server.UID;
 import java.util.Map;
 import java.util.UUID;
-import java.util.logging.Logger;
 
 /**
  * User: mnimer
@@ -25,14 +21,14 @@ public class ImageCacheService
 {
 
     @Autowired
-    public ImageConfigMBean imageConfigMBean;
+    public ImageConfigMBeanImpl imageConfigMBean;
 
 
     public Object checkCache(Message<?> message) throws MessageConfigException
     {
         Map props = (Map)message.getPayload();
 
-        Object key = props.get(ImageConfigMBean.KEY);
+        Object key = props.get(ImageConfigMBeanImpl.KEY);
         if( key != null )
         {
             try
@@ -40,7 +36,7 @@ public class ImageCacheService
                 Element file = imageConfigMBean.getCache().get(key);
                 if( file != null )
                 {
-                    props.put( ImageConfigMBean.FILE, file.getObjectValue() );
+                    props.put( ImageConfigMBeanImpl.FILE, file.getObjectValue() );
                 }
             }
             catch (FactoryException fe)
@@ -50,7 +46,7 @@ public class ImageCacheService
             }
         }
 
-        if( !props.containsKey( ImageConfigMBean.FILE) )
+        if( !props.containsKey( ImageConfigMBeanImpl.FILE) )
         {
              throw new MessageConfigException( MessageConfigException.MISSING_PROPERTY );
         }
@@ -64,8 +60,8 @@ public class ImageCacheService
         Map props = (Map)message.getPayload();
         String key = UUID.randomUUID().toString();
 
-        Object file = props.get(ImageConfigMBean.FILE);
-        Integer timeout = (Integer)props.get(ImageConfigMBean.TIME_TO_LIVE);
+        Object file = props.get(ImageConfigMBeanImpl.FILE);
+        Integer timeout = (Integer)props.get(ImageConfigMBeanImpl.TIME_TO_LIVE);
 
         if( file == null )
         {
@@ -87,7 +83,7 @@ public class ImageCacheService
         }
 
         imageConfigMBean.getCache().put(element);
-        props.put(ImageConfigMBean.KEY, key);
+        props.put(ImageConfigMBeanImpl.KEY, key);
 
 
         return props;
@@ -97,7 +93,7 @@ public class ImageCacheService
     public Object getFromCache(Message<?> message) throws FactoryException
     {
         Map props = (Map)message.getPayload();
-        String key = (String)props.get(ImageConfigMBean.KEY);
+        String key = (String)props.get(ImageConfigMBeanImpl.KEY);
 
         // todo use a wrapper so we can add per file timeout
         Element file = imageConfigMBean.getCache().get(key);

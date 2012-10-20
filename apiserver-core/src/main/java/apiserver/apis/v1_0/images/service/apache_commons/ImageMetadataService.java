@@ -1,22 +1,24 @@
-package apiserver.apis.v1_0.images.service.sanselan;
+package apiserver.apis.v1_0.images.service.apache_commons;
 
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import com.drew.imaging.ImageMetadataReader;
-import com.drew.metadata.Directory;
-import com.drew.metadata.Metadata;
-import com.drew.metadata.Tag;
+import org.apache.commons.imaging.Imaging;
+import org.apache.commons.imaging.common.IImageMetadata;
+import org.apache.commons.imaging.common.IImageMetadata.IImageMetadataItem;
+import org.apache.commons.imaging.formats.jpeg.JpegImageMetadata;
+import org.apache.commons.imaging.formats.tiff.TiffImageMetadata;
+import org.apache.commons.imaging.formats.tiff.taginfos.TagInfo;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
-import java.awt.image.BufferedImage;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-//import org.apache.commons.imaging.Imaging;
+
 
 /**
  * User: mnimer
@@ -46,7 +48,7 @@ public class ImageMetadataService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBean.FILE);
+            Object file = props.get(ImageConfigMBeanImpl.FILE);
 
 
 
@@ -55,7 +57,41 @@ public class ImageMetadataService
             //BufferedImage image = Imaging;
 
 
-                    //Metadata metadata = ImageMetadataReader.readMetadata( (BufferedInputStream)FileHelper.getFileInputStream(file), false);
+            //BufferedImage image = Imaging.getBufferedImage( FileHelper.fileBytes(file) );
+            IImageMetadata metadata = Imaging.getMetadata( FileHelper.fileBytes(file) );
+
+
+            List<? extends IImageMetadataItem> items = ((JpegImageMetadata)metadata).getExif().getDirectories();
+            for (int i = 0; i < items.size(); i++)
+            {
+                IImageMetadataItem item = items.get(i);
+                Map metadataTags = new HashMap();
+
+                if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_ROOT )
+                {
+                    metadataDirectories.put("ROOT", metadataTags);
+                }
+                if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_EXIF)
+                {
+                    metadataDirectories.put("EXIF", metadataTags);
+                }
+                if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_GPS )
+                {
+                    metadataDirectories.put("GPS", metadataTags);
+                }
+
+                for (Object tag : ((TiffImageMetadata.Directory)item).getItems())
+                {
+                    metadataTags.put( ((TiffImageMetadata.Item)tag).getTiffField().getTagName(), ((TiffImageMetadata.Item)tag).getTiffField().getValue() );
+                }
+
+
+
+                System.out.println("    " + "item: " + item);
+            }
+
+            /**
+            //Metadata metadata = ImageMetadataReader.readMetadata( (BufferedInputStream)FileHelper.getFileInputStream(file), false);
             Metadata metadata = ImageMetadataReader.readMetadata(FileHelper.getFile(file));
             for (Directory directory : metadata.getDirectories())
             {
@@ -66,6 +102,7 @@ public class ImageMetadataService
                     metadataTags.put( tag.getTagName(), tag);
                 }
             }
+             **/
 
             long end = System.currentTimeMillis();
 

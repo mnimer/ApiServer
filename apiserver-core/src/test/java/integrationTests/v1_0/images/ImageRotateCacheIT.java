@@ -1,6 +1,6 @@
 package integrationTests.v1_0.images;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import integrationTests.v1_0.HttpTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -54,7 +54,7 @@ public class ImageRotateCacheIT extends HttpTest
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(in);
 
-        key = root.get(ImageConfigMBean.KEY).getTextValue();
+        key = root.get(ImageConfigMBeanImpl.KEY).getTextValue();
         Assert.isTrue( key.length() == 36 );
     }
 
@@ -68,7 +68,7 @@ public class ImageRotateCacheIT extends HttpTest
 
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.ANGLE, 90);
+        args.put(ImageConfigMBeanImpl.ANGLE, 90);
 
         // Here we go!
         HttpResponse response = invokeHttpGet(url, null, args);

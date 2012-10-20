@@ -1,13 +1,12 @@
 package integrationTests.v1_0.images;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import integrationTests.v1_0.HttpTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
@@ -55,7 +54,7 @@ public class ImageResizeCacheIT extends HttpTest
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(in);
 
-        key = root.get(ImageConfigMBean.KEY).getTextValue();
+        key = root.get(ImageConfigMBeanImpl.KEY).getTextValue();
         Assert.isTrue( key.length() == 36 );
     }
 
@@ -69,10 +68,10 @@ public class ImageResizeCacheIT extends HttpTest
 
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
-        args.put(ImageConfigMBean.SCALE_TO_FIT, false);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, false);
 
 
         // Here we go!

@@ -2,15 +2,12 @@ package apiserver.apis.v1_0.images.service.coldfusion;
 
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
 import coldfusion.image.Image;
-import coldfusion.runtime.Struct;
 import org.springframework.integration.Message;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -45,8 +42,8 @@ public class ImageManipulationCFService
         {
             long start = System.currentTimeMillis();
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object file = props.get(ImageConfigMBean.FILE);
-            Object[] myArgs = {FileHelper.fileBytes(file), props.get(ImageConfigMBean.ANGLE)};
+            Object file = props.get(ImageConfigMBeanImpl.FILE);
+            Object[] myArgs = {FileHelper.fileBytes(file), props.get(ImageConfigMBeanImpl.ANGLE)};
             Image cfcResult = (Image)myCFC.invoke("rotateImage", myArgs);
             long end = System.currentTimeMillis();
 
@@ -93,13 +90,13 @@ public class ImageManipulationCFService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBean.FILE);
+            Object file = props.get(ImageConfigMBeanImpl.FILE);
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
             Object[] myArgs = {FileHelper.fileBytes(file)
-                    , props.get(ImageConfigMBean.WIDTH)
-                    , props.get(ImageConfigMBean.HEIGHT)
-                    , props.get(ImageConfigMBean.INTERPOLATION)
-                    , props.get(ImageConfigMBean.SCALE_TO_FIT) };
+                    , props.get(ImageConfigMBeanImpl.WIDTH)
+                    , props.get(ImageConfigMBeanImpl.HEIGHT)
+                    , props.get(ImageConfigMBeanImpl.INTERPOLATION)
+                    , props.get(ImageConfigMBeanImpl.SCALE_TO_FIT) };
             Image cfcResult = (Image)myCFC.invoke("resizeImage", myArgs);
             long end = System.currentTimeMillis();
 

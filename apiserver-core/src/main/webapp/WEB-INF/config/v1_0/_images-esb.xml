@@ -151,20 +151,43 @@
 
 	<!--
 		Image Embedded Metadata
+		Note: because of the router, this is not in a CHAIN
 	-->
-	<si:chain input-channel="imageMetadataInputChannel" output-channel="noOpOutputChannel">
+	<si:channel id="metadataRouter"/>
+
+	<!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
+	<si:channel id="drewMetadataExtractor"/>
+	<si:channel id="apacheCommonsImaging"/>
 
 		<si:service-activator
+				input-channel="imageMetadataInputChannel"
+				output-channel="metadataRouter"
 				method="checkCache">
 			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
 		</si:service-activator>
 
-		<si:service-activator
-				method="imageMetadataHandler">
-			<bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
-		</si:service-activator>
+		<si:router
+				input-channel="metadataRouter"
+				method="route">
+			<bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
+		</si:router>
 
-	</si:chain>
+
+			<si:service-activator
+					input-channel="drewMetadataExtractor"
+					output-channel="nullChannel"
+					method="imageMetadataHandler">
+				<bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
+			</si:service-activator>
+
+			<si:service-activator
+					input-channel="apacheCommonsImaging"
+					output-channel="noOpOutputChannel"
+					method="imageMetadataHandler">
+				<bean class="apiserver.apis.v1_0.images.service.apache_commons.ImageMetadataService"/>
+			</si:service-activator>
+
+
 
 
 

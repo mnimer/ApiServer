@@ -47,7 +47,18 @@
 
 
 	<!-- MBeans -->
-	<bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBean"/>
+	<bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/>
+
+	<!-- this bean must not be lazily initialized if the exporting is to happen -->
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+		<property name="registrationBehaviorName" value="REGISTRATION_IGNORE_EXISTING"/>
+		<property name="beans">
+			<map>
+				<entry key="com.apiserver:name=ImageApi" value-ref="imageConfigMBean"/>
+			</map>
+		</property>
+	</bean>
+
 
 
 	<!-- Spring MVC CONTROLLERS -->

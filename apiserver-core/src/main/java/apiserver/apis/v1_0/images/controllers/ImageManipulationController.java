@@ -1,10 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -51,8 +48,8 @@ public class ImageManipulationController
             , @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
-        args.put(ImageConfigMBean.ANGLE, angle);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.ANGLE, angle);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
         return (byte[]) view.getModel().get("image");
@@ -73,8 +70,8 @@ public class ImageManipulationController
             , @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
-        args.put(ImageConfigMBean.ANGLE, angle);
+        args.put(ImageConfigMBeanImpl.FILE, file);
+        args.put(ImageConfigMBeanImpl.ANGLE, angle);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
@@ -102,11 +99,11 @@ public class ImageManipulationController
             , @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, interpolation.toUpperCase());
-        args.put(ImageConfigMBean.SCALE_TO_FIT, scaleToFit);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, interpolation.toUpperCase());
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, scaleToFit);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
         return (byte[]) view.getModel().get("image");
@@ -132,11 +129,11 @@ public class ImageManipulationController
             , @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
-        args.put(ImageConfigMBean.INTERPOLATION, interpolation);
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.SCALE_TO_FIT, scaleToFit);
+        args.put(ImageConfigMBeanImpl.FILE, file);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, interpolation);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, scaleToFit);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 

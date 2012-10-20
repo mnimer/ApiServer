@@ -1,9 +1,6 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +32,7 @@ public class ImageFiltersController
             @PathVariable("id") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         throw new RuntimeException("not implemented yet");
 

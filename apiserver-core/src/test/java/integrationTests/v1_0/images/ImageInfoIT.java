@@ -72,38 +72,4 @@ public class ImageInfoIT extends HttpTest
 
     }
 
-    @Test
-    public void testMetadata() throws ServletException, IOException, Exception
-    {
-        int width = 500;
-        int height = 296;
-        String fileName = "Apple iPhone 4.jpeg";
-        String url = "/v1-0/image/info/metadata.json";
-
-        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
-
-
-        int status = 0;
-        // Here we go!
-        HttpResponse response = invokeHttpPost(url, file, null);
-        status = response.getStatusLine().getStatusCode();
-
-
-        Assert.isTrue(status == HttpStatus.SC_OK, response.getStatusLine().toString() );
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(in);
-
-        //Assert.notNull(root.get("coldfusion"));
-        Assert.isTrue( ((JsonNode) root.get("Jpeg")) != null );
-        Assert.isTrue( ((JsonNode) root.get("GPS")) != null );
-        Assert.isTrue( ((JsonNode) root.get("Exif IFD0")) != null );
-
-
-        in.close();
-
-    }
-
 }

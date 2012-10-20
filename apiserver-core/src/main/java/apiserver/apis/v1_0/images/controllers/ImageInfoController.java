@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import com.wordnik.swagger.annotations.Api;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +61,7 @@ public class ImageInfoController
             @ApiParam(value = "cache id returned by /image-cache/add", required = true) @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageSizeInputChannel);
         return view;
@@ -84,7 +83,7 @@ public class ImageInfoController
             @ApiParam(value = "uploaded file to process", required = true) @RequestParam("file") MultipartFile file)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
+        args.put(ImageConfigMBeanImpl.FILE, file);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageSizeInputChannel);
 
@@ -104,7 +103,7 @@ public class ImageInfoController
             @ApiParam(value = "cache id returned by /image-cache/add", required = true) @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.KEY, cacheId);
+        args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
     }
@@ -121,11 +120,11 @@ public class ImageInfoController
             @ApiParam(value = "uploaded file to process", required = true) @RequestParam("file") MultipartFile file )
     {
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.FILE, file);
+        args.put(ImageConfigMBeanImpl.FILE, file);
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
 
-        view.getModel().remove(ImageConfigMBean.FILE);
+        view.getModel().remove(ImageConfigMBeanImpl.FILE);
         return view;
     }
 

@@ -31,8 +31,10 @@
             <element id="library" level="project" name="Maven: commons-httpclient:commons-httpclient:3.1" />
             <element id="library" level="project" name="Maven: commons-io:commons-io:1.4" />
             <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.2.2" />
+            <element id="library" level="project" name="Maven: org.apache.commons:commons-parent:26" />
             <element id="library" level="project" name="Maven: com.drewnoakes:metadata-extractor:2.6.2" />
             <element id="library" level="project" name="Maven: com.adobe.xmp:xmpcore:5.1.2" />
+            <element id="library" level="project" name="Maven: org.apache.commons:commons-imaging:1.1-SNAPSHOT" />
             <element id="library" level="project" name="Maven: com.wordnik:swagger-core_2.9.1:1.0.1" />
             <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.3" />
@@ -85,14 +87,6 @@
             <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-http:2.1.0.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-event:2.1.0.RELEASE" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/metadata-extractor-2.6.2.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/xmpcore.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/sanselan-0.97-incubator-javadoc.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/sanselan-0.97-incubator-sources.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/sanselan-0.97-incubator.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/exiftool-lib-1.1-javadoc.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/exiftool-lib-1.1-sources.jar" />
-            <element id="file-copy" path="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/exiftool-lib-1.1.jar" />
           </element>
         </element>
       </root>
@@ -725,6 +719,28 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache-terracotta/2.5.0/ehcache-terracotta-2.5.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.commons:commons-imaging:1.1-SNAPSHOT">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-imaging/1.1-SNAPSHOT/commons-imaging-1.1-SNAPSHOT.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-imaging/1.1-SNAPSHOT/commons-imaging-1.1-SNAPSHOT-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-imaging/1.1-SNAPSHOT/commons-imaging-1.1-SNAPSHOT-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.commons:commons-parent:26">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-parent/26/commons-parent-26.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-parent/26/commons-parent-26-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-parent/26/commons-parent-26-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.apache.httpcomponents:httpclient:4.2.1">

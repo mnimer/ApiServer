@@ -1,6 +1,6 @@
 package integrationTests.v1_0.images;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import integrationTests.v1_0.HttpTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -43,10 +43,10 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
-        args.put(ImageConfigMBean.SCALE_TO_FIT, false);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, false);
 
         int status = 0;
         // Here we go!
@@ -76,10 +76,10 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
-        args.put(ImageConfigMBean.SCALE_TO_FIT, true);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, true);
 
         int status = 0;
         // Here we go!
@@ -113,10 +113,10 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
-        args.put(ImageConfigMBean.SCALE_TO_FIT, false);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, false);
 
         int status = 0;
         // Here we go!
@@ -146,9 +146,9 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
 
         int status = 0;
         // Here we go!
@@ -177,8 +177,8 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
 
         int status = 0;
         // Here we go!
@@ -208,7 +208,7 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
 
         int status = 0;
         // Here we go!
@@ -256,9 +256,9 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, "small");
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "bicubic");
+        args.put(ImageConfigMBeanImpl.WIDTH, "small");
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "bicubic");
 
         int status = 0;
         // Here we go!
@@ -283,9 +283,9 @@ public class ImageResizeIT extends HttpTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
         Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBean.WIDTH, width);
-        args.put(ImageConfigMBean.HEIGHT, height);
-        args.put(ImageConfigMBean.INTERPOLATION, "garble");
+        args.put(ImageConfigMBeanImpl.WIDTH, width);
+        args.put(ImageConfigMBeanImpl.HEIGHT, height);
+        args.put(ImageConfigMBeanImpl.INTERPOLATION, "garble");
 
         int status = 0;
         // Here we go!
