@@ -1,7 +1,8 @@
 package apiserver.apis.v1_0.images.routers;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.integration.annotation.Router;
 
@@ -12,9 +13,8 @@ import org.springframework.integration.annotation.Router;
 
 public class MetadataRouter
 {
-
     @Autowired
-    public ImageConfigMBeanImpl imageConfigMBean;
+    private ImageConfigMBean imageConfigMBean;
 
 
     @Router

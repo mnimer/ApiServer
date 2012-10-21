@@ -8,6 +8,7 @@ import apiserver.exceptions.MessageConfigException;
 import org.apache.commons.imaging.Imaging;
 import org.apache.commons.imaging.common.IImageMetadata;
 import org.apache.commons.imaging.common.IImageMetadata.IImageMetadataItem;
+import org.apache.commons.imaging.common.RationalNumber;
 import org.apache.commons.imaging.formats.jpeg.JpegImageMetadata;
 import org.apache.commons.imaging.formats.tiff.TiffImageMetadata;
 import org.apache.commons.imaging.formats.tiff.taginfos.TagInfo;
@@ -69,21 +70,49 @@ public class ImageMetadataService
 
                 if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_ROOT )
                 {
-                    metadataDirectories.put("ROOT", metadataTags);
+                    metadataDirectories.put("IFD0", metadataTags);
                 }
-                if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_EXIF)
+                else if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_EXIF)
                 {
                     metadataDirectories.put("EXIF", metadataTags);
                 }
-                if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_GPS )
+                else if( ((TiffImageMetadata.Directory) item).type == TagInfo.DIRECTORY_TYPE_GPS )
                 {
                     metadataDirectories.put("GPS", metadataTags);
                 }
+                else
+                {
+                    metadataDirectories.put("UNKNOWN", metadataTags);
+                }
 
+
+                // parse properties
                 for (Object tag : ((TiffImageMetadata.Directory)item).getItems())
                 {
-                    metadataTags.put( ((TiffImageMetadata.Item)tag).getTiffField().getTagName(), ((TiffImageMetadata.Item)tag).getTiffField().getValue() );
+                    String tagName = ((TiffImageMetadata.Item)tag).getTiffField().getTagName();
+                    Object val = ((TiffImageMetadata.Item)tag).getTiffField().getValue();
+
+                    if( val instanceof RationalNumber )
+                    {
+                        val = ((RationalNumber)val).toDisplayString();
+                        metadataTags.put( tagName, val );
+                    }
+                    else if( val instanceof RationalNumber[] )
+                    {
+                        Object[] args = new Object[((RationalNumber[])val).length];
+                        for( int j=0; j < ((RationalNumber[])val).length; j++)
+                        {
+                            args[j] = ((RationalNumber[])val)[j].toDisplayString();
+                        }
+                        metadataTags.put( tagName, args );
+                    }
+                    else
+                    {
+                        metadataTags.put( tagName, val );
+                    }
+
                 }
+
 
 
 

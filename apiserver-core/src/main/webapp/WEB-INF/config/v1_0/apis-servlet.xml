@@ -17,8 +17,10 @@
            http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
            http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
+	<context:mbean-export registration="replaceExisting"/>
 	<context:annotation-config />
 	<mvc:annotation-driven/>
+
 
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
@@ -49,15 +51,17 @@
 	<!-- MBeans -->
 	<bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/>
 
+
+
 	<!-- this bean must not be lazily initialized if the exporting is to happen -->
-	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+	<!--bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
 		<property name="registrationBehaviorName" value="REGISTRATION_IGNORE_EXISTING"/>
 		<property name="beans">
 			<map>
 				<entry key="com.apiserver:name=ImageApi" value-ref="imageConfigMBean"/>
 			</map>
 		</property>
-	</bean>
+	</bean-->
 
 
 

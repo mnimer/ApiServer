@@ -93,7 +93,7 @@ public class ImageMetadataApacheCommons extends HttpTest
         JsonNode root = mapper.readTree(in);
 
         //Assert.notNull(root.get("coldfusion"));
-        Assert.isTrue(((JsonNode) root.get("ROOT")) != null);
+        Assert.isTrue(((JsonNode) root.get("IFD0")) != null);
         Assert.isTrue(((JsonNode) root.get("GPS")) != null);
         Assert.isTrue(((JsonNode) root.get("EXIF")) != null);
 

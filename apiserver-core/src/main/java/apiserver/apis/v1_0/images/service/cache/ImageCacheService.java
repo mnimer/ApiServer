@@ -1,11 +1,13 @@
 package apiserver.apis.v1_0.images.service.cache;
 
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.FactoryException;
 import apiserver.exceptions.MessageConfigException;
 import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -21,7 +23,7 @@ public class ImageCacheService
 {
 
     @Autowired
-    public ImageConfigMBeanImpl imageConfigMBean;
+    private ImageConfigMBean imageConfigMBean;
 
 
     public Object checkCache(Message<?> message) throws MessageConfigException

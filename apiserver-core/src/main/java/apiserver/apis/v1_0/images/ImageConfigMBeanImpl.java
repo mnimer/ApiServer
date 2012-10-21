@@ -5,6 +5,10 @@ import apiserver.services.v1_0.cache.CacheServiceMBean;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedResource;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +18,8 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/18/12
  */
+@Component
+@ManagedResource(objectName = "com.apiserver:name=ImageApi")
 public class ImageConfigMBeanImpl implements ImageConfigMBean
 {
     // Message params Arguments
@@ -75,36 +81,41 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     }
 
 
+    @ManagedAttribute(description="get cache name for the system image collection")
     public String getCacheName()
     {
         return cacheName;
     }
 
 
+    @ManagedAttribute(description="set cache name for the system image collection, default is: 'imageApiCache'")
     public void setCacheName(String cacheName)
     {
         this.cacheName = cacheName;
     }
 
 
+    @ManagedAttribute(description="get cache library for image operations")
     public String getCacheLibrary()
     {
         return cacheLibrary;
     }
 
-
+    @ManagedAttribute(description="set cache library for image operations, possible values are: 'ehcache' (default), 'jcache'")
     public void setCacheLibrary(String cacheLibrary)
     {
         this.cacheLibrary = cacheLibrary;
     }
 
 
+    @ManagedAttribute(description="get metadata library")
     public String getMetadataLibrary()
     {
         return metadataLibrary;
     }
 
 
+    @ManagedAttribute(description="set metadata library, possible values are: 'drewMetadataExtractor' (default), 'apacheCommonsImaging'", persistPolicy = "OnUpdate")
     public void setMetadataLibrary(String metadataLibrary)
     {
         this.metadataLibrary = metadataLibrary;
