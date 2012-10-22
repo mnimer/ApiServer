@@ -113,9 +113,6 @@ public class ImageMetadataService
 
                 }
 
-
-
-
                 System.out.println("    " + "item: " + item);
             }
 

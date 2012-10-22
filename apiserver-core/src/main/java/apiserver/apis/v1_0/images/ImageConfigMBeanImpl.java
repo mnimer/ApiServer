@@ -40,6 +40,7 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public static String Y = "y";
     public static String APACHE_COMMONS_IMAGING = "apacheCommonsImaging";
     public static String DREW_METADATA_EXTRACTOR = "drewMetadataExtractor";
+    public static String EXIFTOOL_METADATA_EXTRACTOR = "exifTool";
 
 
     private String cacheName = "imageApiCache";
@@ -115,7 +116,7 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     }
 
 
-    @ManagedAttribute(description="set metadata library, possible values are: 'drewMetadataExtractor' (default), 'apacheCommonsImaging'", persistPolicy = "OnUpdate")
+    @ManagedAttribute(description="set metadata library, possible values are: 'drewMetadataExtractor' (default), 'apacheCommonsImaging', 'exifTool'", persistPolicy = "OnUpdate")
     public void setMetadataLibrary(String metadataLibrary)
     {
         this.metadataLibrary = metadataLibrary;

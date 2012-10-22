@@ -178,7 +178,6 @@
 		</dependency>
 
 
-
 		<!--
 		 Dependencies for SWAGGER code
 		-->
@@ -548,7 +547,6 @@
 			<name>Apache Development Snapshot Repository</name>
 			<url>https://repository.apache.org/snapshots</url>
 		</repository>
-
 
 	</repositories>
 

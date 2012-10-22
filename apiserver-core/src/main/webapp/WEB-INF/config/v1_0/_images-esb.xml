@@ -158,6 +158,7 @@
 	<!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
 	<si:channel id="drewMetadataExtractor"/>
 	<si:channel id="apacheCommonsImaging"/>
+	<si:channel id="exifTool"/>
 
 		<si:service-activator
 				input-channel="imageMetadataInputChannel"
@@ -175,7 +176,7 @@
 
 			<si:service-activator
 					input-channel="drewMetadataExtractor"
-					output-channel="nullChannel"
+					output-channel="noOpOutputChannel"
 					method="imageMetadataHandler">
 				<bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
 			</si:service-activator>
@@ -185,6 +186,13 @@
 					output-channel="noOpOutputChannel"
 					method="imageMetadataHandler">
 				<bean class="apiserver.apis.v1_0.images.service.apache_commons.ImageMetadataService"/>
+			</si:service-activator>
+
+			<si:service-activator
+					input-channel="exifTool"
+					output-channel="noOpOutputChannel"
+					method="imageMetadataHandler">
+				<bean class="apiserver.apis.v1_0.images.service.exiftool.ImageMetadataService"/>
 			</si:service-activator>
 
 

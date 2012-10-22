@@ -38,7 +38,7 @@ import java.util.Set;
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
-public class ImageMetadataApacheCommons extends HttpTest
+public class ImageMetadataExifToolExtractor extends HttpTest
 {
     private String hostName = "localhost";
     private int port = 9000;
@@ -47,8 +47,7 @@ public class ImageMetadataApacheCommons extends HttpTest
     @Before
     public void setup() throws Exception
     {
-        String serviceURL = "service:jmx:rmi:///jndi/rmi://" + hostName + ":" + port +
-                "/jmxrmi";
+        String serviceURL = "service:jmx:rmi:///jndi/rmi://" + hostName + ":" + port +"/jmxrmi";
         JMXServiceURL jmxUrl = new JMXServiceURL(serviceURL);
         JMXConnector jmxCon = JMXConnectorFactory.connect(jmxUrl);
 
@@ -59,12 +58,11 @@ public class ImageMetadataApacheCommons extends HttpTest
 
         ImageConfigMBean imageConfigProxy = JMX.newMBeanProxy(catalogServerConnection, imageApiConfig, ImageConfigMBean.class, true);
 
-        imageConfigProxy.setMetadataLibrary(ImageConfigMBeanImpl.APACHE_COMMONS_IMAGING);
+        imageConfigProxy.setMetadataLibrary(ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR);
 
         System.out.println(imageConfigProxy.getMetadataLibrary());
 
         jmxCon.close();
-
     }
 
 
@@ -93,9 +91,18 @@ public class ImageMetadataApacheCommons extends HttpTest
         JsonNode root = mapper.readTree(in);
 
         //Assert.notNull(root.get("coldfusion"));
+        Assert.isTrue(((JsonNode) root.get("ExifIFD")) != null);
+        Assert.isTrue(((JsonNode) root.get("ICC_Profile")) != null);
+        Assert.isTrue(((JsonNode) root.get("JFIF")) != null);
         Assert.isTrue(((JsonNode) root.get("IFD0")) != null);
+        Assert.isTrue(((JsonNode) root.get("ICC-view")) != null);
+        Assert.isTrue(((JsonNode) root.get("ICC-header")) != null);
+        Assert.isTrue(((JsonNode) root.get("File")) != null);
         Assert.isTrue(((JsonNode) root.get("GPS")) != null);
-        Assert.isTrue(((JsonNode) root.get("EXIF")) != null);
+        Assert.isTrue(((JsonNode) root.get("System")) != null);
+        Assert.isTrue(((JsonNode) root.get("ICC-meas")) != null);
+        Assert.isTrue(((JsonNode) root.get("Composite")) != null);
+        Assert.isTrue(((JsonNode) root.get("ExifTool")) != null);
 
 
         in.close();

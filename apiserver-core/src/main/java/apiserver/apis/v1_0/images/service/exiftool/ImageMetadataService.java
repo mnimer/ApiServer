@@ -5,14 +5,15 @@ import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import com.drew.imaging.ImageMetadataReader;
-import com.drew.metadata.Directory;
-import com.drew.metadata.Metadata;
-import com.drew.metadata.Tag;
+import org.im4java.core.ETOperation;
+import org.im4java.core.ExiftoolCmd;
+import org.im4java.process.ArrayListOutputConsumer;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,25 +46,42 @@ public class ImageMetadataService
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
 
-
-
             Map metadataDirectories = new HashMap();
 
+            ETOperation op = new ETOperation();
+            //op.getTags("Filename","ImageWidth","ImageHeight","FNumber","ExposureTime","iso");
+            //op.addRawArgs( "-a", "-u", "-g" );
+            op.addRawArgs( "-a", "-u", "-G1", "-t" );
+            op.addImage();
 
-            //Metadata metadata = ImageMetadataReader.readMetadata( (BufferedInputStream)FileHelper.getFileInputStream(file), false);
-            Metadata metadata = ImageMetadataReader.readMetadata(FileHelper.getFile(file));
-            for (Directory directory : metadata.getDirectories())
-            {
-                Map metadataTags = new HashMap();
-                metadataDirectories.put(directory.getName(), metadataTags);
-                for (Tag tag : directory.getTags())
-                {
-                    metadataTags.put( tag.getTagName(), tag);
-                }
-            }
+            // setup command and execute it (capture output)
+            ArrayListOutputConsumer output = new ArrayListOutputConsumer();
+            ExiftoolCmd et = new ExiftoolCmd();
+            et.setOutputConsumer(output);
+            et.run(op,  FileHelper.getFile(file).getAbsolutePath());
+            ArrayList<String> cmdOutput = output.getOutput();
 
             long end = System.currentTimeMillis();
 
+
+            for (String tag : cmdOutput)
+            {
+                String[] _tag = tag.trim().split("\t"); //todo , not going to work. need to count spaces
+                String _group = _tag[0].trim();
+                String _key = _tag[1].trim();
+                String _value = _tag[2].trim();
+
+
+                if( !metadataDirectories.containsKey(_group) )
+                {
+                    metadataDirectories.put(_group, new HashMap() );
+                }
+
+                Map subMap = (Map)metadataDirectories.get( _group );
+                subMap.put( _key, _value );
+            }
+
+            // send back
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             payload.putAll(metadataDirectories);
@@ -71,7 +89,7 @@ public class ImageMetadataService
 
             Map cfData = new HashMap();
             cfData.put("executiontime", end - start);
-            payload.put("coldfusion", cfData);
+            payload.put("ExifTool", cfData);
 
 
             return payload;
