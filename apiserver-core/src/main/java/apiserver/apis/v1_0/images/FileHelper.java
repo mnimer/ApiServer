@@ -52,7 +52,7 @@ public class FileHelper
 
         File file = new File(filePath);
         outputStream = new FileOutputStream(file);
-        outputStream.write( ((CommonsMultipartFile)uploadedFile).getBytes() );
+        outputStream.write( fileBytes(uploadedFile) );
         outputStream.close();
 
         return file;

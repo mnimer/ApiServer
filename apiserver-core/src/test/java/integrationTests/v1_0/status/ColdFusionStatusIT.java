@@ -54,7 +54,7 @@ public class ColdFusionStatusIT
     public void testColdFusionStatus() throws ServletException, IOException, Exception
     {
 
-        URL url = new URL( getUrlBase() +"/v1-0/status/coldfusion/health.json");
+        URL url = new URL( getUrlBase() +"/rest/v1/status/coldfusion/health.json");
         BufferedReader in = new BufferedReader( new InputStreamReader(url.openStream()) );
 
 

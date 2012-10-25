@@ -2,6 +2,8 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -45,9 +47,10 @@ public class ImageCacheController
      * @param timeToLiveInSeconds
      * @return cache ID
      */
+    @ApiOperation(value = "add an image to the cache")
     @RequestMapping(value = "/add", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView addImage(
-            @RequestParam(required = true) MultipartFile file
+            @ApiParam(name="file", required = true) @RequestParam(required = true) MultipartFile file
             , @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
     {
         Map<String, Object> args = new HashMap<String, Object>();
@@ -67,9 +70,10 @@ public class ImageCacheController
      * @param cacheId
      * @return
      */
+    @ApiOperation(value = "get an image from cache")
     @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView getImage(
-            @PathVariable(value = "cacheId") String cacheId )
+            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -84,9 +88,10 @@ public class ImageCacheController
      * @param cacheId
      * @return
      */
+    @ApiOperation(value = "delete an image in cache")
     @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
     public ModelAndView deleteImage(
-            @PathVariable(value = "cacheId") String cacheId )
+            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);

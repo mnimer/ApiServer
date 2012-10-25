@@ -73,7 +73,7 @@ public class ImageMetadataDrewMetadataExtractor extends HttpTest
         int width = 500;
         int height = 296;
         String fileName = "Apple iPhone 4.jpeg";
-        String url = "/v1-0/image/metadata/info.json";
+        String url = "/rest/v1/image/metadata/info.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

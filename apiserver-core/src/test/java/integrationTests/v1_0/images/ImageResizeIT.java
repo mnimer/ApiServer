@@ -38,7 +38,7 @@ public class ImageResizeIT extends HttpTest
         int width = 250;
         int height = 148;
         String fileName = "IMG_5932_sm.png";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -71,7 +71,7 @@ public class ImageResizeIT extends HttpTest
         int width = 250;
         int height = 148;
         String fileName = "IMG_5932_sm.png";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -108,7 +108,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -141,7 +141,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -172,7 +172,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -203,7 +203,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -227,7 +227,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -251,7 +251,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -278,7 +278,7 @@ public class ImageResizeIT extends HttpTest
         int width = 2000;
         int height = 1000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/resize";
+        String url = "/rest/v1/image/resize";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

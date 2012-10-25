@@ -2,6 +2,8 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -35,16 +37,15 @@ public class ImageDrawingController
 
     /**
      *
-     * @param request
-     * @param response
      * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
+    @ApiOperation(value = "")
     @RequestMapping(value = "/{cacheId}/border", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView drawBorderById(
-            @PathVariable(value = "cacheId") String cacheId
-            , @RequestParam(required = true) String color
-            , @RequestParam(required = true) Integer thickness )
+            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -57,17 +58,15 @@ public class ImageDrawingController
 
     /**
      *
-     * @param request
-     * @param response
      * @param file
      * @return   height,width, pixel size, transparency
      */
+    @ApiOperation(value = "")
     @RequestMapping(value = "/border", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView drawBorderByImage(
-            @RequestPart("meta-data") Object metadata
-            , @RequestPart("file-data") MultipartFile file
-            , @RequestParam(required = true) String color
-            , @RequestParam(required = true) String thickness )
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) String thickness )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.FILE, file);
@@ -88,21 +87,20 @@ public class ImageDrawingController
      <cfset ImageDrawText(myImage, watermark,650,610, attr)>
      *
      *
-     * @param request
-     * @param response
      * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
+    @ApiOperation(value = "")
     @RequestMapping(value = "/{cacheId}/watermark", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView drawWatermarkById(
-            @PathVariable(value = "cacheId") String cacheId
-            , @RequestParam(required = true) String text
-            , @RequestParam(required = true) String color
-            , @RequestParam(required = true) String fontSize
-            , @RequestParam(required = true) String fontStyle
-            , @RequestParam(required = true) Integer angle
-            , @RequestParam(required = true) Integer x
-            , @RequestParam(required = true) Integer y )
+            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId
+            , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
+            , @ApiParam(name="fontStyle", required = true) @RequestParam(required = true) String fontStyle
+            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
+            , @ApiParam(name="x", required = true) @RequestParam(required = true) Integer x
+            , @ApiParam(name="y", required = true) @RequestParam(required = true) Integer y )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -121,21 +119,20 @@ public class ImageDrawingController
 
     /**
      *
-     * @param request
-     * @param response
      * @param file
      * @return   height,width, pixel size, transparency
      */
+    @ApiOperation(value = "")
     @RequestMapping(value = "/watermark", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView drawWatermarkByImage(
-            @RequestPart("file-data") MultipartFile file
-            , @RequestParam(required = true) String text
-            , @RequestParam(required = true) String color
-            , @RequestParam(required = true) String fontSize
-            , @RequestParam(required = true) String fontStyle
-            , @RequestParam(required = false) Integer angle
-            , @RequestParam(required = true) Integer x
-            , @RequestParam(required = true) Integer y)
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
+            , @ApiParam(name="fontStyle", required = true) @RequestParam(required = true) String fontStyle
+            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
+            , @ApiParam(name="x", required = true) @RequestParam(required = true) Integer x
+            , @ApiParam(name="y", required = true) @RequestParam(required = true) Integer y )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.FILE, file);

@@ -39,6 +39,7 @@
 	<si:channel id="imageSizeInputChannel"/>
 
 	<si:channel id="imageMetadataInputChannel"/>
+	<si:channel id="imageMetadataStripMetadataInputChannel"/>
 
 	<si:channel id="imageRotateInputChannel"/>
 
@@ -153,7 +154,7 @@
 		Image Embedded Metadata
 		Note: because of the router, this is not in a CHAIN
 	-->
-	<si:channel id="metadataRouter"/>
+	<si:channel id="metadataInfoRouter"/>
 
 	<!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
 	<si:channel id="drewMetadataExtractor"/>
@@ -162,13 +163,13 @@
 
 		<si:service-activator
 				input-channel="imageMetadataInputChannel"
-				output-channel="metadataRouter"
+				output-channel="metadataInfoRouter"
 				method="checkCache">
 			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
 		</si:service-activator>
 
 		<si:router
-				input-channel="metadataRouter"
+				input-channel="metadataInfoRouter"
 				method="route">
 			<bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
 		</si:router>
@@ -191,10 +192,9 @@
 			<si:service-activator
 					input-channel="exifTool"
 					output-channel="noOpOutputChannel"
-					method="imageMetadataHandler">
+					method="metadataInfo">
 				<bean class="apiserver.apis.v1_0.images.service.exiftool.ImageMetadataService"/>
 			</si:service-activator>
-
 
 
 
@@ -261,7 +261,7 @@
 
 
 	<!--
-		Image RESIZE
+		Image Draw text (watermark) on image
 	-->
 	<si:chain input-channel="imageDrawTextInputChannel" output-channel="noOpOutputChannel">
 

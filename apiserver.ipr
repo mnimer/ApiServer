@@ -129,14 +129,6 @@
       </root>
     </artifact>
   </component>
-  <component name="CfmlProjectConfiguration">
-    <mappings2>
-      <CfmlMappingsConfig />
-    </mappings2>
-    <mappings>
-      <CfmlMappingsConfig />
-    </mappings>
-  </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="Javac" />
     <resourceExtensions />
@@ -161,12 +153,14 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/api-status-bundle" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apiserver-core" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="Osmorc" url="file://$PROJECT_DIR$/api-status-bundle" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/bundles/api.status" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/bundles/library.service.interfaces" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/bundles/service.coldfusion" />

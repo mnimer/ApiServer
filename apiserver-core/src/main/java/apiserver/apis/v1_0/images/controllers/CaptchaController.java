@@ -55,11 +55,11 @@ public class CaptchaController
     @RequestMapping(value = "/generate", method = {RequestMethod.GET,RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> getCaptcha(
-            @RequestParam(required = true) String text
-            , @RequestParam(required = true) Integer width
-            , @RequestParam(required = true) Integer height
-            , @RequestParam(required = true) Integer fontSize
-            , @RequestParam(required = false, defaultValue = "medium") String difficulty )  throws IOException
+            @ApiParam(name="text", required = true, defaultValue = "hello world") @RequestParam(required = true) String text
+            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true, defaultValue = "100") @RequestParam(required = true) Integer height
+            , @ApiParam(name="fontSize", required = true, defaultValue = "10") @RequestParam(required = true) Integer fontSize
+            , @ApiParam(name="difficulty", required = false, defaultValue = "medium") @RequestParam(required = false, defaultValue = "medium") String difficulty )  throws IOException
     {
         Map args = new LinkedHashMap();
         args.put("text", text);

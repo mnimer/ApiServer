@@ -2,6 +2,8 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -41,11 +43,12 @@ public class ImageManipulationController
      * @param angle
      * @return
      */
+    @ApiOperation(value="Rotate a cached image")
     @RequestMapping(value = "/{cacheId}/rotate", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public byte[] rotateImageById(
-            @PathVariable("cacheId") String cacheId
-            , @RequestParam(required = true) Integer angle)
+            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId
+            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -63,11 +66,12 @@ public class ImageManipulationController
      * @param angle
      * @return
      */
+    @ApiOperation(value="Rotate an uploaded image")
     @RequestMapping(value = "/rotate", method = {RequestMethod.POST, RequestMethod.PUT})
     @ResponseBody
     public byte[] rotateImageByImage(
-            @RequestParam MultipartFile file
-            , @RequestParam(required = true) Integer angle)
+            @ApiParam(name="file", required = true) @RequestParam MultipartFile file
+            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.FILE, file);
@@ -89,14 +93,15 @@ public class ImageManipulationController
      * @param scaleToFit    (false)
      * @return
      */
+    @ApiOperation(value="Resize an cached image")
     @RequestMapping(value = "/{cacheId}/resize", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public byte[] resizeImageById(
-            @PathVariable("cacheId") String cacheId
-            , @RequestParam(required = true) Integer width
-            , @RequestParam(required = true) Integer height
-            , @RequestParam(required = false, defaultValue = "bicubic") String interpolation
-            , @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
+            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId
+            , @ApiParam(name="width", required = true) @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true) @RequestParam(required = true) Integer height
+            , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
+            , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -119,14 +124,15 @@ public class ImageManipulationController
      * @param height
      * @return
      */
+    @ApiOperation(value="Resize an uploaded image")
     @RequestMapping(value = "/resize", method = {RequestMethod.POST, RequestMethod.PUT})
     @ResponseBody
     public byte[] resizeImageByImage(
-            @RequestParam MultipartFile file
-            , @RequestParam(required = true) Integer width
-            , @RequestParam(required = true) Integer height
-            , @RequestParam(required = false, defaultValue = "bicubic") String interpolation
-            , @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
+            @ApiParam(name="file", required = true) @RequestParam MultipartFile file
+            , @ApiParam(name="width", required = true) @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true) @RequestParam(required = true) Integer height
+            , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
+            , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.FILE, file);

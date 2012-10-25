@@ -38,7 +38,7 @@ public class ImageRotateIT extends HttpTest
         int width = 296;
         int height = 500;
         String fileName = "IMG_5932_sm.png";
-        String url = "/v1-0/image/rotate";
+        String url = "/rest/v1/image/rotate";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -69,7 +69,7 @@ public class ImageRotateIT extends HttpTest
         int width = 3000;
         int height = 4000;
         String fileName = "IMG_5932.JPG";
-        String url = "/v1-0/image/rotate";
+        String url = "/rest/v1/image/rotate";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

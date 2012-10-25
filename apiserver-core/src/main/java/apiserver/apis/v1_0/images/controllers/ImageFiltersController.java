@@ -1,6 +1,8 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,9 +29,10 @@ public class ImageFiltersController
     private HttpServletRequest request;
 
 
-    @RequestMapping(value = "/{id}/grayscale", method = {RequestMethod.GET,RequestMethod.POST})
+    @ApiOperation(value="")
+    @RequestMapping(value = "/{cacheId}/grayscale", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView imageInfoById(
-            @PathVariable("id") String cacheId)
+            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -38,10 +41,10 @@ public class ImageFiltersController
 
     }
 
-
+    @ApiOperation(value="")
     @RequestMapping(value = "/grayscale", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView imageInfoById(
-            @RequestParam MultipartFile file)
+            @ApiParam(name="file", required = true) @RequestParam MultipartFile file)
     {
         Map<String, Object> args = new HashMap<String, Object>();
 

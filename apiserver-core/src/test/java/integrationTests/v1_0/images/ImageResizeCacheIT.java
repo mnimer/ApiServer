@@ -40,7 +40,7 @@ public class ImageResizeCacheIT extends HttpTest
     @Before
     public void setup() throws Exception
     {
-        String url = "/v1-0/image/cache/add";
+        String url = "/rest/v1/image/cache/add";
         String fileName = "IMG_5932_sm.png";
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
@@ -64,7 +64,7 @@ public class ImageResizeCacheIT extends HttpTest
     {
         int width = 250;
         int height = 148;
-        String url = "/v1-0/image/" + key +"/resize";
+        String url = "/rest/v1/image/" + key +"/resize";
 
 
         Map<String, Object> args = new HashMap<String, Object>();
