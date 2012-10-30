@@ -1,5 +1,6 @@
 package integrationTests.v1_0;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;
@@ -12,7 +13,6 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreProtocolPNames;
-import org.apache.http.params.HttpParams;
 import org.junit.After;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.MapFactoryBean;
@@ -29,7 +29,8 @@ import java.util.Map;
  * Date: 9/26/12
  */
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
-public abstract class HttpTest
+@Slf4j
+public class HttpTest
 {
     @Autowired
     public MapFactoryBean unitTestProperties;
@@ -61,7 +62,7 @@ public abstract class HttpTest
         String url = getUrlBase() + urlPath;
 
         client = new DefaultHttpClient();
-        //client.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
+        client.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
 
 
         URIBuilder builder = new URIBuilder(url);
@@ -77,6 +78,8 @@ public abstract class HttpTest
         }
         URI uri = builder.build();
         HttpGet post = new HttpGet(uri);
+        log.debug("Invoking URL: " +uri);
+        System.out.println(uri);//todo remove
 
 
         int status = 0;

@@ -2,6 +2,7 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import coldfusion.image.Image;
+import com.adobe.xmp.impl.Base64;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -59,7 +60,9 @@ public class CaptchaController
             , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
             , @ApiParam(name="height", required = true, defaultValue = "100") @RequestParam(required = true) Integer height
             , @ApiParam(name="fontSize", required = true, defaultValue = "10") @RequestParam(required = true) Integer fontSize
-            , @ApiParam(name="difficulty", required = false, defaultValue = "medium") @RequestParam(required = false, defaultValue = "medium") String difficulty )  throws IOException
+            , @ApiParam(name="difficulty", required = false, defaultValue = "medium", allowableValues = "low,medium,high") @RequestParam(required = false, defaultValue = "medium") String difficulty
+            , @ApiParam(name="returnAsBase64", required = false, defaultValue = "true", allowableValues="true,false") @RequestParam(required = false, defaultValue = "false") Boolean returnAsBase64
+    )  throws IOException
     {
         Map args = new LinkedHashMap();
         args.put("text", text);
@@ -77,7 +80,15 @@ public class CaptchaController
 
         final HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.IMAGE_JPEG);
-        return new ResponseEntity<byte[]>(((Image)view.getModel().get("result")).getImageBytes("jpg"), headers, HttpStatus.CREATED);
+
+        if( !returnAsBase64 )
+        {
+            return new ResponseEntity<byte[]>(((Image)view.getModel().get("result")).getImageBytes("jpg"), headers, HttpStatus.CREATED);
+        }
+        else
+        {
+            return new ResponseEntity<byte[]>(((Image)view.getModel().get("result")).getBase64String("jpg").getBytes(), headers, HttpStatus.CREATED);
+        }
     }
 
 

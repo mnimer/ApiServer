@@ -10,6 +10,7 @@ import coldfusion.image.Image;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,14 +44,14 @@ public class ImageManipulationCFService
             long start = System.currentTimeMillis();
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
             Object file = props.get(ImageConfigMBeanImpl.FILE);
-            Object[] myArgs = {FileHelper.fileBytes(file), props.get(ImageConfigMBeanImpl.ANGLE)};
+            Object[] myArgs = {new Image( (BufferedImage)file), props.get(ImageConfigMBeanImpl.ANGLE)};
             Image cfcResult = (Image)myCFC.invoke("rotateImage", myArgs);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             payload.clear();
-            payload.put("image", cfcResult.getImageBytes(FileHelper.fileName(file).split("\\.")[1]) );
+            payload.put("result", cfcResult);//.getImageBytes(FileHelper.fileName(file).split("\\.")[1]) );
 
 
 
@@ -92,7 +93,7 @@ public class ImageManipulationCFService
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = {FileHelper.fileBytes(file)
+            Object[] myArgs = { new Image( (BufferedImage)file)  /*FileHelper.fileBytes(file)*/
                     , props.get(ImageConfigMBeanImpl.WIDTH)
                     , props.get(ImageConfigMBeanImpl.HEIGHT)
                     , props.get(ImageConfigMBeanImpl.INTERPOLATION)
@@ -103,7 +104,7 @@ public class ImageManipulationCFService
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             payload.clear();
-            payload.put("image", cfcResult.getImageBytes( FileHelper.fileName(file).split("\\.")[1] ) );
+            payload.put("result", cfcResult);//.getImageBytes( FileHelper.fileName(file).split("\\.")[1] ) );
 
 
             Map cfData = new HashMap();

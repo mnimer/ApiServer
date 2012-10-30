@@ -24,6 +24,10 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 {
     // Message params Arguments
     public static String FILE = "file";
+    public static String CONTENT_TYPE = "contentType";
+    public static String ORIGINAL_FILE_NAME = "originalFileName";
+    public static String NAME = "name";
+    public static String SIZE = "size";
     public static String KEY = "key";
     public static String TEXT = "text";
     public static String TIME_TO_LIVE = "timeToLive";
@@ -38,14 +42,13 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public static String FONT_STYLE = "fontStyle";
     public static String X = "x";
     public static String Y = "y";
-    public static String APACHE_COMMONS_IMAGING = "apacheCommonsImaging";
     public static String DREW_METADATA_EXTRACTOR = "drewMetadataExtractor";
     public static String EXIFTOOL_METADATA_EXTRACTOR = "exifTool";
 
 
     private String cacheName = "imageApiCache";
     private String cacheLibrary = CacheServiceMBean.EHCACHE;
-    private String metadataLibrary = ImageConfigMBeanImpl.DREW_METADATA_EXTRACTOR;
+    private String metadataLibrary = ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR;
     private Map<String, Cache> imageApiCache = new HashMap<String, Cache>();
 
 
@@ -116,7 +119,7 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     }
 
 
-    @ManagedAttribute(description="set metadata library, possible values are: 'drewMetadataExtractor' (default), 'apacheCommonsImaging', 'exifTool'", persistPolicy = "OnUpdate")
+    @ManagedAttribute(description="set metadata library, possible values are: 'drewMetadataExtractor', 'exifTool' (default)", persistPolicy = "OnUpdate")
     public void setMetadataLibrary(String metadataLibrary)
     {
         this.metadataLibrary = metadataLibrary;

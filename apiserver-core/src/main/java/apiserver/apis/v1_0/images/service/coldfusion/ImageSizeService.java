@@ -6,10 +6,12 @@ import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
+import coldfusion.image.Image;
 import coldfusion.runtime.Struct;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +47,7 @@ public class ImageSizeService
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = { FileHelper.fileBytes(file) };
+            Object[] myArgs = { new Image( (BufferedImage)file) };
             Struct cfcResult = (Struct)myCFC.invoke("imageInfo", myArgs);
             long end = System.currentTimeMillis();
 

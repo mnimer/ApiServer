@@ -52,7 +52,8 @@ public class ImageDrawingController
         args.put(ImageConfigMBeanImpl.COLOR, color);
         args.put(ImageConfigMBeanImpl.THICKNESS, thickness);
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        //return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        throw new RuntimeException("Not implemented exception");
     }
 
 
@@ -73,7 +74,8 @@ public class ImageDrawingController
         args.put(ImageConfigMBeanImpl.COLOR, color);
         args.put(ImageConfigMBeanImpl.THICKNESS, thickness);
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        //return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        throw new RuntimeException("Not implemented exception");
     }
 
 
@@ -113,7 +115,8 @@ public class ImageDrawingController
         args.put(ImageConfigMBeanImpl.X, x);
         args.put(ImageConfigMBeanImpl.Y, y);
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        //return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        throw new RuntimeException("Not implemented exception");
     }
 
 
@@ -144,6 +147,7 @@ public class ImageDrawingController
         args.put(ImageConfigMBeanImpl.X, x);
         args.put(ImageConfigMBeanImpl.Y, y);
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        //return channelInvoker.invokeGenericChannel(request, null, args, imageDrawBorderInputChannel);
+        throw new RuntimeException("Not implemented exception");
     }
 }

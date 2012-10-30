@@ -7,10 +7,7 @@ import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,7 +48,7 @@ public class ImageCacheController
     @RequestMapping(value = "/add", method = {RequestMethod.POST, RequestMethod.PUT})
     public ModelAndView addImage(
             @ApiParam(name="file", required = true) @RequestParam(required = true) MultipartFile file
-            , @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
+            ,@ApiParam(name="timeToLiveInSeconds", required = true)  @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.FILE, file);
@@ -70,6 +67,7 @@ public class ImageCacheController
      * @param cacheId
      * @return
      */
+    @ResponseBody
     @ApiOperation(value = "get an image from cache")
     @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView getImage(

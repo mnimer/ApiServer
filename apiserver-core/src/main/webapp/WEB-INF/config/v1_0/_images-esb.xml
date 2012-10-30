@@ -158,7 +158,6 @@
 
 	<!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
 	<si:channel id="drewMetadataExtractor"/>
-	<si:channel id="apacheCommonsImaging"/>
 	<si:channel id="exifTool"/>
 
 		<si:service-activator
@@ -180,13 +179,6 @@
 					output-channel="noOpOutputChannel"
 					method="imageMetadataHandler">
 				<bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
-			</si:service-activator>
-
-			<si:service-activator
-					input-channel="apacheCommonsImaging"
-					output-channel="noOpOutputChannel"
-					method="imageMetadataHandler">
-				<bean class="apiserver.apis.v1_0.images.service.apache_commons.ImageMetadataService"/>
 			</si:service-activator>
 
 			<si:service-activator
@@ -278,6 +270,21 @@
 	</si:chain>
 
 
+
+	<si:channel id="imageBoxBlurFilterChannel"/>
+	<si:chain input-channel="imageBoxBlurFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.BoxBlurFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
 </beans>
 
 

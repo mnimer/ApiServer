@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -26,7 +29,7 @@ public class ImageCacheService
     private ImageConfigMBean imageConfigMBean;
 
 
-    public Object checkCache(Message<?> message) throws MessageConfigException
+    public Object checkCache(Message<?> message) throws MessageConfigException, IOException
     {
         Map props = (Map)message.getPayload();
 
@@ -35,10 +38,11 @@ public class ImageCacheService
         {
             try
             {
-                Element file = imageConfigMBean.getCache().get(key);
-                if( file != null )
+                Element cachedElement = imageConfigMBean.getCache().get(key);
+                if( cachedElement != null )
                 {
-                    props.put( ImageConfigMBeanImpl.FILE, file.getObjectValue() );
+                    Map cachedProperties = (Map)cachedElement.getObjectValue();
+                    props.putAll( cachedProperties );
                 }
             }
             catch (FactoryException fe)
@@ -46,6 +50,17 @@ public class ImageCacheService
                 fe.printStackTrace();
                 //todo LOG
             }
+        }
+        else
+        {
+            // not in cache, (file upload - form post) so convert it as if it was cached so the code after this
+            // works the same.
+            CommonsMultipartFile file = ((CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE));
+
+            Map cachedProperties = getFileProperties(file);
+
+            //CachedImage cachedImage = new CachedImage( (CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE) );
+            props.putAll( cachedProperties );
         }
 
         if( !props.containsKey( ImageConfigMBeanImpl.FILE) )
@@ -62,7 +77,7 @@ public class ImageCacheService
         Map props = (Map)message.getPayload();
         String key = UUID.randomUUID().toString();
 
-        Object file = props.get(ImageConfigMBeanImpl.FILE);
+        CommonsMultipartFile file = (CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE);
         Integer timeout = (Integer)props.get(ImageConfigMBeanImpl.TIME_TO_LIVE);
 
         if( file == null )
@@ -70,11 +85,12 @@ public class ImageCacheService
             throw new MessageConfigException( MessageConfigException.MISSING_PROPERTY );
         }
 
-        // todo use a wrapper so we can add per file timeout
-        CachedImage cachedImage = new CachedImage( (CommonsMultipartFile)file );
+
+        // get & save file properties
+        Map cachedProperties = getFileProperties(file);
 
 
-        Element element = new Element(key, cachedImage );
+        Element element = new Element(key, cachedProperties );
         if( timeout == 0)
         {
             element.setEternal(true);
@@ -83,6 +99,7 @@ public class ImageCacheService
         {
             element.setTimeToLive(timeout);
         }
+
 
         imageConfigMBean.getCache().put(element);
         props.put(ImageConfigMBeanImpl.KEY, key);
@@ -98,11 +115,29 @@ public class ImageCacheService
         String key = (String)props.get(ImageConfigMBeanImpl.KEY);
 
         // todo use a wrapper so we can add per file timeout
-        Element file = imageConfigMBean.getCache().get(key);
+        Element cachedElement = imageConfigMBean.getCache().get(key);
 
-        props.put(key, file.getObjectValue());
+        Map cachedProperties = (Map) cachedElement.getObjectValue();
+
+        props.put(key, cachedProperties.get(ImageConfigMBeanImpl.FILE));
 
         return props;
     }
 
+
+
+
+    private Map getFileProperties(CommonsMultipartFile file) throws IOException
+    {
+        BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );
+
+        Map cachedProperties = new HashMap();
+        cachedProperties.put(ImageConfigMBeanImpl.FILE, cachedImage);
+        cachedProperties.put(ImageConfigMBeanImpl.CONTENT_TYPE, file.getContentType());
+        cachedProperties.put(ImageConfigMBeanImpl.ORIGINAL_FILE_NAME, file.getOriginalFilename());
+        cachedProperties.put(ImageConfigMBeanImpl.NAME, file.getName());
+        cachedProperties.put(ImageConfigMBeanImpl.SIZE, file.getSize());
+
+        return cachedProperties;
+    }
 }

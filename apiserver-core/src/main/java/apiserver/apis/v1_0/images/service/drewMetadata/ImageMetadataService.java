@@ -11,9 +11,18 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import org.springframework.integration.Message;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.rmi.server.UID;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * User: mnimer
@@ -44,14 +53,24 @@ public class ImageMetadataService
         {
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
-
-
+            String contentType = (String)props.get(ImageConfigMBeanImpl.CONTENT_TYPE);
 
             Map metadataDirectories = new HashMap();
 
 
+            byte[] bytes = ((DataBufferByte)((BufferedImage)file).getRaster().getDataBuffer()).getData();
+            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+            BufferedInputStream bis = new BufferedInputStream( bais );
+
             //Metadata metadata = ImageMetadataReader.readMetadata( (BufferedInputStream)FileHelper.getFileInputStream(file), false);
-            Metadata metadata = ImageMetadataReader.readMetadata(FileHelper.getFile(file));
+            Metadata metadata = ImageMetadataReader.readMetadata( bis, false );
+
+
+            //File tmpFile = File.createTempFile(UUID.randomUUID().toString(), ".jpg");
+            //ImageIO.write((BufferedImage) file, "jpeg", tmpFile);
+            //Metadata metadata = ImageMetadataReader.readMetadata(tmpFile);
+            //tmpFile.deleteOnExit();
+
             for (Directory directory : metadata.getDirectories())
             {
                 Map metadataTags = new HashMap();

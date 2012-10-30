@@ -3,6 +3,9 @@ package apiserver.apis.v1_0.images;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
 import java.io.*;
 import java.rmi.server.UID;
 import java.util.UUID;
@@ -24,12 +27,16 @@ public class FileHelper
         {
             return ((CachedImage)uploadedFile).getFileName();
         }
+        else if( uploadedFile instanceof BufferedImage)
+        {
+            return null;
+        }
 
         return null;
     }
 
 
-    public static byte[] fileBytes ( Object uploadedFile )
+    public static byte[] fileBytes ( Object uploadedFile ) throws IOException
     {
 
         if( uploadedFile instanceof CommonsMultipartFile)
@@ -39,6 +46,12 @@ public class FileHelper
         else if( uploadedFile instanceof CachedImage)
         {
             return ((CachedImage)uploadedFile).getFileBytes();
+        }
+        else if( uploadedFile instanceof BufferedImage)
+        {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(  (BufferedImage)uploadedFile, "jpg", baos);
+            return baos.toByteArray();
         }
 
         return null;
@@ -74,11 +87,6 @@ public class FileHelper
          **/
     }
 
-
-    public static InputStream getFileInputStream ( Object uploadedFile )
-    {
-        return new BufferedInputStream( new ByteArrayInputStream(fileBytes(uploadedFile)) );
-    }
 
 
 }
