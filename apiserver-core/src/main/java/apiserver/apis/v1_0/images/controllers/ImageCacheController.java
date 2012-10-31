@@ -74,9 +74,9 @@ public class ImageCacheController
      */
     @ResponseBody
     @ApiOperation(value = "get an image from cache")
-    @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> getImage(
-            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException
     {
@@ -98,7 +98,7 @@ public class ImageCacheController
      * @return
      */
     @ApiOperation(value = "delete an image in cache")
-    @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
+    @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET,RequestMethod.DELETE})
     public ModelAndView deleteImage(
             @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId )
     {

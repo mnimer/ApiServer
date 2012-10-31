@@ -41,9 +41,9 @@ public class ImageDrawingController
      * @return  height,width, pixel size, transparency
      */
     @ApiOperation(value = "")
-    @RequestMapping(value = "/{cacheId}/border", method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/border", method = {RequestMethod.GET})
     public ModelAndView drawBorderById(
-            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
             , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness )
     {
@@ -63,7 +63,7 @@ public class ImageDrawingController
      * @return   height,width, pixel size, transparency
      */
     @ApiOperation(value = "")
-    @RequestMapping(value = "/border", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/border", method = {RequestMethod.POST})
     public ModelAndView drawBorderByImage(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
@@ -93,9 +93,9 @@ public class ImageDrawingController
      * @return  height,width, pixel size, transparency
      */
     @ApiOperation(value = "")
-    @RequestMapping(value = "/{cacheId}/watermark", method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/watermark", method = {RequestMethod.GET})
     public ModelAndView drawWatermarkById(
-            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
             , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
             , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
@@ -126,7 +126,7 @@ public class ImageDrawingController
      * @return   height,width, pixel size, transparency
      */
     @ApiOperation(value = "")
-    @RequestMapping(value = "/watermark", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/watermark", method = {RequestMethod.POST})
     public ModelAndView drawWatermarkByImage(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
             , @ApiParam(name="text", required = true) @RequestParam(required = true) String text

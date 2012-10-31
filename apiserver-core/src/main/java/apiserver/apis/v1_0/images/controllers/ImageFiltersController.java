@@ -54,9 +54,11 @@ public class ImageFiltersController
 
 
     @ApiOperation(value = "")
-    @RequestMapping(value = "/{cacheId}/grayscale", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/grayscale", method = {RequestMethod.GET})
     public ModelAndView imageInfoById(
-            @ApiParam(name = "cacheId", required = true) @PathVariable("cacheId") String cacheId)
+            @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId
+            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
+    )
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -67,7 +69,7 @@ public class ImageFiltersController
 
 
     @ApiOperation(value = "")
-    @RequestMapping(value = "/grayscale", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/grayscale", method = {RequestMethod.POST})
     public ModelAndView imageInfoById(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file)
     {
@@ -97,7 +99,7 @@ public class ImageFiltersController
     @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
     @RequestMapping(value = "/{cacheId}/boxblur", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageInfoById(
-            @ApiParam(name = "cacheId", required = true)  @PathVariable("cacheId") String cacheId
+            @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")  @PathVariable("cacheId") String cacheId
             , @ApiParam(name = "hRadius", required = false, defaultValue = "2", value = "the horizontal radius of blur") @RequestParam(value = "hRadius", defaultValue = "2") int hRadius
             , @ApiParam(name = "vRadius", required = false, defaultValue = "2", value = "the vertical radius of blur") @RequestParam(value = "vRadius", defaultValue = "2") int vRadius
             , @ApiParam(name = "iterations", required = false, defaultValue = "1", value = "the number of time to iterate the blur") @RequestParam(value = "interations", defaultValue = "1") int iterations

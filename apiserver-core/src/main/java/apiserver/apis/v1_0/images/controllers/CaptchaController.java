@@ -54,13 +54,13 @@ public class CaptchaController
      * @return
      */
     @ApiOperation(value = "Get a new image to use for captcha checks")
-    @RequestMapping(value = "/generate", method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/generate", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> getCaptcha(
             @ApiParam(name="text", required = true, defaultValue = "hello world") @RequestParam(required = true) String text
-            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
-            , @ApiParam(name="height", required = true, defaultValue = "100") @RequestParam(required = true) Integer height
-            , @ApiParam(name="fontSize", required = true, defaultValue = "10") @RequestParam(required = true) Integer fontSize
+            , @ApiParam(name="width", required = true, defaultValue = "400") @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true, defaultValue = "200") @RequestParam(required = true) Integer height
+            , @ApiParam(name="fontSize", required = true, defaultValue = "20") @RequestParam(required = true) Integer fontSize
             , @ApiParam(name="difficulty", required = false, defaultValue = "medium", allowableValues = "low,medium,high") @RequestParam(required = false, defaultValue = "medium") String difficulty
             , @ApiParam(name="returnAsBase64", required = false, defaultValue = "true", allowableValues="true,false") @RequestParam(required = false, defaultValue = "false") Boolean returnAsBase64
     )  throws IOException
@@ -79,17 +79,9 @@ public class CaptchaController
 
         //todo: log CF execution time to MBean analytics
 
-        final HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.IMAGE_JPEG);
 
-        if( !returnAsBase64 )
-        {
-            return new ResponseEntity<byte[]>(((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getImageBytes("jpg"), headers, HttpStatus.CREATED);
-        }
-        else
-        {
-            return new ResponseEntity<byte[]>(((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getBase64String("jpg").getBytes(), headers, HttpStatus.CREATED);
-        }
+        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage(), "jpg", returnAsBase64 );
+        return result;
     }
 
 

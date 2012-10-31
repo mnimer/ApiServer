@@ -51,11 +51,11 @@ public class ImageManipulationController
      * @return
      */
     @ApiOperation(value="Rotate a cached image")
-    @RequestMapping(value = "/{cacheId}/rotate", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/rotate", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> rotateImageById(
-            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId
-            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId
+            , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException
     {
@@ -80,11 +80,11 @@ public class ImageManipulationController
      * @return
      */
     @ApiOperation(value="Rotate an uploaded image")
-    @RequestMapping(value = "/rotate", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/rotate", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> rotateImageByImage(
             @ApiParam(name="file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
+            , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException
     {
@@ -112,12 +112,12 @@ public class ImageManipulationController
      * @return
      */
     @ApiOperation(value="Resize an cached image")
-    @RequestMapping(value = "/{cacheId}/resize", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/resize", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> resizeImageById(
-            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId
-            , @ApiParam(name="width", required = true) @RequestParam(required = true) Integer width
-            , @ApiParam(name="height", required = true) @RequestParam(required = true) Integer height
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId
+            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true, defaultValue = "200") @RequestParam(required = true) Integer height
             , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
             , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
@@ -150,12 +150,12 @@ public class ImageManipulationController
      * @return
      */
     @ApiOperation(value="Resize an uploaded image")
-    @RequestMapping(value = "/resize", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/resize", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> resizeImageByImage(
             @ApiParam(name="file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name="width", required = true) @RequestParam(required = true) Integer width
-            , @ApiParam(name="height", required = true) @RequestParam(required = true) Integer height
+            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true, defaultValue = "200") @RequestParam(required = true) Integer height
             , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
             , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64

@@ -50,9 +50,9 @@ public class ImageMetadataController
      * @return  height,width, pixel size, transparency
      */
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{cacheId}/info", method =  {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/info", method =  {RequestMethod.GET})
     public ModelAndView imageMetadataById(
-            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId)
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId)
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -67,7 +67,7 @@ public class ImageMetadataController
      * @return   height,width, pixel size, transparency
      */
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/info", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/info", method = {RequestMethod.POST})
     public ModelAndView imageMetadataByImage(
             @ApiParam(name="file", required = true) @RequestParam("file") MultipartFile file )
     {
@@ -85,11 +85,11 @@ public class ImageMetadataController
      * remove the embedded metadata data for cached image. Striping out metadata may reduce file size (good for mobile apps) or remove sensitive data.
      * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
-     */
+
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{cacheId}/clear", method =  {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/{cacheId}/clear", method =  {RequestMethod.GET})
     public ModelAndView clearMetadataById(
-            @ApiParam(name="cacheId", required = true) @PathVariable("cacheId") String cacheId)
+            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId)
             throws NotSupportedException
     {
         if( imageConfigMBean.getMetadataLibrary() != ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR )
@@ -102,16 +102,16 @@ public class ImageMetadataController
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
         return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataStripMetadataInputChannel);
-    }
+    } */
 
 
     /**
      * remove the embedded metadata data for uploaded image. Striping out metadata may reduce file size (good for mobile apps) or remove sensitive data.
      * @param file
      * @return   height,width, pixel size, transparency
-     */
+
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/clear", method = {RequestMethod.POST, RequestMethod.PUT})
+    @RequestMapping(value = "/clear", method = {RequestMethod.POST})
     public ModelAndView clearMetadataByImage(
             @ApiParam(name="file", required = true) @RequestParam("file") MultipartFile file )
             throws NotSupportedException
@@ -129,7 +129,7 @@ public class ImageMetadataController
 
         view.getModel().remove(ImageConfigMBeanImpl.FILE);
         return view;
-    }
+    }  */
 
 
 }
