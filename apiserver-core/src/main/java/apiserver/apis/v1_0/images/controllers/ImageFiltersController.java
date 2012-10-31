@@ -50,32 +50,47 @@ public class ImageFiltersController
     public HttpChannelInvoker channelInvoker;
 
     @Autowired
+    private MessageChannel imageGrayScaleFilterChannel;
+    @Autowired
     private MessageChannel imageBoxBlurFilterChannel;
 
 
     @ApiOperation(value = "")
     @RequestMapping(value = "/{cacheId}/grayscale", method = {RequestMethod.GET})
-    public ModelAndView imageInfoById(
+    public ResponseEntity<byte[]> imageGrayscaleById(
             @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    )
+    ) throws IOException
     {
         Map<String, Object> args = new HashMap<String, Object>();
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
 
-        throw new RuntimeException("not implemented yet");
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageGrayScaleFilterChannel);
+
+        BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        return result;
 
     }
 
 
     @ApiOperation(value = "")
     @RequestMapping(value = "/grayscale", method = {RequestMethod.POST})
-    public ModelAndView imageInfoById(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file)
+    public ResponseEntity<byte[]> imageGrayscaleByFile(
+            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
+    ) throws IOException
     {
         Map<String, Object> args = new HashMap<String, Object>();
+        args.put(ImageConfigMBeanImpl.FILE, file);
 
-        throw new RuntimeException("not implemented yet");
+        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageGrayScaleFilterChannel);
+
+        BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        return result;
     }
 
 
@@ -98,7 +113,7 @@ public class ImageFiltersController
      */
     @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
     @RequestMapping(value = "/{cacheId}/boxblur", method = {RequestMethod.GET})
-    public ResponseEntity<byte[]> imageInfoById(
+    public ResponseEntity<byte[]> imageBoxBlurById(
             @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")  @PathVariable("cacheId") String cacheId
             , @ApiParam(name = "hRadius", required = false, defaultValue = "2", value = "the horizontal radius of blur") @RequestParam(value = "hRadius", defaultValue = "2") int hRadius
             , @ApiParam(name = "vRadius", required = false, defaultValue = "2", value = "the vertical radius of blur") @RequestParam(value = "vRadius", defaultValue = "2") int vRadius
@@ -107,7 +122,7 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException
     {
-        Map args = new LinkedHashMap();
+        Map args = new HashMap();
         args.put(ApiServerConstants.HTTP_REQUEST, request);
         args.put(ApiServerConstants.HTTP_RESPONSE, response);
         args.put(ImageConfigMBeanImpl.KEY, cacheId);
@@ -140,7 +155,7 @@ public class ImageFiltersController
     @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
     @RequestMapping(value = "/boxblur", method = {RequestMethod.POST})
     @ResponseBody
-    public ResponseEntity<byte[]> imageInfoById(
+    public ResponseEntity<byte[]> imageBoxBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name = "hRadius", required = false, defaultValue = "2", value = "the horizontal radius of blur") @RequestParam(value = "hRadius", defaultValue = "2") int hRadius
             , @ApiParam(name = "vRadius", required = false, defaultValue = "2", value = "the vertical radius of blur") @RequestParam(value = "vRadius", defaultValue = "2") int vRadius

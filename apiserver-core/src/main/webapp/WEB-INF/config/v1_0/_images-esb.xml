@@ -271,6 +271,22 @@
 
 
 
+	<si:channel id="imageGrayScaleFilterChannel"/>
+	<si:chain input-channel="imageGrayScaleFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.GrayScaleFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
 	<si:channel id="imageBoxBlurFilterChannel"/>
 	<si:chain input-channel="imageBoxBlurFilterChannel" output-channel="noOpOutputChannel">
 

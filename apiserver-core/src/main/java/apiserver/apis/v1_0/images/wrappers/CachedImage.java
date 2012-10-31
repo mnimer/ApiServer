@@ -102,6 +102,7 @@ public class CachedImage implements Serializable
         outputStream.write( getFileBytes() );
         outputStream.close();
 
+        file.deleteOnExit();
         return file;
 
 
