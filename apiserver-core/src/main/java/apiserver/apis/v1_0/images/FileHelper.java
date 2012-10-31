@@ -58,34 +58,6 @@ public class FileHelper
     }
 
 
-    public static File getFile( Object uploadedFile ) throws IOException
-    {
-        FileOutputStream outputStream = null;
-        String filePath = System.getProperty("java.io.tmpdir") + "/" + UUID.randomUUID().toString() +"." +fileName(uploadedFile).split("\\.")[1];
-
-        File file = new File(filePath);
-        outputStream = new FileOutputStream(file);
-        outputStream.write( fileBytes(uploadedFile) );
-        outputStream.close();
-
-        return file;
-
-
-        /**
-        byte[] bytes = fileBytes(uploadedFile);
-        File file = File.createTempFile( UUID.randomUUID().toString(), "." +fileName(uploadedFile).split("\\.")[1] );
-
-        BufferedWriter out = new BufferedWriter(new FileWriter(file));
-        int c = 0;
-        while( c < bytes.length )
-        {
-            out.write( bytes[c] );
-            c++;
-        }
-        out.close();
-        return file;
-         **/
-    }
 
 
 

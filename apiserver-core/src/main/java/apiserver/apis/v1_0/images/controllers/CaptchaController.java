@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import coldfusion.image.Image;
 import com.adobe.xmp.impl.Base64;
 import com.wordnik.swagger.annotations.Api;
@@ -83,11 +84,11 @@ public class CaptchaController
 
         if( !returnAsBase64 )
         {
-            return new ResponseEntity<byte[]>(((Image)view.getModel().get("result")).getImageBytes("jpg"), headers, HttpStatus.CREATED);
+            return new ResponseEntity<byte[]>(((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getImageBytes("jpg"), headers, HttpStatus.CREATED);
         }
         else
         {
-            return new ResponseEntity<byte[]>(((Image)view.getModel().get("result")).getBase64String("jpg").getBytes(), headers, HttpStatus.CREATED);
+            return new ResponseEntity<byte[]>(((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getBase64String("jpg").getBytes(), headers, HttpStatus.CREATED);
         }
     }
 

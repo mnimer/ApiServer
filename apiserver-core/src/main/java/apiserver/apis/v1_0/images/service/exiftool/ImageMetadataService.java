@@ -3,6 +3,7 @@ package apiserver.apis.v1_0.images.service.exiftool;
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import org.im4java.core.ETOperation;
@@ -44,7 +45,7 @@ public class ImageMetadataService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBeanImpl.FILE);
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             Map metadataDirectories = new HashMap();
 
@@ -58,7 +59,8 @@ public class ImageMetadataService
             ArrayListOutputConsumer output = new ArrayListOutputConsumer();
             ExiftoolCmd et = new ExiftoolCmd();
             et.setOutputConsumer(output);
-            et.run(op,  FileHelper.getFile(file).getAbsolutePath());
+
+            et.run(op, cachedImage.getFile().getAbsolutePath());
             ArrayList<String> cmdOutput = output.getOutput();
 
             long end = System.currentTimeMillis();
@@ -124,7 +126,7 @@ public class ImageMetadataService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBeanImpl.FILE);
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             Map metadataDirectories = new HashMap();
 
@@ -138,7 +140,8 @@ public class ImageMetadataService
             ArrayListOutputConsumer output = new ArrayListOutputConsumer();
             ExiftoolCmd et = new ExiftoolCmd();
             et.setOutputConsumer(output);
-            et.run(op,  FileHelper.getFile(file).getAbsolutePath());
+
+            et.run(op, cachedImage.getFile().getAbsolutePath());
             ArrayList<String> cmdOutput = output.getOutput();
 
             long end = System.currentTimeMillis();

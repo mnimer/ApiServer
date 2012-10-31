@@ -116,7 +116,7 @@ public class ImageFiltersController
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageBoxBlurFilterChannel);
 
-        BufferedImage bufferedImage = (BufferedImage)view.getModel().get("result");
+        BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -159,7 +159,7 @@ public class ImageFiltersController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageBoxBlurFilterChannel);
 
 
-        BufferedImage bufferedImage = (BufferedImage)view.getModel().get("result");
+        BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler(  bufferedImage, contentType, returnAsBase64);
         return result;

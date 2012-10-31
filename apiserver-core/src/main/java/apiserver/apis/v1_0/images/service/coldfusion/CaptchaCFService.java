@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
 import apiserver.ApiServerConstants;
+import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
@@ -67,7 +68,7 @@ public class CaptchaCFService
             }
             else
             {
-                payload.put("result", cfcResult);
+                payload.put(ImageConfigMBeanImpl.RESULT, cfcResult);
             }
 
 

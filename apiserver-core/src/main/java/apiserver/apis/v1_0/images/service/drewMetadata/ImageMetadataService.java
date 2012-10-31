@@ -3,6 +3,7 @@ package apiserver.apis.v1_0.images.service.drewMetadata;
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.drew.imaging.ImageMetadataReader;
@@ -52,24 +53,12 @@ public class ImageMetadataService
         try
         {
             long start = System.currentTimeMillis();
-            Object file = props.get(ImageConfigMBeanImpl.FILE);
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
             String contentType = (String)props.get(ImageConfigMBeanImpl.CONTENT_TYPE);
 
             Map metadataDirectories = new HashMap();
 
-
-            byte[] bytes = ((DataBufferByte)((BufferedImage)file).getRaster().getDataBuffer()).getData();
-            ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
-            BufferedInputStream bis = new BufferedInputStream( bais );
-
-            //Metadata metadata = ImageMetadataReader.readMetadata( (BufferedInputStream)FileHelper.getFileInputStream(file), false);
-            Metadata metadata = ImageMetadataReader.readMetadata( bis, false );
-
-
-            //File tmpFile = File.createTempFile(UUID.randomUUID().toString(), ".jpg");
-            //ImageIO.write((BufferedImage) file, "jpeg", tmpFile);
-            //Metadata metadata = ImageMetadataReader.readMetadata(tmpFile);
-            //tmpFile.deleteOnExit();
+            Metadata metadata = ImageMetadataReader.readMetadata( cachedImage.getFile() );
 
             for (Directory directory : metadata.getDirectories())
             {

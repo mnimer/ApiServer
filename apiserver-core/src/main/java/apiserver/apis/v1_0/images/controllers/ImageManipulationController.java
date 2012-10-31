@@ -65,7 +65,7 @@ public class ImageManipulationController
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get("result")).getCurrentImage();
+        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -94,7 +94,7 @@ public class ImageManipulationController
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get("result")).getCurrentImage();
+        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -133,7 +133,7 @@ public class ImageManipulationController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get("result")).getCurrentImage();
+        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -171,7 +171,7 @@ public class ImageManipulationController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get("result")).getCurrentImage();
+        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;

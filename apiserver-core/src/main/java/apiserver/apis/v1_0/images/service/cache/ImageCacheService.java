@@ -42,7 +42,7 @@ public class ImageCacheService
                 if( cachedElement != null )
                 {
                     Map cachedProperties = (Map)cachedElement.getObjectValue();
-                    props.putAll( cachedProperties );
+                    props.putAll(cachedProperties);
                 }
             }
             catch (FactoryException fe)
@@ -60,7 +60,7 @@ public class ImageCacheService
             Map cachedProperties = getFileProperties(file);
 
             //CachedImage cachedImage = new CachedImage( (CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE) );
-            props.putAll( cachedProperties );
+            props.putAll(cachedProperties);
         }
 
         if( !props.containsKey( ImageConfigMBeanImpl.FILE) )
@@ -119,7 +119,7 @@ public class ImageCacheService
 
         Map cachedProperties = (Map) cachedElement.getObjectValue();
 
-        props.put(key, cachedProperties.get(ImageConfigMBeanImpl.FILE));
+        props.put(ImageConfigMBeanImpl.RESULT, cachedProperties.get(ImageConfigMBeanImpl.FILE));
 
         return props;
     }
@@ -129,7 +129,11 @@ public class ImageCacheService
 
     private Map getFileProperties(CommonsMultipartFile file) throws IOException
     {
-        BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );
+        //BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );
+        CachedImage cachedImage = new CachedImage(file);
+        cachedImage.setFileName(file.getOriginalFilename());
+        cachedImage.setSize( file.getSize() );
+        cachedImage.setContentType( file.getContentType() );
 
         Map cachedProperties = new HashMap();
         cachedProperties.put(ImageConfigMBeanImpl.FILE, cachedImage);

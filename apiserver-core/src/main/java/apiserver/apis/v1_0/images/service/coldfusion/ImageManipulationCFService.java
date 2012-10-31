@@ -3,6 +3,7 @@ package apiserver.apis.v1_0.images.service.coldfusion;
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
@@ -43,15 +44,15 @@ public class ImageManipulationCFService
         {
             long start = System.currentTimeMillis();
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object file = props.get(ImageConfigMBeanImpl.FILE);
-            Object[] myArgs = {new Image( (BufferedImage)file), props.get(ImageConfigMBeanImpl.ANGLE)};
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
+            Object[] myArgs = {new Image( cachedImage.getFileBytes() ), props.get(ImageConfigMBeanImpl.ANGLE)};
             Image cfcResult = (Image)myCFC.invoke("rotateImage", myArgs);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             payload.clear();
-            payload.put("result", cfcResult);//.getImageBytes(FileHelper.fileName(file).split("\\.")[1]) );
+            payload.put(ImageConfigMBeanImpl.RESULT, cfcResult);//.getImageBytes(FileHelper.fileName(file).split("\\.")[1]) );
 
 
 
@@ -93,7 +94,8 @@ public class ImageManipulationCFService
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = { new Image( (BufferedImage)file)  /*FileHelper.fileBytes(file)*/
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
+            Object[] myArgs = { new Image( cachedImage.getFileBytes() )  /*FileHelper.fileBytes(file)*/
                     , props.get(ImageConfigMBeanImpl.WIDTH)
                     , props.get(ImageConfigMBeanImpl.HEIGHT)
                     , props.get(ImageConfigMBeanImpl.INTERPOLATION)
@@ -104,7 +106,7 @@ public class ImageManipulationCFService
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             payload.clear();
-            payload.put("result", cfcResult);//.getImageBytes( FileHelper.fileName(file).split("\\.")[1] ) );
+            payload.put(ImageConfigMBeanImpl.RESULT, cfcResult);//.getImageBytes( FileHelper.fileName(file).split("\\.")[1] ) );
 
 
             Map cfData = new HashMap();

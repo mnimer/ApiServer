@@ -26,6 +26,7 @@
 		<property name="messageConverters">
 			<util:list>
 				<bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+				<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
 			</util:list>
 		</property>
 	</bean>

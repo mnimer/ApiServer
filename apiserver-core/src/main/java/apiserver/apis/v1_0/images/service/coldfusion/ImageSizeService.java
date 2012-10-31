@@ -3,6 +3,7 @@ package apiserver.apis.v1_0.images.service.coldfusion;
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import coldfusion.cfc.CFCProxy;
@@ -47,7 +48,8 @@ public class ImageSizeService
             long start = System.currentTimeMillis();
             Object file = props.get(ImageConfigMBeanImpl.FILE);
             CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = { new Image( (BufferedImage)file) };
+            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
+            Object[] myArgs = { new Image( cachedImage.getFileBytes()) };
             Struct cfcResult = (Struct)myCFC.invoke("imageInfo", myArgs);
             long end = System.currentTimeMillis();
 
