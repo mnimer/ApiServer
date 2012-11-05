@@ -178,8 +178,14 @@
       <profile version="1.0" is_locked="false">
         <option name="myName" value="Project Default" />
         <option name="myLocal" value="false" />
+        <inspection_tool class="AutowiredDependenciesInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+        <inspection_tool class="MVCPathVariableInspection" enabled="true" level="ERROR" enabled_by_default="true" />
         <inspection_tool class="SpringContextConfigurationInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
         <inspection_tool class="SpringSecurityFiltersConfiguredInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+        <inspection_tool class="UseOfAnotherObjectsPrivateField" enabled="true" level="WARNING" enabled_by_default="true">
+          <option name="ignoreSameClass" value="false" />
+          <option name="ignoreEquals" value="false" />
+        </inspection_tool>
       </profile>
     </profiles>
     <option name="PROJECT_PROFILE" value="Project Default" />
@@ -348,6 +354,7 @@
       <words>
         <w>bicubic</w>
         <w>coldfusion</w>
+        <w>despeckle</w>
         <w>executiontime</w>
       </words>
     </dictionary>
@@ -422,7 +429,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/adobe/ColdFusion/10/ColdFusion-10-sources.jar!/" />
-        <root url="intellijad://intellijad" />
       </SOURCES>
     </library>
     <library name="Maven: com.drewnoakes:metadata-extractor:2.6.2">

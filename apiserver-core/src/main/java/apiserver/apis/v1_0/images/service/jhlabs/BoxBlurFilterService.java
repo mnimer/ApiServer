@@ -34,7 +34,7 @@ public class BoxBlurFilterService
                 throw new MessageConfigException(MessageConfigException.MISSING_PROPERTY);
             }
 
-            // Include filter service
+            //run filter
             BoxBlurFilter filter = new BoxBlurFilter(
                     ((Integer) props.get("hRadius")).intValue()
                     , ((Integer) props.get("vRadius")).intValue()
@@ -43,9 +43,9 @@ public class BoxBlurFilterService
             //filter.setPremultiplyAlpha(((Boolean) props.get("premultiplyAlpha")).booleanValue());
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
+
+
             props.put(ImageConfigMBeanImpl.RESULT, outFile);
-
-
             return props;
         }
         catch (Throwable e)

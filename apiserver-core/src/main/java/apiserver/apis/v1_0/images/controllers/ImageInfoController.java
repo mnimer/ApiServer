@@ -5,6 +5,7 @@ import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +34,7 @@ public class ImageInfoController
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
-    @Autowired
+    @Autowired @Qualifier("imageSizeInputChannel")
     public MessageChannel imageSizeInputChannel;
 
     //TODO: Add ImageNegative
@@ -43,8 +44,6 @@ public class ImageInfoController
     //TODO: Add ImageShear, ImageShearDrawingAxis
     //TODO: Add ImageRotateDrawingAxis
     //TODO: Add Image Drawing Support (array of actions; ImageDrawLine, ImageDrawOval, ImageDrawPoint, ImageDrawQuadraticCurve
-    //TODO add to /metadata - ImageGetEXIFTag
-    //TODO add to /metadata - ImageGetIPTCTag
 
     /**
      * get basic info

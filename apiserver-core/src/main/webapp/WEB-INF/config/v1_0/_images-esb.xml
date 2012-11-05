@@ -18,36 +18,12 @@
 	<!-- CHANNELS -->
 	<si:channel id="analyticsChannel"/>
 
-
-	<si:channel id="captchaInputChannel">
-		<!--si:interceptors-->
-			<!--ref bean="tokenAccessInterceptor"/-->
-			<!--bean class="apiserver.apis.v1_0.common.messageHandlers.PreOrPostWireTap" postChannel="analyticsChannel"/-->
-		<!--/si:interceptors-->
-	</si:channel>
-
-
 	<!-- we'll use this when we are going to use the modifications to the Message payload by reference, instead of pulling the message back out of the output channel -->
 	<si:channel id="noOpOutputChannel"/>
 
-	<si:channel id="imageCacheAddInputChannel"/>
 
-	<si:channel id="imageCacheGetInputChannel"/>
-
+	<!-- todo -->
 	<si:channel id="imageCacheDeleteInputChannel"/>
-
-	<si:channel id="imageSizeInputChannel"/>
-
-	<si:channel id="imageMetadataInputChannel"/>
-	<si:channel id="imageMetadataStripMetadataInputChannel"/>
-
-	<si:channel id="imageRotateInputChannel"/>
-
-	<si:channel id="imageResizeInputChannel"/>
-
-	<si:channel id="imageDrawBorderInputChannel"/>
-
-	<si:channel id="imageDrawTextInputChannel"/>
 
 
 	<!-- INTERCEPTORS -->
@@ -80,6 +56,7 @@
 	<!--
 		GENERATE CAPTCHA
 	-->
+	<si:channel id="captchaInputChannel"/>
 	<si:chain input-channel="captchaInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -93,6 +70,7 @@
 	<!--
 		CACHE ADD
 	 -->
+	<si:channel id="imageCacheAddInputChannel"/>
 	<si:chain input-channel="imageCacheAddInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -106,6 +84,7 @@
 	<!--
 		CACHE GET
 	 -->
+	<si:channel id="imageCacheGetInputChannel"/>
 	<si:chain input-channel="imageCacheGetInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -134,6 +113,7 @@
 	<!--
 		Image Size Info
 	-->
+	<si:channel id="imageSizeInputChannel"/>
 	<si:chain input-channel="imageSizeInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -154,11 +134,13 @@
 		Image Embedded Metadata
 		Note: because of the router, this is not in a CHAIN
 	-->
+	<si:channel id="imageMetadataInputChannel"/>
 	<si:channel id="metadataInfoRouter"/>
 
 	<!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
 	<si:channel id="drewMetadataExtractor"/>
 	<si:channel id="exifTool"/>
+
 
 		<si:service-activator
 				input-channel="imageMetadataInputChannel"
@@ -195,6 +177,7 @@
 	<!--
 		Image ROTATE
 	-->
+	<si:channel id="imageRotateInputChannel"/>
 	<si:chain input-channel="imageRotateInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -215,6 +198,7 @@
 	<!--
 		Image RESIZE
 	-->
+	<si:channel id="imageResizeInputChannel"/>
 	<si:chain input-channel="imageResizeInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -235,6 +219,7 @@
 	<!--
 		Image ADD Border
 	-->
+	<si:channel id="imageDrawBorderInputChannel"/>
 	<si:chain input-channel="imageDrawBorderInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -255,6 +240,7 @@
 	<!--
 		Image Draw text (watermark) on image
 	-->
+	<si:channel id="imageDrawTextInputChannel"/>
 	<si:chain input-channel="imageDrawTextInputChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
@@ -265,6 +251,111 @@
 		<si:service-activator
 				method="imageDrawTextHandler">
 			<bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageDrawingCFService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+
+
+
+	<si:channel id="imageBoxBlurFilterChannel"/>
+	<si:chain input-channel="imageBoxBlurFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.BoxBlurFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageBlurFilterChannel"/>
+	<si:chain input-channel="imageBlurFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.BlurFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageBumpFilterChannel"/>
+	<si:chain input-channel="imageBumpFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.BumpFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageDespeckleFilterChannel"/>
+	<si:chain input-channel="imageDespeckleFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.DespeckleFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageGaussianFilterChannel"/>
+	<si:chain input-channel="imageGaussianFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.GaussianFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageGlowFilterChannel"/>
+	<si:chain input-channel="imageGlowFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.GlowFilterService"/>
 		</si:service-activator>
 
 	</si:chain>
@@ -287,8 +378,9 @@
 	</si:chain>
 
 
-	<si:channel id="imageBoxBlurFilterChannel"/>
-	<si:chain input-channel="imageBoxBlurFilterChannel" output-channel="noOpOutputChannel">
+
+	<si:channel id="imageLensBlurFilterChannel"/>
+	<si:chain input-channel="imageLensBlurFilterChannel" output-channel="noOpOutputChannel">
 
 		<si:service-activator
 				method="checkCache">
@@ -297,7 +389,56 @@
 
 		<si:service-activator
 				method="doFilter">
-			<bean class="apiserver.apis.v1_0.images.service.jhlabs.BoxBlurFilterService"/>
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.LensBlurFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+
+	<si:channel id="imageMaskFilterChannel"/>
+	<si:chain input-channel="imageMaskFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.ApplyMaskFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+	<si:channel id="imageMaximumFilterChannel"/>
+	<si:chain input-channel="imageMaximumFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.MaximumFilterService"/>
+		</si:service-activator>
+
+	</si:chain>
+
+
+	<si:channel id="imageMedianFilterChannel"/>
+	<si:chain input-channel="imageMedianFilterChannel" output-channel="noOpOutputChannel">
+
+		<si:service-activator
+				method="checkCache">
+			<bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+		</si:service-activator>
+
+		<si:service-activator
+				method="doFilter">
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.MedianFilterService"/>
 		</si:service-activator>
 
 	</si:chain>

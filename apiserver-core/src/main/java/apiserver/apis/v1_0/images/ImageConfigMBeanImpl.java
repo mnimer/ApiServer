@@ -33,11 +33,13 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 {
     // Message params Arguments
     public static String FILE = "__file";
+    public static String MASK_FILE = "__maskfile";
     public static String CONTENT_TYPE = "__contentType";
     public static String ORIGINAL_FILE_NAME = "__originalFileName";
     public static String NAME = "__name";
     public static String SIZE = "__size";
     public static String KEY = "__key";
+    public static String MASK_CACHEID = "__maskKey";
     public static String RESULT = "__result";
     public static String TEXT = "text";
     public static String TIME_TO_LIVE = "timeToLive";

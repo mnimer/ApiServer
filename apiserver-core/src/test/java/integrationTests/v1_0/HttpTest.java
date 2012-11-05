@@ -98,6 +98,12 @@ public class HttpTest
     }
 
 
+    public HttpResponse invokeHttpPost(String urlPath, File[] files, Map formArgs) throws Exception
+    {
+    return null;
+    }
+
+
     public HttpResponse invokeHttpPost(String urlPath, File file, Map formArgs) throws Exception
     {
         String url = getUrlBase() + urlPath;// "/v1-0/image/info/size.json";

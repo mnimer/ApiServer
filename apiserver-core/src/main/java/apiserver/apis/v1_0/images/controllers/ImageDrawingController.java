@@ -29,9 +29,9 @@ public class ImageDrawingController
     @Autowired
     public HttpChannelInvoker channelInvoker;
 
-    @Autowired
+
     public MessageChannel imageDrawBorderInputChannel;
-    @Autowired
+
     public MessageChannel imageDrawTextInputChannel;
 
 

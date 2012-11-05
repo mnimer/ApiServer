@@ -1,7 +1,7 @@
-package integrationTests.v1_0.images;
+package integrationTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import com.jhlabs.image.BoxBlurFilter;
+import com.jhlabs.image.GrayscaleFilter;
 import integrationTests.v1_0.HttpTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -25,25 +25,26 @@ import java.util.Map;
 
 /**
  * User: mnimer
- * Date: 10/25/12
+ * Date: 10/31/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
-public class ImageFiltersBoxBlurIT extends HttpTest
+public class GrayscaleFilterIT extends HttpTest
 {
+
     public static String key = null;
 
 
     @Before
     public void setup() throws Exception
     {
-        if (ImageFiltersBoxBlurIT.key == null)
+        if (GrayscaleFilterIT.key == null)
         {
             String url = "/rest/v1/image/cache/add";
             String fileName = "IMG_5932_sm.png";
-            File file = new File(ImageFiltersBoxBlurIT.class.getClassLoader().getSystemResource(fileName).toURI());
+            File file = new File(FiltersBoxBlurIT.class.getClassLoader().getSystemResource(fileName).toURI());
 
             HttpResponse response = invokeHttpPost(url, file, null);
             int status = response.getStatusLine().getStatusCode();
@@ -58,7 +59,7 @@ public class ImageFiltersBoxBlurIT extends HttpTest
             key = root.get(ImageConfigMBeanImpl.KEY).getTextValue();
             Assert.isTrue(key.length() == 36);
 
-            ImageFiltersBoxBlurIT.key = key;
+            GrayscaleFilterIT.key = key;
         }
     }
 
@@ -79,7 +80,7 @@ public class ImageFiltersBoxBlurIT extends HttpTest
             //BufferedImage outFile = new BufferedImage(inFile.getWidth(), inFile.getHeight(), inFile.getType());
 
             // Include filter service
-            BoxBlurFilter filter = new BoxBlurFilter(2, 2, 2);
+            GrayscaleFilter filter = new GrayscaleFilter();
 
             //filter.setPremultiplyAlpha(((Boolean) props.get("premultiplyAlpha")).booleanValue());
             BufferedImage bimg = filter.filter(inFile, null);
@@ -105,7 +106,7 @@ public class ImageFiltersBoxBlurIT extends HttpTest
         int width = 500;
         int height = 296;
         String fileName = "IMG_5932_sm.png";
-        String url = "/rest/v1/image/filters/" + ImageFiltersBoxBlurIT.key + "/boxblur";
+        String url = "/rest/v1/image/filters/" + GrayscaleFilterIT.key + "/grayscale";
 
 
         Map<String, Object> args = new HashMap<String, Object>();
@@ -150,7 +151,7 @@ public class ImageFiltersBoxBlurIT extends HttpTest
         int width = 500;
         int height = 296;
         String fileName = "IMG_5932_sm.png";
-        String url = "/rest/v1/image/filters/boxblur";
+        String url = "/rest/v1/image/filters/grayscale";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 

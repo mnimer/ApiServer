@@ -40,7 +40,7 @@ public class ImageMetadataController
     @Autowired
     public MessageChannel imageMetadataInputChannel;
 
-    @Autowired
+
     public MessageChannel imageMetadataStripMetadataInputChannel;
 
 

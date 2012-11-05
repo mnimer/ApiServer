@@ -74,7 +74,7 @@ public class ApiMethodReader {
 			operation.addParameter(parameter);
 		setTags(operation);
 		operation.setResponseClass(responseClass.getSimpleName());
-		
+
 		for (DocumentationError error : errors)
 			operation.addErrorResponse(error);
 		return operation;
@@ -90,7 +90,7 @@ public class ApiMethodReader {
 			ApiParam apiParam = methodParameter.getParameterAnnotation(ApiParam.class);
 			if (apiParam == null)
 			{
-				log.warn("{} is missing @ApiParam annotation - so generating default documentation", 
+				log.warn("{} is missing @ApiParam annotation - so generating default documentation",
                          methodParameter.getMethod());
 				generateDefaultParameterDocumentation(methodParameter);
 				continue;
@@ -150,7 +150,7 @@ public class ApiMethodReader {
 			return requestParam.value();
 		// Default
 		return methodParameter.getParameterName();
-		
+
 	}
 
 	private void generateDefaultParameterDocumentation(
@@ -184,7 +184,7 @@ public class ApiMethodReader {
 		val params = Arrays.asList(csvString.split(","));
 		return new DocumentationAllowableListValues(params);
 	}
-	
+
 	private void documentExceptions() {
 		discoverSwaggerAnnotatedExceptions();
 		discoverSpringMvcExceptions();
@@ -207,7 +207,7 @@ public class ApiMethodReader {
 		{
 			appendErrorFromClass(exceptionClass);
 		}
-		
+
 	}
 
 	void appendErrorFromClass(Class<? extends Throwable> exceptionClass) {
