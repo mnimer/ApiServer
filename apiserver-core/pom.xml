@@ -4,9 +4,9 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>apiserver-core</groupId>
-	<artifactId>apiserver-core</artifactId>
-	<name>apiserver-core Application</name>
+	<groupId>com.apiserver</groupId>
+	<artifactId>core</artifactId>
+	<name>ApiServer Core Application</name>
 	<version>0.1.0</version>
 	<packaging>war</packaging>
 
@@ -31,23 +31,45 @@
 			   todo this: run this command (edit the <path(s)> first)
 			mvn install:install-file -Dfile=/<local path>/ColdFusion10/cfusion/WEB-INF/cfusion/lib/cfusion.jar -DgroupId=com.adobe -DartifactId=ColdFusion -Dversion=10 -Dpackaging=jar -DlocalRepositoryPath=/Users/<username>/.m2/repository/
 			   -->
+
+        <!--
+            Local project repo jars
+            @see https://devcenter.heroku.com/articles/local-maven-dependencies#create-a-local-maven-repository-directory
+         -->
+        <dependency>
+            <groupId>com.mikenimer</groupId>
+            <artifactId>Palladium</artifactId>
+            <version>1.0.75</version>
+        </dependency>
+
 		<dependency>
 			<groupId>com.adobe</groupId>
 			<artifactId>ColdFusion</artifactId>
 			<scope>provided</scope>
 			<version>10</version>
+        </dependency>
 
-			<!-- alternative (have not tested)
-			   <scope>system</scope>
-        		<systemPath>${project.basedir}/...../cfusion.jar</systemPath>
-			-->
+		<dependency>
+			<groupId>com.adobe.xmp</groupId>
+			<artifactId>xmpcore</artifactId>
+			<version>5.1.2</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.mikenimer</groupId>
-			<artifactId>Palladium</artifactId>
-			<version>1.0.75</version>
+			<groupId>com.jhlabs</groupId>
+			<artifactId>filters</artifactId>
+			<version>1.0.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.im4java</groupId>
+			<artifactId>im4java</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+
+
+
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -528,7 +550,12 @@
 
 
 	<repositories>
-		<repository>
+        <repository>
+            <id>apache.snapshots</id>
+            <name>Apache Development Snapshot Repository</name>
+            <url>https://repository.apache.org/snapshots</url>
+        </repository>
+        <repository>
 			<id>repository.springframework.maven.release</id>
 			<name>Spring Framework Maven Release Repository</name>
 			<url>http://maven.springframework.org/release</url>
@@ -543,11 +570,12 @@
 			<name>Spring Framework Maven Snapshot Repository</name>
 			<url>http://maven.springframework.org/snapshot</url>
 		</repository>
-		<repository>
-			<id>apache.snapshots</id>
-			<name>Apache Development Snapshot Repository</name>
-			<url>https://repository.apache.org/snapshots</url>
-		</repository>
+
+        <repository>
+            <id>project.local</id>
+            <name>project</name>
+            <url>file:${project.basedir}/repo</url>
+        </repository>
 	</repositories>
 
 

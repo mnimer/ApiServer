@@ -964,7 +964,7 @@ public class ImageFiltersController
     @RequestMapping(value = "/{cacheId}/rays", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageRaysBlurById(
             @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")  @PathVariable("cacheId") String cacheId
-            , @ApiParam(name="opacity", required = true, defaultValue = "o")  @RequestParam(value="opacity", required = false, defaultValue="3") int angle
+            , @ApiParam(name="opacity", required = true, defaultValue = "o")  @RequestParam(value="opacity", required = false, defaultValue="3") int opacity
             , @ApiParam(name="range", required = true, defaultValue = "256")  @RequestParam(value="range", required = false,  defaultValue="256") int range
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException
@@ -976,7 +976,7 @@ public class ImageFiltersController
         args.put("opacity", opacity);
         args.put("range", range);
 
-
+/**  todo
 float opacity = ((Float)props.get("levels")).floatValue();
 float strength = ((Float)props.get("levels")).floatValue();
 float threshold = ((Float)props.get("levels")).floatValue();
@@ -995,9 +995,9 @@ int[] yKnots = (int[])props.get("yKnots");
 int[] arrayColors = (int[])props.get("arrayColors");
 int linearColor1 = ((Integer)props.get("linearColor1")).intValue();
 int linearColor2 = ((Integer)props.get("linearColor2")).intValue();
+**/
 
-
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRaysFilterChannel);
+        ModelAndView view = null;//todo channelInvoker.invokeGenericChannel(request, null, args, imageRaysFilterChannel);
 
         BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
@@ -1029,7 +1029,7 @@ int linearColor2 = ((Integer)props.get("linearColor2")).intValue();
         args.put(ApiServerConstants.HTTP_RESPONSE, response);
         args.put(ImageConfigMBeanImpl.FILE, file);
 
-
+/**  todo
 float opacity = ((Float)props.get("levels")).floatValue();
 float strength = ((Float)props.get("levels")).floatValue();
 float threshold = ((Float)props.get("levels")).floatValue();
@@ -1048,11 +1048,11 @@ int[] yKnots = (int[])props.get("yKnots");
 int[] arrayColors = (int[])props.get("arrayColors");
 int linearColor1 = ((Integer)props.get("linearColor1")).intValue();
 int linearColor2 = ((Integer)props.get("linearColor2")).intValue();
+**/
 
 
 
-
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRaysFilterChannel);
+        ModelAndView view = null;//todo  channelInvoker.invokeGenericChannel(request, null, args, imageRaysFilterChannel);
 
 
         BufferedImage bufferedImage = (BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);

@@ -78,7 +78,7 @@ public class HttpTest
         }
         URI uri = builder.build();
         HttpGet post = new HttpGet(uri);
-        log.debug("Invoking URL: " +uri);
+        //log.debug("Invoking URL: " +uri);
         System.out.println(uri);//todo remove
 
 

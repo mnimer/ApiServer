@@ -12,140 +12,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/ApplyMaskFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BlurFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BumpFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/DespeckleFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GaussianFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GlowFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/LensBlurFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MaximumFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MedianFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MinimumFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MotionBlurFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/RaysFilterService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BicubicScaleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BlockFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BlurTransistionFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BorderFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BrushedMetalFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BumpFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CausticsFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CellularFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ChannelMixFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CheckFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ChromeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CircleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ColorHalftoneFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CompoundFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ContrastFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CropFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CrystallizeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/CurvesFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DespeckleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DiffuseFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DiffusionFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DisplaceFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DissolveFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DitherFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/DoGFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/EdgeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/EmbossFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ExposureFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FBMFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FeedbackFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FieldWarpFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FillFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FlareFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FlipFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FourColorFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GainFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GammaFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GaussianFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GlowFilteriT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GradientFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GradientWipeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GrayFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/HSBAdjustFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/HalftoneFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertAlphaFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/IteratedFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/KaleidoscopeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LaplaceFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LensBlurFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LevelsFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LightFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LookupFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MapColorsFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MarbleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MaskFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MaximumFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MedianFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MinimumFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MirrorFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MotionBlurFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/NoiseFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/OffsetFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/OilFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/OpacityFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PerspectiveFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PinchFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PlasmaFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PointillizeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PolarFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PosterizeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PreMultiplyFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/QuantizeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RGBAdjustFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RaysFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ReduceNoiseFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RescaleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RippleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RotateFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ScaleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ScratchFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ShadowFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ShapeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SharpenFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ShearFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SmartBlurFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SmearFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SolarizeFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SparkleFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SphereFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/StampFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SwimFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TextureFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ThresholdFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TileImageFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TritoneFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TwirlFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/UnPreMultiplyFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/UnSharpFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/VariableBlurFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WarpFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WaterFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WeaveFilterIT.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WoodFilterIT.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageFiltersBoxBlurIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/FiltersBoxBlurIT.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageFiltersGrayscaleIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GrayscaleFilterIT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageMetadataController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageMetadataController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BoxBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BoxBlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/com/mangofactory/swagger/springmvc/ApiMethodReader.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/com/mangofactory/swagger/springmvc/ApiMethodReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/captchaInputChannel-flow.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/imageSizeInputChannel-flow.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/Filters.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/im4java-1.3.2-1.5.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/im4java-1.3.2.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/lib/xmpcore.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GrayscaleFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GrayscaleFilterService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357941867862" ignored="false" />
+    <file path="/pom.xml" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357848820171" ignored="false" />
+    <file path="/GrayscaleFilterService.java" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357802001796" ignored="false" />
+    <file path="/ImageFiltersController.java" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357802176656" ignored="false" />
+    <file path="/a.dummy" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357848928604" ignored="false" />
+    <file path="/_images-esb.xml" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357849454910" ignored="false" />
+    <file path="/imageSizeInputChannel-flow.xml" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357849186040" ignored="false" />
+    <file path="/Unnamed.txt.ft" changelist="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" time="1357849322175" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,8 +57,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" />
-    <breakpoint_any default_suspend_policy="SuspendAll">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -174,6 +66,7 @@
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
         <option name="COUNT_FILTER_ENABLED" value="false" />
         <option name="COUNT_FILTER" value="0" />
         <option name="CONDITION_ENABLED" value="false" />
@@ -189,6 +82,7 @@
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
         <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
         <option name="COUNT_FILTER_ENABLED" value="false" />
         <option name="COUNT_FILTER" value="0" />
         <option name="CONDITION_ENABLED" value="false" />
@@ -198,8 +92,7 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" />
-    <breakpoint_rules default_suspend_policy="SuspendAll" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -210,93 +103,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MotionBlurFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MotionBlurFilterIT.java">
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
+            <state line="77" column="35" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageFiltersController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="48" selection-start="2804" selection-end="2825" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_images-esb.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="102" column="20" selection-start="3553" selection-end="3553" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="captchaInputChannel-flow.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/captchaInputChannel-flow.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="58" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1357849400000" expanded="false" signature="97:1070" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BumpFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BumpFilterIT.java">
+      <file leaf-file-name="imageSizeInputChannel-flow.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/imageSizeInputChannel-flow.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="13" selection-start="976" selection-end="976" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="0" selection-end="1258" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WoodFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WoodFilterIT.java">
+      <file leaf-file-name="PlainSocketImpl.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/PlainSocketImpl.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="22" selection-start="0" selection-end="1136" vertical-scroll-proportion="0.0">
+            <state line="103" column="24" selection-start="4383" selection-end="4383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PosterizeFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PosterizeFilterIT.java">
+      <file leaf-file-name="application-context.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuantizeFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/QuantizeFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="21" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RescaleFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RescaleFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RGBAdjustFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RGBAdjustFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolarizeFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SolarizeFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="17" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThresholdFilterIT.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ThresholdFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TritoneFilterIT.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TritoneFilterIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.21978022">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -312,6 +178,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="GradleLocalSettings">
     <option name="expandStates">
       <map>
@@ -325,14 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GrayFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/GrayscaleFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/HSBAdjustFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertAlphaFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LevelsFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LookupFilterIT.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MapColorsFilterIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BumpFilterIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PosterizeFilterIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/QuantizeFilterIT.java" />
@@ -341,6 +204,14 @@
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SolarizeFilterIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ThresholdFilterIT.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TritoneFilterIT.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GrayscaleFilterService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/imageSizeInputChannel-flow.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/captchaInputChannel-flow.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml" />
       </list>
     </option>
   </component>
@@ -360,8 +231,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../libraries/maven/apache-maven-3.0.3 2" />
-        <option name="workOffline" value="true" />
+        <option name="pluginUpdatePolicy" value="UPDATE" />
+        <option name="printErrorStackTraces" value="true" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -382,7 +253,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="apiserver-core Application" />
+          <option name="myItemId" value="ApiServer Core Application" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -392,12 +263,18 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="apiserver-core Application" />
+          <option name="myItemId" value="ApiServer Core Application" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="Lifecycle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -410,8 +287,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1920" />
-    <option name="height" value="1174" />
+    <option name="width" value="1680" />
+    <option name="height" value="940" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -475,30 +352,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -527,155 +380,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="filters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -697,7 +402,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -719,11 +424,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -745,11 +450,45 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -774,177 +513,29 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wrappers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jhlabs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -953,14 +544,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_directory_selection" value="$PROJECT_DIR$/library.service.interfaces/src/main/java/library/service/interfaces" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="OverrideImplement.combined" value="false" />
-    <property name="project.structure.proportion" value="0.09832842" />
+    <property name="project.structure.proportion" value="0.09881423" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="Errors" />
+    <property name="options.lastSelected" value="reference.settings.project.maven.importing" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bitbucket/applications/twitterStockSentiment/twitterStocks.ipr" />
     <property name="project.structure.side.proportion" value="0.15812431" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -974,18 +565,6 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
-  </component>
-  <component name="PublishConfig">
-    <servers>
-      <server id="61c09039-5357-41af-b977-2948046c4e3d">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$/bundles/api.status" />
-            <mapping local="$PROJECT_DIR$/bundles/service.coldfusion" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1017,7 +596,7 @@
       <recent name="coldfusion.v1_0.apis.status" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LensBlurFilterIT.testLensBlurFilter">
+  <component name="RunManager" selected="Tomcat Server.apiserver-core">
     <configuration default="false" name="All in apiserver-core" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="apiserver-core" />
@@ -1179,12 +758,7 @@
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -1230,20 +804,7 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="HandyEdit.AntRun" factoryName="Ant build" debug-port="25000" max-memory="256" logging-level="0">
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -1251,13 +812,9 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" class_name="" method_name="" output_log_level="" package_name="" scope="Class">
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" output_log_level="null" package_name="" scope="Class">
       <option name="BCName" value="" />
       <option name="launcherParameters">
         <LauncherParameters>
@@ -1268,12 +825,7 @@
       </option>
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1301,12 +853,7 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
@@ -1319,12 +866,7 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1339,23 +881,14 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="" />
       <envs />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1376,24 +909,14 @@
       </option>
       <envs />
       <patterns />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
       <deployment />
       <server-settings />
       <predefined_log_file id="TOMCAT_LOCALHOST_LOG_ID" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
+      <method />
     </configuration>
     <configuration default="false" name="ImageInfoIT" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
@@ -1613,40 +1136,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1174" extended-state="0" />
+    <frame x="0" y="22" width="1680" height="940" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6210826" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47958216" sideWeight="0.70886755" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47926828" sideWeight="0.6964504" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1756885" sideWeight="0.5090812" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47810218" sideWeight="0.2992656" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49358973" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26068377" sideWeight="0.52041787" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1866585" sideWeight="0.5218978" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18696581" sideWeight="0.8243115" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.8243115" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42070276" sideWeight="0.55608976" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.249694" sideWeight="0.5218978" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28414634" sideWeight="0.78212976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32953465" sideWeight="0.4871795" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.47980416" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32668567" sideWeight="0.25587606" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32560974" sideWeight="0.5305998" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1672,7 +1196,6 @@
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
-    <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
@@ -1682,9 +1205,11 @@
     <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-    <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -1709,128 +1234,98 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertAlphaFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="24" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/InvertFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LevelsFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/LookupFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="705" selection-end="705" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MapColorsFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MinimumFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/MotionBlurFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="699" selection-end="699" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/BumpFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="13" selection-start="976" selection-end="976" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/WoodFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="22" selection-start="0" selection-end="1136" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/PosterizeFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/QuantizeFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="21" selection-start="707" selection-end="707" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RescaleFilterIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/RGBAdjustFilterIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/SolarizeFilterIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="17" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ThresholdFilterIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="17" selection-start="703" selection-end="703" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/TritoneFilterIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.21978022">
+        <state line="21" column="20" selection-start="706" selection-end="706" vertical-scroll-proportion="0.22031824" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/filters/ThresholdFilterIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="22" selection-start="708" selection-end="708" vertical-scroll-proportion="0.4846154" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GrayscaleFilterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="40" selection-start="1264" selection-end="1264" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="13" selection-start="966" selection-end="966" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="8" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="32" selection-start="1190" selection-end="1190" vertical-scroll-proportion="0.36190477" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="35" selection-start="2339" selection-end="2339" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageFiltersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="48" selection-start="2804" selection-end="2825" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/imageSizeInputChannel-flow.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="0" selection-end="1258" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/captchaInputChannel-flow.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="58" selection-start="97" selection-end="97" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1357849400000" expanded="false" signature="97:1070" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/_images-esb.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="20" selection-start="3553" selection-end="3553" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar!/java/net/PlainSocketImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="24" selection-start="4383" selection-end="4383" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1895,6 +1390,7 @@
             <option name="proportions">
               <list>
                 <option value="0.15812431" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

@@ -56,16 +56,7 @@
 	<!--
 		GENERATE CAPTCHA
 	-->
-	<si:channel id="captchaInputChannel"/>
-	<si:chain input-channel="captchaInputChannel" output-channel="noOpOutputChannel">
-
-		<si:service-activator
-			method="generateCaptchaHandler">
-			<bean class="apiserver.apis.v1_0.images.service.coldfusion.CaptchaCFService"/>
-		</si:service-activator>
-
-	</si:chain>
-
+    <import resource="flows/captchaInputChannel-flow.xml"/>
 
 	<!--
 		CACHE ADD
@@ -108,6 +99,10 @@
 	</si:chain> -->
 
 
+    <!--
+		Resize Image
+	-->
+    <import resource="flows/imageSizeInputChannel-flow.xml"/>
 
 
 	<!--
@@ -372,7 +367,7 @@
 
 		<si:service-activator
 				method="doFilter">
-			<bean class="apiserver.apis.v1_0.images.service.jhlabs.GrayScaleFilterService"/>
+			<bean class="apiserver.apis.v1_0.images.service.jhlabs.GrayscaleFilterService"/>
 		</si:service-activator>
 
 	</si:chain>
@@ -442,6 +437,12 @@
 		</si:service-activator>
 
 	</si:chain>
+
+
+
+    <si:channel id="imageMinimumFilterChannel"/>
+    <si:channel id="imageMotionBlurFilterChannel"/>
+    <si:channel id="imageOilFilterChannel"/>
 </beans>
 
 

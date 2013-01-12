@@ -18,7 +18,7 @@ import java.util.Map;
  * Date: 10/31/12
  */
 @Slf4j
-public class GrayScaleFilterService
+public class GrayscaleFilterService
 {
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
@@ -50,7 +50,7 @@ public class GrayScaleFilterService
         }
         catch (Throwable e)
         {
-            GrayScaleFilterService.log.error(e.getMessage(), e);
+            //GrayscaleFilterService.log.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
