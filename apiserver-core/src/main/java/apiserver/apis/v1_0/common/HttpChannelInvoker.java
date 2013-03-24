@@ -21,8 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Take an HTTP request and convert it into a spring integration message and send it through the system.
+ *
  * User: mnimer
  * Date: 9/18/12
+ *
  */
 public class HttpChannelInvoker
 {

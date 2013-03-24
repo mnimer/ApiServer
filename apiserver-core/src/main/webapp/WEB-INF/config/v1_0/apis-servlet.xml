@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:ctx="http://www.springframework.org/schema/context"
 	   xmlns:util="http://www.springframework.org/schema/util"
 	   xmlns:mvc="http://www.springframework.org/schema/mvc"
 	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:si="http://www.springframework.org/schema/integration"
 	   xmlns:http="http://www.springframework.org/schema/integration/http"
-	   xmlns:oxm="http://www.springframework.org/schema/oxm"
-	   xmlns:p="http://www.springframework.org/schema/p"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
-           http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 	<context:mbean-export registration="replaceExisting"/>
 	<context:annotation-config />
 	<mvc:annotation-driven/>
 
 
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <import resource="_status-esb.xml" />
+    <import resource="_images-esb.xml" />
+
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<util:list>
 				<bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
@@ -41,10 +39,6 @@
 	<!--bean id="multipartResolver"
 		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</bean-->
-
-
-	<import resource="_status-esb.xml" />
-	<import resource="_images-esb.xml" />
 
 
 
@@ -80,11 +74,22 @@
 
 
 
-	<bean id="documentationController" class="com.mangofactory.swagger.springmvc.controller.DocumentationController"
-		  p:apiVersion="1.0"
-		  p:swaggerVersion="1.0"
-		  p:basePath="http://localhost:8080/apiserver-core/rest/v1/resources/"
-		  p:contextPath="/apiserver-core/rest/v1"/>
+	<!--bean id="documentationController" class="com.mangofactory.swagger.SwaggerConfiguration">
+        <property name="apiVersion" value="1.0"/>
+        <property name="swaggerVersion" value="1.0"/>
+        <property name="basePath" value="http://localhost:8080/rest/v1/resources/"/>
+        <property name="contextPath" value="/rest/v1"/>
+    </bean-->
+    <!--
+    <context:component-scan base-package="com.mangofactory.swagger.spring.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <bean id="swaggerConfiguration" class="com.mangofactory.swagger.SwaggerConfiguration">
+        <property name="basePath" value="http://localhost:8080/rest/v1/"/>
+        <property name="apiVersion" value="1.0"/>
+    </bean>
+    -->
 
 	<!-- handler mapping implementation that is aware of inbound Spring Integration
 			http inbound gateway's and inbound adapter's with "path" attributes -->

@@ -167,20 +167,76 @@
 		</dependency>
 
 
+        <!-- Use Log4J for logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.11</version>
+        </dependency>
+
+
 		<dependency>
 			<groupId>com.mangofactory</groupId>
 			<artifactId>swagger-springmvc</artifactId>
-			<version>0.2.2</version>
+			<version>0.4.0</version>
 		</dependency>
 
 
+        <!--
+           Apache Jackrabbit
+        -->
+        <!-- The JCR API -->
+        <dependency>
+            <groupId>javax.jcr</groupId>
+            <artifactId>jcr</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+
+        <!--
+            JACKRABBIT
+         -->
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-api</artifactId>
+            <version>2.4.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-commons</artifactId>
+            <version>2.4.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Jackrabbit content repository -->
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-core</artifactId>
+            <version>2.2.4</version>
+        </dependency>
 
 
 
 
-		<!--
-		 Dependencies for IMAGE Metadata
-		-->
+        <!--
+         Dependencies for IMAGE Metadata
+        -->
 		<!--
 		<dependency>
 			<groupId>com.sun.media</groupId>
@@ -321,6 +377,12 @@
 			<version>1.9.9</version>
 		</dependency>
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.1.4</version>
+        </dependency>
+
 
 		<!--
 			SPRING FRAMEWORK
@@ -452,6 +514,7 @@
 		</dependency>
 
 
+
 		<!--
 			SPRING SECURITY
 		-->
@@ -570,6 +633,11 @@
 			<name>Spring Framework Maven Snapshot Repository</name>
 			<url>http://maven.springframework.org/snapshot</url>
 		</repository>
+        <repository>
+            <id>se-jcr-repo</id>
+            <name>se-jcr-repo</name>
+            <url>https://src.springframework.org/svn/se-jcr/repo/</url>
+        </repository>
 
         <repository>
             <id>project.local</id>
