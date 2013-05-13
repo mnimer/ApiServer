@@ -73,14 +73,22 @@
 	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
 
 
+    <!-- to specify swagger properties
+           documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
+       documentation.services.version=1.0
+       -->
+    <context:property-placeholder location="classpath:swagger.properties" />
+    <!-- Configuration Bean -->
+    <bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/>
 
-	<!--bean id="documentationController" class="com.mangofactory.swagger.SwaggerConfiguration">
+    <!--
+	<bean id="documentationController" class="com.mangofactory.swagger.SwaggerConfiguration">
         <property name="apiVersion" value="1.0"/>
         <property name="swaggerVersion" value="1.0"/>
         <property name="basePath" value="http://localhost:8080/rest/v1/resources/"/>
         <property name="contextPath" value="/rest/v1"/>
-    </bean-->
-    <!--
+    </bean>
+
     <context:component-scan base-package="com.mangofactory.swagger.spring.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -145,7 +153,7 @@
 	</bean>
 
 
-	<bean id="unitTestProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+	<!--bean id="unitTestProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
 		<property name="targetMapClass">
 			<value>java.util.HashMap</value>
 		</property>
@@ -156,7 +164,7 @@
 				<entry key="tomcatContextRoot" value="/apiserver-core" />
 			</map>
 		</property>
-	</bean>
+	</bean-->
 
 </beans>
 

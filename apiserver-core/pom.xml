@@ -4,19 +4,20 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.apiserver</groupId>
-	<artifactId>core</artifactId>
-	<name>ApiServer Core Application</name>
-	<version>0.1.0</version>
+	<groupId>com.mikenimer.server</groupId>
+	<artifactId>ApiServer</artifactId>
+	<name>ApiServer</name>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 
 	<properties>
-		<java-version>1.7</java-version>
+		<java-version>1.6</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<spring.version>3.1.2.RELEASE</spring.version>
 		<spring-integration.version>2.1.0.RELEASE</spring-integration.version>
+        <jackrabbit.version>2.6.0</jackrabbit.version>
 
 		<!-- path to extracted war file -->
 		<cfusion.war>../resources/ColdFusion10/cfusion.war</cfusion.war>
@@ -71,14 +72,21 @@
 
 
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
+        <!--dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>3.0.0</version>
+            <scope>provided</scope>
+        </dependency-->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
 
 
+        <!-- XML -->
 		<dependency>
 			<groupId>javax.xml</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -118,11 +126,8 @@
 			<version>2.7.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.2.1</version>
-		</dependency>
+
+        <!-- HTTP -->
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
@@ -171,67 +176,98 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.11</version>
+            <version>1.6.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.4</version>
         </dependency>
 
 
 		<dependency>
 			<groupId>com.mangofactory</groupId>
 			<artifactId>swagger-springmvc</artifactId>
-			<version>0.4.0</version>
+			<version>0.6.0-SNAPSHOT</version>
 		</dependency>
 
 
-        <!--
-           Apache Jackrabbit
-        -->
-        <!-- The JCR API -->
+        <!-- Jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>7.5.1.v20110908</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jsp-2.1-glassfish</artifactId>
+            <version>2.1.v20100127</version>
+        </dependency>
+
+
+        <!-- Jackrabbit -->
         <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
             <version>2.0</version>
         </dependency>
-
-
-        <!--
-            JACKRABBIT
-         -->
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
             <artifactId>jackrabbit-api</artifactId>
-            <version>2.4.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
+            <version>${jackrabbit.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.jackrabbit</groupId>
-            <artifactId>jackrabbit-jcr-commons</artifactId>
-            <version>2.4.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <!-- Jackrabbit content repository -->
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
             <artifactId>jackrabbit-core</artifactId>
-            <version>2.2.4</version>
+            <version>${jackrabbit.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-commons</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-rmi</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-spi</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-spi-commons</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-webdav</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-jcr-server</artifactId>
+            <version>${jackrabbit.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>jackrabbit-webapp</artifactId>
+            <version>${jackrabbit.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>log4j-over-slf4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
 
         <!--
@@ -250,11 +286,6 @@
 			<version>1.1.3</version>
 		</dependency>
 		-->
-		<dependency>
-			<groupId>com.drewnoakes</groupId>
-			<artifactId>metadata-extractor</artifactId>
-			<version>2.6.2</version>
-		</dependency>
 
 
 		<!--
@@ -296,12 +327,6 @@
 			<version>1.9.0-rc1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
 
 		<!--
 		   Caching Libraries
@@ -614,6 +639,11 @@
 
 	<repositories>
         <repository>
+            <id>java.net2</id>
+            <name>Repository hosting the jee6 artifacts</name>
+            <url>http://download.java.net/maven/2</url>
+        </repository>
+        <repository>
             <id>apache.snapshots</id>
             <name>Apache Development Snapshot Repository</name>
             <url>https://repository.apache.org/snapshots</url>
@@ -633,10 +663,14 @@
 			<name>Spring Framework Maven Snapshot Repository</name>
 			<url>http://maven.springframework.org/snapshot</url>
 		</repository>
+
         <repository>
-            <id>se-jcr-repo</id>
-            <name>se-jcr-repo</name>
-            <url>https://src.springframework.org/svn/se-jcr/repo/</url>
+            <id>swagger-maven-plugin-mvn-repo</id>
+            <url>https://raw.github.com/kongchen/swagger-maven-plugin/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
 
         <repository>
@@ -652,10 +686,10 @@
 		<finalName>apiserver-core-${project.version}</finalName>
 
 		<plugins>
-
 			<plugin>
 				<groupId>org.zeroturnaround</groupId>
 				<artifactId>jrebel-maven-plugin</artifactId>
+                <version>1.1.3</version>
 				<executions>
 					<execution>
 						<id>generate-rebel-xml</id>
@@ -670,7 +704,7 @@
 
 			<!--
 				Unzip cfusion.war
-			-->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -682,7 +716,7 @@
 						<configuration>
 							<target>
 								<echo message="extract cfusion WAR"/>
-								<!--unzip src="${cfusion.war}" dest="${extracted.cfusion.war}/" /-->
+								<unzip src="${cfusion.war}" dest="${extracted.cfusion.war}/" />
 							</target>
 						</configuration>
 						<goals>
@@ -691,41 +725,135 @@
 					</execution>
 				</executions>
 			</plugin>
+            -->
+
+            <!--
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+
+                    <webResources>
+                        <resource>
+                            <directory>${extracted.cfusion.war}</directory>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                            <excludes>
+                                <exlude>**/web.xml</exlude>
+                                // we are already including a newer version in the dependencys above
+                                <exlude>* * /cfusion/lib/metadata-extractor-*.jar</exlude> //remote spaces between *
+                            </excludes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+            -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
 
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-				<configuration>
-					<!--archive>
-						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>sky
-					</archive-->
-					<webResources>
-						<resource>
-							<directory>${extracted.cfusion.war}</directory>
-							<includes>
-								<include>**</include>
-							</includes>
-							<excludes>
-								<exlude>**/web.xml</exlude>
-								<!-- we are already including a newer version in the dependencys above -->
-								<exlude>**/cfusion/lib/metadata-extractor-*.jar</exlude>
-							</excludes>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2</version>
+                <configuration>
+                    <mainClass>apiserver.Launcher</mainClass>
+                </configuration>
+            </plugin>
+
+
+            <!-- The maven app assembler plugin will generate a script that sets up the classpath and runs your project -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <configuration>
+                    <!--assembleDirectory>target</assembleDirectory-->
+
+                    <!-- Set the target configuration directory to be used in the bin scripts -->
+                    <configurationDirectory>conf</configurationDirectory>
+                    <!-- Copy the contents from "/src/main/config" to the target
+                         configuration directory in the assembled application -->
+                    <copyConfigurationDirectory>true</copyConfigurationDirectory>
+                    <!-- Include the target configuration directory in the beginning of
+                         the classpath declaration in the bin scripts -->
+                    <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+                    <!-- set alternative assemble directory -->
+                    <assembleDirectory>${project.build.directory}/apiserver</assembleDirectory>
+                    <!-- Extra JVM arguments that will be included in the bin scripts
+                    <extraJvmArguments>-Xms128m</extraJvmArguments>
+                    -->
+
+                    <programs>
+                        <program>
+                            <mainClass>apiserver.Launcher</mainClass>
+                            <!--
+                            <commandLineArguments>
+                                <commandLineArgument>arg1</commandLineArgument>
+                                <commandLineArgument>arg2</commandLineArgument>
+                            </commandLineArguments>
+                            -->
+                            <name>apiserver</name>
+                        </program>
+                    </programs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
 
 
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
+            <!--
+               https://github.com/kongchen/swagger-maven-plugin
+
+            <plugin>
+                <groupId>com.github.kongchen</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <apiSources>
+                        //can speficy multi sources here to get multi format outputs
+                        <apiSource>
+                            <apiClasses>
+                                <apiClass>com.foo.bar.ApiResource1Version1</apiClass>
+                                <apiClass>com.foo.bar.ApiResource2Version1</apiClass>
+                            </apiClasses>
+                            <apiPackage>com.foo.bar.api</apiPackage>
+                            <apiVersion>v1</apiVersion>
+                            <basePath>http://host:port/foo/bar</basePath>
+                            <outputTemplate>markdown.mustache</outputTemplate>
+                            <outputPath>doc.md</outputPath>
+                        </apiSource>
+                    </apiSources>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        -->
 
 			<!--plugin>
 				<artifactId>maven-surefire-plugin</artifactId>

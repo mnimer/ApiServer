@@ -50,8 +50,8 @@
 		<property name="sourceMap">
 			<map>
 				<entry key="tomcatHost" value="127.0.0.1" />
-				<entry key="tomcatPort" value="8080" />
-				<entry key="tomcatContextRoot" value="/apiserver-core" />
+				<entry key="tomcatPort" value="8100" />
+				<entry key="tomcatContextRoot" value="/" />
 			</map>
 		</property>
 	</bean>

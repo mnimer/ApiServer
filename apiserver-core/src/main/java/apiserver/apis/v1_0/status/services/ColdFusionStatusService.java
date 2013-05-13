@@ -1,10 +1,12 @@
 package apiserver.apis.v1_0.status.services;
 
 import apiserver.ApiServerConstants;
+import apiserver.core.connectors.coldfusion.ColdFusionBridge;
+import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import coldfusion.cfc.CFCProxy;
 import coldfusion.runtime.Struct;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,29 +18,31 @@ import java.util.Map;
  */
 public class ColdFusionStatusService
 {
+    Logger log = Logger.getLogger(ColdFusionStatusService.class);
+
+    public IColdFusionBridge coldFusionBridge;
+
     private static String cfcPath;
+
+
+    public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
+    {
+        this.coldFusionBridge = coldFusionBridge;
+    }
+
 
     public Object healthHandler(Message<?> message) throws ColdFusionException, MessageConfigException
     {
         Map props = (Map)message.getPayload();
         HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
 
-        if( cfcPath == null )
-        {
-            if( request == null )
-            {
-                throw new MessageConfigException(MessageConfigException.MISSING_REQUEST_PROPERTY);
-            }
-            cfcPath = request.getServletContext().getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc");
-            //cfcPath = "/Users/mnimer/Development/github/API-OSGi-Server/apiserver-core/target/apiserver-core-0.1.0/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc";
-        }
 
         try
         {
             long start = System.currentTimeMillis();
-            CFCProxy myCFC = new CFCProxy(cfcPath, false);
-            Object[] myArgs = {};
-            Struct cfcResult = (Struct)myCFC.invoke("health", myArgs);
+            String cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc";
+            String method = "health";
+            Struct cfcResult = (Struct)coldFusionBridge.invoke(cfcPath, method, null, request);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
@@ -49,10 +53,7 @@ public class ColdFusionStatusService
         }
         catch (Throwable e)
         {
-            //URL location = coldfusion.runtime.NeoPageContext.class.getProtectionDomain().getCodeSource().getLocation();
-            //System.out.print(location);
-
-            e.printStackTrace(); //todo use logging library
+            log.error(e);
             throw new RuntimeException(e);
         }
     }

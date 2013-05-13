@@ -27,6 +27,11 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/image/cache")
+
+//@Path("/image/cache.json") //swagger
+//@Api(value = "/pet", description = "Operations about pets") //swagger
+//@Produces({"application/json"}) //swagger
+
 public class ImageCacheController
 {
     @Autowired(required = false)
@@ -51,6 +56,10 @@ public class ImageCacheController
      */
     @ApiOperation(value = "add an image to the cache")
     @RequestMapping(value = "/add", method = {RequestMethod.POST, RequestMethod.PUT})
+
+    //@GET
+    //@Path("/{petId}")
+    //@ApiOperation(value = "Find pet by ID", notes = "Add extra notes here", responseClass = "com.wordnik.swagger.sample.model.Pet")
     public ModelAndView addImage(
             @ApiParam(name="file", required = true) @RequestParam(required = true) MultipartFile file
             ,@ApiParam(name="timeToLiveInSeconds", required = true)  @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )

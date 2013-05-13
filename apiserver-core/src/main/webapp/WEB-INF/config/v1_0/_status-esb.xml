@@ -14,10 +14,15 @@
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
 
 
-	<!-- SERVICES -->
+    <bean id="coldFusionBridge" class="apiserver.core.connectors.coldfusion.ColdFusionBridge"/>
+
+
+    <!-- SERVICES -->
 	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
 	<bean id="statusService" class="apiserver.apis.v1_0.status.services.StatusService"/>
-	<bean id="coldFusionStatusService" class="apiserver.apis.v1_0.status.services.ColdFusionStatusService"/>
+	<bean id="coldFusionStatusService" class="apiserver.apis.v1_0.status.services.ColdFusionStatusService">
+        <property name="coldFusionBridge" ref="coldFusionBridge"/>
+	</bean>
 
 
 	<!-- ESB configuration -->

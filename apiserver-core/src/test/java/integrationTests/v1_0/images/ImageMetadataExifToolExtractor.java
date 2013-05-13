@@ -41,12 +41,13 @@ import java.util.Set;
 public class ImageMetadataExifToolExtractor extends HttpTest
 {
     private String hostName = "localhost";
-    private int port = 9000;
+    private int port = 8100;
 
 
     @Before
     public void setup() throws Exception
     {
+        /*
         String serviceURL = "service:jmx:rmi:///jndi/rmi://" + hostName + ":" + port +"/jmxrmi";
         JMXServiceURL jmxUrl = new JMXServiceURL(serviceURL);
         JMXConnector jmxCon = JMXConnectorFactory.connect(jmxUrl);
@@ -63,6 +64,7 @@ public class ImageMetadataExifToolExtractor extends HttpTest
         System.out.println(imageConfigProxy.getMetadataLibrary());
 
         jmxCon.close();
+        */
     }
 
 
