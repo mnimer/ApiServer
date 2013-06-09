@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:http="http://www.springframework.org/schema/integration/http"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+
+
+
+    <si:channel id="imageGrayScaleFilterChannel"/>
+    <si:chain input-channel="imageGrayScaleFilterChannel" output-channel="noOpOutputChannel">
+
+        <si:service-activator
+                method="checkCache">
+            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+        </si:service-activator>
+
+        <si:service-activator
+                method="doFilter">
+            <bean class="apiserver.apis.v1_0.images.service.jhlabs.GrayscaleFilterService"/>
+        </si:service-activator>
+
+    </si:chain>
+
+</beans>

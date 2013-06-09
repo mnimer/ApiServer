@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:http="http://www.springframework.org/schema/integration/http"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+
+    <!--
+            Image Embedded Metadata
+            Note: because of the router, this is not in a CHAIN
+        -->
+    <si:channel id="imageMetadataInputChannel"/>
+    <si:channel id="metadataInfoRouter"/>
+
+    <!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
+    <si:channel id="drewMetadataExtractor"/>
+    <si:channel id="exifTool"/>
+
+
+    <si:service-activator
+            input-channel="imageMetadataInputChannel"
+            output-channel="metadataInfoRouter"
+            method="checkCache">
+        <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+    </si:service-activator>
+
+    <si:router
+            input-channel="metadataInfoRouter"
+            method="route">
+        <bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
+    </si:router>
+
+
+    <si:service-activator
+            input-channel="drewMetadataExtractor"
+            output-channel="noOpOutputChannel"
+            method="imageMetadataHandler">
+        <bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
+    </si:service-activator>
+
+    <si:service-activator
+            input-channel="exifTool"
+            output-channel="noOpOutputChannel"
+            method="metadataInfo">
+        <bean class="apiserver.apis.v1_0.images.service.exiftool.ImageMetadataService"/>
+    </si:service-activator>
+
+
+
+</beans>
