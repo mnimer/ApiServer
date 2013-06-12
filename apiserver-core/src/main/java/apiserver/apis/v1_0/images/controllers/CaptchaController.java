@@ -2,15 +2,9 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import coldfusion.image.Image;
-import com.adobe.xmp.impl.Base64;
-import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -21,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -80,7 +75,7 @@ public class CaptchaController
         //todo: log CF execution time to MBean analytics
 
 
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage(), "jpg", returnAsBase64 );
+        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT)), "jpg", returnAsBase64 );
         return result;
     }
 

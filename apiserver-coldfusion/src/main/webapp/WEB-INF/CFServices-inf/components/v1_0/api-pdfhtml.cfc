@@ -5,9 +5,9 @@
 
         <!--cfdump var="#html#" output="console"/-->
 
-        <!---cfset fileName =  "#getTempDirectory()#/#createUUID()#.pdfs"--->
+<!---cfset fileName =  "#getTempDirectory()#/#createUUID()#.pdfs"--->
 
-        <cfdocument name="pdf" format="pdfs" >
+        <cfdocument name="pdf" format="pdfs">
             <cfoutput>#arguments.html#</cfoutput>
         </cfdocument>
 
@@ -17,11 +17,8 @@
     </cffunction>
 
 
-
-
     <cffunction name="artistList">
         <cfargument name="artistQuery"/>
-
 
         <cfdocument name="pdf" format="pdfs" bookmark="true">
             <cfoutput>
@@ -42,8 +39,6 @@
 
             </cfoutput>
         </cfdocument>
-
-
 
         <cfset results = structNew()>
         <cfset results['pdfs'] = pdf>

@@ -1,4 +1,4 @@
-package apiserver.services.v1_0.cache;
+package apiserver.core.cache;
 
 import java.security.PublicKey;
 

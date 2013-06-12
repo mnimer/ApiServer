@@ -2,13 +2,9 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import coldfusion.image.Image;
+import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-import com.wordnik.swagger.core.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -65,7 +61,7 @@ public class ImageManipulationController
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
+        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -94,7 +90,7 @@ public class ImageManipulationController
 
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
+        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -133,7 +129,7 @@ public class ImageManipulationController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
+        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;
@@ -171,7 +167,7 @@ public class ImageManipulationController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
 
 
-        BufferedImage bufferedImage = ((Image)view.getModel().get(ImageConfigMBeanImpl.RESULT)).getCurrentImage();
+        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
         return result;

@@ -2,10 +2,9 @@ package apiserver.apis.v1_0.images.service.coldfusion;
 
 import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import coldfusion.cfc.CFCProxy;
-import coldfusion.runtime.Struct;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,53 +17,35 @@ import java.util.Map;
  */
 public class CaptchaCFService
 {
-    private static String cfcPath;
+
+
+    public IColdFusionBridge coldFusionBridge;
+    public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
+    {
+        this.coldFusionBridge = coldFusionBridge;
+    }
 
     public Object generateCaptchaHandler(Message<?> message) throws ColdFusionException, MessageConfigException
     {
         Map props = (Map)message.getPayload();
         HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
 
-        if( cfcPath == null )
-        {
-            if( request == null )
-            {
-                throw new MessageConfigException(MessageConfigException.MISSING_REQUEST_PROPERTY);
-            }
-            cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc");
-        }
-
         try
         {
-            props.remove(ApiServerConstants.HTTP_REQUEST);
-            props.remove(ApiServerConstants.HTTP_RESPONSE);
-
             long start = System.currentTimeMillis();
-            CFCProxy myCFC = new CFCProxy(cfcPath, false);
+            String cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc";
+            String method = "generateCaptcha";
+            Object[] methodArgs = extractProperties(props);
 
 
-            Object[] myArgs = {};
-            if( props.size() > 0 )
-            {
-                myArgs = new Object[props.size()];
-            }
-
-            int indx = 0;
-            for (Object key : props.keySet())
-            {
-                myArgs[indx++] = props.get(key);
-            }
-            props.clear();
-
-
-            Object cfcResult = myCFC.invoke("generateCaptcha", myArgs);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
             Map payload = (Map) message.getPayload();
             if( cfcResult instanceof  Map )
             {
-                payload.putAll( (Map)cfcResult );
+                payload.putAll( cfcResult );
             }
             else
             {
@@ -87,5 +68,26 @@ public class CaptchaCFService
             e.printStackTrace(); //todo use logging library
             throw new RuntimeException(e);
         }
+    }
+
+
+    private Object[] extractProperties(Map props)
+    {
+        props.remove(ApiServerConstants.HTTP_REQUEST);
+        props.remove(ApiServerConstants.HTTP_RESPONSE);
+
+        Object[] methodArgs = {};
+        if( props.size() > 0 )
+        {
+            methodArgs = new Object[props.size()];
+        }
+
+        int indx = 0;
+        for (Object key : props.keySet())
+        {
+            methodArgs[indx++] = props.get(key);
+        }
+        props.clear();
+        return methodArgs;
     }
 }

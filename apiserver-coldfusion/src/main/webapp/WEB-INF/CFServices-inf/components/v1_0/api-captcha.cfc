@@ -9,7 +9,6 @@
         <cfargument name="fontSize" default="40" type="numeric"/>
         <cfargument name="fontFamily" default="Verdana,Arial,Courier New,Courier" type="string"/>
 
-
         <cfif arguments.debug>
             <cfdump var=#arguments# output="console">
         </cfif>

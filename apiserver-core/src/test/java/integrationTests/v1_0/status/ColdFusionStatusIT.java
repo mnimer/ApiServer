@@ -28,7 +28,7 @@ import java.util.Map;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
+@ContextConfiguration(locations = {"file:**/config/application-context.xml", "file:**/config/v1_0/apis-servlet-integration-tests.xml"})
 @Profile("dev")
 @Category(categories.ColdFusionTests.class)
 public class ColdFusionStatusIT

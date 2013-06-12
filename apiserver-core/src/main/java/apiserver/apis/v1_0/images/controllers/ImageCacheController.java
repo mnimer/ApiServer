@@ -3,9 +3,8 @@ package apiserver.apis.v1_0.images.controllers;
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
+import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-import com.wordnik.swagger.core.ApiOperation;
-import org.apache.commons.httpclient.methods.RequestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.integration.MessageChannel;
@@ -15,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

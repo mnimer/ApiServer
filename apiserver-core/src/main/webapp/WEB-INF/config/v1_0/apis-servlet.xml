@@ -16,8 +16,8 @@
 	<mvc:annotation-driven/>
 
 
-    <import resource="_status-esb.xml" />
-    <import resource="_images-esb.xml" />
+    <import resource="_status-apis-esb.xml" />
+    <import resource="_image-apis-esb.xml" />
 
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

@@ -15,7 +15,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import javax.servlet.ServletException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -29,8 +28,6 @@ import java.util.Map;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
-@Profile("dev")
-@Category(categories.ColdFusionTests.class)
 public class ImageInfoIT extends HttpTest
 {
     @Autowired
@@ -38,7 +35,7 @@ public class ImageInfoIT extends HttpTest
 
 
     @Test
-    public void testImageSize() throws ServletException, IOException, Exception
+    public void testImageSize() throws Exception
     {
         int width = 500;
         int height = 296;

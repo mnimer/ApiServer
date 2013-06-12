@@ -1,24 +1,17 @@
 package apiserver.apis.v1_0.images;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.apis.v1_0.images.service.cache.ImageCacheService;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.FactoryException;
-import apiserver.services.v1_0.cache.CacheServiceMBean;
+import apiserver.core.cache.CacheServiceMBean;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.integration.MessageChannel;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
-import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 

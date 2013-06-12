@@ -20,16 +20,20 @@
                 <h3>ColdFusion 10 Editions</h3>
                 <ul>
                     <li>
-                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an easy-to-manage configuration that is ideal for small to medium-sized businesses.
+                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an
+                        easy-to-manage configuration that is ideal for small to medium-sized businesses.
                     </li>
                     <li>
-                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple applications in a JEE, clustered or virtualized environment.
+                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple
+                        applications in a JEE, clustered or virtualized environment.
                     </li>
                     <li>
-                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of Enterprise edition, but limited to access by only 2 IP addresses.
+                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of
+                        Enterprise edition, but limited to access by only 2 IP addresses.
                     </li>
                     <li>
-                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days. Reverts to developer edition at that time.
+                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days.
+                        Reverts to developer edition at that time.
                     </li>
 
                 </ul>
@@ -77,16 +81,20 @@
                 <h3>ColdFusion 10 Editions</h3>
                 <ul>
                     <li>
-                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an easy-to-manage configuration that is ideal for small to medium-sized businesses.
+                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an
+                        easy-to-manage configuration that is ideal for small to medium-sized businesses.
                     </li>
                     <li>
-                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple applications in a JEE, clustered or virtualized environment.
+                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple
+                        applications in a JEE, clustered or virtualized environment.
                     </li>
                     <li>
-                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of Enterprise edition, but limited to access by only 2 IP addresses.
+                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of
+                        Enterprise edition, but limited to access by only 2 IP addresses.
                     </li>
                     <li>
-                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days. Reverts to developer edition at that time.
+                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days.
+                        Reverts to developer edition at that time.
                     </li>
 
                 </ul>
@@ -137,16 +145,20 @@
                 <h3>ColdFusion 10 Editions</h3>
                 <ul>
                     <li>
-                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an easy-to-manage configuration that is ideal for small to medium-sized businesses.
+                        <strong>Standard Edition</strong> Targeted at a workgroup or single application deployed in an
+                        easy-to-manage configuration that is ideal for small to medium-sized businesses.
                     </li>
                     <li>
-                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple applications in a JEE, clustered or virtualized environment.
+                        <strong>Enterprise Edition</strong> Created to deliver high-performing websites and multiple
+                        applications in a JEE, clustered or virtualized environment.
                     </li>
                     <li>
-                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of Enterprise edition, but limited to access by only 2 IP addresses.
+                        <strong>Developer Edition</strong> No cost, not licensed for production use. All features of
+                        Enterprise edition, but limited to access by only 2 IP addresses.
                     </li>
                     <li>
-                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days. Reverts to developer edition at that time.
+                        <strong>30-day Trial</strong> Fully functional enterprise edition that expires after 30 days.
+                        Reverts to developer edition at that time.
                     </li>
 
                 </ul>
@@ -197,7 +209,11 @@
             </cfpresentationslide>
             <cfpresentationslide advance="click">
                 <h1>Slide Two</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
             </cfpresentationslide>
             <cfpresentationslide advance="click">
                 <h1>Slide Three: Its a loop!</h1>
@@ -209,9 +225,6 @@
         </cfpresentation>
 
     </cffunction>
-
-
-
 
 
     <cffunction name="example2">

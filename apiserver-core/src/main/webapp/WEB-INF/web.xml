@@ -54,7 +54,7 @@
 
     <servlet>
         <servlet-name>PingServlet</servlet-name>
-        <servlet-class>apiserver.apis.v1_0.servlets.PingServlet</servlet-class>
+        <servlet-class>apiserver.core.servlets.PingServlet</servlet-class>
     </servlet>
 
 

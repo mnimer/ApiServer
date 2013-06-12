@@ -1,16 +1,15 @@
 <cfcomponent>
 
-    <cffunction name='urltopdf'>
+    <cffunction name= 'urltopdf'>
         <cfargument name="url" type="string"/>
 
 
-        <!--- Call a webpage--->
+<!--- Call a webpage--->
         <cfhttp url="#arguments.url#" method="get" resolveurl="yes">
-        <!--- Convert content of webpage to PDF and Scale it --->
+<!--- Convert content of webpage to PDF and Scale it --->
         <cfdocument name="pdf" format="PDF" localurl="no">
             <cfoutput>#cfhttp.fileContent#</cfoutput>
         </cfdocument>
-
 
         <cfset results = structNew()>
         <cfset results['pdfs'] = pdf>

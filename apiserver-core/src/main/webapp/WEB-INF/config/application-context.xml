@@ -10,8 +10,17 @@
 
     <!--import resource="security-config.xml" /-->
 
+
+    <bean id="coldFusionBridge" class="apiserver.core.connectors.coldfusion.ColdFusionHttpBridge">
+        <property name="ip" value="localhost"/>
+        <property name="port" value="8500"/>
+        <property name="contextRoot" value="/api"/>
+    </bean>
+
+
     <!-- public API endpoints -->
     <import resource="jcr-context.xml"/>
+
     <import resource="v1_0/apis-servlet.xml"/>
 
 

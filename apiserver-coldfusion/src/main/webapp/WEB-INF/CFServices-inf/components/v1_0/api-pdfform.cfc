@@ -13,7 +13,6 @@
         <cfargument name="bankAcctNum"/>
         <cfargument name="bankCity"/>
 
-
         <cfpdfform name="myForm"
                 action="populate"
                 source="#expandPath('/demos-inf/pdfs/EFTAuthorization.pdfs')#">
@@ -42,20 +41,16 @@
     </cffunction>
 
 
-
-
     <cffunction name="readPdf">
         <cfpdfform
                 action="read"
                 source="#expandPath('/demos-inf/pdfs/populatedForm.pdfs')#"
                 result="pdfResult"/>
 
-
         <cfset results = structNew()>
         <cfset results['pdfs'] = pdfResult>
         <cfreturn results>
     </cffunction>
-
 
 
     <cffunction name="dump">

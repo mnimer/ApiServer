@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:si="http://www.springframework.org/schema/integration"
+	   xmlns:http="http://www.springframework.org/schema/integration/http"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd ">
+
+
+
+	<!-- CHANNELS -->
+	<si:channel id="analyticsChannel"/>
+
+	<!-- we'll use this when we are going to use the modifications to the Message payload by reference, instead of pulling the message back out of the output channel -->
+	<si:channel id="noOpOutputChannel"/>
+
+
+	<!-- todo -->
+	<si:channel id="imageCacheDeleteInputChannel"/>
+
+
+	<!-- INTERCEPTORS -->
+	<bean id="tokenAccessInterceptor" class="apiserver.apis.v1_0.common.interceptors.TokenAccessInterceptor"/>
+
+
+	<!-- ROUTERS -->
+
+
+
+
+	<!-- SERVICES -->
+	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
+
+
+
+	<!-- Special Channel adapter to collect analytics
+	<si:outbound-channel-adapter
+		channel="analyticsChannel" >
+		<bean class="apiserver.apis.v1_0.common.messageHandlers.TokenAnalyticsCollector"/>
+	</si:outbound-channel-adapter>
+	-->
+
+
+	<!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
+	<si:service-activator
+			input-channel="noOpOutputChannel"
+			ref="noOpService"
+			method="noOpHandler"/>
+
+
+
+
+
+
+    <!-- ***************************************
+    *** FLOWS
+    *************************************** -->
+
+	<!--
+		CACHE ADD
+	 -->
+	<import resource="flows/cacheAdd-flow.xml"/>
+
+
+	<!--
+		CACHE GET
+	 -->
+	<import resource="flows/cacheGet-flow.xml"/>
+
+
+	<!--
+		CACHE DELETE
+    -->
+	<import resource="flows/cacheDelete-flow.xml"/>
+
+
+
+    <!--
+        GENERATE CAPTCHA
+    -->
+    <import resource="flows/captchaInputChannel-flow.xml"/>
+
+
+    <!--
+		Resize Image
+	-->
+    <import resource="flows/imageSizeInputChannel-flow.xml"/>
+
+
+	<!--
+		Image Size Info
+	-->
+	<import resource="flows/imageResize-flow.xml"/>
+
+
+
+	<!--
+		Image Embedded Metadata
+		Note: because of the router, this is not in a CHAIN
+	-->
+    <import resource="flows/imageMetadata-flow.xml"/>
+
+
+	<!--
+		Image ROTATE
+	-->
+	<import resource="flows/imageRotate-flow.xml"/>
+
+
+	<!--
+		Image RESIZE
+	-->
+	<import resource="flows/imageResize-flow.xml"/>
+
+
+	<!--
+		Image ADD Border
+	-->
+	<import resource="flows/imageDrawBorder-flow.xml"/>
+
+
+	<!--
+		Image Draw text (watermark) on image
+	-->
+	<import resource="flows/imageDrawText-flow.xml"/>
+
+
+
+    <!--
+        IMAGE FILTER Flows
+    -->
+    <import resource="flows/filterBoxBlur-flow.xml"/>
+    <import resource="flows/filterBlur-flow.xml"/>
+    <import resource="flows/filterBump-flow.xml"/>
+    <import resource="flows/filterDespeckle-flow.xml"/>
+    <import resource="flows/filterGaussian-flow.xml"/>
+    <import resource="flows/filterGlow-flow.xml"/>
+    <import resource="flows/filterGrayScale-flow.xml"/>
+    <import resource="flows/filterLensBlur-flow.xml"/>
+    <import resource="flows/filterMask-flow.xml"/>
+    <import resource="flows/filterMaximum-flow.xml"/>
+    <import resource="flows/filterMedian-flow.xml"/>
+    <import resource="flows/filterMinimum-flow.xml"/>
+    <import resource="flows/filterMotionBlur-flow.xml"/>
+    <import resource="flows/filterOil-flow.xml"/>
+
+</beans>
+
+
+

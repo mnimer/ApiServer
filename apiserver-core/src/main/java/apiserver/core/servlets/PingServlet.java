@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.servlets;
+package apiserver.core.servlets;
 
 import org.apache.jackrabbit.servlet.ServletRepository;
 import org.slf4j.Logger;

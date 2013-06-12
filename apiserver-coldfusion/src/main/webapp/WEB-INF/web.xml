@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+
+    <!-- ###########################
+	##  API SERVER
+	########################### -->
+
+    <servlet id="ApiServer-HTTPBridge">
+        <servlet-name>apiserver-httpbridge</servlet-name>
+        <servlet-class>coldfusion.bootstrap.BootstrapServlet</servlet-class>
+        <init-param>
+            <param-name>servlet.class</param-name>
+            <param-value>com.mikenimer.apiserver.HttpBridgeServlet</param-value>
+        </init-param>
+        <load-on-startup>100</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>apiserver-httpbridge</servlet-name>
+        <url-pattern>/api</url-pattern>
+    </servlet-mapping>
+
+
+
+</web-app>

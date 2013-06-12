@@ -7,12 +7,9 @@ import apiserver.exceptions.FactoryException;
 import apiserver.exceptions.MessageConfigException;
 import net.sf.ehcache.Element;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

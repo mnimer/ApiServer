@@ -12,5 +12,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface IColdFusionBridge
 {
 
-    public Object invoke(String cfcPath, String method, Object[] myArgs, HttpServletRequest request) throws Throwable;
+    public Object invoke(String cfcPath, String method, Object[] methodArgs_, HttpServletRequest request) throws Throwable;
 }

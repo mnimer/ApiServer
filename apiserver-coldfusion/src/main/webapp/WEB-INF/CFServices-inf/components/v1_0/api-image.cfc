@@ -8,7 +8,6 @@
                 source="#arguments.image#"
                 structname="imageInfo">
 
-
         <cfset results = structNew()>
         <cfset results['width'] = imageInfo.width>
         <cfset results['height'] = imageInfo.height>
@@ -55,7 +54,7 @@
 
         <CFIF arguments.scaleToFit>
             <cfthrow detail="Not Implemented Yet"/>
-            <!--- todo: use ImageScaleFit method --->
+<!--- todo: use ImageScaleFit method --->
         </cfif>
 
         <cfimage
@@ -86,35 +85,30 @@
     </cffunction>
 
 
-
     <cffunction name="addText">
         <cfargument name="image"/>
         <cfargument name="text"/>
-        <cfargument name="color" />
-        <cfargument name="fontSize" />
-        <cfargument name="fontStyle" />
-        <cfargument name="angle" required="false" />
-        <cfargument name="x" />
-        <cfargument name="y" />
-
+        <cfargument name="color"/>
+        <cfargument name="fontSize"/>
+        <cfargument name="fontStyle"/>
+        <cfargument name="angle" required="false"/>
+        <cfargument name="x"/>
+        <cfargument name="y"/>
 
         <CFIF arguments.angle gt 0>
             <cfthrow detail="Not Implemented Yet"/>
         </cfif>
 
-
         <cfset myImage = ImageNew(expandPath(arguments.image))>
 
         <cfset ImageSetDrawingColor(myImage, arguments.color)>
-        <cfset attr=StructNew()>
-        <cfset attr.size=arguments.fontSize>
-        <cfset attr.style=arguments.fontStyle>
+        <cfset attr = StructNew()>
+        <cfset attr.size = arguments.fontSize>
+        <cfset attr.style = arguments.fontStyle>
         <cfset ImageDrawText(myImage, text, arguments.x, arguments.y, attr)>
-
 
         <cfreturn myImage/>
     </cffunction>
-
 
 
     <cffunction name="generateCaptcha">
@@ -134,8 +128,6 @@
                 fontSize="#fontSize#"
                 fonts="#fontFamily#"
                 name="cfimage">
-
-
 
         <cfreturn cfimage/>
     </cffunction>

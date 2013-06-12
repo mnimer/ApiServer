@@ -12,14 +12,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import java.io.IOException;
+
 /**
  * User: mnimer
  * Date: 9/19/12
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
-@Profile("dev")
+@ContextConfiguration(locations = {"file:**/config/application-context.xml"})
 public class StatusTest
 {
 
@@ -40,6 +42,19 @@ public class StatusTest
         MockHttpServletResponse response = new MockHttpServletResponse();
 
         Object view = statusController.systemCheck();//request, response);
+
+        Assert.isInstanceOf(ModelAndView.class, view);
+        Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));
+    }
+
+
+    @Test
+    public void testColdFusionStatus() throws Exception
+    {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+
+        Object view = statusController.coldFusionCheck(request, response);
 
         Assert.isInstanceOf(ModelAndView.class, view);
         Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));

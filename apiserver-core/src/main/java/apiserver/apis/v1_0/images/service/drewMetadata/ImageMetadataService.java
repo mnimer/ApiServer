@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.images.service.drewMetadata;
 
 import apiserver.ApiServerConstants;
-import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
@@ -12,18 +11,9 @@ import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import org.springframework.integration.Message;
 
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.rmi.server.UID;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 /**
  * User: mnimer
@@ -31,24 +21,11 @@ import java.util.UUID;
  */
 public class ImageMetadataService
 {
-    private static String cfcPath;
-
-
 
     public Object imageMetadataHandler(Message<?> message) throws ColdFusionException
     {
         Map props = (Map)message.getPayload();
         HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
-
-        if( cfcPath == null )
-        {
-            if( request == null )
-            {
-                throw new RuntimeException(MessageConfigException.MISSING_REQUEST_PROPERTY);
-            }
-            cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc");
-        }
-
 
         try
         {

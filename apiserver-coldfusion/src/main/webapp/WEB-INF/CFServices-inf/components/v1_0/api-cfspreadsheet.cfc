@@ -10,12 +10,11 @@
         </cfif>
 
         <cfspreadsheet
-                action = "write"
+                action="write"
                 filename="#expandPath(dir)#/#fileName#"
                 query="query"
                 overwrite="true">
     </cffunction>
-
 
 
     <cffunction name="readExcelQuery">
@@ -46,7 +45,6 @@
 
         <cfreturn myQuery>
     </cffunction>
-
 
 
     <cffunction name="dump">

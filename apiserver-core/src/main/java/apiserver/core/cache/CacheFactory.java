@@ -1,11 +1,7 @@
-package apiserver.services.v1_0.cache;
+package apiserver.core.cache;
 
 import apiserver.exceptions.FactoryException;
-import net.sf.ehcache.jcache.JCache;
-import net.sf.ehcache.jcache.JCacheManager;
-import org.springframework.cache.ehcache.EhCacheManagerFactoryBean;
 
-import javax.cache.CacheConfiguration;
 import javax.cache.CacheManager;
 import javax.cache.Caching;
 

@@ -28,7 +28,6 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/26/12
  */
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet.xml"})
 @Slf4j
 public class HttpTest
 {
@@ -40,9 +39,9 @@ public class HttpTest
 
     private String getUrlBase() throws Exception
     {
-        String host = unitTestProperties.getObject().get("tomcatHost").toString();
-        String port = unitTestProperties.getObject().get("tomcatPort").toString();
-        String contextRoot = unitTestProperties.getObject().get("tomcatContextRoot").toString();
+        String host = unitTestProperties.getObject().get("host").toString();
+        String port = unitTestProperties.getObject().get("port").toString();
+        String contextRoot = unitTestProperties.getObject().get("contextRoot").toString();
 
         return "http://" + host + ":" + port + contextRoot;
     }
