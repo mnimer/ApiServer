@@ -27,7 +27,7 @@ import java.util.Map;
  * Date: 9/21/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/v1_0/apis-servlet-integration-tests.xml"})
+@ContextConfiguration(locations = {"file:./src/main/webapp/WEB-INF/config/v1_0/apis-servlet-integration-tests.xml"})
 public class ImageInfoIT extends HttpTest
 {
     @Autowired

@@ -49,11 +49,14 @@ public class ImageManipulationCFService
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
             String method = "rotateImage";
+            String arguments = "";
             // extract properties
             CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
-            Object[] methodArgs = { cachedImage.getFileBytes(), props.get(ImageConfigMBeanImpl.ANGLE)};
+            Map<String, Object> methodArgs = new HashMap<String, Object>();
+            methodArgs.put("image", cachedImage.getFileBytes());
+            methodArgs.put("angle", props.get(ImageConfigMBeanImpl.ANGLE) );
             // execute
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
 
             long end = System.currentTimeMillis();
 
@@ -96,14 +99,18 @@ public class ImageManipulationCFService
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
             String method = "resizeImage";
+            String arguments = "";
             // extract properties
             CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
-            Object[] methodArgs = { cachedImage.getFileBytes()  /*FileHelper.fileBytes(file)*/
-                    , props.get(ImageConfigMBeanImpl.WIDTH)
-                    , props.get(ImageConfigMBeanImpl.HEIGHT)
-                    , props.get(ImageConfigMBeanImpl.INTERPOLATION)
-                    , props.get(ImageConfigMBeanImpl.SCALE_TO_FIT) };// execute
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+
+            Map<String, Object> methodArgs = new HashMap<String, Object>();
+            methodArgs.put("image", cachedImage.getFileBytes());
+            methodArgs.put(ImageConfigMBeanImpl.WIDTH, props.get(ImageConfigMBeanImpl.WIDTH));
+            methodArgs.put(ImageConfigMBeanImpl.HEIGHT, props.get(ImageConfigMBeanImpl.HEIGHT));
+            methodArgs.put(ImageConfigMBeanImpl.INTERPOLATION, props.get(ImageConfigMBeanImpl.INTERPOLATION));
+            methodArgs.put(ImageConfigMBeanImpl.SCALE_TO_FIT, props.get(ImageConfigMBeanImpl.SCALE_TO_FIT));
+
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
 
             long end = System.currentTimeMillis();
 

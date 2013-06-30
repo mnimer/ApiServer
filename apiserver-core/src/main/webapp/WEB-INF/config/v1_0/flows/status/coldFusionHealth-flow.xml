@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd ">
+
+
+    <si:publish-subscribe-channel id="requestChannel"/>
+
+    <!--si:channel id="requestHTTPChannel"/-->
+
+    <si:channel id="transformJsonChannel"/>
+
+
+    <si:gateway id="apiGateway"
+                service-interface="apiserver.core.gateways.ApiGateway">
+
+        <si:method name="checkColdfusionSync" request-channel="requestChannel"
+                   payload-expression="new java.util.Date()">  <!-- add a fake payload-expression, spring doesn't like http requests with empty payloads -->
+            <si:header name="REQUEST_TYPE" value="http"/>
+        </si:method>
+    </si:gateway>
+
+
+    <!--si:header-value-router input-channel="requestChannel" header-name="REQUEST_TYPE">
+        <si:mapping value="http" channel="requestHTTPChannel"/>
+    </si:header-value-router-->
+
+
+    <si:chain id="trafficGatewayChain" input-channel="requestChannel" output-channel="transformJsonChannel">
+        <http:outbound-gateway
+                url="http://localhost:8500/CFServices-inf/components/v1_0/api-status.cfc?method=health"
+                http-method="GET" reply-timeout="10000"
+                expected-response-type="java.lang.String">
+        </http:outbound-gateway>
+    </si:chain>
+
+    <si:json-to-object-transformer input-channel="transformJsonChannel" type="java.util.HashMap"/>
+
+</beans>

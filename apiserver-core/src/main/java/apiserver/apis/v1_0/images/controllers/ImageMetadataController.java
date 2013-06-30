@@ -4,6 +4,7 @@ import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.exceptions.NotSupportedException;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import java.util.Map;
  * Date: 10/21/12
  */
 @Controller
-@RequestMapping("/image/metadata")
+@RequestMapping("/image-metadata")
 public class ImageMetadataController
 {
     @Autowired

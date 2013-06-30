@@ -39,8 +39,8 @@
 		<property name="sourceMap">
 			<map>
 				<entry key="host" value="127.0.0.1" />
-				<entry key="port" value="8100" />
-				<entry key="contextRoot" value="/" />
+				<entry key="port" value="9000" />
+				<entry key="contextRoot" value="" />
 			</map>
 		</property>
 	</bean>

@@ -2,6 +2,7 @@ package apiserver.apis.v1_0.common;
 
 import apiserver.ApiServerConstants;
 import com.adobe.xmp.impl.Base64;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -29,6 +29,7 @@ import java.util.Map;
  */
 public class HttpChannelInvoker
 {
+
     public ModelAndView invokeGenericChannel(HttpServletRequest request, HttpServletResponse response, Map arguments, MessageChannel channel)
     {
         if( arguments == null )

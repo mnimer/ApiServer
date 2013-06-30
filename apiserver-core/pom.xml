@@ -15,19 +15,26 @@
 		<java-version>1.6</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>3.1.2.RELEASE</spring.version>
-		<spring-integration.version>2.1.0.RELEASE</spring-integration.version>
+		<spring.version>3.1.3.RELEASE</spring.version>
+		<spring-integration.version>2.2.0.RELEASE</spring-integration.version>
         <jackrabbit.version>2.6.0</jackrabbit.version>
 
 		<!-- path to extracted war file
 		<cfusion.war>../resources/ColdFusion10/cfusion.war</cfusion.war>
 		<extracted.cfusion.war>../resources/ColdFusion10/cfusion</extracted.cfusion.war> -->
+        <!--
+        <java.main.class>org.springframework.integration.samples.travel.Main</java.main.class>
+        -->
 	</properties>
 
 
-
 	<dependencies>
-		<!--
+        <dependency>
+            <groupId>com.mangofactory</groupId>
+            <artifactId>swagger-springmvc</artifactId>
+            <version>0.5.3</version>
+        </dependency>
+        <!--
 			 * Add ColdFusion jars to your local repository
 			   todo this: run this command (edit the <path(s)> first)
 			mvn install:install-file -Dfile=/<local path>/ColdFusion10/cfusion/WEB-INF/cfusion/lib/cfusion.jar -DgroupId=com.adobe -DartifactId=ColdFusion -Dversion=10 -Dpackaging=jar -DlocalRepositoryPath=/Users/<username>/.m2/repository/
@@ -78,11 +85,16 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency-->
-        <dependency>
+        <!--dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
+        </dependency-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
         </dependency>
         <!--dependency>
             <groupId>org.glassfish.extras</groupId>
@@ -199,14 +211,6 @@
         </dependency>
 
 
-		<dependency>
-			<groupId>com.mangofactory</groupId>
-			<artifactId>swagger-springmvc</artifactId>
-			<version>0.6.0-SNAPSHOT</version>
-		</dependency>
-
-
-
         <!-- Jetty -->
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
@@ -229,14 +233,15 @@
         </dependency>
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
-            <artifactId>jackrabbit-api</artifactId>
+            <artifactId>jackrabbit-core</artifactId>
             <version>${jackrabbit.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
-            <artifactId>jackrabbit-core</artifactId>
+            <artifactId>jackrabbit-api</artifactId>
             <version>${jackrabbit.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
             <artifactId>jackrabbit-jcr-commons</artifactId>
@@ -287,7 +292,7 @@
         <!--
          Dependencies for IMAGE Metadata
         -->
-		<!--
+        <!--
 		<dependency>
 			<groupId>com.sun.media</groupId>
 			<artifactId>jai_imageio</artifactId>
@@ -299,11 +304,17 @@
 			<artifactId>jai-core</artifactId>
 			<version>1.1.3</version>
 		</dependency>
-		-->
+        -->
+        <dependency>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+            <version>2.6.2</version>
+        </dependency>
 
 
-		<!--
-		 Dependencies for SWAGGER code
+
+        <!--
+         Dependencies for SWAGGER code
         -->
         <dependency>
             <groupId>com.wordnik</groupId>
@@ -325,6 +336,7 @@
 			<artifactId>lombok</artifactId>
 			<version>0.10.8</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
@@ -341,9 +353,10 @@
 			<version>2.9.1</version>
 		</dependency>
 
+
 		<!--
 		   Caching Libraries
-		-->
+        -->
 		<dependency>
 			<groupId>javax.cache</groupId>
 			<artifactId>cache-api</artifactId>
@@ -355,7 +368,6 @@
 			<artifactId>cache-annotations-ri-spring</artifactId>
 			<version>0.4</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
@@ -369,6 +381,10 @@
 			<artifactId>ehcache-jcache</artifactId>
 			<version>1.4.0-beta1</version>
 		</dependency>
+
+
+
+
 
 		<!--
 		  <dependency>
@@ -435,35 +451,35 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-asm</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency-->
 
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency-->
 		<!--
 			Bean Factory and JavaBeans utilities (depends on spring-core)
 			Define this if you use Spring Bean APIs (org.springframework.beans.*)
-		-->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency> -->
 		<!--
 			Aspect Oriented Programming (AOP) Framework (depends on spring-core, spring-beans)
 			Define this if you use Spring AOP APIs (org.springframework.aop.*)
-		-->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>  -->
 		<!--
 			Application Context (depends on spring-core, spring-expression, spring-aop, spring-beans)
 			This is the central artifact for Spring's Dependency Injection Container and is generally always defined
@@ -487,31 +503,31 @@
 			Transaction Management Abstraction (depends on spring-core, spring-beans, spring-aop, spring-context)
 			Define this if you use Spring Transactions or DAO Exception Hierarchy
 			(org.springframework.transaction.*/org.springframework.dao.*)
-		-->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency> -->
 		<!--
 			JDBC Data Access Library (depends on spring-core, spring-beans, spring-context, spring-tx)
 			Define this if you use Spring's JdbcTemplate API (org.springframework.jdbc.*)
-		-->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>  -->
 		<!--
 			Object-to-Relation-Mapping (ORM) integration with Hibernate, JPA, and iBatis.
 			(depends on spring-core, spring-beans, spring-context, spring-tx)
 			Define this if you need ORM (org.springframework.orm.*)
-		-->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
-		</dependency>
+		</dependency>  -->
 		<!--
 			Object-to-XML Mapping (OXM) abstraction and integration with JAXB, JiBX, Castor, XStream, and XML Beans.
 			(depends on spring-core, spring-beans, spring-context)
@@ -555,7 +571,7 @@
 
 		<!--
 			SPRING SECURITY
-		-->
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -567,40 +583,41 @@
 			<artifactId>spring-security-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-
+        -->
 
 		<!--
 			SPRING INTEGRATION
 		-->
-		<dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-core</artifactId>
+            <version>${spring-integration.version}</version>
+        </dependency>
+
+		<!--dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-jms</artifactId>
 			<version>${spring-integration.version}</version>
-		</dependency>
+		</dependency-->
 
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-jmx</artifactId>
 			<version>${spring-integration.version}</version>
-		</dependency>
+		</dependency-->
 
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-core</artifactId>
-			<version>${spring-integration.version}</version>
-		</dependency>
-
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-xml</artifactId>
 			<version>${spring-integration.version}</version>
-		</dependency>
+		</dependency-->
 
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-security</artifactId>
 			<version>${spring-integration.version}</version>
-		</dependency>
+		</dependency-->
 
 		<dependency>
 			<groupId>org.springframework.integration</groupId>
@@ -608,11 +625,11 @@
 			<version>${spring-integration.version}</version>
 		</dependency>
 
-		<dependency>
+		<!--dependency>
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-event</artifactId>
 			<version>${spring-integration.version}</version>
-		</dependency>
+		</dependency-->
 
 
 
@@ -622,27 +639,27 @@
 
 		<!--
 		TEST DEPENDENCIES
-	 	-->
+
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.servlet</artifactId>
             <version>3.0</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>  -->
 
-        <dependency>
+        <!--dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>7.0.26</version>
             <scope>test</scope>
-        </dependency>
+        </dependency-->
 
-        <dependency>
+        <!--dependency>
             <groupId>org.eclipse.jdt.core.compiler</groupId>
             <artifactId>ecj</artifactId>
             <version>3.7.1</version>
             <scope>test</scope>
-        </dependency>
+        </dependency-->
 
         <dependency>
 			<groupId>junit</groupId>
@@ -675,6 +692,8 @@
             <name>Apache Development Snapshot Repository</name>
             <url>https://repository.apache.org/snapshots</url>
         </repository>
+
+
         <repository>
 			<id>repository.springframework.maven.release</id>
 			<name>Spring Framework Maven Release Repository</name>
@@ -861,33 +880,24 @@
 
             <!--
                https://github.com/kongchen/swagger-maven-plugin
-            -->
+
             <plugin>
                 <groupId>com.github.kongchen</groupId>
                 <artifactId>swagger-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>1.1-SNAPSHOT</version>
                 <configuration>
                     <apiSources>
-                        <!--can specify multi sources here to get multi format outputs-->
                         <apiSource>
-                            <apiClasses>
-                                <apiClass>apiserver.apis.v1_0.status.controllers.StatusController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.CaptchaController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageCacheController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageDrawingController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageFiltersController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageInfoController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageManipulationController</apiClass>
-                                <apiClass>apiserver.apis.v1_0.images.controllers.ImageMetadataController</apiClass>
-                            </apiClasses>
-                            <apiPackage>apiserver.apis.v1_0.status.controllers</apiPackage>
+                            <locations>apiserver.apis.v1_0</locations>
                             <apiVersion>v1</apiVersion>
-                            <basePath>http://localhost:9000/doc/api</basePath>
-                            <outputTemplate>html.mustache</outputTemplate>
-                            <outputPath>src/main/webapp/docs/doc.html</outputPath>
+                            <basePath>/docs/v1/</basePath>
+                            <outputTemplate>https://raw.github.com/kongchen/api-doc-template/master/v1.1/html.mustache</outputTemplate>
+                            <outputPath>${basedir}/src/main/webapp/docs/v1/doc.html</outputPath>
+                            <swaggerDirectory>${basedir}/src/main/webapp/docs/v1</swaggerDirectory>
                         </apiSource>
                     </apiSources>
                 </configuration>
+
                 <executions>
                     <execution>
                         <phase>compile</phase>
@@ -897,7 +907,7 @@
                     </execution>
                 </executions>
             </plugin>
-
+             -->
 
 			<!--plugin>
 				<artifactId>maven-surefire-plugin</artifactId>

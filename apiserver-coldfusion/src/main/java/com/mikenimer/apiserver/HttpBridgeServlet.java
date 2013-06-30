@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +36,45 @@ public class HttpBridgeServlet extends HttpServlet
             MultipartRequest multipartRequest = new MultipartRequest(request, System.getProperty("java.io.tmpdir"));
             String _cfcPath = multipartRequest.getParameter("cfcPath");
             String _cfcMethod = multipartRequest.getParameter("cfcMethod");
-            Object[] methodArgs = new Object[0];//(String[])httpServletRequest.getParameterValues("methodArgs");
+            String[] _cfcArguments = null;
+
+
+            if( multipartRequest.getParameter("cfcArguments") != null )
+            {
+                _cfcArguments = multipartRequest.getParameter("cfcArguments").split("&");
+            }else{
+                _cfcArguments = new String[0];
+            }
+
+
+
+            int argumentIndex = 0;
+            Enumeration names = multipartRequest.getParameterNames();
+            Object[] methodArgs = new Object[_cfcArguments.length];//(String[])httpServletRequest.getParameterValues("methodArgs");
+            for (String argument : _cfcArguments)
+            {
+                String _key = null;
+                String _default = null;
+                if( argument.indexOf(':') > -1 ) // has default
+                {
+                    _key = argument.split(":")[0];
+                    _default = argument.split(":")[1];
+                }
+                else
+                {
+                    _key = argument;
+                }
+
+
+                String val = multipartRequest.getParameter(_key);
+                if( val == null )
+                {
+                    val = _default;
+                }
+
+                methodArgs[argumentIndex++] = val;
+            }
+
 
 
 

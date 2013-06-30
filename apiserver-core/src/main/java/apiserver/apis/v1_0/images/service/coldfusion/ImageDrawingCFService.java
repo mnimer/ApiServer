@@ -39,8 +39,9 @@ public class ImageDrawingCFService
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
             String method = "addBorder";
-            Object[] methodArgs = {};
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+            String arguments = "";
+            Map<String, Object> methodArgs = new HashMap();
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
 
             long end = System.currentTimeMillis();
 
@@ -78,8 +79,9 @@ public class ImageDrawingCFService
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
             String method = "addText";
-            Object[] methodArgs = {};
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+            Map<String, Object> methodArgs = new HashMap<String, Object>();
+            String arguments = "";
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
 
             long end = System.currentTimeMillis();
 

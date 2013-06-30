@@ -16,8 +16,22 @@
 	<mvc:annotation-driven/>
 
 
+    <!-- to specify swagger properties
+        documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
+        documentation.services.version=1.0
+    -->
+    <context:property-placeholder location="classpath:swagger.properties" />
+    <!-- pulls in the Controllers to document -->
+    <!--context:component-scan base-package="apiserver.apis.v1_0" /-->
+    <!-- Configuration Bean -->
+    <bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/>
+    <!-- Custom extensibility module (bean) Has override methods to customize the document generation-->
+    <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
+
+
+
     <import resource="_status-apis-esb.xml" />
-    <import resource="_image-apis-esb.xml" />
+    <!--import resource="_image-apis-esb.xml" /-->
 
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -32,21 +46,21 @@
 
 
 
-	<bean id="multipartResolver"
+	<!--bean id="multipartResolver"
 		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!--property name="maxUploadSize" value="10000000"/-->
-	</bean>
+
+	</bean-->     <!--property name="maxUploadSize" value="10000000"/-->
 	<!--bean id="multipartResolver"
 		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
 	</bean-->
 
 
 
-	<bean id="httpChannelInvoker" class="apiserver.apis.v1_0.common.HttpChannelInvoker"/>
+	<!--bean id="httpChannelInvoker" class="apiserver.apis.v1_0.common.HttpChannelInvoker"/-->
 
 
 	<!-- MBeans -->
-	<bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/>
+	<!--bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/-->
 
 
 
@@ -64,6 +78,7 @@
 
 	<!-- Spring MVC CONTROLLERS -->
 	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
+    <!--
 	<bean name="captchaController" class="apiserver.apis.v1_0.images.controllers.CaptchaController"/>
 	<bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
 	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
@@ -71,53 +86,7 @@
 	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>
 	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
 	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
-
-
-    <!-- to specify swagger properties
-           documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
-       documentation.services.version=1.0
-       -->
-    <context:property-placeholder location="classpath:swagger.properties" />
-    <!-- Configuration Bean -->
-    <bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/>
-
-    <!--
-	<bean id="documentationController" class="com.mangofactory.swagger.SwaggerConfiguration">
-        <property name="apiVersion" value="1.0"/>
-        <property name="swaggerVersion" value="1.0"/>
-        <property name="basePath" value="http://localhost:8080/rest/v1/resources/"/>
-        <property name="contextPath" value="/rest/v1"/>
-    </bean>
-
-    <context:component-scan base-package="com.mangofactory.swagger.spring.controller" use-default-filters="false">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-
-    <bean id="swaggerConfiguration" class="com.mangofactory.swagger.SwaggerConfiguration">
-        <property name="basePath" value="http://localhost:8080/rest/v1/"/>
-        <property name="apiVersion" value="1.0"/>
-    </bean>
-    -->
-
-	<!-- handler mapping implementation that is aware of inbound Spring Integration
-			http inbound gateway's and inbound adapter's with "path" attributes -->
-	<!--bean class="org.springframework.integration.http.inbound.UriPathHandlerMapping"/-->
-
-
-	<!-- NOTE: it would be nice to use this, but there is a problem(s).
-		1. with initial testing, every other request (reload in browser) times out
-	-->
-	<!--http:inbound-gateway id="inboundEmployeeSearchRequestGateway"
-							  supported-methods="GET"
-							  request-channel="pingInputChannel"
-							  reply-channel="pingOutputChannel"
-							  mapped-response-headers="Return-Status, Return-Status-Msg, HTTP_RESPONSE_HEADERS"
-							  view-name="/index"
-							  path="/v1-0/health*"
-							  reply-timeout="10000">
-
-	</http:inbound-gateway-->
-
+     -->
 
 
 

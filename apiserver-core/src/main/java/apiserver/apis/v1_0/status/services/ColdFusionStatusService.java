@@ -36,7 +36,8 @@ public class ColdFusionStatusService
             long start = System.currentTimeMillis();
             String cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc";
             String method = "health";
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, null, request);
+            String arguments = "";
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, null, request);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap

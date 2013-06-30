@@ -5,6 +5,7 @@ import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +18,6 @@ import java.util.Map;
  */
 public class CaptchaCFService
 {
-
 
     public IColdFusionBridge coldFusionBridge;
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
@@ -35,10 +35,10 @@ public class CaptchaCFService
             long start = System.currentTimeMillis();
             String cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-captcha.cfc";
             String method = "generateCaptcha";
-            Object[] methodArgs = extractProperties(props);
+            String arguments = "text&difficulty&width&height&debug:false&fontSize:40&fontFamily:Verdana,Arial,Courier New,Courier";
+            Map<String, Object> methodArgs = extractProperties(props);
 
-
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap
@@ -71,22 +71,14 @@ public class CaptchaCFService
     }
 
 
-    private Object[] extractProperties(Map props)
+    private  Map<String, Object> extractProperties(Map props)
     {
         props.remove(ApiServerConstants.HTTP_REQUEST);
         props.remove(ApiServerConstants.HTTP_RESPONSE);
 
-        Object[] methodArgs = {};
-        if( props.size() > 0 )
-        {
-            methodArgs = new Object[props.size()];
-        }
+        Map<String, Object> methodArgs = new HashMap<String, Object>();
+        methodArgs.putAll(props);
 
-        int indx = 0;
-        for (Object key : props.keySet())
-        {
-            methodArgs[indx++] = props.get(key);
-        }
         props.clear();
         return methodArgs;
     }

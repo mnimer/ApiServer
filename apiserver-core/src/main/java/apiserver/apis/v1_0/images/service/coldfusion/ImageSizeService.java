@@ -39,11 +39,13 @@ public class ImageSizeService
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
             String method = "rotateImage";
+            String arguments = "";
             // extract properties
             CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
-            Object[] methodArgs = { cachedImage.getFileBytes() };
+            Map<String, Object> methodArgs = new HashMap<String, Object>();
+            methodArgs.put("image", cachedImage.getFileBytes());
             // execute
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs, request);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
 
             long end = System.currentTimeMillis();
 

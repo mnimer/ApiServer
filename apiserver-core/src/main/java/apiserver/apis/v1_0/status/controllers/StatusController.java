@@ -1,11 +1,8 @@
 package apiserver.apis.v1_0.status.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import apiserver.core.gateways.ApiGateway;
 import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
-import org.eclipse.jetty.servlet.ServletHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
@@ -13,19 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.jcr.Repository;
-import javax.servlet.GenericServlet;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -34,54 +27,78 @@ import java.util.Set;
  */
 
 
+@Api("/status")
 @Controller
 @RequestMapping("/status")
 public class StatusController
 {
-    @Autowired(required = false)
+    //Autowired(required = false)
     private HttpServletRequest request;
 
 
-    public MessageChannel healthInputChannel;
-    public MessageChannel coldFusionInputChannel;
+    //public MessageChannel healthInputChannel;
+    //public MessageChannel coldFusionInputChannel;
 
 
     @Autowired
-    public HttpChannelInvoker httpChannelInvoker;
+    ApiGateway gateway;
 
-    @Autowired
+
+    //Autowired
+    public HttpChannelInvoker channelInvoker;
+
+    //Autowired
     ServletContext context;
 
-    @Autowired
-    Repository repository;
+    //Autowired
+    //Repository repository;
 
 
-    @Autowired
+    //Autowired
     public void setHealthInputChannel(MessageChannel healthInputChannel)
     {
-        this.healthInputChannel = healthInputChannel;
+        //this.healthInputChannel = healthInputChannel;
     }
 
 
-    @Autowired
+    //Autowired
     public void setColdFusionInputChannel(MessageChannel coldFusionInputChannel)
     {
-        this.coldFusionInputChannel = coldFusionInputChannel;
+        //this.coldFusionInputChannel = coldFusionInputChannel;
     }
 
 
     @RequestMapping(value = "/health", method = RequestMethod.GET)
     public ModelAndView systemCheck()
     {
-        return httpChannelInvoker.invokeGenericChannel(request, null, null, healthInputChannel);
+        return null;//channelInvoker.invokeGenericChannel(request, null, null, healthInputChannel);
     }
 
 
     @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
-    public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws  Exception
     {
-        return httpChannelInvoker.invokeGenericChannel(request, null, null, coldFusionInputChannel);
+
+        Future<Map> result = gateway.checkColdfusionAsync();
+        ModelAndView view = new ModelAndView("help");
+        view.addAllObjects(result.get(10000, TimeUnit.MILLISECONDS));
+        return view;
+
+
+        //Object result =  channelInvoker.invokeGenericChannel(request, null, null, coldFusionInputChannel);
+        //return (ModelAndView)result;
     }
+
+
+    @RequestMapping(value = "/coldfusion/health2", method = RequestMethod.GET)
+    public ModelAndView coldFusionCheck2(HttpServletRequest request, HttpServletResponse response) throws  Exception
+    {
+        Map result = gateway.checkColdfusionSync();
+        ModelAndView view = new ModelAndView("help");
+        view.addObject("result", result);
+        return view;
+    }
+
 
 
     @RequestMapping(value = "/jcr/health", method = RequestMethod.GET)
@@ -92,7 +109,7 @@ public class StatusController
 
         try
         {
-            System.out.println("JCR SERVLET STATUS: SUCCESS - " + repository.login().getRootNode().getNodes().toString());
+            System.out.println("JCR SERVLET STATUS: SUCCESS - ");// + repository.login().getRootNode().getNodes().toString());
         } catch (Exception ex)
         {
             System.out.println("JCR SERVLET STATUS: FAILED");

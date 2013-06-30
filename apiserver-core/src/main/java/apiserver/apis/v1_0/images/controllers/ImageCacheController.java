@@ -3,6 +3,7 @@ package apiserver.apis.v1_0.images.controllers;
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,8 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/18/12
  */
-
 @Controller
-@RequestMapping("/image/cache")
+@RequestMapping("/image-cache")
 
 //@Path("/image/cache.json") //swagger
 //@Api(value = "/pet", description = "Operations about pets") //swagger

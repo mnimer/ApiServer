@@ -2,6 +2,7 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import java.util.Map;
  * Date: 9/15/12
  */
 @Controller
-@RequestMapping("/image/captcha")
+@RequestMapping("/image-captcha")
 public class CaptchaController
 {
     @Autowired(required = false)

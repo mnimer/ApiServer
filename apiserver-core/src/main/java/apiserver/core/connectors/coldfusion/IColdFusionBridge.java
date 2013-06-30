@@ -1,6 +1,7 @@
 package apiserver.core.connectors.coldfusion;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,5 +13,5 @@ import javax.servlet.http.HttpServletRequest;
 public interface IColdFusionBridge
 {
 
-    public Object invoke(String cfcPath, String method, Object[] methodArgs_, HttpServletRequest request) throws Throwable;
+    public Object invoke(String cfcPath, String method, String argList_, Map<String,Object> methodArgs_, HttpServletRequest request) throws Throwable;
 }

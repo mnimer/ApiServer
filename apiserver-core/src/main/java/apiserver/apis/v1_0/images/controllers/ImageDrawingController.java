@@ -2,6 +2,7 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.util.Map;
  * Date: 9/18/12
  */
 @Controller
-@RequestMapping("/image/draw")
+@RequestMapping("/image-draw")
 public class ImageDrawingController
 {
     @Autowired(required = false)
@@ -40,7 +41,6 @@ public class ImageDrawingController
      * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @ApiOperation(value = "")
     @RequestMapping(value = "/{cacheId}/border", method = {RequestMethod.GET})
     public ModelAndView drawBorderById(
             @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
@@ -62,7 +62,6 @@ public class ImageDrawingController
      * @param file
      * @return   height,width, pixel size, transparency
      */
-    @ApiOperation(value = "")
     @RequestMapping(value = "/border", method = {RequestMethod.POST})
     public ModelAndView drawBorderByImage(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
@@ -92,7 +91,6 @@ public class ImageDrawingController
      * @param cacheId - any valid URL or cache ID
      * @return  height,width, pixel size, transparency
      */
-    @ApiOperation(value = "")
     @RequestMapping(value = "/{cacheId}/watermark", method = {RequestMethod.GET})
     public ModelAndView drawWatermarkById(
             @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
@@ -125,7 +123,6 @@ public class ImageDrawingController
      * @param file
      * @return   height,width, pixel size, transparency
      */
-    @ApiOperation(value = "")
     @RequestMapping(value = "/watermark", method = {RequestMethod.POST})
     public ModelAndView drawWatermarkByImage(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file

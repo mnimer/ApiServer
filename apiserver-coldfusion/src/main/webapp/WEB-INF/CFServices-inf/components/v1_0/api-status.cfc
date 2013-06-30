@@ -1,6 +1,6 @@
 <cfcomponent>
 
-    <cffunction name="health" access="remote">
+    <cffunction name="health" access="remote" returnformat="json" returntype="struct">
         <cfset view = StructNew()>
         <cfset view['coldfusion']['status'] = "ok">
         <cfset view['coldfusion']['timestamp'] = now()>
