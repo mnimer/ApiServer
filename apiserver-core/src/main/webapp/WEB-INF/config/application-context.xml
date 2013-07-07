@@ -2,27 +2,48 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:si="http://www.springframework.org/schema/integration"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context-3.1.xsd">
-
-
+           http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
     <context:annotation-config/>
-
-    <!--import resource="security-config.xml" /-->
-
-
-    <!--bean id="coldFusionBridge" class="apiserver.core.connectors.coldfusion.ColdFusionHttpBridge">
-        <property name="ip" value="localhost"/>
-        <property name="port" value="8500"/>
-        <property name="contextRoot" value="/api"/>
-    </bean-->
+    <mvc:annotation-driven/>
 
 
-    <!-- public API endpoints
-    <import resource="jcr-context.xml"/>-->
+    <si:logging-channel-adapter
+            id="logger"
+            log-full-message="true"
+            level="INFO"/>
 
-    <import resource="v1_0/apis-servlet.xml"/>
 
+    <bean id="applicationProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <!-- future plans to support, TCP, JMS -->
+                <entry key="defaultReplyTimeout" value="6000" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="coldfusionProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <!-- future plans to support, TCP, JMS -->
+                <entry key="REQUEST_TYPE" value="http" />
+                <entry key="host" value="localhost" />
+                <entry key="port" value="8500" />
+                <entry key="contextRoot" value="/" />
+                <entry key="path" value="apiserver-inf/v1_0" />
+            </map>
+        </property>
+    </bean>
 </beans>

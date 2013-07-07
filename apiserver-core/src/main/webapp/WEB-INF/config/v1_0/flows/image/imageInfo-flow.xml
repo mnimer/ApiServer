@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+    </util:list>
+
+    <task:executor id="imageInfoTaskExecutor" pool-size="100" />
+
+    <si:channel id="imageInfoRequestChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="imageInfoReplyChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="imageInfoHTTPChannel">
+        <si:dispatcher task-executor="imageInfoTaskExecutor"/>
+    </si:channel>
+
+
+    <si:gateway id="imageInfoApiGateway"
+                service-interface="apiserver.core.gateways.ApiImageGateway"
+                default-reply-channel="imageInfoReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="imageInfo"
+                   request-channel="imageInfoRequestChannel">  <!-- add a fake payload-expression, spring doesn't like empty payloads for http GET requests -->
+            <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>
+        </si:method>
+
+    </si:gateway>
+
+
+    <si:header-value-router input-channel="imageInfoRequestChannel"
+                            header-name="REQUEST_TYPE">
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageInfoTaskExecutor"/>
+        <si:mapping value="http" channel="imageInfoHTTPChannel"/>
+    </si:header-value-router>
+
+
+
+
+    <si:chain id="trafficGatewayChain"
+              input-channel="imageInfoHTTPChannel"
+              output-channel="imageInfoReplyChannel">
+
+        <si:service-activator
+                method="checkCache">
+            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+        </si:service-activator>
+
+
+        <si:transformer method="transform">
+            <bean class="apiserver.core.transformers.HttpPostPropertyTransformer"/>
+        </si:transformer>
+
+
+        <http:outbound-gateway
+                url-expression="'http://#{coldfusionProperties.host}:#{coldfusionProperties.port}/#{coldfusionProperties.path}/api-image.cfc?method=imageSize'"
+                http-method="POST" reply-timeout="10000"
+                extract-request-payload="true"
+                expected-response-type="java.lang.String"
+                message-converters="messageConverters">
+        </http:outbound-gateway>
+
+        <si:json-to-object-transformer type="java.util.HashMap"/>
+
+        <si:transformer method="transform">
+            <bean class="apiserver.core.transformers.StubTransformer"/>
+        </si:transformer>
+    </si:chain>
+
+
+</beans>
+        
+        
+        

@@ -3,9 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:si="http://www.springframework.org/schema/integration"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
 
 
@@ -19,6 +22,43 @@
                 <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
                 <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
             </util:list>
+        </property>
+    </bean>
+
+
+
+    <si:logging-channel-adapter
+            id="logger"
+            log-full-message="true"
+            level="INFO"/>
+
+
+
+    <bean id="applicationProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <!-- future plans to support, TCP, JMS -->
+                <entry key="defaultReplyTimeout" value="6000" />
+            </map>
+        </property>
+    </bean>
+
+    <bean id="coldfusionProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
+        <property name="targetMapClass">
+            <value>java.util.HashMap</value>
+        </property>
+        <property name="sourceMap">
+            <map>
+                <!-- future plans to support, TCP, JMS -->
+                <entry key="REQUEST_TYPE" value="http" />
+                <entry key="host" value="localhost" />
+                <entry key="port" value="8500" />
+                <entry key="contextRoot" value="/" />
+                <entry key="path" value="apiserver-inf/components/v1_0" />
+            </map>
         </property>
     </bean>
 </beans>

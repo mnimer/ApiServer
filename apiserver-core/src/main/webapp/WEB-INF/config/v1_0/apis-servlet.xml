@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xmlns:util="http://www.springframework.org/schema/util"
-	   xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:context="http://www.springframework.org/schema/context"
-	   xmlns:http="http://www.springframework.org/schema/integration/http"
-	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:http="http://www.springframework.org/schema/integration/http"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:si="http://www.springframework.org/schema/integration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
+           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
 	<context:mbean-export registration="replaceExisting"/>
 	<context:annotation-config />
 	<mvc:annotation-driven/>
+
+    <import resource="_status-apis-esb.xml"/>
 
 
     <!-- to specify swagger properties
@@ -29,9 +35,14 @@
     <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
 
 
+    <!-- Common Beans -->
+    <task:executor id="taskExecutor" pool-size="100"/>
+    <si:poller id="defaultPoller"
+               default="true"
+               max-messages-per-poll="1"
+               fixed-rate="10"
+               task-executor="taskExecutor"/>
 
-    <import resource="_status-apis-esb.xml" />
-    <!--import resource="_image-apis-esb.xml" /-->
 
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -121,19 +132,6 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-
-	<!--bean id="unitTestProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
-		<property name="targetMapClass">
-			<value>java.util.HashMap</value>
-		</property>
-		<property name="sourceMap">
-			<map>
-				<entry key="tomcatHost" value="127.0.0.1" />
-				<entry key="tomcatPort" value="8080" />
-				<entry key="tomcatContextRoot" value="/apiserver-core" />
-			</map>
-		</property>
-	</bean-->
 
 </beans>
 

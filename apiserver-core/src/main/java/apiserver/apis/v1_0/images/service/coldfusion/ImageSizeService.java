@@ -38,7 +38,7 @@ public class ImageSizeService
             long start = System.currentTimeMillis();
 
             cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
-            String method = "rotateImage";
+            String method = "imageSize";
             String arguments = "";
             // extract properties
             CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);

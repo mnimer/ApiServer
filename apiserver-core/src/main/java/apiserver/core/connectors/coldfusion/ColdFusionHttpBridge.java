@@ -1,5 +1,6 @@
 package apiserver.core.connectors.coldfusion;
 
+import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.http.HttpEntity;
@@ -82,6 +83,10 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 else if( obj instanceof File )
                 {
                     me.addPart(s, new FileBody( (File)obj ));
+                }
+                else if( obj instanceof CachedImage)
+                {
+                    me.addPart(s, new FileBody( ((CachedImage)obj).getFile() ));
                 }
             }
 

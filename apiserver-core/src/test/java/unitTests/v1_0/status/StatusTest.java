@@ -1,64 +1,59 @@
 package unitTests.v1_0.status;
 
-import apiserver.apis.v1_0.status.controllers.StatusController;
+import apiserver.core.gateways.ApiStatusGateway;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.util.Assert;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletException;
-import java.io.IOException;
+import java.util.Map;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
- * User: mnimer
- * Date: 9/19/12
+ * User: mikenimer
+ * Date: 6/29/13
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:**/config/application-context.xml"})
+@ContextConfiguration(locations = {
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/apiserverHealth-flow.xml"})
 public class StatusTest
 {
-
-    public StatusController statusController;
-
+    public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
 
     @Autowired
-    public void setStatusController(StatusController statusController)
+    @Qualifier("apiserverHealthApiGateway")
+    private ApiStatusGateway apiStatusGateway;
+
+
+    @Test
+    public void testApiServerHealth()
     {
-        this.statusController = statusController;
+        Map result = apiStatusGateway.checkApiServerSync();
+        log.info("RESULT:\n\n" + result + "\n\n");
+
+        Assert.assertNotNull(result);
+        Assert.assertTrue( result.get("status").toString().equals("ok") );
     }
 
 
     @Test
-    public void testSimpleStatus()
+    public void testApiServerHealthAsync() throws Exception
     {
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        MockHttpServletResponse response = new MockHttpServletResponse();
+        Future<Map> resultFuture = apiStatusGateway.checkApiServerAsync();
+        Map result = resultFuture.get(10000, TimeUnit.MILLISECONDS);
+        log.info("RESULT:\n\n" + result + "\n\n");
 
-        Object view = statusController.systemCheck();//request, response);
-
-        Assert.isInstanceOf(ModelAndView.class, view);
-        Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));
+        Assert.assertNotNull(result);
+        Assert.assertTrue(result instanceof Map);
+        Assert.assertTrue( result.get("status").toString().equals("ok") );
     }
-
-
-    @Test
-    public void testColdFusionStatus() throws Exception
-    {
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        MockHttpServletResponse response = new MockHttpServletResponse();
-
-        Object view = statusController.coldFusionCheck(request, response);
-
-        Assert.isInstanceOf(ModelAndView.class, view);
-        Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));
-    }
-
-
 }

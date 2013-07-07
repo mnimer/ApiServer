@@ -1,7 +1,8 @@
-<cfcomponent>
+<cfcomponent >
 
-    <cffunction name="imageInfo">
+    <cffunction name="imageSize" access="remote" returnformat="json" returntype="struct">
         <cfargument name="image"/>
+        <cfdump var="#arguments#" output="console"/>
 
         <cfimage
                 action="info"
@@ -11,11 +12,15 @@
         <cfset results = structNew()>
         <cfset results['width'] = imageInfo.width>
         <cfset results['height'] = imageInfo.height>
+
+        <cfdump var="#results#" output="console"/>
+        <cfdump var="==================================" output="console"/>
+
         <cfreturn results/>
     </cffunction>
 
 
-    <cffunction name="imageMetadata">
+    <cffunction name="imageMetadata" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="image"/>
         <cfimage
                 action="read"
@@ -26,12 +31,12 @@
     </cffunction>
 
 
-    <cffunction name="imageConvert">
+    <cffunction name="imageConvert" access="remote" returnformat="json" returntype="Binary">
         <cfthrow detail="Not Implemented Yet"/>
     </cffunction>
 
 
-    <cffunction name="rotateImage">
+    <cffunction name="rotateImage" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="image"/>
         <cfargument name="angle" default="90"/>
 
@@ -45,7 +50,7 @@
     </cffunction>
 
 
-    <cffunction name="resizeImage">
+    <cffunction name="resizeImage" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="image"/>
         <cfargument name="width" default="1024"/>
         <cfargument name="height" default="768"/>
@@ -69,7 +74,7 @@
     </cffunction>
 
 
-    <cffunction name="addBorder">
+    <cffunction name="addBorder" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="image"/>
         <cfargument name="color" default="1024"/>
         <cfargument name="thickness" default="10"/>
@@ -85,7 +90,7 @@
     </cffunction>
 
 
-    <cffunction name="addText">
+    <cffunction name="addText" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="image"/>
         <cfargument name="text"/>
         <cfargument name="color"/>
@@ -111,7 +116,7 @@
     </cffunction>
 
 
-    <cffunction name="generateCaptcha">
+    <cffunction name="generateCaptcha" access="remote" returnformat="json" returntype="Binary">
         <cfargument name="difficulty"/>
         <cfargument name="width"/>
         <cfargument name="height"/>
@@ -133,7 +138,7 @@
     </cffunction>
 
 
-    <cffunction name="dump">
+    <cffunction name="dump" access="remote" returnformat="json" returntype="String">
         <cfargument name="data">
 
         <cfsavecontent variable="dump">

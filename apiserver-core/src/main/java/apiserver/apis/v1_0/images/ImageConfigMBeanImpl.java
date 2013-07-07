@@ -25,7 +25,7 @@ import java.util.Map;
 public class ImageConfigMBeanImpl implements ImageConfigMBean
 {
     // Message params Arguments
-    public static String FILE = "__file";
+    public static String FILE = "image";
     public static String MASK_FILE = "__maskfile";
     public static String CONTENT_TYPE = "__contentType";
     public static String ORIGINAL_FILE_NAME = "__originalFileName";

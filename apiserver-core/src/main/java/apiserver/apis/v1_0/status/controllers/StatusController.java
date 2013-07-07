@@ -1,15 +1,14 @@
 package apiserver.apis.v1_0.status.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
-import apiserver.core.gateways.ApiGateway;
+import apiserver.core.gateways.ApiStatusGateway;
 import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.integration.MessageChannel;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.async.WebAsyncTask;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -32,72 +32,49 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/status")
 public class StatusController
 {
-    //Autowired(required = false)
-    private HttpServletRequest request;
-
-
-    //public MessageChannel healthInputChannel;
-    //public MessageChannel coldFusionInputChannel;
-
-
     @Autowired
-    ApiGateway gateway;
-
-
-    //Autowired
-    public HttpChannelInvoker channelInvoker;
+    @Qualifier("apiserverHealthApiGateway")
+    ApiStatusGateway gateway;
 
     //Autowired
     ServletContext context;
 
-    //Autowired
-    //Repository repository;
-
-
-    //Autowired
-    public void setHealthInputChannel(MessageChannel healthInputChannel)
-    {
-        //this.healthInputChannel = healthInputChannel;
-    }
-
-
-    //Autowired
-    public void setColdFusionInputChannel(MessageChannel coldFusionInputChannel)
-    {
-        //this.coldFusionInputChannel = coldFusionInputChannel;
-    }
-
 
     @RequestMapping(value = "/health", method = RequestMethod.GET)
-    public ModelAndView systemCheck()
+    public WebAsyncTask<Map> checkApiServerAsync(HttpServletRequest request, HttpServletResponse response)
     {
-        return null;//channelInvoker.invokeGenericChannel(request, null, null, healthInputChannel);
+        Callable<Map> callable = new Callable<Map>()
+        {
+            @Override
+            public Map call() throws Exception
+            {
+                Future<Map> result = gateway.checkApiServerAsync();
+                return result.get(10000, TimeUnit.MILLISECONDS);
+
+            }
+        };
+
+        return new WebAsyncTask<Map>(10000, callable);
     }
 
 
     @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
-    public ModelAndView coldFusionCheck(HttpServletRequest request, HttpServletResponse response) throws  Exception
+    public WebAsyncTask<Map> checkColdfusionAsync(HttpServletRequest request, HttpServletResponse response) throws  Exception
     {
+        Callable<Map> callable = new Callable<Map>()
+        {
+            @Override
+            public Map call() throws Exception
+            {
+                Future<Map> result = gateway.checkColdfusionAsync();
+                return result.get(10000, TimeUnit.MILLISECONDS);
 
-        Future<Map> result = gateway.checkColdfusionAsync();
-        ModelAndView view = new ModelAndView("help");
-        view.addAllObjects(result.get(10000, TimeUnit.MILLISECONDS));
-        return view;
+            }
+        };
 
-
-        //Object result =  channelInvoker.invokeGenericChannel(request, null, null, coldFusionInputChannel);
-        //return (ModelAndView)result;
+        return new WebAsyncTask<Map>(10000, callable);
     }
 
-
-    @RequestMapping(value = "/coldfusion/health2", method = RequestMethod.GET)
-    public ModelAndView coldFusionCheck2(HttpServletRequest request, HttpServletResponse response) throws  Exception
-    {
-        Map result = gateway.checkColdfusionSync();
-        ModelAndView view = new ModelAndView("help");
-        view.addObject("result", result);
-        return view;
-    }
 
 
 

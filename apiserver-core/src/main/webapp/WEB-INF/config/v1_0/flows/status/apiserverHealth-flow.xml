@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+
+    <si:channel id="apiserverHealthRequestChannel">
+        <si:queue/>
+        <si:interceptors>
+            <si:wire-tap channel="logger"/>
+        </si:interceptors>
+    </si:channel>
+
+    <si:channel id="apiserverHealthResponseChannel">
+        <si:queue/>
+        <si:interceptors>
+            <si:wire-tap channel="logger"/>
+        </si:interceptors>
+    </si:channel>
+
+    <si:channel id="apiserverHealthTransformChannel"/>
+
+
+    <si:gateway id="apiserverHealthApiGateway"
+                service-interface="apiserver.core.gateways.ApiStatusGateway"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}"
+                default-reply-channel="apiserverHealthResponseChannel">
+
+        <si:method name="checkApiServerAsync"
+                   request-channel="apiserverHealthRequestChannel"
+                   payload-expression="new java.util.Date()"/>
+        <!-- add a fake payload-expression, spring doesn't like empty payloads for http requests -->
+
+        <si:method name="checkApiServerSync"
+                   request-channel="apiserverHealthRequestChannel"
+                   payload-expression="new java.util.Date()"/>
+            <!-- add a fake payload-expression, spring doesn't like empty payloads for http requests -->
+
+    </si:gateway>
+
+
+    <si:service-activator method="healthCheck"
+                          input-channel="apiserverHealthRequestChannel"
+                          output-channel="apiserverHealthResponseChannel">
+        <bean class="apiserver.apis.v1_0.status.services.StatusService"/>
+    </si:service-activator>
+
+</beans>

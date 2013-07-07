@@ -1,16 +1,20 @@
 package unitTests.v1_0.status;
 
-import apiserver.core.gateways.ApiGateway;
+import apiserver.core.gateways.ApiStatusGateway;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Map;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * User: mikenimer
@@ -26,16 +30,61 @@ public class ColdFusionStatusHealthTest
     public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
 
     @Autowired
-    private ApiGateway apiGateway;
+    @Qualifier("coldFusionHealthApiGateway")
+    private ApiStatusGateway apiStatusGateway;
 
 
     @Test
     public void testColdFusionHealth()
     {
-        Map result = apiGateway.checkColdfusionSync();
+        Map result = apiStatusGateway.checkColdfusionSync();
         log.info("RESULT:\n\n" + result + "\n\n");
 
         Assert.assertNotNull(result);
-        Assert.assertTrue(result instanceof Map);
+        Assert.assertEquals( 3, ((Map)result.get("coldfusion")).size() );
+    }
+
+    @Test
+    public void testColdFusionHealthAsync() throws Exception
+    {
+        try
+        {
+            Future<Map> resultFuture = apiStatusGateway.checkColdfusionAsync();
+            Map result = (Map)resultFuture.get( 10000, TimeUnit.MILLISECONDS );
+
+            log.info("RESULT:\n\n" + result + "\n\n");
+
+            Assert.assertNotNull(result);
+            Assert.assertTrue(result instanceof Map);
+            Assert.assertEquals( 3, ((Map)result.get("coldfusion")).size() );
+            Assert.assertTrue(((Map) result.get("coldfusion")).get("status").toString().equals("ok"));
+
+        }
+        catch( TimeoutException te){
+            Assert.fail("Timeout Exception");
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            Assert.fail("Fatal Exception: " +ex.getMessage());
+        }
+
+    }
+
+    @Test
+    public void testColdFusionHealthAsyncTimeout()
+    {
+        try
+        {
+            Future<Map> resultFuture = apiStatusGateway.checkColdfusionAsync();
+            Map result = (Map)resultFuture.get( 1, TimeUnit.MILLISECONDS );
+            Assert.fail("Expected ASYNC timeout");
+        }
+        catch(TimeoutException ex){
+            Assert.assertTrue( true );
+        }
+        catch (Exception ex){
+            Assert.fail("Expected ASYNC timeout");
+        }
+
     }
 }

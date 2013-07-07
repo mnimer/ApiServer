@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,12 +53,19 @@ public class ImageCacheService
         {
             // not in cache, (file upload - form post) so convert it as if it was cached so the code after this
             // works the same.
-            CommonsMultipartFile file = ((CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE));
+            Object fileObj = props.get(ImageConfigMBeanImpl.FILE);
+            if( fileObj instanceof CommonsMultipartFile )
+            {
+                CommonsMultipartFile file = ((CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE));
 
-            Map cachedProperties = getFileProperties(file);
-
-            //CachedImage cachedImage = new CachedImage( (CommonsMultipartFile)props.get(ImageConfigMBeanImpl.FILE) );
-            props.putAll(cachedProperties);
+                Map cachedProperties = getFileProperties(file);
+                props.putAll(cachedProperties);
+            }
+            else if( fileObj instanceof File )
+            {
+                Map cachedProperties = getFileProperties((File)fileObj);
+                props.putAll(cachedProperties);
+            }
         }
 
         if( !props.containsKey( ImageConfigMBeanImpl.FILE) )
@@ -141,4 +149,17 @@ public class ImageCacheService
 
         return cachedProperties;
     }
+
+    private Map getFileProperties(File file) throws IOException
+    {
+        //BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );
+        CachedImage cachedImage = new CachedImage(file);
+
+        Map cachedProperties = new HashMap();
+        cachedProperties.put(ImageConfigMBeanImpl.FILE, cachedImage);
+        cachedProperties.put(ImageConfigMBeanImpl.NAME, file.getName());
+
+        return cachedProperties;
+    }
+
 }

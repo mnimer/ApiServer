@@ -8,86 +8,8 @@
            http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
+    <import resource="flows/status/apiserverHealth-flow.xml"/>
     <import resource="flows/status/coldFusionHealth-flow.xml"/>
-
-    <!-- SERVICES
-	<bean id="noOpService" class="apiserver.apis.v1_0.common.NoOpService"/>
-	<bean id="statusService" class="apiserver.apis.v1_0.status.services.StatusService"/>
-	<bean id="coldFusionStatusService" class="apiserver.apis.v1_0.status.services.ColdFusionStatusService">
-        <property name="coldFusionBridge" ref="coldFusionBridge"/>
-	</bean>
-    -->
-
-    <!-- ESB configuration
-    <si:channel id="healthInputChannel">
-        <si:queue/>
-    </si:channel>
-    <si:channel id="healthOutputChannel">
-        <si:queue/>
-    </si:channel>
-
-    <si:channel id="coldFusionInputChannel">
-        <si:queue/>
-    </si:channel>
-    <si:channel id="CFServerRequestChannel">
-        <si:queue capacity="10"/>
-    </si:channel>
-
-
-    <si:channel id="coldFusionOutputChannel">
-        <si:queue capacity="10"/>
-    </si:channel>
-    <si:channel id="CFServerReplyChannel">
-        <si:queue capacity="10"/>
-    </si:channel>
-
-    <si:publish-subscribe-channel id="routingChannel"/>
-      -->
-    <!-- simple no operation method to finish the chain, we'll pull the data by reference out of hte payload directly. -->
-    <!--
-    <si:service-activator
-            input-channel="healthOutputChannel"
-            ref="noOpService"
-            method="noOpHandler">
-        <si:poller fixed-delay="1000"/>
-
-    </si:service-activator>
-
-    <si:service-activator
-            input-channel="coldFusionOutputChannel"
-            ref="noOpService"
-            method="noOpHandler"/>-->
-
-
-    <!--
-        SIMPLE HEALTH PING CHAIN
-
-    <si:chain input-channel="healthInputChannel" output-channel="healthOutputChannel">
-        <si:service-activator
-            ref="statusService"
-            method="healthHandler"/>
-
-    </si:chain>
-     -->
-
-
-    <!--http:outbound-gateway
-            request-channel="requestChannel2"
-            reply-channel="requestChannel2"
-            url="http://localhost:8500/CFServices-inf/components/v1_0/api-status.cfc?method=health">
-
-    </http:outbound-gateway-->
-
-    <!--
-        COLDFUSION HEALTH PING CHAIN
-
-    <si:chain input-channel="coldFusionInputChannel" output-channel="coldFusionOutputChannel">
-        <si:service-activator
-            ref="coldFusionStatusService"
-            method="healthHandler"/>
-    </si:chain>
-    -->
-
 
 </beans>
 
