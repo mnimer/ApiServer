@@ -9,9 +9,6 @@ import java.util.concurrent.Future;
  */
 public interface ApiStatusGateway
 {
-    Future<Map> checkColdfusionAsync();
-    Map checkColdfusionSync();
-
     Future<Map> checkApiServerAsync();
     Map checkApiServerSync();
 

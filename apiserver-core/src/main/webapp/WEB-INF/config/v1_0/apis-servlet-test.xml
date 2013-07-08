@@ -1,43 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:http="http://www.springframework.org/schema/integration/http"
        xmlns:task="http://www.springframework.org/schema/task"
        xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
            http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
-           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
-    <bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl"/>
+    <context:mbean-export registration="replaceExisting"/>
+    <context:annotation-config />
+    <mvc:annotation-driven/>
+
+
+    <import resource="_status-apis-esb.xml"/>
+
+    <!-- to specify swagger properties
+        documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
+        documentation.services.version=1.0
+    -->
+    <!--  context:property-placeholder location="classpath:swagger.properties" /-->
+    <!-- pulls in the Controllers to document -->
+    <!--context:component-scan base-package="apiserver.apis.v1_0" /-->
+    <!-- Configuration Bean -->
+    <!--  bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/-->
+    <!-- Custom extensibility module (bean) Has override methods to customize the document generation-->
+    <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
+
 
     <!-- Common Beans -->
-    <task:executor id="taskExecutor" pool-size="100"/>
-
+    <task:executor id="taskExecutor"  pool-size="100"/>
     <si:poller id="defaultPoller"
                default="true"
                max-messages-per-poll="1"
-               fixed-rate="10"
+               fixed-rate="100"
                task-executor="taskExecutor"/>
 
 
 
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <util:list>
+                <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+            </util:list>
+        </property>
+    </bean>
 
 
-    <bean id="integrationTestProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
-		<property name="targetMapClass">
-			<value>java.util.HashMap</value>
-		</property>
-		<property name="sourceMap">
-			<map>
-				<entry key="host" value="127.0.0.1" />
-				<entry key="port" value="9000" />
-				<entry key="contextRoot" value="/" />
-			</map>
-		</property>
-	</bean>
+
+
+    <!--bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+    </bean-->     <!--property name="maxUploadSize" value="10000000"/-->
+    <!--bean id="multipartResolver"
+          class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+    </bean-->
+
+
+
+    <!--bean id="httpChannelInvoker" class="apiserver.apis.v1_0.common.HttpChannelInvoker"/-->
+
+
+    <!-- MBeans -->
+    <!--bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/-->
+
+
+
+    <!-- this bean must not be lazily initialized if the exporting is to happen -->
+    <!--bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+        <property name="registrationBehaviorName" value="REGISTRATION_IGNORE_EXISTING"/>
+        <property name="beans">
+            <map>
+                <entry key="com.apiserver:name=ImageApi" value-ref="imageConfigMBean"/>
+            </map>
+        </property>
+    </bean-->
+
+
+
+    <!-- Spring MVC CONTROLLERS -->
+    <bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
+    <!--
+	<bean name="captchaController" class="apiserver.apis.v1_0.images.controllers.CaptchaController"/>
+	<bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
+	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
+	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
+	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>
+	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
+	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
+     -->
+
+
+
+    <!-- Note: The default parameter name for favorParameter is 'format'. For instance, when this flag is true, a request for /services/employee/{id}/search?format=json will result
+             in an MappingJacksonJsonView being resolved, while the Accept header can be the browser-defined text/html,application/xhtml+xml  -->
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1" />
+        <property name="defaultContentType" value="application/json"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+                <!--entry key="xml" value="application/xml" /-->
+            </map>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"></bean>
+
+                <!--bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+                    <constructor-arg ref="marshaller"/>
+                </bean-->
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- Define the view resolver to use jsp files within the jsp folder -->
+    <bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
 
 </beans>
 

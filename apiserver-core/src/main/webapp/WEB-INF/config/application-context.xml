@@ -4,13 +4,24 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:si="http://www.springframework.org/schema/integration"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <context:annotation-config/>
     <mvc:annotation-driven/>
+
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <util:list>
+                <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+            </util:list>
+        </property>
+    </bean>
 
 
     <si:logging-channel-adapter
@@ -42,7 +53,7 @@
                 <entry key="host" value="localhost" />
                 <entry key="port" value="8500" />
                 <entry key="contextRoot" value="/" />
-                <entry key="path" value="apiserver-inf/v1_0" />
+                <entry key="path" value="apiserver-inf/components/v1_0" />
             </map>
         </property>
     </bean>

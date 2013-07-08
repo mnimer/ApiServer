@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.status.controllers;
 
+import apiserver.core.gateways.ApiStatusColdFusionGateway;
 import apiserver.core.gateways.ApiStatusGateway;
 import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,9 @@ import java.util.concurrent.TimeUnit;
 public class StatusController
 {
     @Autowired
-    @Qualifier("apiserverHealthApiGateway")
     ApiStatusGateway gateway;
+    @Autowired
+    ApiStatusColdFusionGateway CFGateway;
 
     //Autowired
     ServletContext context;
@@ -59,20 +61,20 @@ public class StatusController
 
 
     @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
-    public WebAsyncTask<Map> checkColdfusionAsync(HttpServletRequest request, HttpServletResponse response) throws  Exception
+    public Callable<Map> checkColdfusionAsync(HttpServletRequest request, HttpServletResponse response) throws  Exception
     {
         Callable<Map> callable = new Callable<Map>()
         {
             @Override
             public Map call() throws Exception
             {
-                Future<Map> result = gateway.checkColdfusionAsync();
-                return result.get(10000, TimeUnit.MILLISECONDS);
-
+                Future<Map> result = CFGateway.checkColdfusionAsync();
+                Map finalResult = result.get(10000, TimeUnit.MILLISECONDS);
+                return finalResult;
             }
         };
 
-        return new WebAsyncTask<Map>(10000, callable);
+        return callable;//new WebAsyncTask<Map>(10000, callable);
     }
 
 

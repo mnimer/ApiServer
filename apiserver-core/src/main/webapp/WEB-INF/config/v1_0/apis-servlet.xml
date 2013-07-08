@@ -19,6 +19,7 @@
 	<context:annotation-config />
 	<mvc:annotation-driven/>
 
+
     <import resource="_status-apis-esb.xml"/>
 
 
@@ -26,21 +27,21 @@
         documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
         documentation.services.version=1.0
     -->
-    <context:property-placeholder location="classpath:swagger.properties" />
+    <!--  context:property-placeholder location="classpath:swagger.properties" /-->
     <!-- pulls in the Controllers to document -->
     <!--context:component-scan base-package="apiserver.apis.v1_0" /-->
     <!-- Configuration Bean -->
-    <bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/>
+    <!--  bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/-->
     <!-- Custom extensibility module (bean) Has override methods to customize the document generation-->
     <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
 
 
     <!-- Common Beans -->
-    <task:executor id="taskExecutor" pool-size="100"/>
+    <task:executor id="taskExecutor"  pool-size="100"/>
     <si:poller id="defaultPoller"
                default="true"
                max-messages-per-poll="1"
-               fixed-rate="10"
+               fixed-rate="100"
                task-executor="taskExecutor"/>
 
 

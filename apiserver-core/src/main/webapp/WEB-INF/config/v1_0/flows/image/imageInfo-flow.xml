@@ -4,7 +4,8 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:si="http://www.springframework.org/schema/integration"
-        xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
         xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
@@ -46,11 +47,9 @@
 
     <si:header-value-router input-channel="imageInfoRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageInfoTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="10" task-executor="imageInfoTaskExecutor"/>
         <si:mapping value="http" channel="imageInfoHTTPChannel"/>
     </si:header-value-router>
-
-
 
 
     <si:chain id="trafficGatewayChain"

@@ -4,10 +4,13 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:si="http://www.springframework.org/schema/integration"
-        xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
         xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <util:list id="messageConverters">
         <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
@@ -41,7 +44,7 @@
 
 
     <si:gateway id="coldFusionHealthApiGateway"
-                service-interface="apiserver.core.gateways.ApiStatusGateway"
+                service-interface="apiserver.core.gateways.ApiStatusColdFusionGateway"
                 default-reply-channel="coldFusionHealthReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
@@ -61,14 +64,20 @@
 
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="10" task-executor="coldFusionHealthTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="coldFusionHealthTaskExecutor"/>
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
+
 
 
     <si:chain id="trafficGatewayChain"
               input-channel="coldFusionHealthHTTPChannel"
               output-channel="coldFusionHealthReplyChannel">
+        <si:transformer>
+            <bean class="apiserver.core.transformers.StubTransformer"/>
+        </si:transformer>
+
+
         <http:outbound-gateway
                 url-expression="'http://#{coldfusionProperties.host}:#{coldfusionProperties.port}/#{coldfusionProperties.path}/api-status.cfc?method=health'"
                 http-method="GET" reply-timeout="10000"
