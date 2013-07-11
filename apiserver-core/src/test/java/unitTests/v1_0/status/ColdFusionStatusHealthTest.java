@@ -1,6 +1,6 @@
 package unitTests.v1_0.status;
 
-import apiserver.core.gateways.ApiStatusColdFusionGateway;
+import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -29,7 +29,14 @@ public class ImageCacheService
 
     public Object checkCache(Message<?> message) throws MessageConfigException, IOException
     {
-        Map props = (Map)message.getPayload();
+        Map payload = (Map)message.getPayload();
+        return checkCache(payload);
+    }
+
+
+    public Object checkCache(Map payload) throws MessageConfigException, IOException
+    {
+        Map props = payload;
 
         Object key = props.get(ImageConfigMBeanImpl.KEY);
         if( key != null )
@@ -158,6 +165,8 @@ public class ImageCacheService
         Map cachedProperties = new HashMap();
         cachedProperties.put(ImageConfigMBeanImpl.FILE, cachedImage);
         cachedProperties.put(ImageConfigMBeanImpl.NAME, file.getName());
+        String extension = file.getName().substring(  file.getName().lastIndexOf('.')+1, file.getName().length() );
+        cachedProperties.put(ImageConfigMBeanImpl.CONTENT_TYPE, "image/" +extension);
 
         return cachedProperties;
     }

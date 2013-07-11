@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -76,7 +77,7 @@ public class CaptchaController
         //todo: log CF execution time to MBean analytics
 
 
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT)), "jpg", returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(((BufferedImage) view.getModel().get(ImageConfigMBeanImpl.RESULT)), "jpg", returnAsBase64);
         return result;
     }
 

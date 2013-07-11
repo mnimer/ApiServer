@@ -15,12 +15,29 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
-    <context:mbean-export registration="replaceExisting"/>
     <context:annotation-config />
     <mvc:annotation-driven/>
 
+    <context:mbean-export registration="replaceExisting"/>
+    <bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl"/>  <!-- todo, why isn't this auto picked up -->
 
     <import resource="_status-apis-esb.xml"/>
+
+    <!-- image filters -->
+    <import resource="flows/image-filters/filterBlur-flow.xml"/>
+    <import resource="flows/image-filters/filterBoxBlur-flow.xml"/>
+    <import resource="flows/image-filters/filterBump-flow.xml"/>
+    <import resource="flows/image-filters/filterDespeckle-flow.xml"/>
+    <import resource="flows/image-filters/filterGaussian-flow.xml"/>
+    <import resource="flows/image-filters/filterGlow-flow.xml"/>
+    <import resource="flows/image-filters/filterGrayScale-flow.xml"/>
+    <import resource="flows/image-filters/filterLensBlur-flow.xml"/>
+    <import resource="flows/image-filters/filterMask-flow.xml"/>
+    <import resource="flows/image-filters/filterMaximum-flow.xml"/>
+    <import resource="flows/image-filters/filterMedian-flow.xml"/>
+    <import resource="flows/image-filters/filterMinimum-flow.xml"/>
+    <import resource="flows/image-filters/filterMotionBlur-flow.xml"/>
+    <import resource="flows/image-filters/filterOil-flow.xml"/>
 
     <!-- to specify swagger properties
         documentation.services.basePath=http://localhost:8080/swagger-springmvc-test
@@ -42,7 +59,6 @@
                max-messages-per-poll="1"
                fixed-rate="100"
                task-executor="taskExecutor"/>
-
 
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -84,20 +100,6 @@
             </map>
         </property>
     </bean-->
-
-
-
-    <!-- Spring MVC CONTROLLERS -->
-    <bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
-    <!--
-	<bean name="captchaController" class="apiserver.apis.v1_0.images.controllers.CaptchaController"/>
-	<bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
-	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
-	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
-	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>
-	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
-	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
-     -->
 
 
 

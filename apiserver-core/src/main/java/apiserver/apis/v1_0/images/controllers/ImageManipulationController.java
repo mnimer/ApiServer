@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -30,12 +31,12 @@ public class ImageManipulationController
     @Autowired(required = false)
     private HttpServletRequest request;
 
-    @Autowired
+    //Autowired
     public HttpChannelInvoker channelInvoker;
 
-    @Autowired
+    //Autowired
     public MessageChannel imageRotateInputChannel;
-    @Autowired
+    //Autowired
     public MessageChannel imageResizeInputChannel;
 
 
@@ -63,7 +64,7 @@ public class ImageManipulationController
 
         BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
     }
 
@@ -92,7 +93,7 @@ public class ImageManipulationController
 
         BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
 
@@ -131,7 +132,7 @@ public class ImageManipulationController
 
         BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
 
@@ -169,7 +170,7 @@ public class ImageManipulationController
 
         BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
         String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
 

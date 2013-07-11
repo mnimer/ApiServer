@@ -6,6 +6,7 @@ import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.ApplyMaskFilter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
@@ -18,6 +19,8 @@ import java.util.Map;
 @Slf4j
 public class ApplyMaskFilterService
 {
+    Logger log = Logger.getLogger(ApplyMaskFilterService.class);
+
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
         Map props = (Map) message.getPayload();

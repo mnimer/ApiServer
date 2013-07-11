@@ -6,6 +6,7 @@ import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.*;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
@@ -18,6 +19,7 @@ import java.util.Map;
 @Slf4j
 public class RaysFilterService
 {
+    Logger log = Logger.getLogger(RaysFilterService.class);
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {

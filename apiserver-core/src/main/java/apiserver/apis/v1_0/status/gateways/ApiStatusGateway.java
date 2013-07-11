@@ -1,4 +1,4 @@
-package apiserver.core.gateways;
+package apiserver.apis.v1_0.status.gateways;
 
 import java.util.Map;
 import java.util.concurrent.Future;

@@ -44,7 +44,7 @@
 
 
     <si:gateway id="coldFusionHealthApiGateway"
-                service-interface="apiserver.core.gateways.ApiStatusColdFusionGateway"
+                service-interface="apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway"
                 default-reply-channel="coldFusionHealthReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
@@ -74,7 +74,7 @@
               input-channel="coldFusionHealthHTTPChannel"
               output-channel="coldFusionHealthReplyChannel">
         <si:transformer>
-            <bean class="apiserver.core.transformers.StubTransformer"/>
+            <bean class="apiserver.core.transformers.DebugTransformer"/>
         </si:transformer>
 
 

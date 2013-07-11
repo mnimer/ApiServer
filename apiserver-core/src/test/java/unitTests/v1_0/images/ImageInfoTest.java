@@ -1,8 +1,7 @@
 package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.core.gateways.ApiImageGateway;
-import org.apache.commons.fileupload.FileItem;
+import apiserver.apis.v1_0.images.gateways.ApiImageGateway;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,14 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 /**
  * User: mikenimer

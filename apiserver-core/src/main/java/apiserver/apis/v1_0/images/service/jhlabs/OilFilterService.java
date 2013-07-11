@@ -7,6 +7,7 @@ import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.MotionBlurFilter;
 import com.jhlabs.image.OilFilter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
@@ -19,6 +20,7 @@ import java.util.Map;
 @Slf4j
 public class OilFilterService
 {
+    Logger log = Logger.getLogger(OilFilterService.class);
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {

@@ -1,26 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:http="http://www.springframework.org/schema/integration/http"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <si:channel id="imageGaussianFilterChannel"/>
-    <si:chain input-channel="imageGaussianFilterChannel" output-channel="noOpOutputChannel">
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+    </util:list>
+
+    <task:executor id="imageGaussianFilterChannelTaskExecutor" pool-size="100" />
+
+    <si:channel id="imageGaussianFilterChannelRequestChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="imageGaussianFilterChannelReplyChannel">
+        <si:queue/>
+    </si:channel>
+
+
+    <si:gateway id="imageGaussianFilterChannelApiGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGaussianGateway"
+                default-reply-channel="imageGaussianFilterChannelReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="imageGaussianFilter"
+                   request-channel="imageGaussianFilterChannelRequestChannel">
+
+        </si:method>
+    </si:gateway>
+
+
+
+    <si:chain input-channel="imageGaussianFilterChannelRequestChannel"
+              output-channel="imageGaussianFilterChannelReplyChannel">
+
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageGaussianFilterChannelTaskExecutor"/>
+
+
+        <si:transformer>
+            <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
+        </si:transformer>
 
         <si:service-activator
                 method="checkCache">
             <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
         </si:service-activator>
 
+
         <si:service-activator
                 method="doFilter">
             <bean class="apiserver.apis.v1_0.images.service.jhlabs.GaussianFilterService"/>
         </si:service-activator>
 
+        <si:transformer>
+            <bean class="apiserver.core.transformers.DebugTransformer"/>
+        </si:transformer>
     </si:chain>
-
 </beans>
+

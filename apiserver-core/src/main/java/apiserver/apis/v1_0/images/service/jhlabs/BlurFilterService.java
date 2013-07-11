@@ -7,6 +7,7 @@ import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BlurFilter;
 import com.jhlabs.image.BoxBlurFilter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
@@ -19,7 +20,9 @@ import java.util.Map;
 @Slf4j
 public class BlurFilterService
 {
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    Logger log = Logger.getLogger(BlurFilterService.class);
+
+    public Object doFilter(Message<?> message)
     {
         Map props = (Map) message.getPayload();
 
@@ -40,6 +43,7 @@ public class BlurFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
+            // add image into the payload, and return
             props.put(ImageConfigMBeanImpl.RESULT, outFile);
             return props;
         }

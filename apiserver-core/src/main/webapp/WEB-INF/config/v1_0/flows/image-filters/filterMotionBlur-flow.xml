@@ -1,13 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:http="http://www.springframework.org/schema/integration/http"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <si:channel id="imageMotionBlurFilterChannel"/>
+
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+    </util:list>
+
+    <task:executor id="imageMotionBlurFilterChannelTaskExecutor" pool-size="100" />
+
+    <si:channel id="imageMotionBlurFilterChannelRequestChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="imageMotionBlurFilterChannelReplyChannel">
+        <si:queue/>
+    </si:channel>
 
 
+    <si:gateway id="imageMotionBlurFilterChannelApiGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway"
+                default-reply-channel="imageMotionBlurFilterChannelReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="imageMotionBlurFilter"
+                   request-channel="imageMotionBlurFilterChannelRequestChannel">
+
+        </si:method>
+    </si:gateway>
+
+
+
+    <si:chain input-channel="imageMotionBlurFilterChannelRequestChannel"
+              output-channel="imageMotionBlurFilterChannelReplyChannel">
+
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageMotionBlurFilterChannelTaskExecutor"/>
+
+
+        <si:transformer>
+            <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
+        </si:transformer>
+
+        <si:service-activator
+                method="checkCache">
+            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+        </si:service-activator>
+
+
+        <si:service-activator
+                method="doFilter">
+            <bean class="apiserver.apis.v1_0.images.service.jhlabs.MotionBlurFilterService"/>
+        </si:service-activator>
+
+        <si:transformer>
+            <bean class="apiserver.core.transformers.DebugTransformer"/>
+        </si:transformer>
+    </si:chain>
 </beans>
+

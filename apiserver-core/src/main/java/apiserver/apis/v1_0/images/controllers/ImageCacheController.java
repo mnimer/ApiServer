@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
+import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import com.wordnik.swagger.annotations.Api;
@@ -93,7 +94,7 @@ public class ImageCacheController
         ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageCacheGetInputChannel);
 
         CachedImage cachedImage = (CachedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
-        ResponseEntity<byte[]> result = channelInvoker.imageResultHandler(  cachedImage.getFileBytes(), cachedImage.getContentType(), returnAsBase64);
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(cachedImage.getFileBytes(), cachedImage.getContentType(), returnAsBase64);
         return result;
     }
 

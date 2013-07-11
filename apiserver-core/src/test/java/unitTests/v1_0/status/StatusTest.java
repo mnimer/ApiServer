@@ -1,6 +1,6 @@
 package unitTests.v1_0.status;
 
-import apiserver.core.gateways.ApiStatusGateway;
+import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

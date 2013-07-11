@@ -28,7 +28,7 @@
 
 
     <si:gateway id="apiserverHealthApiGateway"
-                service-interface="apiserver.core.gateways.ApiStatusGateway"
+                service-interface="apiserver.apis.v1_0.status.gateways.ApiStatusGateway"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}"
                 default-reply-channel="apiserverHealthResponseChannel">
 

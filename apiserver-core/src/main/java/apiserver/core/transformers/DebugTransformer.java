@@ -13,9 +13,9 @@ import java.util.Map;
  * Date: 7/6/13
  */
 @Component
-public class StubTransformer
+public class DebugTransformer
 {
-    public final Logger log = LoggerFactory.getLogger(StubTransformer.class);
+    public final Logger log = LoggerFactory.getLogger(DebugTransformer.class);
 
 
     @Transformer

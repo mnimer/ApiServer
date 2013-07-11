@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.status.controllers;
 
-import apiserver.core.gateways.ApiStatusColdFusionGateway;
-import apiserver.core.gateways.ApiStatusGateway;
+import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
+import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
 import com.wordnik.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

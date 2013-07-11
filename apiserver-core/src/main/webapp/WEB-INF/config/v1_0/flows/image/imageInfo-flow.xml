@@ -33,7 +33,7 @@
 
 
     <si:gateway id="imageInfoApiGateway"
-                service-interface="apiserver.core.gateways.ApiImageGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.ApiImageGateway"
                 default-reply-channel="imageInfoReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
@@ -78,7 +78,7 @@
         <si:json-to-object-transformer type="java.util.HashMap"/>
 
         <si:transformer method="transform">
-            <bean class="apiserver.core.transformers.StubTransformer"/>
+            <bean class="apiserver.core.transformers.DebugTransformer"/>
         </si:transformer>
     </si:chain>
 

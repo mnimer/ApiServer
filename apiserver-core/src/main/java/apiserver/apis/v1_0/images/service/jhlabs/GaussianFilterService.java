@@ -7,6 +7,7 @@ import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BumpFilter;
 import com.jhlabs.image.GaussianFilter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
@@ -20,6 +21,8 @@ import java.util.Map;
 @Slf4j
 public class GaussianFilterService
 {
+    Logger log = Logger.getLogger(GaussianFilterService.class);
+
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
         Map props = (Map) message.getPayload();
