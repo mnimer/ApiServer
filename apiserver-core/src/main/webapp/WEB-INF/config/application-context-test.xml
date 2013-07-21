@@ -30,7 +30,7 @@
     <si:logging-channel-adapter
             id="logger"
             log-full-message="true"
-            level="INFO"/>
+            level="DEBUG"/>
 
 
 

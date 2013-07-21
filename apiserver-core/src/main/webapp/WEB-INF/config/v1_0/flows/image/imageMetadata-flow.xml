@@ -1,52 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:http="http://www.springframework.org/schema/integration/http"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+    </util:list>
+
+    <task:executor id="imageMetadataChannelTaskExecutor" pool-size="100"/>
+
+    <si:channel id="imageMetadataChannelRequestChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="imageMetadataChannelReplyChannel">
+        <si:queue/>
+    </si:channel>
 
     <!--
-            Image Embedded Metadata
-            Note: because of the router, this is not in a CHAIN
-        -->
-    <si:channel id="imageMetadataInputChannel"/>
-    <si:channel id="metadataInfoRouter"/>
+          Image Embedded Metadata
+          Note: because of the router, this is not in a CHAIN
+      -->
+    <si:channel id="imageMetadataChannelInfoRouter"/>
 
     <!-- these channels MUST match the ImageConfigMBean.getMetadataLibrary() options -->
-    <si:channel id="drewMetadataExtractor"/>
-    <si:channel id="exifTool"/>
+    <si:channel id="imageMetadataChannelDrewMetadataExtractor"/>
+    <si:channel id="imageMetadataChannelExifTool"/>
+
+
+    <si:gateway id="imageMetadataGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway"
+                default-reply-channel="imageMetadataChannelReplyChannel"
+                default-request-channel="imageMetadataChannelRequestChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+    </si:gateway>
 
 
     <si:service-activator
-            input-channel="imageMetadataInputChannel"
-            output-channel="metadataInfoRouter"
+            input-channel="imageMetadataChannelRequestChannel"
+            output-channel="imageMetadataChannelInfoRouter"
             method="checkCache">
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageMetadataChannelTaskExecutor"/>
         <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
     </si:service-activator>
 
+
     <si:router
-            input-channel="metadataInfoRouter"
+            input-channel="imageMetadataChannelInfoRouter"
             method="route">
         <bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
     </si:router>
 
 
     <si:service-activator
-            input-channel="drewMetadataExtractor"
-            output-channel="noOpOutputChannel"
+            input-channel="imageMetadataChannelDrewMetadataExtractor"
+            output-channel="imageMetadataChannelReplyChannel"
             method="imageMetadataHandler">
         <bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
     </si:service-activator>
 
+
     <si:service-activator
-            input-channel="exifTool"
-            output-channel="noOpOutputChannel"
+            input-channel="imageMetadataChannelExifTool"
+            output-channel="imageMetadataChannelReplyChannel"
             method="metadataInfo">
         <bean class="apiserver.apis.v1_0.images.service.exiftool.ImageMetadataService"/>
     </si:service-activator>
-
-
 
 </beans>

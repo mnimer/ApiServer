@@ -1,8 +1,8 @@
 package unitTests.v1_0.image_filters;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
+import apiserver.apis.v1_0.images.models.filters.MaskModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,17 +51,19 @@ public class ImageMaskTests
     @Test
     public void testMaskById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(defaultCacheId, "a3c8af38-82e3-4241-8162-28e17ebcbf5");
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        MaskModel args = new MaskModel();
+        args.setCacheId(defaultCacheId);
+        args.setMask("a3c8af38-82e3-4241-8162-28e17ebcbf52");
+
+        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
+        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
         Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
@@ -72,18 +74,20 @@ public class ImageMaskTests
     @Test
     public void testMaskBase64ById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(defaultCacheId, "a3c8af38-82e3-4241-8162-28e17ebcbf5");
+        MaskModel args = new MaskModel();
+        args.setCacheId(defaultCacheId);
+        args.setMask("a3c8af38-82e3-4241-8162-28e17ebcbf52");
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
+
+        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
         Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
@@ -95,18 +99,20 @@ public class ImageMaskTests
     @Test
     public void testMaskByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(file, file);
+        MaskModel args = new MaskModel();
+        args.setFile(file);
+        args.setMask(file);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
+
+        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
         Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
@@ -116,18 +122,20 @@ public class ImageMaskTests
     @Test
     public void testMaskBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(file, file);
+        MaskModel args = new MaskModel();
+        args.setFile(file);
+        args.setMask(file);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
+
+        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
         Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);

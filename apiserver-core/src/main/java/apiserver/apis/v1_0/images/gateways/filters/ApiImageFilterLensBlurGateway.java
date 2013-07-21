@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterLensBlurGateway
 {
-    Future<Map> imageLensBlurFilter(String ID, Float radius, Integer sides, Float bloom);
-    Future<Map> imageLensBlurFilter(File file, Float radius, Integer sides, Float bloom);
-    Future<Map> imageLensBlurFilter(MultipartFile file, Float radius, Integer sides, Float bloom);
+    Future<Map> imageLensBlurFilter(LensBlurModel lensBlurFilterModel);
 }

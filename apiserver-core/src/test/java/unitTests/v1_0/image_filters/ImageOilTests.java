@@ -1,8 +1,8 @@
 package unitTests.v1_0.image_filters;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
+import apiserver.apis.v1_0.images.models.filters.OilModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,15 +51,19 @@ public class ImageOilTests
     @Test
     public void testOilById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(defaultCacheId, 3, 256);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        OilModel args = new OilModel();
+        args.setCacheId(defaultCacheId);
+        args.setLevels(3);
+        args.setRange(256);
+
+        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
+        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        String contentType = (String)payload.getCachedImage().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -72,18 +76,21 @@ public class ImageOilTests
     @Test
     public void testOilBase64ById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(defaultCacheId, 3, 256);
+        OilModel args = new OilModel();
+        args.setCacheId(defaultCacheId);
+        args.setLevels(3);
+        args.setRange(256);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
+
+        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        String contentType = (String)payload.getCachedImage().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
         Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
@@ -95,18 +102,21 @@ public class ImageOilTests
     @Test
     public void testOilByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(file, 3, 256);
+        OilModel args = new OilModel();
+        args.setFile(file);
+        args.setLevels(3);
+        args.setRange(256);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
+
+        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        String contentType = (String)payload.getCachedImage().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
         Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
@@ -116,18 +126,21 @@ public class ImageOilTests
     @Test
     public void testOilBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(defaultCacheId, 3, 256);
+        OilModel args = new OilModel();
+        args.setFile(file);
+        args.setLevels(3);
+        args.setRange(256);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
+
+        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        String contentType = (String)payload.getCachedImage().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
-
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
         Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);

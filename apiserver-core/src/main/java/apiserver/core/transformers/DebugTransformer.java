@@ -21,7 +21,6 @@ public class DebugTransformer
     @Transformer
     public Message<Map> transform(Message<Map> message)
     {
-
         return message;
     }
 }

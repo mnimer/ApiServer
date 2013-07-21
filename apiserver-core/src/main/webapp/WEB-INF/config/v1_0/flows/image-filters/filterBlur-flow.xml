@@ -48,9 +48,9 @@
         <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageBlurFilterChannelTaskExecutor"/>
 
 
-        <si:transformer>
+        <!--si:transformer>
             <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
-        </si:transformer>
+        </si:transformer-->
 
         <si:service-activator
                 method="checkCache">

@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.service.jhlabs;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.models.filters.GlowModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
-import java.util.Map;
 
 /**
  * User: mnimer
@@ -23,16 +22,13 @@ public class GlowFilterService
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
-        Map props = (Map) message.getPayload();
+        GlowModel props = (GlowModel) message.getPayload();
+
+        int amount = props.getAmount();
+        CachedImage inFile  = props.getCachedImage();
 
         try
         {
-            int amount = ((Integer)props.get("amount")).intValue();
-
-            //InputStream in = new ByteArrayInputStream(FileHelper.fileBytes( props.get("file") ));
-            //BufferedImage inFile = ImageIO.read(in);
-
-            CachedImage inFile  = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             if( inFile == null )
             {
@@ -46,7 +42,7 @@ public class GlowFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.put(ImageConfigMBeanImpl.RESULT, outFile);
+            props.setProcessedImage(outFile);
             return props;
         }
         catch (Throwable e)

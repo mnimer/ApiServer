@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.filters.OilModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterOilGateway
 {
-    Future<Map> imageOilFilter(String ID, int angle, int range);
-    Future<Map> imageOilFilter(File file, int angle, int range);
-    Future<Map> imageOilFilter(MultipartFile file, int angle, int range);
+    Future<Map> imageOilFilter(OilModel oilFilterModel);
 }

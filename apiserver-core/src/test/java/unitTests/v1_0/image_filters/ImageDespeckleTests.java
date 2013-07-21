@@ -1,8 +1,8 @@
 package unitTests.v1_0.image_filters;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterDespeckleGateway;
+import apiserver.apis.v1_0.images.models.ImageModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,20 +51,22 @@ public class ImageDespeckleTests
     @Test
     public void testDespeckleById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(defaultCacheId);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel args = new ImageModel();
+        args.setCacheId(defaultCacheId);
+
+        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  395795, result.getBody().length);
     }
 
 
@@ -72,21 +74,23 @@ public class ImageDespeckleTests
     @Test
     public void testDespeckleBase64ById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(defaultCacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(defaultCacheId);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
+
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  527728, result.getBody().length);
     }
 
 
@@ -95,41 +99,45 @@ public class ImageDespeckleTests
     @Test
     public void testDespeckleByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(file);
+        ImageModel args = new ImageModel();
+        args.setFile(file);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
+
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  395795, result.getBody().length);
     }
 
 
     @Test
     public void testDespeckleBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(defaultCacheId);
+        ImageModel args = new ImageModel();
+        args.setFile(file);
 
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
+
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  527728, result.getBody().length);
     }
 }

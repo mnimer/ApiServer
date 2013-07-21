@@ -1,8 +1,8 @@
 package unitTests.v1_0.image_filters;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBoxBlurGateway;
+import apiserver.apis.v1_0.images.models.filters.BoxBlurModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -51,20 +51,27 @@ public class ImageBoxBlurTests
     @Test
     public void testBoxBlurById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(defaultCacheId, 2, 2, 1, true, false);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setCacheId(defaultCacheId);
+        args.setHRadius(2);
+        args.setVRadius(2);
+        args.setIterations(1);
+        args.setPreMultiplyAlpha(true);
+
+        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  380892, result.getBody().length);
     }
 
 
@@ -72,20 +79,28 @@ public class ImageBoxBlurTests
     @Test
     public void testBoxBlurBase64ById() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(defaultCacheId, 2, 2, 1, true, true);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setCacheId(defaultCacheId);
+        args.setHRadius(2);
+        args.setVRadius(2);
+        args.setIterations(1);
+        args.setPreMultiplyAlpha(true);
+
+
+        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  507856, result.getBody().length);
     }
 
 
@@ -94,39 +109,52 @@ public class ImageBoxBlurTests
     @Test
     public void testBoxBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter( file, 2, 2, 1, true, false );
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setFile(file);
+        args.setHRadius(2);
+        args.setVRadius(2);
+        args.setIterations(1);
+        args.setPreMultiplyAlpha(true);
+
+
+        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  391263, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  380892, result.getBody().length);
     }
 
 
     @Test
     public void testBoxBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter( file, 2, 2, 1, true, true );
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setFile(file);
+        args.setHRadius(2);
+        args.setVRadius(2);
+        args.setIterations(1);
+        args.setPreMultiplyAlpha(true);
+
+        Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        BufferedImage bufferedImage = payload.getProcessedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = payload.getCachedImage().getContentType();
+        Assert.assertEquals("image/png",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  521684, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  507856, result.getBody().length);
     }
 }

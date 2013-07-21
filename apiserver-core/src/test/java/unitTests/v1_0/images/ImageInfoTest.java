@@ -1,7 +1,7 @@
 package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.apis.v1_0.images.gateways.ApiImageGateway;
+import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -33,8 +32,7 @@ public class ImageInfoTest
     public final Logger log = LoggerFactory.getLogger(ImageInfoTest.class);
 
     @Autowired
-    @Qualifier("imageInfoApiGateway")
-    private ApiImageGateway gateway;
+    private ImageInfoGateway gateway;
 
     int width = 500;
     int height = 296;
@@ -66,13 +64,13 @@ public class ImageInfoTest
     {
         try
         {
-            Future<Map> resultFuture = gateway.imageInfo(args);
-            Map result = (Map)resultFuture.get( 10000, TimeUnit.MILLISECONDS );
+            Future<Map> resultFuture = gateway.imageInfo(file);
+            Object result = resultFuture.get( 20000, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );
             Assert.assertTrue( result instanceof Map );
-            Assert.assertEquals(width, result.get("width"));
-            Assert.assertEquals(height, result.get("height"));
+            Assert.assertEquals(width, ((Map)result).get("width"));
+            Assert.assertEquals(height, ((Map) result).get("height"));
         }
         catch (Exception ex){
             ex.printStackTrace();

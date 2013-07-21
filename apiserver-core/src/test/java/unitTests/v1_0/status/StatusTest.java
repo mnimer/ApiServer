@@ -23,7 +23,8 @@ import java.util.concurrent.TimeUnit;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/status/apiserverHealth-flow.xml"})
 public class StatusTest
 {
     public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);

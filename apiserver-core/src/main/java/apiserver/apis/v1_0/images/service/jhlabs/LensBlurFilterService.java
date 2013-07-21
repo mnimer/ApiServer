@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.service.jhlabs;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
-import java.util.Map;
 
 /**
  * User: mnimer
@@ -23,15 +22,15 @@ public class LensBlurFilterService
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
-        Map props = (Map) message.getPayload();
+        LensBlurModel props = (LensBlurModel) message.getPayload();
+
+        float radius = props.getRadius();
+        int sides = props.getSides();
+        float bloom = props.getBloom();
+        CachedImage inFile  = props.getCachedImage();
 
         try
         {
-            float radius = ((Float)props.get("radius")).floatValue();
-            int sides = ((Integer)props.get("sides")).intValue();
-            float bloom = ((Float)props.get("bloom")).floatValue();
-
-            CachedImage inFile  = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             if( inFile == null )
             {
@@ -46,7 +45,7 @@ public class LensBlurFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.put(ImageConfigMBeanImpl.RESULT, outFile);
+            props.setProcessedImage(outFile);
             return props;
         }
         catch (Throwable e)

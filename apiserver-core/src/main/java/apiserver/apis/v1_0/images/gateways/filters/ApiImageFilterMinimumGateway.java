@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.ImageModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMinimumGateway
 {
-    Future<Map> imageMinimumFilter(String ID);
-    Future<Map> imageMinimumFilter(File file);
-    Future<Map> imageMinimumFilter(MultipartFile file);
+    Future<Map> imageMinimumFilter(ImageModel imageModel);
 }

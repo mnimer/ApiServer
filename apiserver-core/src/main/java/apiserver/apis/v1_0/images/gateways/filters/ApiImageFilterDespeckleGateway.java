@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.ImageModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterDespeckleGateway
 {
-    Future<Map> imageDespeckleFilter(String ID);
-    Future<Map> imageDespeckleFilter(File file);
-    Future<Map> imageDespeckleFilter(MultipartFile file);
+    Future<Map> imageDespeckleFilter(ImageModel imageModel);
 }

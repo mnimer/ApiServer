@@ -48,10 +48,6 @@
         <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageMaskFilterChannelTaskExecutor"/>
 
 
-        <si:transformer>
-            <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
-        </si:transformer>
-
         <si:service-activator
                 method="checkCache">
             <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
@@ -60,7 +56,7 @@
 
         <si:service-activator
                 method="doFilter">
-            <bean class="apiserver.apis.v1_0.images.service.jhlabs.ApplyMaskFilterService"/>
+            <bean class="apiserver.apis.v1_0.images.service.jhlabs.MaskFilterService"/>
         </si:service-activator>
 
         <si:transformer>

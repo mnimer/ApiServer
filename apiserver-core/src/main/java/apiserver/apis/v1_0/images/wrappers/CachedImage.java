@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.wrappers;
 
 import org.apache.commons.io.FileUtils;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
@@ -34,9 +35,10 @@ public class CachedImage implements Serializable
 
         byte[] bytes = FileUtils.readFileToByteArray(file);
         this.setFileBytes(bytes);
+        this.setSize( new Integer(bytes.length).longValue() );
     }
 
-    public CachedImage(CommonsMultipartFile file) throws IOException
+    public CachedImage(MultipartFile file) throws IOException
     {
         fileName = file.getOriginalFilename();
         this.setFileBytes(file.getBytes());
@@ -98,28 +100,14 @@ public class CachedImage implements Serializable
         String filePath = System.getProperty("java.io.tmpdir") + "/" + UUID.randomUUID().toString() +"." +getFileName().split("\\.")[1];
 
         File file = new File(filePath);
-        outputStream = new FileOutputStream(file);
-        outputStream.write( getFileBytes() );
-        outputStream.close();
+        FileUtils.writeByteArrayToFile(file, getFileBytes());
+
+        //outputStream = new FileOutputStream(file);
+        //outputStream.write( getFileBytes() );
+        //outputStream.close();
 
         file.deleteOnExit();
         return file;
-
-
-        /**
-         byte[] bytes = fileBytes(uploadedFile);
-         File file = File.createTempFile( UUID.randomUUID().toString(), "." +fileName(uploadedFile).split("\\.")[1] );
-
-         BufferedWriter out = new BufferedWriter(new FileWriter(file));
-         int c = 0;
-         while( c < bytes.length )
-         {
-         out.write( bytes[c] );
-         c++;
-         }
-         out.close();
-         return file;
-         **/
     }
 
 

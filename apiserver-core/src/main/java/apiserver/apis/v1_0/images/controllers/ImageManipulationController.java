@@ -3,6 +3,11 @@ package apiserver.apis.v1_0.images.controllers;
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
+import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
+import apiserver.apis.v1_0.images.models.ImageModel;
+import apiserver.apis.v1_0.images.models.images.ImageResizeModel;
+import apiserver.apis.v1_0.images.models.images.ImageRotateModel;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -19,6 +24,19 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+
+//TODO: Add ImageNegative
+//TODO: Add ImageOverlay
+//TODO: Add ImageFlip
+//TODO: Add ImageSharpen
+//TODO: Add ImageShear, ImageShearDrawingAxis
+//TODO: Add ImageRotateDrawingAxis
+//TODO: Add Image Drawing Support (array of actions; ImageDrawLine, ImageDrawOval, ImageDrawPoint, ImageDrawQuadraticCurve
 
 /**
  * User: mnimer
@@ -31,15 +49,11 @@ public class ImageManipulationController
     @Autowired(required = false)
     private HttpServletRequest request;
 
-    //Autowired
-    public HttpChannelInvoker channelInvoker;
+    @Autowired
+    private ImageResizeGateway imageResizeGateway;
 
-    //Autowired
-    public MessageChannel imageRotateInputChannel;
-    //Autowired
-    public MessageChannel imageResizeInputChannel;
-
-
+    @Autowired
+    private ImageRotateGateway imageRotateGateway;
     /**
      * rotate an image
      *
@@ -54,17 +68,19 @@ public class ImageManipulationController
             @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId
             , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException
+    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
-        args.put(ImageConfigMBeanImpl.ANGLE, angle);
+        ImageRotateModel args = new ImageRotateModel();
+        args.setCacheId(cacheId);
+        args.setAngle(angle);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
+        Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
+        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
-        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
+
+        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
 
@@ -83,16 +99,18 @@ public class ImageManipulationController
             @ApiParam(name="file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException
+    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.FILE, file);
-        args.put(ImageConfigMBeanImpl.ANGLE, angle);
+        ImageRotateModel args = new ImageRotateModel();
+        args.setMultipartFile(file);
+        args.setAngle(angle);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageRotateInputChannel);
+        Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
+        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
-        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
+
+        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -118,20 +136,21 @@ public class ImageManipulationController
             , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
             , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException
+    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
-        args.put(ImageConfigMBeanImpl.WIDTH, width);
-        args.put(ImageConfigMBeanImpl.HEIGHT, height);
-        args.put(ImageConfigMBeanImpl.INTERPOLATION, interpolation.toUpperCase());
-        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, scaleToFit);
+        ImageResizeModel args = new ImageResizeModel();
+        args.setCacheId(cacheId);
+        args.setWidth(width);
+        args.setHeight(height);
+        args.setInterpolation(interpolation.toUpperCase());
+        args.setScaleToFit(scaleToFit);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
+        Future<Map> imageFuture = imageResizeGateway.resizeImage(args);
+        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
-        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -156,20 +175,21 @@ public class ImageManipulationController
             , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
             , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException
+    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.FILE, file);
-        args.put(ImageConfigMBeanImpl.INTERPOLATION, interpolation);
-        args.put(ImageConfigMBeanImpl.WIDTH, width);
-        args.put(ImageConfigMBeanImpl.HEIGHT, height);
-        args.put(ImageConfigMBeanImpl.SCALE_TO_FIT, scaleToFit);
+        ImageResizeModel args = new ImageResizeModel();
+        args.setMultipartFile(file);
+        args.setWidth(width);
+        args.setHeight(height);
+        args.setInterpolation(interpolation.toUpperCase());
+        args.setScaleToFit(scaleToFit);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageResizeInputChannel);
+        Future<Map> imageFuture = imageResizeGateway.resizeImage(args);
+        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = ((BufferedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT));
-        String contentType = (String)view.getModel().get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
+        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }

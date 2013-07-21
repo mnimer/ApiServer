@@ -3,6 +3,8 @@ package apiserver.apis.v1_0.images.controllers;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.*;
+import apiserver.apis.v1_0.images.models.ImageModel;
+import apiserver.apis.v1_0.images.models.filters.*;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +36,6 @@ public class ImageFiltersController
 {
     @Autowired(required = false)
     private HttpServletRequest request;
-
-    @Autowired(required = false)
-    private HttpServletResponse response;
-
 
     @Autowired
     private ApiImageFilterBlurGateway imageFilterBlurGateway;
@@ -86,7 +84,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -117,7 +118,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -156,7 +160,14 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(cacheId, hRadius, vRadius, iterations, preMultiplyAlpha, returnAsBase64);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setCacheId(cacheId);
+        args.setHRadius(hRadius);
+        args.setVRadius(vRadius);
+        args.setIterations(iterations);
+        args.setPreMultiplyAlpha(preMultiplyAlpha);
+
+        Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -195,7 +206,14 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(file, hRadius, vRadius, iterations, preMultiplyAlpha, returnAsBase64);
+        BoxBlurModel args = new BoxBlurModel();
+        args.setMultipartFile(file);
+        args.setHRadius(hRadius);
+        args.setVRadius(vRadius);
+        args.setIterations(iterations);
+        args.setPreMultiplyAlpha(preMultiplyAlpha);
+
+        Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -241,7 +259,13 @@ public class ImageFiltersController
         }
 
 
-        Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(cacheId, edgeAction, useAlpha, matrixValues, returnAsBase64);
+        BumpModel args = new BumpModel();
+        args.setCacheId(cacheId);
+        args.setEdgeAction(edgeAction);
+        args.setUseAlpha(useAlpha);
+        args.setMatrix(matrixValues);
+
+        Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -285,8 +309,14 @@ public class ImageFiltersController
             matrixValues[i] = Float.parseFloat(s);
         }
 
+        BumpModel args = new BumpModel();
+        args.setMultipartFile(file);
+        args.setEdgeAction(edgeAction);
+        args.setUseAlpha(useAlpha);
+        args.setMatrix(matrixValues);
 
-        Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(file, edgeAction, useAlpha, matrixValues, returnAsBase64);
+
+        Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -315,7 +345,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+
+        Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -344,7 +378,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -375,7 +412,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(cacheId, radius);
+        GaussianModel args = new GaussianModel();
+        args.setCacheId(cacheId);
+        args.setRadius(radius);
+
+        Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -406,7 +447,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(file, radius);
+        GaussianModel args = new GaussianModel();
+        args.setMultipartFile(file);
+        args.setRadius(radius);
+
+        Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -436,7 +481,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(cacheId, amount);
+        GlowModel args = new GlowModel();
+        args.setCacheId(cacheId);
+        args.setAmount(amount);
+
+        Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -466,7 +515,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(file, amount);
+        GlowModel args = new GlowModel();
+        args.setMultipartFile(file);
+        args.setAmount(amount);
+
+        Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -495,7 +548,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+
+        Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -524,7 +581,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -559,7 +619,13 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(cacheId, radius, sides, bloom);
+        LensBlurModel args = new LensBlurModel();
+        args.setCacheId(cacheId);
+        args.setRadius(radius);
+        args.setSides(sides);
+        args.setBloom(bloom);
+
+        Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -594,7 +660,13 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(file, radius, sides, bloom);
+        LensBlurModel args = new LensBlurModel();
+        args.setMultipartFile(file);
+        args.setRadius(radius);
+        args.setSides(sides);
+        args.setBloom(bloom);
+
+        Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -621,7 +693,12 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(cacheId, maskCacheId);
+        MaskModel args = new MaskModel();
+        args.setCacheId(cacheId);
+        args.setMask(maskCacheId);
+
+
+        Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -650,7 +727,11 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(file, maskFile);
+        MaskModel args = new MaskModel();
+        args.setMultipartFile(file);
+        args.setMask(maskFile);
+
+        Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -675,7 +756,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+        Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -702,7 +786,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -728,7 +815,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+        Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -755,7 +845,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -782,7 +875,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(cacheId);
+        ImageModel args = new ImageModel();
+        args.setCacheId(cacheId);
+
+        Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -809,7 +905,10 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(file);
+        ImageModel args = new ImageModel();
+        args.setMultipartFile(file);
+
+        Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -842,7 +941,15 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(cacheId, angle, distance, rotation, wrapEdges, zoom);
+        MotionBlurModel args = new MotionBlurModel();
+        args.setCacheId(cacheId);
+        args.setAngle(angle);
+        args.setDistance(distance);
+        args.setRotation(rotation);
+        args.setWrapEdges(wrapEdges);
+        args.setZoom(zoom);
+
+        Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -874,7 +981,16 @@ public class ImageFiltersController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(file, angle, distance, rotation, wrapEdges, zoom);
+        MotionBlurModel args = new MotionBlurModel();
+        args.setMultipartFile(file);
+        args.setAngle(angle);
+        args.setDistance(distance);
+        args.setRotation(rotation);
+        args.setWrapEdges(wrapEdges);
+        args.setZoom(zoom);
+
+
+        Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -891,19 +1007,30 @@ public class ImageFiltersController
      * This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.
      *
      * @param cacheId
+     * @param level
+     * @param range
      * @param returnAsBase64
-     * @return image
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
      */
     @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
     @RequestMapping(value = "/{cacheId}/oil", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageOilBlurById(
             @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")  @PathVariable("cacheId") String cacheId
-            , @ApiParam(name="angle", required = true, defaultValue = "3")  @RequestParam(value="angle", required = false, defaultValue="3") int angle
+            , @ApiParam(name="level", required = true, defaultValue = "3")  @RequestParam(value="level", required = false, defaultValue="3") int level
             , @ApiParam(name="range", required = true, defaultValue = "256")  @RequestParam(value="range", required = false,  defaultValue="256") int range
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(cacheId, angle, range);
+        OilModel args = new OilModel();
+        args.setCacheId(cacheId);
+        args.setLevels(level);
+        args.setRange(range);
+
+        Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 
@@ -919,20 +1046,32 @@ public class ImageFiltersController
      * This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.
      *
      * @param file
+     * @param level
+     * @param range
      * @param returnAsBase64
-     * @return image
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
      */
     @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
     @RequestMapping(value = "/oil", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageOilBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name="angle", required = true, defaultValue = "3")  @RequestParam(value="angle", required = false, defaultValue="3") int angle
+            , @ApiParam(name="level", required = true, defaultValue = "3")  @RequestParam(value="angle", required = false, defaultValue="3") int level
             , @ApiParam(name="range", required = true, defaultValue = "256")  @RequestParam(value="range", required = false,  defaultValue="256") int range
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(file, angle, range);
+        OilModel args = new OilModel();
+        args.setMultipartFile(file);
+        args.setLevels(level);
+        args.setRange(range);
+
+
+        Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(args);
         Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
 

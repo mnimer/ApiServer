@@ -1,22 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:http="http://www.springframework.org/schema/integration/http"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--
-      CACHE DELETE
 
-  <si:chain input-channel="imageCacheDeleteInputChannel" output-channel="imageCacheDeleteOutputChannel">
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+    </util:list>
 
-      <si:service-activator
-              method="addToCache">
-          <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-      </si:service-activator>
+    <task:executor id="cacheDeleteChannelTaskExecutor" pool-size="100" />
 
-  </si:chain> -->
+    <si:channel id="cacheDeleteChannelRequestChannel">
+        <si:queue/>
+    </si:channel>
 
+    <si:channel id="cacheDeleteChannelReplyChannel">
+        <si:queue/>
+    </si:channel>
+
+
+    <si:gateway id="cacheDeleteChannelApiGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.cache.CacheDeleteGateway"
+                default-reply-channel="cacheDeleteChannelReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="addToCache"
+                   request-channel="cacheDeleteChannelRequestChannel">
+
+        </si:method>
+    </si:gateway>
+
+
+
+    <si:chain input-channel="cacheDeleteChannelRequestChannel"
+              output-channel="cacheDeleteChannelReplyChannel">
+
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="cacheDeleteChannelTaskExecutor"/>
+
+        <si:service-activator
+                method="deleteFromCache">
+            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
+        </si:service-activator>
+    </si:chain>
 </beans>
+
+
+
+
+

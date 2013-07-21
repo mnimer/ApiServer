@@ -23,21 +23,21 @@
     <si:channel id="coldFusionHealthRequestChannel">
         <si:queue/>
         <si:interceptors>
-            <si:wire-tap channel="logger"/>
+            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
         </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthReplyChannel">
         <si:queue/>
         <si:interceptors>
-            <si:wire-tap channel="logger"/>
+            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
         </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthHTTPChannel">
         <si:dispatcher task-executor="coldFusionHealthTaskExecutor"/>
         <si:interceptors>
-            <si:wire-tap channel="logger"/>
+            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
         </si:interceptors>
     </si:channel>
 
@@ -63,7 +63,7 @@
 
 
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
-                            header-name="REQUEST_TYPE">
+                            header-name="REQUEST_TYPE" >
         <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="coldFusionHealthTaskExecutor"/>
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
@@ -88,8 +88,5 @@
 
         <si:json-to-object-transformer type="java.util.HashMap"/>
     </si:chain>
-
-
-
 
 </beans>

@@ -1,24 +1,24 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import com.wordnik.swagger.annotations.Api;
+import apiserver.apis.v1_0.images.gateways.cache.CacheAddGateway;
+import apiserver.apis.v1_0.images.gateways.cache.CacheDeleteGateway;
+import apiserver.apis.v1_0.images.gateways.cache.CacheGetGateway;
+import apiserver.apis.v1_0.images.models.cache.CacheAddModel;
+import apiserver.apis.v1_0.images.models.cache.CacheDeleteModel;
+import apiserver.apis.v1_0.images.models.cache.CacheGetModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.integration.MessageChannel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.*;
 
 /**
  * User: mnimer
@@ -26,29 +26,19 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/image-cache")
-
-//@Path("/image/cache.json") //swagger
-//@Api(value = "/pet", description = "Operations about pets") //swagger
-//@Produces({"application/json"}) //swagger
-
 public class ImageCacheController
 {
-    @Autowired(required = false)
-    private HttpServletRequest request;
-
     @Autowired
-    public HttpChannelInvoker channelInvoker;
-
+    public CacheAddGateway cacheAddGateway;
     @Autowired
-    public MessageChannel imageCacheAddInputChannel;
+    public CacheGetGateway cacheGetGateway;
     @Autowired
-    public MessageChannel imageCacheGetInputChannel;
-    @Autowired
-    public MessageChannel imageCacheDeleteInputChannel;
+    public CacheDeleteGateway cacheDeleteGateway;
 
 
     /**
      * put image into cache, usable for future manipulations of the image
+     *
      * @param file
      * @param timeToLiveInSeconds
      * @return cache ID
@@ -59,24 +49,37 @@ public class ImageCacheController
     //@GET
     //@Path("/{petId}")
     //@ApiOperation(value = "Find pet by ID", notes = "Add extra notes here", responseClass = "com.wordnik.swagger.sample.model.Pet")
-    public ModelAndView addImage(
-            @ApiParam(name="file", required = true) @RequestParam(required = true) MultipartFile file
-            ,@ApiParam(name="timeToLiveInSeconds", required = true)  @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds )
+    public Callable<Map> addImage(
+            @ApiParam(name = "file", required = true) @RequestParam(required = true) MultipartFile file
+            , @ApiParam(name = "timeToLiveInSeconds", required = true) @RequestParam(required = true, defaultValue = "0") Integer timeToLiveInSeconds)
+            throws InterruptedException, TimeoutException, ExecutionException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.FILE, file);
-        args.put(ImageConfigMBeanImpl.TIME_TO_LIVE, timeToLiveInSeconds);
+        final MultipartFile _file = file;
+        final Integer _timeToLiveInSeconds = timeToLiveInSeconds;
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageCacheAddInputChannel);
-        view.getModel().remove(ImageConfigMBeanImpl.FILE);
-        view.getModel().remove(ImageConfigMBeanImpl.TIME_TO_LIVE);
-        return view;
+        Callable<Map> callable = new Callable<Map>()
+        {
+            @Override
+            public Map call() throws Exception
+            {
+                CacheAddModel args = new CacheAddModel();
+                args.setMultipartFile(_file);
+                args.setTimeToLiveInSeconds(_timeToLiveInSeconds);
+
+                Future<Map> imageFuture = cacheAddGateway.addToCache(args);
+                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+
+                return payload;
+            }
+        };
+
+        return callable;//new WebAsyncTask<Map>(10000, callable);
     }
-
 
 
     /**
      * pull image out of cache
+     *
      * @param cacheId
      * @return
      */
@@ -84,36 +87,58 @@ public class ImageCacheController
     @ApiOperation(value = "get an image from cache")
     @RequestMapping(value = "/{cacheId}/get", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> getImage(
-            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
+            @ApiParam(name = "cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable(value = "cacheId") String cacheId
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException
+    ) throws InterruptedException, TimeoutException, ExecutionException, IOException
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        CacheGetModel args = new CacheGetModel();
+        args.setCacheId(cacheId);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageCacheGetInputChannel);
+        Future<Map> imageFuture = cacheGetGateway.getFromCache(args);
+        CacheGetModel payload = (CacheGetModel) imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        CachedImage cachedImage = (CachedImage)view.getModel().get(ImageConfigMBeanImpl.RESULT);
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(cachedImage.getFileBytes(), cachedImage.getContentType(), returnAsBase64);
+        BufferedImage bufferedImage = payload.getProcessedImage();
+        String contentType = payload.getCachedImage().getContentType();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
-    }
 
+    }
 
 
     /**
      * pull image out of cache
+     *
      * @param cacheId
      * @return
      */
     @ApiOperation(value = "delete an image in cache")
-    @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET,RequestMethod.DELETE})
-    public ModelAndView deleteImage(
-            @ApiParam(name="cacheId", required = true) @PathVariable(value = "cacheId") String cacheId )
+    @RequestMapping(value = "/{cacheId}/delete", method = {RequestMethod.GET, RequestMethod.DELETE})
+    public Callable<Boolean> deleteImage(
+            @ApiParam(name = "cacheId", required = true) @PathVariable(value = "cacheId") String cacheId)
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        final String _cacheId = cacheId;
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageCacheDeleteInputChannel);
+        Callable<Boolean> callable = new Callable<Boolean>()
+        {
+            @Override
+            public Boolean call() throws Exception
+            {
+                CacheDeleteModel args = new CacheDeleteModel();
+                args.setCacheId(_cacheId);
+
+                try
+                {
+                    Future<Boolean> imageFuture = cacheDeleteGateway.deleteFromCache(args);
+                    Object payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+
+                    return Boolean.TRUE;
+                }catch (Exception ex){
+                    return Boolean.FALSE;
+                }
+            }
+        };
+
+        return callable;//new WebAsyncTask<Map>(10000, callable);
     }
 
 

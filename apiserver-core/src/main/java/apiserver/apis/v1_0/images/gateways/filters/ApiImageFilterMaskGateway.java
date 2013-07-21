@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.filters.MaskModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMaskGateway
 {
-    Future<Map> imageMaskFilter(String ID, String MaskCacheId);
-    Future<Map> imageMaskFilter(File file, File mask);
-    Future<Map> imageMaskFilter(MultipartFile file, MultipartFile mask);
+    Future<Map> imageMaskFilter(MaskModel maskFilterModel);
 }

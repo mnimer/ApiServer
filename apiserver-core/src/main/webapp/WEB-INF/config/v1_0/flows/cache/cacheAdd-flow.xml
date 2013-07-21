@@ -1,24 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:si="http://www.springframework.org/schema/integration"
-       xmlns:http="http://www.springframework.org/schema/integration/http"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
-       http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+<beans
+        xmlns:http="http://www.springframework.org/schema/integration/http"
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:si="http://www.springframework.org/schema/integration"
+        xmlns:task="http://www.springframework.org/schema/task"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--
-            CACHE ADD
-         -->
-    <si:channel id="imageCacheAddInputChannel"/>
-    <si:chain input-channel="imageCacheAddInputChannel" output-channel="noOpOutputChannel">
+
+    <util:list id="messageConverters">
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
+    </util:list>
+
+    <task:executor id="cacheAddChannelTaskExecutor" pool-size="100" />
+
+    <si:channel id="cacheAddChannelRequestChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:channel id="cacheAddChannelReplyChannel">
+        <si:queue/>
+    </si:channel>
+
+
+    <si:gateway id="cacheAddChannelApiGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.cache.CacheAddGateway"
+                default-reply-channel="cacheAddChannelReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="addToCache"
+                   request-channel="cacheAddChannelRequestChannel">
+
+        </si:method>
+    </si:gateway>
+
+
+
+    <si:chain input-channel="cacheAddChannelRequestChannel"
+              output-channel="cacheAddChannelReplyChannel">
+
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="cacheAddChannelTaskExecutor"/>
 
         <si:service-activator
                 method="addToCache">
             <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
         </si:service-activator>
-
     </si:chain>
-
-
 </beans>
+
+
+
+
+

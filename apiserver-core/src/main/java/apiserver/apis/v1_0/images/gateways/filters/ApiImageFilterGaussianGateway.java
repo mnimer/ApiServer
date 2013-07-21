@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.filters.GaussianModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterGaussianGateway
 {
-    Future<Map> imageGaussianFilter(String ID, int radius);
-    Future<Map> imageGaussianFilter(File file, int radius);
-    Future<Map> imageGaussianFilter(MultipartFile file, int radius);
+    Future<Map> imageGaussianFilter(GaussianModel gaussianFilterModel);
 }

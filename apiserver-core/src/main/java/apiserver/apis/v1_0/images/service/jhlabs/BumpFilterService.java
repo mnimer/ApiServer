@@ -1,10 +1,9 @@
 package apiserver.apis.v1_0.images.service.jhlabs;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.models.filters.BumpModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
-import com.jhlabs.image.BlurFilter;
 import com.jhlabs.image.BumpFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
@@ -12,7 +11,6 @@ import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.Kernel;
-import java.util.Map;
 
 /**
  * This filter does a simple convolution which emphasises edges in an image.
@@ -27,22 +25,19 @@ public class BumpFilterService
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
-        Map props = (Map) message.getPayload();
+        BumpModel props = (BumpModel) message.getPayload();
+
+        int edgeAction = props.getEdgeAction();
+        boolean useAlpha = props.isUseAlpha();
+        float[] embossMatrix = props.getMatrix();
+        CachedImage inFile  = props.getCachedImage();
 
         try
         {
-            int edgeAction = ((Integer)props.get("edgeAction")).intValue();
-            boolean useAlpha = ((Boolean)props.get("useAlpha")).booleanValue();
-            float[] embossMatrix = ((float[])props.get("matrix"));
-
             // calculate
             int rows = new Double(Math.sqrt( new Integer(embossMatrix.length).doubleValue() )).intValue();
             int cols = new Double(Math.sqrt( new Integer(embossMatrix.length).doubleValue() )).intValue();
 
-            //InputStream in = new ByteArrayInputStream(FileHelper.fileBytes( props.get("file") ));
-            //BufferedImage inFile = ImageIO.read(in);
-
-            CachedImage inFile  = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             if( inFile == null )
             {
@@ -57,7 +52,7 @@ public class BumpFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.put(ImageConfigMBeanImpl.RESULT, outFile);
+            props.setProcessedImage(outFile);
             return props;
         }
         catch (Throwable e)

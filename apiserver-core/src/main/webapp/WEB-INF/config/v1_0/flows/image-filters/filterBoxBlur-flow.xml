@@ -32,12 +32,9 @@
     <si:gateway id="imageBoxBlurFilterChannelApiGateway"
                 service-interface="apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBoxBlurGateway"
                 default-reply-channel="imageBoxBlurFilterChannelReplyChannel"
+                default-request-channel="imageBoxBlurFilterChannelRequestChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="imageBoxBlurFilter"
-                   request-channel="imageBoxBlurFilterChannelRequestChannel">
-
-        </si:method>
     </si:gateway>
 
 
@@ -46,11 +43,6 @@
               output-channel="imageBoxBlurFilterChannelReplyChannel">
 
         <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageBoxBlurFilterChannelTaskExecutor"/>
-
-
-        <si:transformer>
-            <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
-        </si:transformer>
 
         <si:service-activator
                 method="checkCache">

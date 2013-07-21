@@ -1,11 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.integration.annotation.Gateway;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.Controller;
+import apiserver.apis.v1_0.images.models.ImageModel;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -16,7 +12,5 @@ import java.util.concurrent.Future;
 
 public interface ApiImageFilterBlurGateway
 {
-    Future<Map> imageBlurFilter(String ID);
-    Future<Map> imageBlurFilter(File file);
-    Future<Map> imageBlurFilter(MultipartFile file);
+    Future<Map> imageBlurFilter(ImageModel imageModel);
 }

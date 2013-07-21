@@ -48,10 +48,6 @@
         <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageMaximumFilterChannelTaskExecutor"/>
 
 
-        <si:transformer>
-            <bean class="apiserver.core.transformers.ArgumentsToMapTransformer"/>
-        </si:transformer>
-
         <si:service-activator
                 method="checkCache">
             <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>

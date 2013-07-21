@@ -1,10 +1,8 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.exceptions.NotSupportedException;
-import com.wordnik.swagger.annotations.Api;
+import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
+import apiserver.apis.v1_0.images.models.ImageModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
+//todo add setMetadata(String, String) method
+//todo add setMetadata(Map) method
+//todo: STRIP METADATA
 /**
  * User: mnimer
  * Date: 10/21/12
@@ -36,10 +38,8 @@ public class ImageMetadataController
     private HttpServletRequest request;
 
     @Autowired
-    public HttpChannelInvoker channelInvoker;
+    public ImageMetadataGateway imageMetadataGateway;
 
-    @Autowired
-    public MessageChannel imageMetadataInputChannel;
 
 
     public MessageChannel imageMetadataStripMetadataInputChannel;
@@ -51,14 +51,28 @@ public class ImageMetadataController
      * @return  height,width, pixel size, transparency
      */
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{cacheId}/info", method =  {RequestMethod.GET})
-    public ModelAndView imageMetadataById(
+    @RequestMapping(value = "/{cacheId}/metadata", method =  {RequestMethod.GET})
+    public Callable<Map> imageMetadataById(
             @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId)
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+        final String _cacheId = cacheId;
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
+        Callable<Map> callable = new Callable<Map>()
+        {
+            @Override
+            public Map call() throws Exception
+            {
+                ImageModel args = new ImageModel();
+                args.setCacheId(_cacheId);
+
+                Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
+                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+
+                return payload;
+            }
+        };
+
+        return callable;//new WebAsyncTask<Map>(10000, callable);
     }
 
 
@@ -68,74 +82,28 @@ public class ImageMetadataController
      * @return   height,width, pixel size, transparency
      */
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/info", method = {RequestMethod.POST})
-    public ModelAndView imageMetadataByImage(
+    @RequestMapping(value = "/metadata", method = {RequestMethod.POST})
+    public Callable<Map> imageMetadataByImage(
             @ApiParam(name="file", required = true) @RequestParam("file") MultipartFile file )
     {
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.FILE, file);
+        final MultipartFile _file = file;
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageMetadataInputChannel);
-
-        view.getModel().remove(ImageConfigMBeanImpl.FILE);
-        return view;
-    }
-
-
-    /**
-     * remove the embedded metadata data for cached image. Striping out metadata may reduce file size (good for mobile apps) or remove sensitive data.
-     * @param cacheId - any valid URL or cache ID
-     * @return  height,width, pixel size, transparency
-     */
-    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{cacheId}/strip", method =  {RequestMethod.GET})
-    public ModelAndView clearMetadataById(
-            @ApiParam(name="cacheId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52") @PathVariable("cacheId") String cacheId)
-            throws NotSupportedException
-    {
-        if( imageConfigMBean.getMetadataLibrary() != ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR )
+        Callable<Map> callable = new Callable<Map>()
         {
-            throw new NotSupportedException("Operation not support with current Metadata Library");
-        }
+            @Override
+            public Map call() throws Exception
+            {
+                ImageModel args = new ImageModel();
+                args.setMultipartFile(_file);
 
-        throw new NotSupportedException("Not implemented exception");
+                Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
+                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        /***
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.KEY, cacheId);
+                return payload;
+            }
+        };
 
-        return channelInvoker.invokeGenericChannel(request, null, args, imageMetadataStripMetadataInputChannel);
-        **/
-    }
-
-
-    /**
-     * remove the embedded metadata data for uploaded image. Striping out metadata may reduce file size (good for mobile apps) or remove sensitive data.
-     * @param file
-     * @return   height,width, pixel size, transparency
-     */
-    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
-    @RequestMapping(value = "/strip", method = {RequestMethod.POST})
-    public ModelAndView clearMetadataByImage(
-            @ApiParam(name="file", required = true) @RequestParam("file") MultipartFile file )
-            throws NotSupportedException
-    {
-        if( imageConfigMBean.getMetadataLibrary() != ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR )
-        {
-            throw new NotSupportedException("Operation not support with current Metadata Library");
-        }
-
-        throw new NotSupportedException("Not implemented exception");
-
-        /****
-        Map<String, Object> args = new HashMap<String, Object>();
-        args.put(ImageConfigMBeanImpl.FILE, file);
-
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, imageMetadataStripMetadataInputChannel);
-
-        view.getModel().remove(ImageConfigMBeanImpl.FILE);
-        return view;
-         **/
+        return callable;//new WebAsyncTask<Map>(10000, callable);
     }
 
 

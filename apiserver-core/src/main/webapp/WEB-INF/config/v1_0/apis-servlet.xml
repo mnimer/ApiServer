@@ -22,8 +22,25 @@
     <bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl"/>  <!-- todo, why isn't this auto picked up -->
 
 
+    <!-- status flows -->
+    <import resource="flows/status/apiserverHealth-flow.xml"/>
+    <import resource="flows/status/coldFusionHealth-flow.xml"/>
 
-    <import resource="_status-apis-esb.xml"/>
+    <!-- image cache -->
+    <import resource="flows/cache/cacheAdd-flow.xml"/>
+    <import resource="flows/cache/cacheDelete-flow.xml"/>
+    <import resource="flows/cache/cacheGet-flow.xml"/>
+
+
+    <!-- Image -->
+    <import resource="flows/image/getCaptchaChannel-flow.xml"/>
+    <import resource="flows/image/imageMetadata-flow.xml"/>
+    <import resource="flows/image/imageResize-flow.xml"/>
+    <import resource="flows/image/imageRotate-flow.xml"/>
+    <import resource="flows/image/imageDrawBorder-flow.xml"/>
+    <import resource="flows/image/imageDrawText-flow.xml"/>
+    <import resource="flows/image/imageInfo-flow.xml"/>
+
     <!-- image filters -->
     <import resource="flows/image-filters/filterBlur-flow.xml"/>
     <import resource="flows/image-filters/filterBoxBlur-flow.xml"/>

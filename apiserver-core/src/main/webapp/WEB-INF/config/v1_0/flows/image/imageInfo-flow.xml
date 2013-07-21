@@ -8,19 +8,29 @@
         xmlns:util="http://www.springframework.org/schema/util"
         xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <util:list id="messageConverters">
         <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
         <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
         <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
+        <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+        <bean class="org.springframework.integration.http.converter.SerializingHttpMessageConverter">
+            <property name="supportedMediaTypes" value="application/x-java-serialized-object"/>
+        </bean>
     </util:list>
 
-    <task:executor id="imageInfoTaskExecutor" pool-size="100" />
+    <task:executor id="imageInfoTaskExecutor" pool-size="100"/>
+
 
     <si:channel id="imageInfoRequestChannel">
         <si:queue/>
+        <si:interceptors>
+            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
+        </si:interceptors>
     </si:channel>
 
     <si:channel id="imageInfoReplyChannel">
@@ -29,25 +39,28 @@
 
     <si:channel id="imageInfoHTTPChannel">
         <si:dispatcher task-executor="imageInfoTaskExecutor"/>
+        <si:interceptors>
+            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
+        </si:interceptors>
     </si:channel>
 
 
     <si:gateway id="imageInfoApiGateway"
-                service-interface="apiserver.apis.v1_0.images.gateways.ApiImageGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway"
                 default-reply-channel="imageInfoReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
         <si:method name="imageInfo"
-                   request-channel="imageInfoRequestChannel">  <!-- add a fake payload-expression, spring doesn't like empty payloads for http GET requests -->
+                   request-channel="imageInfoRequestChannel"
+                   payload-expression="#args[0]">
             <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>
         </si:method>
-
     </si:gateway>
 
 
     <si:header-value-router input-channel="imageInfoRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="10" task-executor="imageInfoTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageInfoTaskExecutor"/>
         <si:mapping value="http" channel="imageInfoHTTPChannel"/>
     </si:header-value-router>
 
@@ -56,34 +69,30 @@
               input-channel="imageInfoHTTPChannel"
               output-channel="imageInfoReplyChannel">
 
-        <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-        </si:service-activator>
+        <!--si:transformer>
+            <int-file:file-to-bytes-transformer/>
+            <si:file-to-bytes-transformer input-channel="bytesChannel" output-channel="jmsOutChannel" delete-files="true"/>
 
+            <bean class="apserver.core.transformers.HttpPostPropertyTransformer"/>
+        </si:transformer-->
 
-        <si:transformer method="transform">
+        <si:transformer>
             <bean class="apiserver.core.transformers.HttpPostPropertyTransformer"/>
+            <!--bean class="apiserver.core.transformers.DebugTransformer"/-->
         </si:transformer>
 
 
         <http:outbound-gateway
-                url-expression="'http://#{coldfusionProperties.host}:#{coldfusionProperties.port}/#{coldfusionProperties.path}/api-image.cfc?method=imageSize'"
+                url-expression="'http://#{coldfusionProperties.host}:#{coldfusionProperties.port}/#{coldfusionProperties.path}/api-image.cfc?method=imageInfo'"
                 http-method="POST" reply-timeout="10000"
-                extract-request-payload="true"
+                extract-request-payload="false"
                 expected-response-type="java.lang.String"
                 message-converters="messageConverters">
         </http:outbound-gateway>
 
-        <si:json-to-object-transformer type="java.util.HashMap"/>
 
-        <si:transformer method="transform">
-            <bean class="apiserver.core.transformers.DebugTransformer"/>
-        </si:transformer>
+        <si:json-to-object-transformer type="java.util.HashMap"/>
     </si:chain>
 
-
 </beans>
-        
-        
         

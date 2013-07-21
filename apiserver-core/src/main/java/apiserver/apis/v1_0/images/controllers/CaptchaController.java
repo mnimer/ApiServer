@@ -3,6 +3,9 @@ package apiserver.apis.v1_0.images.controllers;
 import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.gateways.images.GetCaptchaGateway;
+import apiserver.apis.v1_0.images.models.cache.CacheGetModel;
+import apiserver.apis.v1_0.images.models.images.GetCaptchaModel;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -21,6 +24,10 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 /**
  * User: mnimer
@@ -34,12 +41,7 @@ public class CaptchaController
     private HttpServletRequest request;
 
     @Autowired
-    public HttpChannelInvoker channelInvoker;
-
-    @Autowired
-    public MessageChannel captchaInputChannel;
-
-
+    private GetCaptchaGateway gateway;
 
     /**
      * generate a captcha
@@ -49,6 +51,8 @@ public class CaptchaController
      * @param width
      * @param height
      * @return
+     *
+     * todo: log CF execution time to MBean analytics
      */
     @ApiOperation(value = "Get a new image to use for captcha checks")
     @RequestMapping(value = "/generate", method = {RequestMethod.GET})
@@ -60,24 +64,23 @@ public class CaptchaController
             , @ApiParam(name="fontSize", required = true, defaultValue = "20") @RequestParam(required = true) Integer fontSize
             , @ApiParam(name="difficulty", required = false, defaultValue = "medium", allowableValues = "low,medium,high") @RequestParam(required = false, defaultValue = "medium") String difficulty
             , @ApiParam(name="returnAsBase64", required = false, defaultValue = "true", allowableValues="true,false") @RequestParam(required = false, defaultValue = "false") Boolean returnAsBase64
-    )  throws IOException
+    )  throws InterruptedException, ExecutionException, TimeoutException, IOException
     {
-        Map args = new LinkedHashMap();
-        args.put("text", text);
-        args.put("difficulty", difficulty);
-        args.put("width", width);
-        args.put("height", height);
-        args.put("debug", false);
-        args.put("fontSize", fontSize);
+        GetCaptchaModel args = new GetCaptchaModel();
+        args.setText(text);
+        args.setDifficulty(difficulty);
+        args.setWidth(width);
+        args.setHeight(height);
+        args.setFontSize(fontSize);
+        args.setReturnAsBase64(false);
         //args.put("fontFamily", fontFamily);
 
-        ModelAndView view = channelInvoker.invokeGenericChannel(request, null, args, captchaInputChannel);
+        Future<Map> imageFuture = gateway.getCaptcha(args);
+        CacheGetModel payload = (CacheGetModel) imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        //todo: log CF execution time to MBean analytics
-
-
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(((BufferedImage) view.getModel().get(ImageConfigMBeanImpl.RESULT)), "jpg", returnAsBase64);
+        BufferedImage bufferedImage = payload.getProcessedImage();
+        String contentType = payload.getCachedImage().getContentType();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
     }
 

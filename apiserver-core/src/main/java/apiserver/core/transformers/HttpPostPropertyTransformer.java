@@ -1,6 +1,7 @@
 package apiserver.core.transformers;
 
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;
@@ -30,23 +31,27 @@ public class HttpPostPropertyTransformer
     {
         Map newArgs = new HashMap<String, Object>();
 
-        Map payload = message.getPayload();
-        Set keys = payload.keySet();
-        for (Object key : keys)
+        Object payload = message.getPayload();
+        if( payload instanceof  Map )
         {
-            Object item = payload.get(key);
-            if( item instanceof CachedImage )
+            Set keys = ((Map)payload).keySet();
+            for (Object key : keys)
             {
-                newArgs.put( key.toString(), new FileSystemResource( ((CachedImage)item).getFile()) );
+                Object item = ((Map)payload).get(key);
+                if( item instanceof CachedImage )
+                {
+                    newArgs.put( key.toString().toUpperCase(), new FileSystemResource( ((CachedImage)item).getFile()) );
+                }
+                else
+                {
+                    newArgs.put( key.toString().toUpperCase(), item);
+                }
             }
-            else
-            {
-                newArgs.put( key.toString(), item);
-            }
+
+            message.getPayload().clear();
+            message.getPayload().putAll(newArgs);
         }
 
-        message.getPayload().clear();
-        message.getPayload().putAll(newArgs);
         return message;
     }
 

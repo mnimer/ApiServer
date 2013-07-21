@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import org.springframework.web.multipart.MultipartFile;
+import apiserver.apis.v1_0.images.models.ImageModel;
 
-import java.io.File;
 import java.util.Map;
 import java.util.concurrent.Future;
 
@@ -12,7 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMedianGateway
 {
-    Future<Map> imageMedianFilter(String ID);
-    Future<Map> imageMedianFilter(File file);
-    Future<Map> imageMedianFilter(MultipartFile file);
+    Future<Map> imageMedianFilter(ImageModel imageModel);
 }

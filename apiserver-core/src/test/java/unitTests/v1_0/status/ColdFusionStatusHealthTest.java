@@ -23,7 +23,8 @@ import java.util.concurrent.TimeoutException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/status/coldFusionHealth-flow.xml"})
 public class ColdFusionStatusHealthTest
 {
     public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
@@ -48,7 +49,7 @@ public class ColdFusionStatusHealthTest
         try
         {
             Future<Map> resultFuture = gateway.checkColdfusionAsync();
-            Map result = (Map)resultFuture.get( 10000, TimeUnit.MILLISECONDS );
+            Map result = (Map)resultFuture.get( 20000, TimeUnit.MILLISECONDS );
 
             log.info("RESULT:\n\n" + result + "\n\n");
 
