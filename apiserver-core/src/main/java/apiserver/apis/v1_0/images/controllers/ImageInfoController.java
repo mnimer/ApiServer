@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  * User: mnimer
  * Date: 9/15/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-info")
 public class ImageInfoController
 {

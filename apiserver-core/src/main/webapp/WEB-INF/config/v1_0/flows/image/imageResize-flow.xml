@@ -11,7 +11,7 @@
             Image RESIZE
         -->
     <si:channel id="imageResizeInputChannel"/>
-    <si:chain input-channel="imageResizeInputChannel" output-channel="noOpOutputChannel">
+    <si:chain input-channel="imageResizeInputChannel" >
 
         <si:service-activator
                 method="checkCache">

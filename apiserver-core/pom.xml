@@ -218,6 +218,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jmx</artifactId>
+            <version>8.1.11.v20130520</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.mortbay.jetty</groupId>
             <artifactId>jsp-2.1-glassfish</artifactId>
             <version>2.1.v20100127</version>
@@ -596,11 +602,11 @@
             <version>${spring-integration.version}</version>
         </dependency-->
 
-        <!--dependency>
+        <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-jmx</artifactId>
             <version>${spring-integration.version}</version>
-        </dependency-->
+        </dependency>
 
         <!--dependency>
             <groupId>org.springframework.integration</groupId>
@@ -673,6 +679,11 @@
             <id>repository.springframework.maven.snapshot</id>
             <name>Spring Framework Maven Snapshot Repository</name>
             <url>http://maven.springframework.org/snapshot</url>
+        </repository>
+        <repository>
+            <id>jetty-releases</id>
+            <name>Jetty Releases</name>
+            <url>https://oss.sonatype.org/content/repositories/jetty-releases</url>
         </repository>
         <repository>
             <id>swagger-maven-plugin-mvn-repo</id>
@@ -787,7 +798,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.2</version>
+                    <version>1.2.1</version>
                     <configuration>
                         <mainClass>apiserver.Launcher</mainClass>
                     </configuration>

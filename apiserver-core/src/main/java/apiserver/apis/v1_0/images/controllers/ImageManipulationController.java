@@ -42,7 +42,7 @@ import java.util.concurrent.TimeoutException;
  * User: mnimer
  * Date: 9/15/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-info")
 public class ImageManipulationController
 {

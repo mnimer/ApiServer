@@ -18,7 +18,6 @@ import java.awt.image.Kernel;
  * User: mnimer
  * Date: 10/31/12
  */
-@Slf4j
 public class BumpFilterService
 {
     Logger log = Logger.getLogger(BumpFilterService.class);

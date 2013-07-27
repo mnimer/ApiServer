@@ -12,16 +12,10 @@
 
     <si:channel id="apiserverHealthRequestChannel">
         <si:queue/>
-        <si:interceptors>
-            <si:wire-tap channel="logger"/>
-        </si:interceptors>
     </si:channel>
 
     <si:channel id="apiserverHealthResponseChannel">
         <si:queue/>
-        <si:interceptors>
-            <si:wire-tap channel="logger"/>
-        </si:interceptors>
     </si:channel>
 
     <si:channel id="apiserverHealthTransformChannel"/>

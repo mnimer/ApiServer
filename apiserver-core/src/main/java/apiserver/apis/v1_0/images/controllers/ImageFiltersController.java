@@ -30,7 +30,7 @@ import java.util.concurrent.TimeoutException;
  * User: mnimer
  * Date: 9/27/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-filters")
 public class ImageFiltersController
 {

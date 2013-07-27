@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
  * User: mnimer
  * Date: 11/1/12
  */
-@Slf4j
 public class MinimumFilterService
 {
     Logger log = Logger.getLogger(MinimumFilterService.class);

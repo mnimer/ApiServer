@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
  * User: mnimer
  * Date: 10/31/12
  */
-@Slf4j
 public class GaussianFilterService
 {
     Logger log = Logger.getLogger(GaussianFilterService.class);

@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 import java.util.Date;
 
 /**
+ * A simple debug servlet, not tied to any API version
  * User: mikenimer
  * Date: 5/13/13
  */

@@ -1,7 +1,9 @@
 <cfcomponent >
 
-    <cffunction name="imageSize" access="remote" returnformat="json" returntype="struct">
-        <cfargument name="image"/>
+    <cffunction name="imageInfo" access="remote" returnformat="json" returntype="struct">
+        <cfargument name="image" />
+        <cfdump var="#now()# ==================================" output="console"/>
+        <cfdump var="#form#" output="console"/>
         <cfdump var="#arguments#" output="console"/>
 
         <cfimage

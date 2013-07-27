@@ -1,10 +1,14 @@
 package apiserver.apis.v1_0.status.controllers;
 
+import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
 import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
 import com.wordnik.swagger.annotations.Api;
+import org.apache.commons.httpclient.methods.RequestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,12 +32,13 @@ import java.util.concurrent.TimeUnit;
  */
 
 
-@Api("/status")
 @Controller
+@Api("/status")
 @RequestMapping("/status")
 public class StatusController
 {
     @Autowired
+    @Qualifier("apiserverHealthApiGateway")
     ApiStatusGateway gateway;
     @Autowired
     ApiStatusColdFusionGateway CFGateway;
@@ -43,6 +48,16 @@ public class StatusController
 
 
     @RequestMapping(value = "/health", method = RequestMethod.GET)
+    public ResponseEntity<Map> checkApiServerSync(HttpServletRequest request, HttpServletResponse response)
+            throws Exception
+    {
+        Future<Map> result = gateway.checkApiServerAsync();
+        Map finalResult = (Map)result.get(10000, TimeUnit.MILLISECONDS);
+
+        return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/async/health", method = RequestMethod.GET)
     public WebAsyncTask<Map> checkApiServerAsync(HttpServletRequest request, HttpServletResponse response)
     {
         Callable<Map> callable = new Callable<Map>()
@@ -51,7 +66,8 @@ public class StatusController
             public Map call() throws Exception
             {
                 Future<Map> result = gateway.checkApiServerAsync();
-                return result.get(10000, TimeUnit.MILLISECONDS);
+                Map m = result.get(10000, TimeUnit.MILLISECONDS);
+                return m;
 
             }
         };
@@ -60,7 +76,9 @@ public class StatusController
     }
 
 
-    @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
+
+
+    /**
     public Callable<Map> checkColdfusionAsync(HttpServletRequest request, HttpServletResponse response) throws  Exception
     {
         Callable<Map> callable = new Callable<Map>()
@@ -75,6 +93,16 @@ public class StatusController
         };
 
         return callable;//new WebAsyncTask<Map>(10000, callable);
+    }
+    **/
+
+    @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
+    public ResponseEntity<Map> checkColdfusionSync(HttpServletRequest request, HttpServletResponse response) throws  Exception
+    {
+        Future<Map> result = CFGateway.checkColdfusionAsync();
+        Map finalResult = result.get(10000, TimeUnit.MILLISECONDS);
+
+        return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
 
 

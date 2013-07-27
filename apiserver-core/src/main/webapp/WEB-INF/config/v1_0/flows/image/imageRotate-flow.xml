@@ -11,7 +11,7 @@
             Image ROTATE
         -->
     <si:channel id="imageRotateInputChannel"/>
-    <si:chain input-channel="imageRotateInputChannel" output-channel="noOpOutputChannel">
+    <si:chain input-channel="imageRotateInputChannel" >
 
         <si:service-activator
                 method="checkCache">

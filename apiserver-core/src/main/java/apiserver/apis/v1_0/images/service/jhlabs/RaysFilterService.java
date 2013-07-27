@@ -16,7 +16,6 @@ import java.util.Map;
  * User: mnimer
  * Date: 11/3/12
  */
-@Slf4j
 public class RaysFilterService
 {
     Logger log = Logger.getLogger(RaysFilterService.class);

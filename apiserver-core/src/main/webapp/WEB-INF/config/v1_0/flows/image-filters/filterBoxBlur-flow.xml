@@ -18,7 +18,6 @@
         <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
     </util:list>
 
-    <task:executor id="imageBoxBlurFilterChannelTaskExecutor" pool-size="100" />
 
     <si:channel id="imageBoxBlurFilterChannelRequestChannel">
         <si:queue/>
@@ -42,7 +41,7 @@
     <si:chain input-channel="imageBoxBlurFilterChannelRequestChannel"
               output-channel="imageBoxBlurFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageBoxBlurFilterChannelTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="1"/>
 
         <si:service-activator
                 method="checkCache">

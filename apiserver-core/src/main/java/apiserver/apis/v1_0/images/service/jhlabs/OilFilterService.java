@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
  * User: mnimer
  * Date: 11/3/12
  */
-@Slf4j
 public class OilFilterService
 {
     Logger log = Logger.getLogger(OilFilterService.class);

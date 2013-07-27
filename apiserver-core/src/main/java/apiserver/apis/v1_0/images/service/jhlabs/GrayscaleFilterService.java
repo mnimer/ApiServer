@@ -15,10 +15,9 @@ import java.awt.image.BufferedImage;
  * User: mnimer
  * Date: 10/31/12
  */
-@Slf4j
 public class GrayscaleFilterService
 {
-    Logger log = Logger.getLogger(GrayscaleFilterService.class);
+    //Logger log = Logger.getLogger(GrayscaleFilterService.class);
 
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {

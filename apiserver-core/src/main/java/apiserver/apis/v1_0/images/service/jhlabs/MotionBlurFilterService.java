@@ -15,7 +15,6 @@ import java.awt.image.BufferedImage;
  * User: mnimer
  * Date: 11/2/12
  */
-@Slf4j
 public class MotionBlurFilterService
 {
     Logger log = Logger.getLogger(MotionBlurFilterService.class);

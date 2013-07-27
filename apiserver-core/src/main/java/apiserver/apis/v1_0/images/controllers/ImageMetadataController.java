@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * User: mnimer
  * Date: 10/21/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-metadata")
 public class ImageMetadataController
 {

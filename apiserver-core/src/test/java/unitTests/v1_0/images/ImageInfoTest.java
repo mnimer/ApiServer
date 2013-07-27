@@ -2,6 +2,7 @@ package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
+import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -64,7 +65,10 @@ public class ImageInfoTest
     {
         try
         {
-            Future<Map> resultFuture = gateway.imageInfo(file);
+            ImageInfoModel args = new ImageInfoModel();
+            args.setFile(file);
+
+            Future<Map> resultFuture = gateway.imageInfo(args);
             Object result = resultFuture.get( 20000, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );

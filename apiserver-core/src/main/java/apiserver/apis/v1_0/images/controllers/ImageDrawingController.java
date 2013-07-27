@@ -20,7 +20,7 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/18/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-draw")
 public class ImageDrawingController
 {

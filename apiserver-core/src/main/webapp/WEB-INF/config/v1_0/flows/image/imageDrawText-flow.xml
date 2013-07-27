@@ -11,7 +11,7 @@
             Image Draw text (watermark) on image
         -->
     <si:channel id="imageDrawTextInputChannel"/>
-    <si:chain input-channel="imageDrawTextInputChannel" output-channel="noOpOutputChannel">
+    <si:chain input-channel="imageDrawTextInputChannel" >
 
         <si:service-activator
                 method="checkCache">

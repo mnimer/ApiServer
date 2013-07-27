@@ -18,8 +18,6 @@
         <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
     </util:list>
 
-    <task:executor id="imageBumpFilterChannelTaskExecutor" pool-size="100" />
-
     <si:channel id="imageBumpFilterChannelRequestChannel">
         <si:queue/>
     </si:channel>
@@ -45,7 +43,7 @@
     <si:chain input-channel="imageBumpFilterChannelRequestChannel"
               output-channel="imageBumpFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageBumpFilterChannelTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

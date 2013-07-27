@@ -18,7 +18,6 @@
         <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
     </util:list>
 
-    <task:executor id="imageMedianFilterChannelTaskExecutor" pool-size="100" />
 
     <si:channel id="imageMedianFilterChannelRequestChannel">
         <si:queue/>
@@ -45,7 +44,7 @@
     <si:chain input-channel="imageMedianFilterChannelRequestChannel"
               output-channel="imageMedianFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="imageMedianFilterChannelTaskExecutor"/>
+        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

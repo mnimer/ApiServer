@@ -18,7 +18,7 @@ public class DebugTraceInterceptor implements ChannelInterceptor
     @Override
     public Message<?> preSend(Message<?> message, MessageChannel channel)
     {
-        log.debug("[PRE SEND] channel:" +channel +"      message:" +message.getPayload());
+        //log.debug("[PRE SEND] channel:" +channel +"      message:" +message.getPayload());
         return message;
     }
 
@@ -26,7 +26,7 @@ public class DebugTraceInterceptor implements ChannelInterceptor
     @Override
     public void postSend(Message<?> message, MessageChannel channel, boolean sent)
     {
-        log.debug("[POST SEND] channel:" +channel );
+        //log.debug("[POST SEND] channel:" +channel );
     }
 
 
@@ -40,7 +40,7 @@ public class DebugTraceInterceptor implements ChannelInterceptor
     @Override
     public Message<?> postReceive(Message<?> message, MessageChannel channel)
     {
-        log.debug("[POST RECEIVE] channel:" +channel );
+        //log.debug("[POST RECEIVE] channel:" +channel );
         return message;
     }
 }

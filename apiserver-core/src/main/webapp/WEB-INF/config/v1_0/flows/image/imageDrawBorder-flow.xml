@@ -11,7 +11,7 @@
             Image ADD Border
         -->
     <si:channel id="imageDrawBorderInputChannel"/>
-    <si:chain input-channel="imageDrawBorderInputChannel" output-channel="noOpOutputChannel">
+    <si:chain input-channel="imageDrawBorderInputChannel" >
 
         <si:service-activator
                 method="checkCache">

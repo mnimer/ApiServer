@@ -24,7 +24,7 @@ import java.util.concurrent.*;
  * User: mnimer
  * Date: 9/18/12
  */
-@Controller
+//Controller
 @RequestMapping("/image-cache")
 public class ImageCacheController
 {

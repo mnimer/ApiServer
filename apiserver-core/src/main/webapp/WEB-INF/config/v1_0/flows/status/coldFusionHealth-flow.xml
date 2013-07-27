@@ -18,27 +18,19 @@
         <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
     </util:list>
 
-    <task:executor id="coldFusionHealthTaskExecutor" pool-size="100" />
+    <!--task:executor id="coldFusionHealthTaskExecutor"  /-->
 
     <si:channel id="coldFusionHealthRequestChannel">
         <si:queue/>
-        <si:interceptors>
-            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
-        </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthReplyChannel">
         <si:queue/>
-        <si:interceptors>
-            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
-        </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthHTTPChannel">
-        <si:dispatcher task-executor="coldFusionHealthTaskExecutor"/>
-        <si:interceptors>
-            <bean class="apiserver.core.interceptors.DebugTraceInterceptor"/>
-        </si:interceptors>
+        <si:queue/>
+        <!--si:dispatcher task-executor="coldFusionHealthTaskExecutor"/-->
     </si:channel>
 
 
@@ -61,10 +53,14 @@
         </si:method>
     </si:gateway>
 
+    <si:transformer input-channel="coldFusionHealthRequestChannel" output-channel="coldFusionHealthReplyChannel">
+        <bean class="apiserver.core.transformers.DebugTransformer"/>
+    </si:transformer>
 
+    <!--
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
                             header-name="REQUEST_TYPE" >
-        <si:poller fixed-rate="100" max-messages-per-poll="1" task-executor="coldFusionHealthTaskExecutor"/>
+        <si:poller fixed-rate="5" max-messages-per-poll="1" task-executor="coldFusionHealthTaskExecutor"/>
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
 
@@ -88,5 +84,5 @@
 
         <si:json-to-object-transformer type="java.util.HashMap"/>
     </si:chain>
-
+     -->
 </beans>

@@ -18,7 +18,6 @@ import java.io.File;
  * User: mnimer
  * Date: 10/31/12
  */
-@Slf4j
 public class MaskFilterService
 {
     Logger log = Logger.getLogger(MaskFilterService.class);
