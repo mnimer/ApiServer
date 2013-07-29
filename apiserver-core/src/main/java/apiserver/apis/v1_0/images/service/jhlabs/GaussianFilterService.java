@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GaussianFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -24,10 +23,11 @@ public class GaussianFilterService
         GaussianModel props = (GaussianModel)message.getPayload();
 
         int radius = props.getRadius();
-        CachedImage inFile  = props.getCachedImage();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
+
             if( inFile == null )
             {
                 throw new MessageConfigException(MessageConfigException.MISSING_PROPERTY);
@@ -38,7 +38,7 @@ public class GaussianFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

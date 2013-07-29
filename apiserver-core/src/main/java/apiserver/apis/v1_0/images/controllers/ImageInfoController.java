@@ -89,7 +89,7 @@ public class ImageInfoController
             public Map call() throws Exception
             {
                 ImageInfoModel args = new ImageInfoModel();
-                args.setMultipartFile(_file);
+                args.setFile(_file);
 
                 Future<Map> imageFuture = gateway.imageInfo(args);
                 Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);

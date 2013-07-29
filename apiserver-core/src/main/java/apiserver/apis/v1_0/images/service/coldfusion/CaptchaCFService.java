@@ -38,7 +38,7 @@ public class CaptchaCFService
             String arguments = "text&difficulty&width&height&debug:false&fontSize:40&fontFamily:Verdana,Arial,Courier New,Courier";
             Map<String, Object> methodArgs = extractProperties(props);
 
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
             long end = System.currentTimeMillis();
 
             // Could be a HashMap or a MultiValueMap

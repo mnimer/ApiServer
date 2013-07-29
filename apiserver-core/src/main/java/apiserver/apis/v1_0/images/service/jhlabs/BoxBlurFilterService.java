@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BoxBlurFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -26,10 +25,10 @@ public class BoxBlurFilterService
         int hRadius = props.getHRadius();
         int vRadius = props.getVRadius();
         int iterations = props.getIterations();
-        CachedImage inFile  = props.getCachedImage();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
 
             if( inFile == null )
             {
@@ -44,7 +43,7 @@ public class BoxBlurFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

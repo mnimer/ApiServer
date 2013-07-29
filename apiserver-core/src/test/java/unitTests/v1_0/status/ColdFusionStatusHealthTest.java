@@ -24,7 +24,7 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/status/coldFusionHealth-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/coldFusionHealth-flow.xml"})
 public class ColdFusionStatusHealthTest
 {
     public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
@@ -49,14 +49,14 @@ public class ColdFusionStatusHealthTest
         try
         {
             Future<Map> resultFuture = gateway.checkColdfusionAsync();
-            Map result = (Map)resultFuture.get( 20000, TimeUnit.MILLISECONDS );
+            Map result = resultFuture.get( 20000, TimeUnit.MILLISECONDS );
 
-            log.info("RESULT:\n\n" + result + "\n\n");
+            log.info("RESULT:\n\n" + result.toString() + "\n\n");
 
             Assert.assertNotNull(result);
             Assert.assertTrue(result instanceof Map);
-            Assert.assertEquals( 3, ((Map)result.get("coldfusion")).size() );
-            Assert.assertTrue(((Map) result.get("coldfusion")).get("status").toString().equals("ok"));
+            Assert.assertEquals( 3, ( (Map)result.get("coldfusion")).size() );
+            Assert.assertTrue((  ((Map)result.get("coldfusion")).get("status").toString().equals("ok")));
 
         }
         catch( TimeoutException te){

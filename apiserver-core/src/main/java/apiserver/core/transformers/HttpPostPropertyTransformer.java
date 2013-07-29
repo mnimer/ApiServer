@@ -1,5 +1,6 @@
 package apiserver.core.transformers;
 
+import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -50,6 +51,14 @@ public class HttpPostPropertyTransformer
 
             message.getPayload().clear();
             message.getPayload().putAll(newArgs);
+        }
+        else if( payload instanceof ImageModel)
+        {
+            newArgs.put("IMAGE", ((ImageModel)payload).getFile() );
+
+            message.getPayload().clear();
+            message.getPayload().putAll(newArgs);
+
         }
 
         return message;

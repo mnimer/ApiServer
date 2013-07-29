@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BumpFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -29,10 +28,11 @@ public class BumpFilterService
         int edgeAction = props.getEdgeAction();
         boolean useAlpha = props.isUseAlpha();
         float[] embossMatrix = props.getMatrix();
-        CachedImage inFile  = props.getCachedImage();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
+
             // calculate
             int rows = new Double(Math.sqrt( new Integer(embossMatrix.length).doubleValue() )).intValue();
             int cols = new Double(Math.sqrt( new Integer(embossMatrix.length).doubleValue() )).intValue();
@@ -51,7 +51,7 @@ public class BumpFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

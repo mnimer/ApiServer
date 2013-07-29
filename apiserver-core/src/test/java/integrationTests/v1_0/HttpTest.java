@@ -13,7 +13,9 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreProtocolPNames;
+import org.aspectj.lang.annotation.Before;
 import org.junit.After;
+import org.junit.BeforeClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.MapFactoryBean;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,6 +23,7 @@ import org.springframework.test.context.ContextConfiguration;
 import java.io.File;
 import java.net.URI;
 import java.nio.charset.Charset;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -31,17 +34,24 @@ import java.util.Map;
 @Slf4j
 public class HttpTest
 {
-    @Autowired
-    public MapFactoryBean unitTestProperties;
+    static Map unitTestProperties = new HashMap();
 
     public HttpClient client;
 
 
+    @org.junit.Before
+    public void setupBase() throws Exception
+    {
+        unitTestProperties.put("host", "localhost");
+        unitTestProperties.put("port", "8080");
+        unitTestProperties.put("contextRoot", "/");
+    }
+
     private String getUrlBase() throws Exception
     {
-        String host = unitTestProperties.getObject().get("host").toString();
-        String port = unitTestProperties.getObject().get("port").toString();
-        String contextRoot = unitTestProperties.getObject().get("contextRoot").toString();
+        String host = unitTestProperties.get("host").toString();
+        String port = unitTestProperties.get("port").toString();
+        String contextRoot = unitTestProperties.get("contextRoot").toString();
 
         return "http://" + host + ":" + port + contextRoot;
     }

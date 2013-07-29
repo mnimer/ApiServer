@@ -102,7 +102,7 @@ public class ImageManipulationController
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
         ImageRotateModel args = new ImageRotateModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setAngle(angle);
 
         Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
@@ -178,7 +178,7 @@ public class ImageManipulationController
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
         ImageResizeModel args = new ImageResizeModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setWidth(width);
         args.setHeight(height);
         args.setInterpolation(interpolation.toUpperCase());

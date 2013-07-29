@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.OilFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -24,11 +23,11 @@ public class OilFilterService
         OilModel props = (OilModel) message.getPayload();
         int levels = props.getLevels();
         int range = props.getRange();
-        CachedImage inFile = props.getCachedImage();
-
 
         try
         {
+            CachedImage inFile = props.getCachedImage();
+
             if (inFile == null)
             {
                 throw new MessageConfigException(MessageConfigException.MISSING_PROPERTY);
@@ -41,10 +40,10 @@ public class OilFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
-        catch (Throwable e)
+        catch (Exception e)
         {
             //log.error(e.getMessage(), e);
             throw new RuntimeException(e);

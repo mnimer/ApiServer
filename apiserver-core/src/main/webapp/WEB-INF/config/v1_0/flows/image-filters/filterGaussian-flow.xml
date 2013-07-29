@@ -11,13 +11,6 @@
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
 
-    <util:list id="messageConverters">
-        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
-    </util:list>
-
 
     <si:channel id="imageGaussianFilterChannelRequestChannel">
         <si:queue/>
@@ -59,9 +52,6 @@
             <bean class="apiserver.apis.v1_0.images.service.jhlabs.GaussianFilterService"/>
         </si:service-activator>
 
-        <si:transformer>
-            <bean class="apiserver.core.transformers.DebugTransformer"/>
-        </si:transformer>
     </si:chain>
 </beans>
 

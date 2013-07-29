@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.ApplyMaskFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,11 +25,11 @@ public class MaskFilterService
     {
         MaskModel props = (MaskModel) message.getPayload();
 
-        CachedImage inFile  = props.getCachedImage();
         Object maskImage = props.getMask();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
 
             BufferedImage inBufferedImage = inFile.getBufferedImage();
             BufferedImage destImage  = new BufferedImage(inBufferedImage.getWidth(), inBufferedImage.getHeight(), inBufferedImage.getType());
@@ -62,7 +61,7 @@ public class MaskFilterService
 
             BufferedImage outFile = filter.filter( inBufferedImage, null );
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

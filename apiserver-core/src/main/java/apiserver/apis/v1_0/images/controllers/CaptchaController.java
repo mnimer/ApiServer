@@ -1,28 +1,21 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.GetCaptchaGateway;
 import apiserver.apis.v1_0.images.models.cache.CacheGetModel;
 import apiserver.apis.v1_0.images.models.images.GetCaptchaModel;
-import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.integration.MessageChannel;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -78,8 +71,8 @@ public class CaptchaController
         Future<Map> imageFuture = gateway.getCaptcha(args);
         CacheGetModel payload = (CacheGetModel) imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
-        String contentType = payload.getCachedImage().getContentType();
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
     }

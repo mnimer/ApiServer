@@ -31,7 +31,8 @@ import java.util.concurrent.TimeoutException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterDespeckle-flow.xml"})
 public class ImageDespeckleTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageDespeckleTests.class);
@@ -58,10 +59,10 @@ public class ImageDespeckleTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
 
@@ -82,10 +83,10 @@ public class ImageDespeckleTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
 
@@ -107,10 +108,10 @@ public class ImageDespeckleTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
 
@@ -130,10 +131,10 @@ public class ImageDespeckleTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
 

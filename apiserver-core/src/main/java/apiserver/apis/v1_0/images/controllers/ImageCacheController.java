@@ -11,7 +11,6 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -97,8 +96,8 @@ public class ImageCacheController
         Future<Map> imageFuture = cacheGetGateway.getFromCache(args);
         CacheGetModel payload = (CacheGetModel) imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
-        String contentType = payload.getCachedImage().getContentType();
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
 

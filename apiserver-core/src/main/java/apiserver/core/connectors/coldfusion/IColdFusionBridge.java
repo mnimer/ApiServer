@@ -13,5 +13,5 @@ import java.util.Map;
 public interface IColdFusionBridge
 {
 
-    public Object invoke(String cfcPath, String method, String argList_, Map<String,Object> methodArgs_, HttpServletRequest request) throws Throwable;
+    public Object invoke(String cfcPath, String method, String argList_, Map<String,Object> methodArgs_) throws Throwable;
 }

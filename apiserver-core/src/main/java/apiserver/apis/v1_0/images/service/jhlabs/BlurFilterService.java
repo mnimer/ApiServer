@@ -4,7 +4,6 @@ import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BlurFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -23,11 +22,9 @@ public class BlurFilterService
         ImageModel props = (ImageModel) message.getPayload();
         //Map headers = (Map) message.getHeaders();
 
-        CachedImage inFile  = (CachedImage)props.getCachedImage();
-
-
         try
         {
+            CachedImage inFile  = props.getCachedImage();
 
             if( inFile == null )
             {
@@ -40,7 +37,7 @@ public class BlurFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             // add image into the payload, and return
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

@@ -31,7 +31,8 @@ import java.util.concurrent.TimeoutException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterOil-flow.xml"})
 public class ImageOilTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageOilTests.class);
@@ -57,13 +58,13 @@ public class ImageOilTests
         args.setRange(256);
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
-        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -83,13 +84,13 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Object payload = imageFuture.get(60000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)((OilModel)payload).getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = ((OilModel)payload).getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
@@ -109,13 +110,13 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -133,13 +134,13 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

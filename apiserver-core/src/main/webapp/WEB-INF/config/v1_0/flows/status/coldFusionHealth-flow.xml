@@ -53,14 +53,10 @@
         </si:method>
     </si:gateway>
 
-    <si:transformer input-channel="coldFusionHealthRequestChannel" output-channel="coldFusionHealthReplyChannel">
-        <bean class="apiserver.core.transformers.DebugTransformer"/>
-    </si:transformer>
 
-    <!--
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
                             header-name="REQUEST_TYPE" >
-        <si:poller fixed-rate="5" max-messages-per-poll="1" task-executor="coldFusionHealthTaskExecutor"/>
+        <si:poller fixed-rate="5" max-messages-per-poll="1"/>
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
 
@@ -84,5 +80,5 @@
 
         <si:json-to-object-transformer type="java.util.HashMap"/>
     </si:chain>
-     -->
+
 </beans>

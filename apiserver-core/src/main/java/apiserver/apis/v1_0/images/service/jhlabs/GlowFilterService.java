@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GlowFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -24,10 +23,10 @@ public class GlowFilterService
         GlowModel props = (GlowModel) message.getPayload();
 
         int amount = props.getAmount();
-        CachedImage inFile  = props.getCachedImage();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
 
             if( inFile == null )
             {
@@ -41,7 +40,7 @@ public class GlowFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)

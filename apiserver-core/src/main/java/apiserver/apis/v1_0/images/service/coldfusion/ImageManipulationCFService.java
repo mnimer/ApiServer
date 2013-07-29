@@ -56,7 +56,7 @@ public class ImageManipulationCFService
             methodArgs.put("image", cachedImage.getFileBytes());
             methodArgs.put("angle", props.get(ImageConfigMBeanImpl.ANGLE) );
             // execute
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
 
             long end = System.currentTimeMillis();
 
@@ -110,7 +110,7 @@ public class ImageManipulationCFService
             methodArgs.put(ImageConfigMBeanImpl.INTERPOLATION, props.get(ImageConfigMBeanImpl.INTERPOLATION));
             methodArgs.put(ImageConfigMBeanImpl.SCALE_TO_FIT, props.get(ImageConfigMBeanImpl.SCALE_TO_FIT));
 
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
 
             long end = System.currentTimeMillis();
 

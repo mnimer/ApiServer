@@ -31,7 +31,8 @@ import java.util.concurrent.TimeoutException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterMask-flow.xml"})
 public class ImageMaskTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMaskTests.class);
@@ -59,10 +60,10 @@ public class ImageMaskTests
         MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -83,10 +84,10 @@ public class ImageMaskTests
         MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
@@ -108,10 +109,10 @@ public class ImageMaskTests
         MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -131,10 +132,10 @@ public class ImageMaskTests
         MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getProcessedImage();
+        BufferedImage bufferedImage = payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getCachedImage().getContentType();
+        String contentType = payload.getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

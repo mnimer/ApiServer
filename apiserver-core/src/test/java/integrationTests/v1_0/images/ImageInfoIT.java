@@ -27,12 +27,10 @@ import java.util.Map;
  * Date: 9/21/12
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:./src/main/webapp/WEB-INF/config/v1_0/apis-servlet-integration-tests.xml"})
+@ContextConfiguration(locations = {
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml"})
 public class ImageInfoIT extends HttpTest
 {
-    @Autowired
-    ApplicationContext context;
-
 
     @Test
     public void testImageSize() throws Exception
@@ -41,7 +39,7 @@ public class ImageInfoIT extends HttpTest
         int height = 296;
         String difficulty = "high";
         String fileName = "IMG_5932_sm.png";
-        String url = "/rest/v1/image/info/size.json";
+        String url = "/rest/v1/image-info/info.json";
 
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
         Map<String, String> args = new HashMap<String, String>();

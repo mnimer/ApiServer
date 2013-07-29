@@ -3,6 +3,7 @@ package apiserver.core.connectors.coldfusion;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -56,17 +57,15 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
     }
 
 
-    public Object invoke(String cfcPath_, String method_, String argList_, Map<String,Object> methodArgs_, HttpServletRequest request_) throws Throwable
+    public Object invoke(String cfcPath_, String method_, String argList_, Map<String,Object> methodArgs_) throws Throwable
     {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         try {
-            HttpHost host = new HttpHost(ip, port, "http");
-            HttpPost method = new HttpPost(contextRoot);
+            HttpHost host = new HttpHost(ip, 8501, "http");
+            HttpPost method = new HttpPost(contextRoot +cfcPath_);
 
             MultipartEntity me = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-            me.addPart("cfcPath", new StringBody(cfcPath_, "text/plain", Charset.forName( "UTF-8" )));
-            me.addPart("cfcMethod", new StringBody(method_, "text/plain", Charset.forName("UTF-8")));
-            me.addPart("cfcArguments", new StringBody(argList_, "text/plain", Charset.forName("UTF-8")));
+            //me.addPart("cfcArguments", new StringBody(argList_, "text/plain", Charset.forName("UTF-8")));
 
             for (String s : methodArgs_.keySet())
             {
@@ -110,7 +109,10 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
 
                 if (entity != null) {
                     InputStream inputStream = entity.getContent();
-                    return  deSerializeJson(inputStream);
+                    //return inputStream;
+                    return IOUtils.toString(inputStream);
+                    //Map json = (Map)deSerializeJson(inputStream);
+                    //return json;
                 }
             }
             throw new ColdFusionException("Invalid Execution");

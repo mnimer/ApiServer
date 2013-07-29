@@ -69,7 +69,7 @@ public class ImageInfoTest
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.imageInfo(args);
-            Object result = resultFuture.get( 20000, TimeUnit.MILLISECONDS );
+            Object result = resultFuture.get( 60000, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );
             Assert.assertTrue( result instanceof Map );

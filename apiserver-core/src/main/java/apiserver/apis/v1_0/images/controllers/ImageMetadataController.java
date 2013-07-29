@@ -94,7 +94,7 @@ public class ImageMetadataController
             public Map call() throws Exception
             {
                 ImageModel args = new ImageModel();
-                args.setMultipartFile(_file);
+                args.setFile(_file);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
                 Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);

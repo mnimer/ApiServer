@@ -68,7 +68,7 @@ public class ImageCacheService
                 if (cachedElement != null)
                 {
                     Map cachedProperties = (Map) cachedElement.getObjectValue();
-                    props.setCachedImage( (CachedImage)cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+                    props.setFile( cachedProperties.get(ImageConfigMBeanImpl.FILE) );
                 }
             } catch (FactoryException fe)
             {
@@ -78,17 +78,20 @@ public class ImageCacheService
         }
         else if (props.getFile() != null)
         {
-            Map cachedProperties = getFileProperties(props.getFile());
-            props.setCachedImage( (CachedImage)cachedProperties.get(ImageConfigMBeanImpl.FILE) );
-        }
-        else if (props.getMultipartFile() != null)
-        {
-            MultipartFile file = props.getMultipartFile();
+            Object file = props.getFile();
 
-            Map cachedProperties = getFileProperties(file);
-            props.setCachedImage( (CachedImage)cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+            // replace File or Multipart File with CachedImage wrapped version
+            if( file instanceof MultipartFile )
+            {
+                Map cachedProperties = getFileProperties(  (MultipartFile)props.getFile() );
+                props.setFile( cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+            } else if( file instanceof File )
+            {
+                Map cachedProperties = getFileProperties(  (File)props.getFile() );
+                props.setFile( cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+            }
         }
-        else if ( props.getFile() == null && props.getMultipartFile() == null )
+        else if ( props.getFile() == null  )
         {
             throw new MessageConfigException(MessageConfigException.MISSING_PROPERTY);
         }
@@ -123,12 +126,19 @@ public class ImageCacheService
                     //todo LOG
                 }
             }
-            else if (props.getMultipartFile() != null)
+            else if (props.getFile() != null)
             {
-                MultipartFile file = props.getMultipartFile();
+                Object file = props.getFile();
 
-                Map cachedProperties = getFileProperties(file);
-                props.setCachedImage( (CachedImage)cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+                // replace File or Multipart File with CachedImage wrapped version
+                if( file instanceof MultipartFile )
+                {
+                    Map cachedProperties = getFileProperties((MultipartFile)file);
+                    props.setFile( cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+                }else{
+                    Map cachedProperties = getFileProperties((File)file);
+                    props.setFile( cachedProperties.get(ImageConfigMBeanImpl.FILE) );
+                }
             }
         }
     }

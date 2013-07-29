@@ -31,7 +31,8 @@ import java.util.concurrent.TimeoutException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterMinimum-flow.xml"})
 public class ImageMinimumTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMinimumTests.class);
@@ -58,11 +59,11 @@ public class ImageMinimumTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -83,11 +84,11 @@ public class ImageMinimumTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -110,11 +111,11 @@ public class ImageMinimumTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -134,11 +135,11 @@ public class ImageMinimumTests
         ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedImage();
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getCachedImage().getContentType();
+        String contentType = (String)payload.getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 

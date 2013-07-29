@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.filters.*;
 import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.models.filters.*;
@@ -9,12 +8,10 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Map;
@@ -88,11 +85,10 @@ public class ImageFiltersController
         args.setCacheId(cacheId);
 
         Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -119,14 +115,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -168,11 +163,10 @@ public class ImageFiltersController
         args.setPreMultiplyAlpha(preMultiplyAlpha);
 
         Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = (String)payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -207,18 +201,17 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         BoxBlurModel args = new BoxBlurModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setHRadius(hRadius);
         args.setVRadius(vRadius);
         args.setIterations(iterations);
         args.setPreMultiplyAlpha(preMultiplyAlpha);
 
         Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -266,11 +259,10 @@ public class ImageFiltersController
         args.setMatrix(matrixValues);
 
         Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -310,18 +302,17 @@ public class ImageFiltersController
         }
 
         BumpModel args = new BumpModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setEdgeAction(edgeAction);
         args.setUseAlpha(useAlpha);
         args.setMatrix(matrixValues);
 
 
         Future<Map> imageFuture = imageFilterBumpGateway.imageBumpFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -350,11 +341,10 @@ public class ImageFiltersController
 
 
         Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -379,14 +369,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -417,11 +406,10 @@ public class ImageFiltersController
         args.setRadius(radius);
 
         Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -448,15 +436,14 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         GaussianModel args = new GaussianModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setRadius(radius);
 
         Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -486,11 +473,10 @@ public class ImageFiltersController
         args.setAmount(amount);
 
         Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -516,15 +502,14 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         GlowModel args = new GlowModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setAmount(amount);
 
         Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -553,11 +538,10 @@ public class ImageFiltersController
 
 
         Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -582,14 +566,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterGrayScaleGateway.imageGrayScaleFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -626,11 +609,10 @@ public class ImageFiltersController
         args.setBloom(bloom);
 
         Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -661,17 +643,16 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         LensBlurModel args = new LensBlurModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setRadius(radius);
         args.setSides(sides);
         args.setBloom(bloom);
 
         Future<Map> imageFuture = imageFilterLensBlurGateway.imageLensBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -699,11 +680,10 @@ public class ImageFiltersController
 
 
         Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -728,15 +708,14 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MaskModel args = new MaskModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -760,11 +739,10 @@ public class ImageFiltersController
         args.setCacheId(cacheId);
 
         Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -787,14 +765,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -819,11 +796,10 @@ public class ImageFiltersController
         args.setCacheId(cacheId);
 
         Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -846,14 +822,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterMedianGateway.imageMedianFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -879,11 +854,10 @@ public class ImageFiltersController
         args.setCacheId(cacheId);
 
         Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -906,14 +880,13 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageModel args = new ImageModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
 
         Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -950,11 +923,10 @@ public class ImageFiltersController
         args.setZoom(zoom);
 
         Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -982,7 +954,7 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MotionBlurModel args = new MotionBlurModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setAngle(angle);
         args.setDistance(distance);
         args.setRotation(rotation);
@@ -991,11 +963,10 @@ public class ImageFiltersController
 
 
         Future<Map> imageFuture = imageFilterMotionBlurGateway.imageMotionBlurFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -1031,11 +1002,10 @@ public class ImageFiltersController
         args.setRange(range);
 
         Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -1066,17 +1036,16 @@ public class ImageFiltersController
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         OilModel args = new OilModel();
-        args.setMultipartFile(file);
+        args.setFile(file);
         args.setLevels(level);
         args.setRange(range);
 
 
         Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }

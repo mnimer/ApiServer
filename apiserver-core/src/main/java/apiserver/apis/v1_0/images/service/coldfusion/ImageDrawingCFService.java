@@ -41,7 +41,7 @@ public class ImageDrawingCFService
             String method = "addBorder";
             String arguments = "";
             Map<String, Object> methodArgs = new HashMap();
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
 
             long end = System.currentTimeMillis();
 
@@ -81,7 +81,7 @@ public class ImageDrawingCFService
             String method = "addText";
             Map<String, Object> methodArgs = new HashMap<String, Object>();
             String arguments = "";
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs, request);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
 
             long end = System.currentTimeMillis();
 

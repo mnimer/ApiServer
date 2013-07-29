@@ -19,6 +19,8 @@
         <spring.version>3.2.2.RELEASE</spring.version>
         <spring-integration.version>3.0.0.BUILD-SNAPSHOT</spring-integration.version>
         <jackrabbit.version>2.6.0</jackrabbit.version>
+        <swagger-version>0.6.0-SNAPSHOT</swagger-version>
+        <!--swagger-version>0.6.0-SNAPSHOT</swagger-version-->
 
         <!-- path to extracted war file
         <cfusion.war>../resources/ColdFusion10/cfusion.war</cfusion.war>
@@ -33,7 +35,7 @@
         <dependency>
             <groupId>com.mangofactory</groupId>
             <artifactId>swagger-springmvc</artifactId>
-            <version>0.5.3</version>
+            <version>${swagger-version}</version>
         </dependency>
         <!--
 			 * Add ColdFusion jars to your local repository

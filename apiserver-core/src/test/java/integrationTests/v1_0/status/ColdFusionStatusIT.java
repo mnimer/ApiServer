@@ -24,13 +24,10 @@ import java.io.InputStreamReader;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-integration-tests.xml"})
+@ContextConfiguration(locations = {
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml"})
 public class ColdFusionStatusIT extends HttpTest
 {
-    @Autowired
-    ApplicationContext context;
-
-
 
     @Test
     public void testColdFusionStatus() throws Exception

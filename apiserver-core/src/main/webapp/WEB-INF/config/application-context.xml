@@ -13,6 +13,12 @@
     <!--context:annotation-config/-->
     <!--mvc:annotation-driven/-->
 
+    <bean id="coldFusionHttpGateway" class="apiserver.core.connectors.coldfusion.ColdFusionHttpBridge">
+        <property name="ip" value="localhost"/>
+        <property name="port" value="8500"/>
+        <property name="contextRoot" value="/"/>
+    </bean>
+
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
@@ -38,31 +44,34 @@
             level="DEBUG"/>
 
 
-    <bean id="applicationProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
-        <property name="targetMapClass">
-            <value>java.util.HashMap</value>
-        </property>
-        <property name="sourceMap">
-            <map>
-                <!-- future plans to support, TCP, JMS -->
-                <entry key="defaultReplyTimeout" value="6000" />
-            </map>
-        </property>
-    </bean>
 
-    <bean id="coldfusionProperties" class="org.springframework.beans.factory.config.MapFactoryBean">
-        <property name="targetMapClass">
-            <value>java.util.HashMap</value>
-        </property>
-        <property name="sourceMap">
-            <map>
-                <!-- future plans to support, TCP, JMS -->
-                <entry key="REQUEST_TYPE" value="http" />
-                <entry key="host" value="localhost" />
-                <entry key="port" value="8500" />
-                <entry key="contextRoot" value="/" />
-                <entry key="path" value="apiserver-inf/components/v1_0" />
-            </map>
-        </property>
-    </bean>
+    <util:map id="applicationProperties"
+              key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="defaultReplyTimeout" value="60000" />
+    </util:map>
+
+
+    <util:map id="coldfusionProperties"
+              key-type="java.lang.String"
+              value-type="java.lang.String">
+        <!-- future plans to support, TCP, JMS -->
+        <entry key="REQUEST_TYPE" value="http" />
+        <entry key="host" value="localhost" />
+        <entry key="port" value="8501" />
+        <entry key="contextRoot" value="/" />
+        <entry key="path" value="apiserver-inf/components/v1_0" />
+    </util:map>
+
+
+    <util:map id="supportedMimeTypes"
+              key-type="java.lang.String"
+              value-type="java.lang.String">
+        <entry key="png" value="image/png" />
+        <entry key="jpg" value="image/jpeg" />
+        <entry key="jpe" value="image/jpeg" />
+        <entry key="jpeg" value="image/jpeg" />
+        <entry key="gif" value="image/gif" />
+    </util:map>
+
 </beans>

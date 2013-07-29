@@ -5,7 +5,6 @@ import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.MedianFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -22,10 +21,10 @@ public class MedianFilterService
     public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
     {
         ImageModel props = (ImageModel) message.getPayload();
-        CachedImage inFile  = (CachedImage)props.getCachedImage();
 
         try
         {
+            CachedImage inFile  = props.getCachedImage();
 
             if( inFile == null )
             {
@@ -37,7 +36,7 @@ public class MedianFilterService
             BufferedImage bufferedImage = inFile.getBufferedImage();
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedImage(outFile);
+            props.setProcessedFile(outFile);
             return props;
         }
         catch (Throwable e)
