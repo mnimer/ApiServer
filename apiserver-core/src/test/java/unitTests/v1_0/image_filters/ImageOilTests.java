@@ -58,7 +58,7 @@ public class ImageOilTests
         args.setRange(256);
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
-        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -84,7 +84,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        Object payload = imageFuture.get(60000, TimeUnit.MILLISECONDS);
+        Object payload = imageFuture.get(20000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)((OilModel)payload).getProcessedFile();
@@ -110,7 +110,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -134,7 +134,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(60000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
