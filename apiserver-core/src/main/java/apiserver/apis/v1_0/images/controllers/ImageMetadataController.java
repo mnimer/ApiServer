@@ -2,12 +2,11 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
-import apiserver.apis.v1_0.images.models.ImageModel;
+import apiserver.apis.v1_0.images.models.images.ImageMetadataModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,13 +61,13 @@ public class ImageMetadataController
             @Override
             public Map call() throws Exception
             {
-                ImageModel args = new ImageModel();
+                ImageMetadataModel args = new ImageMetadataModel();
                 args.setCacheId(_cacheId);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
-                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-                return payload;
+                return payload.getMetadata();
             }
         };
 
@@ -93,13 +92,13 @@ public class ImageMetadataController
             @Override
             public Map call() throws Exception
             {
-                ImageModel args = new ImageModel();
+                ImageMetadataModel args = new ImageMetadataModel();
                 args.setFile(_file);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
-                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
 
-                return payload;
+                return payload.getMetadata();
             }
         };
 

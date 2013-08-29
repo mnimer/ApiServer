@@ -8,10 +8,43 @@
        http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
     <!--
-            Image RESIZE
-        -->
-    <si:channel id="imageResizeInputChannel"/>
-    <si:chain input-channel="imageResizeInputChannel" >
+        Image RESIZE
+    -->
+
+    <si:channel id="imageResizeRequestChannel">
+        <si:queue/>
+    </si:channel>
+    <si:channel id="imageResizeReplyChannel">
+        <si:queue/>
+    </si:channel>
+    <si:channel id="imageResizeHTTPChannel">
+        <si:queue/>
+    </si:channel>
+
+
+    <si:gateway id="imageResizeGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway"
+                default-reply-channel="imageResizeReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="resizeImage"
+                   request-channel="imageResizeRequestChannel"
+                   payload-expression="#args[0]">
+            <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>
+        </si:method>
+    </si:gateway>
+
+
+
+    <si:header-value-router input-channel="imageResizeRequestChannel"
+                            header-name="REQUEST_TYPE">
+        <si:poller fixed-rate="100" max-messages-per-poll="1" />
+        <si:mapping value="http" channel="imageResizeHTTPChannel"/>
+    </si:header-value-router>
+
+
+
+    <si:chain input-channel="imageResizeHTTPChannel" >
 
         <si:service-activator
                 method="checkCache">
@@ -19,10 +52,13 @@
         </si:service-activator>
 
         <si:service-activator
-                method="imageResizeHandler">
-            <bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageManipulationCFService"/>
+                method="execute">
+            <bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageResizeCFService"/>
         </si:service-activator>
 
+        <si:transformer method="transform">
+            <bean class="apiserver.apis.v1_0.images.transformers.JsonBase64ToBufferedImage"/>
+        </si:transformer>
     </si:chain>
 
 </beans>

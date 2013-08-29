@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,6 +38,8 @@ public class ImageGaussianTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageGaussianTests.class);
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiImageFilterGaussianGateway imageGaussianFilterGateway;
 
@@ -57,7 +60,7 @@ public class ImageGaussianTests
         args.setRadius(2);
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
-        GaussianModel payload = (GaussianModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -82,7 +85,7 @@ public class ImageGaussianTests
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
 
-        GaussianModel payload = (GaussianModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -108,7 +111,7 @@ public class ImageGaussianTests
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
 
-        GaussianModel payload = (GaussianModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -132,7 +135,7 @@ public class ImageGaussianTests
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
 
-        GaussianModel payload = (GaussianModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();

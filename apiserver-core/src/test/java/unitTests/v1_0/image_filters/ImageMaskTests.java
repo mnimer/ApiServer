@@ -5,11 +5,13 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
 import apiserver.apis.v1_0.images.models.filters.MaskModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,6 +30,7 @@ import java.util.concurrent.TimeoutException;
  * User: mikenimer
  * Date: 7/7/13
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
@@ -37,16 +40,20 @@ public class ImageMaskTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMaskTests.class);
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiImageFilterMaskGateway imageMaskFilterGateway;
 
     String defaultCacheId = "a3c8af38-82e3-4241-8162-28e17ebcbf52";
     static File file = null;
+    static File maskFile = null;
 
     @BeforeClass
     public static void setup() throws URISyntaxException
     {
         file = new File(  ImageMaskTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        maskFile = new File(  ImageMaskTests.class.getClassLoader().getResource("sample_mask.jpeg").toURI()  );
     }
 
     @Test
@@ -54,10 +61,10 @@ public class ImageMaskTests
     {
         MaskModel args = new MaskModel();
         args.setCacheId(defaultCacheId);
-        args.setMask("a3c8af38-82e3-4241-8162-28e17ebcbf52");
+        args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
-        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -77,11 +84,11 @@ public class ImageMaskTests
     {
         MaskModel args = new MaskModel();
         args.setCacheId(defaultCacheId);
-        args.setMask("a3c8af38-82e3-4241-8162-28e17ebcbf52");
+        args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
 
-        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -102,11 +109,11 @@ public class ImageMaskTests
     {
         MaskModel args = new MaskModel();
         args.setFile(file);
-        args.setMask(file);
+        args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
 
-        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -125,11 +132,11 @@ public class ImageMaskTests
     {
         MaskModel args = new MaskModel();
         args.setFile(file);
-        args.setMask(file);
+        args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
 
-        MaskModel payload = (MaskModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();

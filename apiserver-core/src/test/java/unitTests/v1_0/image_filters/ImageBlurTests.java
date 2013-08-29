@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,11 +38,15 @@ public class ImageBlurTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageBlurTests.class);
 
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiImageFilterBlurGateway imageBlurFilterGateway;
 
     String defaultCacheId = "a3c8af38-82e3-4241-8162-28e17ebcbf52";
     static File file = null;
+
 
     @BeforeClass
     public static void setup() throws URISyntaxException
@@ -56,7 +61,8 @@ public class ImageBlurTests
         args.setCacheId(defaultCacheId);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        Object object = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)object;
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -81,7 +87,7 @@ public class ImageBlurTests
         args.setCacheId(defaultCacheId);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -107,7 +113,7 @@ public class ImageBlurTests
         args.setFile(file);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -130,7 +136,7 @@ public class ImageBlurTests
         args.setFile(file);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();

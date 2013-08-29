@@ -8,4 +8,6 @@ public class ApiServerConstants
 {
     public static String HTTP_REQUEST = "__request";
     public static String HTTP_RESPONSE = "__response";
+
+    public static String IMAGE = "image";
 }

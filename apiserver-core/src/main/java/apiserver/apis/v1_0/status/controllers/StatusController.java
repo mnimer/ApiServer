@@ -1,12 +1,11 @@
 package apiserver.apis.v1_0.status.controllers;
 
-import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
 import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
 import com.wordnik.swagger.annotations.Api;
-import org.apache.commons.httpclient.methods.RequestEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -43,6 +42,9 @@ public class StatusController
     @Autowired
     ApiStatusColdFusionGateway CFGateway;
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
+
     //Autowired
     ServletContext context;
 
@@ -52,7 +54,7 @@ public class StatusController
             throws Exception
     {
         Future<Map> result = gateway.checkApiServerAsync();
-        Map finalResult = (Map)result.get(10000, TimeUnit.MILLISECONDS);
+        Map finalResult = (Map)result.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
@@ -66,43 +68,25 @@ public class StatusController
             public Map call() throws Exception
             {
                 Future<Map> result = gateway.checkApiServerAsync();
-                Map m = result.get(10000, TimeUnit.MILLISECONDS);
+                Map m = result.get(defaultTimeout, TimeUnit.MILLISECONDS);
                 return m;
 
             }
         };
 
-        return new WebAsyncTask<Map>(10000, callable);
+        return new WebAsyncTask<Map>(defaultTimeout, callable);
     }
 
 
-
-
-    /**
-    public Callable<Map> checkColdfusionAsync(HttpServletRequest request, HttpServletResponse response) throws  Exception
-    {
-        Callable<Map> callable = new Callable<Map>()
-        {
-            @Override
-            public Map call() throws Exception
-            {
-                Future<Map> result = CFGateway.checkColdfusionAsync();
-                Map finalResult = result.get(10000, TimeUnit.MILLISECONDS);
-                return finalResult;
-            }
-        };
-
-        return callable;//new WebAsyncTask<Map>(10000, callable);
-    }
-    **/
 
     @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
     public ResponseEntity<Map> checkColdfusionSync(HttpServletRequest request, HttpServletResponse response) throws  Exception
     {
         Future<Map> result = CFGateway.checkColdfusionAsync();
-        Map finalResult = result.get(10000, TimeUnit.MILLISECONDS);
-
+        Map finalResult = result.get(defaultTimeout, TimeUnit.MILLISECONDS);
         return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
+        //Map finalResult = CFGateway.checkColdfusionSync();
+        //return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
 
 

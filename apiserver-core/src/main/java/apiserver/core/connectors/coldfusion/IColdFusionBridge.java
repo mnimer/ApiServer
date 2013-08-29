@@ -1,6 +1,6 @@
 package apiserver.core.connectors.coldfusion;
 
-import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -13,5 +13,8 @@ import java.util.Map;
 public interface IColdFusionBridge
 {
 
-    public Object invoke(String cfcPath, String method, String argList_, Map<String,Object> methodArgs_) throws Throwable;
+    public Object invoke(String cfcPath, String method, Map<String,Object> methodArgs_) throws Throwable;
+
+    public Map<String, Object> extractPropertiesFromPayload(Object props)  throws IOException;
+
 }

@@ -36,7 +36,7 @@
         <!-- future plans to support, TCP, JMS -->
         <entry key="REQUEST_TYPE" value="http" />
         <entry key="host" value="localhost" />
-        <entry key="port" value="8501" />
+        <entry key="port" value="8500" />
         <entry key="contextRoot" value="/" />
         <entry key="path" value="apiserver-inf/components/v1_0" />
     </util:map>

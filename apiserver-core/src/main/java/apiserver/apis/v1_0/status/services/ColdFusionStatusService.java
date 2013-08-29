@@ -1,14 +1,12 @@
 package apiserver.apis.v1_0.status.services;
 
-import apiserver.ApiServerConstants;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import org.springframework.integration.support.MessageBuilder;
 
 /**
  * User: mnimer
@@ -18,6 +16,7 @@ public class ColdFusionStatusService
 {
     Logger log = Logger.getLogger(ColdFusionStatusService.class);
 
+    @Autowired
     public IColdFusionBridge coldFusionBridge;
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
@@ -27,24 +26,17 @@ public class ColdFusionStatusService
 
     public Object healthHandler(Message<?> message) throws ColdFusionException, MessageConfigException
     {
-        Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
-
 
         try
         {
-            long start = System.currentTimeMillis();
-            String cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-status.cfc";
-            String method = "health";
+            String cfcPath = "api-status.cfc?method=health";
+            String method = "GET";
             String arguments = "";
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, null);
-            long end = System.currentTimeMillis();
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, null);
 
-            // Could be a HashMap or a MultiValueMap
-            Map payload = (Map) message.getPayload();
-            payload.putAll(cfcResult);
-            payload.put("executionTime", end-start);
-            return payload;
+            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
+            return _message;
+
         }
         catch (Throwable e)
         {

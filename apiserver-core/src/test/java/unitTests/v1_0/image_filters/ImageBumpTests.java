@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,6 +38,8 @@ public class ImageBumpTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageBumpTests.class);
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiImageFilterBumpGateway imageBumpFilterGateway;
 
@@ -61,7 +64,7 @@ public class ImageBumpTests
         args.setMatrix(matrix);
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
-        BumpModel payload = (BumpModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -90,7 +93,7 @@ public class ImageBumpTests
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
 
-        BumpModel payload = (BumpModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -120,7 +123,7 @@ public class ImageBumpTests
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
 
-        BumpModel payload = (BumpModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -148,7 +151,7 @@ public class ImageBumpTests
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
 
-        BumpModel payload = (BumpModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();

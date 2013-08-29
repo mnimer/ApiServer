@@ -1,8 +1,8 @@
 package apiserver.apis.v1_0.images;
 
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.FactoryException;
 import apiserver.core.cache.CacheServiceMBean;
+import apiserver.exceptions.FactoryException;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;

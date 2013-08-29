@@ -1,10 +1,7 @@
-<cfcomponent >
+<cfcomponent output="false">
 
     <cffunction name="imageInfo" access="remote" returnformat="json" returntype="struct">
         <cfargument name="image" />
-        <cfdump var="#now()# ==================================" output="console"/>
-        <cfdump var="#form#" output="console"/>
-        <cfdump var="#arguments#" output="console"/>
 
         <cfimage
                 action="info"
@@ -14,9 +11,6 @@
         <cfset results = structNew()>
         <cfset results['width'] = imageInfo.width>
         <cfset results['height'] = imageInfo.height>
-
-        <cfdump var="#results#" output="console"/>
-        <cfdump var="==================================" output="console"/>
 
         <cfreturn results/>
     </cffunction>
@@ -38,7 +32,7 @@
     </cffunction>
 
 
-    <cffunction name="rotateImage" access="remote" returnformat="json" returntype="Binary">
+    <cffunction name="rotateImage" access="remote" returnformat="json">
         <cfargument name="image"/>
         <cfargument name="angle" default="90"/>
 
@@ -48,21 +42,16 @@
                 source="#arguments.image#"
                 name="cfimage">
 
-        <cfreturn cfimage/>
+        <cfreturn toBase64( cfimage )/>
     </cffunction>
 
 
-    <cffunction name="resizeImage" access="remote" returnformat="json" returntype="Binary">
+    <cffunction name="resizeImage" access="remote" returnformat="json" >
         <cfargument name="image"/>
         <cfargument name="width" default="1024"/>
         <cfargument name="height" default="768"/>
         <cfargument name="interpolation" default="bicubic"/>
         <cfargument name="scaleToFit" default="false"/>
-
-        <CFIF arguments.scaleToFit>
-            <cfthrow detail="Not Implemented Yet"/>
-<!--- todo: use ImageScaleFit method --->
-        </cfif>
 
         <cfimage
                 action="resize"
@@ -72,7 +61,7 @@
                 interpolation="#arguments.interpolation#"
                 name="cfimage">
 
-        <cfreturn cfimage/>
+        <cfreturn toBase64( cfimage )/>
     </cffunction>
 
 

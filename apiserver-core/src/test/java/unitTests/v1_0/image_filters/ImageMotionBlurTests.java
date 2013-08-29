@@ -1,11 +1,9 @@
 package unitTests.v1_0.image_filters;
 
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
-import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMinimumGateway;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway;
 import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.models.filters.MotionBlurModel;
-import com.wordnik.swagger.annotations.ApiParam;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,11 +11,10 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -41,6 +38,8 @@ import java.util.concurrent.TimeoutException;
 public class ImageMotionBlurTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMinimumTests.class);
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
     @Autowired
     private ApiImageFilterMotionBlurGateway imageMotionBlurFilterGateway;
@@ -67,7 +66,7 @@ public class ImageMotionBlurTests
 
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -97,7 +96,7 @@ public class ImageMotionBlurTests
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
 
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -128,7 +127,7 @@ public class ImageMotionBlurTests
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
 
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -157,7 +156,7 @@ public class ImageMotionBlurTests
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
 
-        ImageModel payload = (ImageModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageModel payload = (ImageModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();

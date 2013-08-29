@@ -125,6 +125,7 @@ public class ImageCacheService
                     fe.printStackTrace();
                     //todo LOG
                 }
+
             }
             else if (props.getFile() != null)
             {
@@ -217,6 +218,12 @@ public class ImageCacheService
     }
 
 
+    /**
+     * pull out the common file properties from a MultipartFile
+     * @param file
+     * @return
+     * @throws IOException
+     */
     private Map getFileProperties(MultipartFile file) throws IOException
     {
         //BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );
@@ -236,6 +243,12 @@ public class ImageCacheService
     }
 
 
+    /**
+     * pull out the common file properties from a File
+     * @param file
+     * @return
+     * @throws IOException
+     */
     private Map getFileProperties(File file) throws IOException
     {
         //BufferedImage cachedImage = ImageIO.read(  file.getInputStream()  );

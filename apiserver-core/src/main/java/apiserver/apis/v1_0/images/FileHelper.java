@@ -5,10 +5,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.*;
-import java.rmi.server.UID;
-import java.util.UUID;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 /**
  * User: mnimer

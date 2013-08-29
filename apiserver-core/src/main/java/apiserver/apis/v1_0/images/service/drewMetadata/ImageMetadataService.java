@@ -1,17 +1,14 @@
 package apiserver.apis.v1_0.images.service.drewMetadata;
 
-import apiserver.ApiServerConstants;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.models.images.ImageMetadataModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
-import apiserver.exceptions.MessageConfigException;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import org.springframework.integration.Message;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,14 +21,12 @@ public class ImageMetadataService
 
     public Object imageMetadataHandler(Message<?> message) throws ColdFusionException
     {
-        Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
+        ImageMetadataModel props = (ImageMetadataModel)message.getPayload();
 
         try
         {
-            long start = System.currentTimeMillis();
-            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
-            String contentType = (String)props.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+            CachedImage cachedImage = (CachedImage)props.getCachedImage();
+            String contentType = (String)props.getContentType();
 
             Map metadataDirectories = new HashMap();
 
@@ -47,19 +42,9 @@ public class ImageMetadataService
                 }
             }
 
-            long end = System.currentTimeMillis();
+            props.setMetadata(metadataDirectories);
 
-            // Could be a HashMap or a MultiValueMap
-            Map payload = (Map) message.getPayload();
-            payload.putAll(metadataDirectories);
-
-
-            Map cfData = new HashMap();
-            cfData.put("executiontime", end - start);
-            payload.put("coldfusion", cfData);
-
-
-            return payload;
+            return message;
         }
         catch (Throwable e)
         {

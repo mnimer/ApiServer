@@ -4,12 +4,11 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:si="http://www.springframework.org/schema/integration"
-        xmlns:task="http://www.springframework.org/schema/task"
         xmlns:util="http://www.springframework.org/schema/util"
         xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
-		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <util:list id="messageConverters">
@@ -22,16 +21,31 @@
 
     <si:channel id="coldFusionHealthRequestChannel">
         <si:queue/>
+        <si:interceptors>
+            <si:wire-tap channel="CFLoggingChannel"/>
+        </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthReplyChannel">
         <si:queue/>
+        <si:interceptors>
+            <si:wire-tap channel="CFLoggingChannel"/>
+        </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthHTTPChannel">
         <si:queue/>
+        <si:interceptors>
+            <si:wire-tap channel="CFLoggingChannel"/>
+        </si:interceptors>
         <!--si:dispatcher task-executor="coldFusionHealthTaskExecutor"/-->
     </si:channel>
+
+
+    <si:logging-channel-adapter
+            id="CFLoggingChannel"
+            level="INFO"
+            />
 
 
 
@@ -54,31 +68,32 @@
     </si:gateway>
 
 
+
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
                             header-name="REQUEST_TYPE" >
-        <si:poller fixed-rate="5" max-messages-per-poll="1"/>
+        <!--si:poller fixed-rate="5" max-messages-per-poll="1"/-->
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
 
 
 
-    <si:chain id="trafficGatewayChain"
+    <si:service-activator
+            input-channel="coldFusionHealthHTTPChannel"
+            output-channel="coldFusionHealthConversionChannel"
+            method="healthHandler">
+        <bean class="apiserver.apis.v1_0.status.services.ColdFusionStatusService"/>
+    </si:service-activator>
+
+    <!--si:chain id="trafficGatewayChain"
               input-channel="coldFusionHealthHTTPChannel"
               output-channel="coldFusionHealthReplyChannel">
         <si:transformer>
             <bean class="apiserver.core.transformers.DebugTransformer"/>
         </si:transformer>
 
-
-        <http:outbound-gateway
-                url-expression="'http://#{coldfusionProperties.host}:#{coldfusionProperties.port}/#{coldfusionProperties.path}/api-status.cfc?method=health'"
-                http-method="GET" reply-timeout="10000"
-                extract-request-payload="false"
-                expected-response-type="java.lang.String"
-                message-converters="messageConverters">
-        </http:outbound-gateway>
-
-        <si:json-to-object-transformer type="java.util.HashMap"/>
-    </si:chain>
-
+    </si:chain-->
+    <si:json-to-object-transformer
+            input-channel="coldFusionHealthConversionChannel"
+            output-channel="coldFusionHealthReplyChannel"
+            type="java.util.HashMap"/>
 </beans>

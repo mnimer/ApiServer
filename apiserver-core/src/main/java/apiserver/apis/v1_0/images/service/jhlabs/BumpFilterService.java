@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.BumpModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BumpFilter;
 import org.apache.log4j.Logger;
@@ -21,7 +20,7 @@ public class BumpFilterService
 {
     Logger log = Logger.getLogger(BumpFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         BumpModel props = (BumpModel) message.getPayload();
 
@@ -52,7 +51,7 @@ public class BumpFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

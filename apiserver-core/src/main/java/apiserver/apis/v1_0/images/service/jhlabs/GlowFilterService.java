@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.GlowModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GlowFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ public class GlowFilterService
 {
     Logger log = Logger.getLogger(GlowFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         GlowModel props = (GlowModel) message.getPayload();
 
@@ -41,7 +40,7 @@ public class GlowFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

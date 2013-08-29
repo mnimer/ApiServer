@@ -2,10 +2,8 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.*;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
@@ -20,7 +18,7 @@ public class RaysFilterService
 {
     Logger log = Logger.getLogger(RaysFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         Map props = (Map) message.getPayload();
         float opacity = ((Float)props.get("levels")).floatValue();

@@ -5,14 +5,13 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:http="http://www.springframework.org/schema/integration/http"
-       xmlns:task="http://www.springframework.org/schema/task"
        xmlns:si="http://www.springframework.org/schema/integration"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
            http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
-           http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+
            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
 	<context:annotation-config />
@@ -34,7 +33,6 @@
 
 
     <!-- Image -->
-    <import resource="flows/image/getCaptchaChannel-flow.xml"/>
     <import resource="flows/image/imageMetadata-flow.xml"/>
     <import resource="flows/image/imageResize-flow.xml"/>
     <import resource="flows/image/imageRotate-flow.xml"/>
@@ -92,46 +90,15 @@
 
 
 
-	<!--bean id="multipartResolver"
-		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-
-	</bean-->     <!--property name="maxUploadSize" value="10000000"/-->
-	<!--bean id="multipartResolver"
-		  class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
-	</bean-->
-
-
-
-	<!--bean id="httpChannelInvoker" class="apiserver.apis.v1_0.common.HttpChannelInvoker"/-->
-
-
-	<!-- MBeans -->
-	<!--bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl" lazy-init="false"/-->
-
-
-
-	<!-- this bean must not be lazily initialized if the exporting is to happen -->
-	<!--bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
-		<property name="registrationBehaviorName" value="REGISTRATION_IGNORE_EXISTING"/>
-		<property name="beans">
-			<map>
-				<entry key="com.apiserver:name=ImageApi" value-ref="imageConfigMBean"/>
-			</map>
-		</property>
-	</bean-->
-
-
-
 	<!-- Spring MVC CONTROLLERS -->
 	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
-    <!--
-	<bean name="captchaController" class="apiserver.apis.v1_0.images.controllers.CaptchaController"/>
-	<bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
+
+
+    <bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
 	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
 	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
 	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>
 	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
-	-->
 	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
 
 
@@ -158,14 +125,6 @@
 				</bean-->
 			</list>
 		</property>
-	</bean>
-
-
-	<!-- Define the view resolver to use jsp files within the jsp folder -->
-	<bean name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/" />
-		<property name="suffix" value=".jsp" />
 	</bean>
 
 

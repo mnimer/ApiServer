@@ -38,10 +38,11 @@ public class BlurFilterService
 
             // add image into the payload, and return
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {
+            e.printStackTrace();
             log.error(e.getMessage(), e);
             throw new RuntimeException(e);
         }

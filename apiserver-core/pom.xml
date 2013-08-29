@@ -341,7 +341,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>0.10.8</version>
+            <version>0.11.4</version>
         </dependency>
 
         <dependency>
@@ -445,6 +445,12 @@
         <!--
             SPRING FRAMEWORK
         -->
+        <dependency>
+            <groupId>org.jvnet.sorcerer</groupId>
+            <artifactId>sorcerer-javac</artifactId>
+            <version>0.7</version>
+        </dependency>
+
         <!--
               Core utilities used by other modules.
               Define this if you use Spring Utility APIs (org.springframework.core.*/org.springframework.util.*)
@@ -461,11 +467,11 @@
             <version>${spring.version}</version>
         </dependency-->
 
-        <!--dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
             <version>${spring.version}</version>
-        </dependency-->
+        </dependency>
         <!--
             Bean Factory and JavaBeans utilities (depends on spring-core)
             Define this if you use Spring Bean APIs (org.springframework.beans.*)
@@ -694,6 +700,11 @@
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
             </snapshots>
+        </repository>
+        <repository>
+            <id>java.net-m2</id>
+            <name>java.net - Maven 2</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/java.net-m2</url>
         </repository>
         <repository>
             <id>project.local</id>

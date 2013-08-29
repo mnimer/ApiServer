@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,6 +38,8 @@ public class ImageLensBlurTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageLensBlurTests.class);
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiImageFilterLensBlurGateway imageLensBlurFilterGateway;
 
@@ -59,7 +62,7 @@ public class ImageLensBlurTests
         args.setBloom(2);
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -85,7 +88,7 @@ public class ImageLensBlurTests
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
 
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -112,7 +115,7 @@ public class ImageLensBlurTests
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
 
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();
@@ -137,7 +140,7 @@ public class ImageLensBlurTests
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
 
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getProcessedFile();

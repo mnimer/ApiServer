@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.OilModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.OilFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ public class OilFilterService
 {
     Logger log = Logger.getLogger(OilFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         OilModel props = (OilModel) message.getPayload();
         int levels = props.getLevels();
@@ -41,7 +40,7 @@ public class OilFilterService
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Exception e)
         {

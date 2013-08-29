@@ -2,16 +2,13 @@ package apiserver.core.transformers;
 
 import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.integration.Message;
 import org.springframework.integration.annotation.Transformer;
-import org.springframework.integration.message.GenericMessage;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;

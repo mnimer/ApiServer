@@ -4,22 +4,9 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:si="http://www.springframework.org/schema/integration"
-        xmlns:util="http://www.springframework.org/schema/util"
         xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
-		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
-
-    <!--util:list id="messageConverters">
-        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.ResourceHttpMessageConverter"/>
-        <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-        <bean class="org.springframework.integration.http.converter.SerializingHttpMessageConverter">
-            <property name="supportedMediaTypes" value="application/x-java-serialized-object"/>
-        </bean>
-    </util:list-->
+		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
     <si:channel id="imageInfoRequestChannel">

@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.LensBlurFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ public class LensBlurFilterService
 {
     Logger log = Logger.getLogger(LensBlurFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         LensBlurModel props = (LensBlurModel) message.getPayload();
 
@@ -44,7 +43,7 @@ public class LensBlurFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

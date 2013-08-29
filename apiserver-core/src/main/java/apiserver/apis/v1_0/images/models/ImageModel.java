@@ -3,12 +3,6 @@ package apiserver.apis.v1_0.images.models;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.access.BeanFactoryLocator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.access.ContextSingletonBeanFactoryLocator;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -19,7 +13,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.Properties;
 
 /**
  * User: mikenimer
@@ -33,14 +26,12 @@ public class ImageModel
     @Resource(name="supportedMimeTypes")
     public HashMap<String, String> supportedMimeTypes;
 
-    @Resource(name="supportedMimeTypes2")
-    public HashMap<String, String> supportedMimeTypes2;
-
 
     private String cacheId = null;
     private Object file = null;
     private String contentType = null;
     private BufferedImage processedFile = null;
+    private String base64File = null;
     private Integer timeToLiveInSeconds = 0; // no cache
 
 
@@ -142,6 +133,19 @@ public class ImageModel
     {
         this.timeToLiveInSeconds = timeToLiveInSeconds;
     }
+
+
+    public String getBase64File()
+    {
+        return base64File;
+    }
+
+
+    public void setBase64File(String base64File)
+    {
+        this.base64File = base64File;
+    }
+
 
     public byte[] getFileBytes()
     {

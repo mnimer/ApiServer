@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,6 +30,8 @@ public class ColdFusionStatusHealthTest
 {
     public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     @Autowired
     private ApiStatusColdFusionGateway gateway;
 
@@ -49,18 +52,41 @@ public class ColdFusionStatusHealthTest
         try
         {
             Future<Map> resultFuture = gateway.checkColdfusionAsync();
-            Map result = resultFuture.get( 20000, TimeUnit.MILLISECONDS );
+            Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             log.info("RESULT:\n\n" + result.toString() + "\n\n");
 
             Assert.assertNotNull(result);
             Assert.assertTrue(result instanceof Map);
-            Assert.assertEquals( 3, ( (Map)result.get("coldfusion")).size() );
-            Assert.assertTrue((  ((Map)result.get("coldfusion")).get("status").toString().equals("ok")));
+            Assert.assertEquals( 3, ((Map)((Map)result).get("coldfusion")).size() );
+            Assert.assertTrue((  ((Map)((Map)result).get("coldfusion")).get("status").toString().equals("ok")));
 
         }
         catch( TimeoutException te){
             Assert.fail("Timeout Exception");
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+            Assert.fail("Fatal Exception: " +ex.getMessage());
+        }
+
+    }
+
+
+    @Test
+    public void testColdFusionHealthSync() throws Exception
+    {
+        try
+        {
+            Object result = gateway.checkColdfusionSync();
+
+            log.info("RESULT:\n\n" + result.toString() + "\n\n");
+
+            Assert.assertNotNull(result);
+            Assert.assertTrue(result instanceof Map);
+            Assert.assertEquals( 3, ((Map)((Map)result).get("coldfusion")).size() );
+            Assert.assertTrue((  ((Map)((Map)result).get("coldfusion")).get("status").toString().equals("ok")));
+
         }
         catch (Exception ex){
             ex.printStackTrace();

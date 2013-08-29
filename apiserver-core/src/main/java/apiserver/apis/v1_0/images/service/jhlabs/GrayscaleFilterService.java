@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GrayscaleFilter;
 import org.springframework.integration.Message;
@@ -17,7 +16,7 @@ public class GrayscaleFilterService
 {
     //Logger log = Logger.getLogger(GrayscaleFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         ImageModel props = (ImageModel) message.getPayload();
 
@@ -37,7 +36,7 @@ public class GrayscaleFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
             props.setProcessedFile(outFile);
 
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

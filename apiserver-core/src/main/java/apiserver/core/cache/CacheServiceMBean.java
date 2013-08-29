@@ -1,7 +1,5 @@
 package apiserver.core.cache;
 
-import java.security.PublicKey;
-
 /**
  * User: mnimer
  * Date: 9/27/12

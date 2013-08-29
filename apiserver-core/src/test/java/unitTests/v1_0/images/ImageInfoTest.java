@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -34,6 +35,9 @@ public class ImageInfoTest
 
     @Autowired
     private ImageInfoGateway gateway;
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
 
     int width = 500;
     int height = 296;
@@ -69,7 +73,7 @@ public class ImageInfoTest
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.imageInfo(args);
-            Object result = resultFuture.get( 60000, TimeUnit.MILLISECONDS );
+            Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );
             Assert.assertTrue( result instanceof Map );

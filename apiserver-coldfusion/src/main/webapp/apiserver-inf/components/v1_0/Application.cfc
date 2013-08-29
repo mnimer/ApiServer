@@ -1,4 +1,4 @@
 <cfcomponent>
-    <cfset this.name="v1_0">
+    <cfset this.name="apiServerV1">
     <cfset this.restsettings.skipcfcwitherror = true>
 </cfcomponent>

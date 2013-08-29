@@ -1,13 +1,9 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.MessageChannel;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -27,8 +23,6 @@ public class ImageDrawingController
     @Autowired(required = false)
     private HttpServletRequest request;
 
-    @Autowired
-    public HttpChannelInvoker channelInvoker;
 
 
     public MessageChannel imageDrawBorderInputChannel;

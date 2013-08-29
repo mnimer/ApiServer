@@ -1,21 +1,18 @@
 package integrationTests.v1_0.status;
 
 import integrationTests.v1_0.HttpTest;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
-import javax.servlet.ServletException;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
@@ -38,9 +35,10 @@ public class ColdFusionStatusIT extends HttpTest
 
         BufferedReader in = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
+        String result = IOUtils.toString(in);
 
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree( in );
+        JsonNode root = mapper.readTree( result );
 
         Assert.notNull(root.get("coldfusion"));
         Assert.isTrue(  ((JsonNode)root.get("coldfusion").get("status")).getTextValue().equals("ok") );

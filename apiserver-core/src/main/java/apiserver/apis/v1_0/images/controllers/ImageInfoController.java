@@ -1,8 +1,6 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
-import apiserver.apis.v1_0.images.models.cache.CacheAddModel;
 import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -13,10 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
@@ -26,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * User: mnimer
  * Date: 9/15/12
  */
-//Controller
+@Controller
 @RequestMapping("/image-info")
 public class ImageInfoController
 {

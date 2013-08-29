@@ -1,20 +1,15 @@
 package apiserver.apis.v1_0.images.service.exiftool;
 
-import apiserver.ApiServerConstants;
-import apiserver.apis.v1_0.images.FileHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.images.models.images.ImageMetadataModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
-import apiserver.exceptions.MessageConfigException;
 import org.im4java.core.ETOperation;
 import org.im4java.core.ExiftoolCmd;
 import org.im4java.process.ArrayListOutputConsumer;
 import org.springframework.integration.Message;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,25 +22,13 @@ public class ImageMetadataService
 
 
 
-    public Object metadataInfo(Message<?> message) throws ColdFusionException
+    public Object metadataInfo(Message<?> message)
     {
-        Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
-
-        if( cfcPath == null )
-        {
-            if( request == null )
-            {
-                throw new RuntimeException(MessageConfigException.MISSING_REQUEST_PROPERTY);
-            }
-            cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc");
-        }
-
+        ImageMetadataModel props = (ImageMetadataModel)message.getPayload();
 
         try
         {
-            long start = System.currentTimeMillis();
-            CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
+            CachedImage cachedImage = props.getCachedImage();
 
             Map metadataDirectories = new HashMap();
 
@@ -63,7 +46,6 @@ public class ImageMetadataService
             et.run(op, cachedImage.getFile().getAbsolutePath());
             ArrayList<String> cmdOutput = output.getOutput();
 
-            long end = System.currentTimeMillis();
 
 
             for (String tag : cmdOutput)
@@ -83,18 +65,9 @@ public class ImageMetadataService
                 subMap.put( _key, _value );
             }
 
-            // send back
-            // Could be a HashMap or a MultiValueMap
-            Map payload = (Map) message.getPayload();
-            payload.putAll(metadataDirectories);
 
-
-            Map cfData = new HashMap();
-            cfData.put("executiontime", end - start);
-            payload.put("ExifTool", cfData);
-
-
-            return payload;
+            props.setMetadata(metadataDirectories);
+            return message;
         }
         catch (Throwable e)
         {
@@ -108,24 +81,12 @@ public class ImageMetadataService
 
 
 
-    public Object metadataClear(Message<?> message) throws ColdFusionException
+    public Object metadataClear(Message<?> message)
     {
         Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
-
-        if( cfcPath == null )
-        {
-            if( request == null )
-            {
-                throw new RuntimeException(MessageConfigException.MISSING_REQUEST_PROPERTY);
-            }
-            cfcPath = request.getRealPath("/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc");
-        }
-
 
         try
         {
-            long start = System.currentTimeMillis();
             CachedImage cachedImage = (CachedImage)props.get(ImageConfigMBeanImpl.FILE);
 
             Map metadataDirectories = new HashMap();
@@ -144,8 +105,6 @@ public class ImageMetadataService
             et.run(op, cachedImage.getFile().getAbsolutePath());
             ArrayList<String> cmdOutput = output.getOutput();
 
-            long end = System.currentTimeMillis();
-
 
             for (String tag : cmdOutput)
             {
@@ -171,7 +130,6 @@ public class ImageMetadataService
 
 
             Map cfData = new HashMap();
-            cfData.put("executiontime", end - start);
             payload.put("ExifTool", cfData);
 
 

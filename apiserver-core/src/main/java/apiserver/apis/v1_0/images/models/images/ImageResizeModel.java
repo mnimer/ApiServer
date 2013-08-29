@@ -1,11 +1,6 @@
 package apiserver.apis.v1_0.images.models.images;
 
 import apiserver.apis.v1_0.images.models.ImageModel;
-import com.wordnik.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.concurrent.Future;
 
 /**
  * User: mikenimer

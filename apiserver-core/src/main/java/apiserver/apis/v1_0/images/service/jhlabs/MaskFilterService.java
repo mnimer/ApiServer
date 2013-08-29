@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.MaskModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.ApplyMaskFilter;
 import org.apache.log4j.Logger;
@@ -21,7 +20,7 @@ public class MaskFilterService
 {
     Logger log = Logger.getLogger(MaskFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         MaskModel props = (MaskModel) message.getPayload();
 
@@ -62,7 +61,7 @@ public class MaskFilterService
             BufferedImage outFile = filter.filter( inBufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

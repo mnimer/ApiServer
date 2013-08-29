@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.MaximumFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ public class MaximumFilterService
 {
     Logger log = Logger.getLogger(MaximumFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         ImageModel props = (ImageModel) message.getPayload();
 
@@ -37,7 +36,7 @@ public class MaximumFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.service.jhlabs;
 
 import apiserver.apis.v1_0.images.models.filters.GaussianModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
-import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GaussianFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +17,7 @@ public class GaussianFilterService
 {
     Logger log = Logger.getLogger(GaussianFilterService.class);
 
-    public Object doFilter(Message<?> message) throws ColdFusionException, MessageConfigException
+    public Object doFilter(Message<?> message) throws MessageConfigException
     {
         GaussianModel props = (GaussianModel)message.getPayload();
 
@@ -39,7 +38,7 @@ public class GaussianFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             props.setProcessedFile(outFile);
-            return props;
+            return message;
         }
         catch (Throwable e)
         {

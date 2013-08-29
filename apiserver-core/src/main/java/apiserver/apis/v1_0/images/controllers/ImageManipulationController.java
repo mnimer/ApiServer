@@ -1,28 +1,21 @@
 package apiserver.apis.v1_0.images.controllers;
 
-import apiserver.apis.v1_0.common.HttpChannelInvoker;
 import apiserver.apis.v1_0.common.ResponseEntityHelper;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
-import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.models.images.ImageResizeModel;
 import apiserver.apis.v1_0.images.models.images.ImageRotateModel;
-import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.integration.MessageChannel;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;

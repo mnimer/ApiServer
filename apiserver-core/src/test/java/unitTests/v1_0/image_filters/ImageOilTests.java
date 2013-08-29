@@ -5,11 +5,13 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
 import apiserver.apis.v1_0.images.models.filters.OilModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -28,6 +30,7 @@ import java.util.concurrent.TimeoutException;
  * User: mikenimer
  * Date: 7/7/13
  */
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
@@ -36,6 +39,9 @@ import java.util.concurrent.TimeoutException;
 public class ImageOilTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageOilTests.class);
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
 
     @Autowired
     private ApiImageFilterOilGateway imageOilFilterGateway;
@@ -58,7 +64,7 @@ public class ImageOilTests
         args.setRange(256);
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
-        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -84,7 +90,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        Object payload = imageFuture.get(20000, TimeUnit.MILLISECONDS);
+        Object payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)((OilModel)payload).getProcessedFile();
@@ -110,7 +116,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();
@@ -134,7 +140,7 @@ public class ImageOilTests
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(20000, TimeUnit.MILLISECONDS);
+        OilModel payload = (OilModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getProcessedFile();

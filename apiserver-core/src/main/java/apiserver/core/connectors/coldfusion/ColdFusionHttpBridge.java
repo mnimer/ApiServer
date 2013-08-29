@@ -1,5 +1,7 @@
 package apiserver.core.connectors.coldfusion;
 
+import apiserver.ApiServerConstants;
+import apiserver.apis.v1_0.images.models.ImageModel;
 import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.exceptions.ColdFusionException;
 import org.apache.commons.httpclient.HttpStatus;
@@ -16,11 +18,13 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,11 +36,14 @@ import java.util.Map;
  */
 public class ColdFusionHttpBridge implements IColdFusionBridge
 {
+    public final Logger log = LoggerFactory.getLogger(ColdFusionHttpBridge.class);
+
     HashMap cfcPathCache = new HashMap();
 
     private String ip;
     private int port;
     private String contextRoot;
+    private String cfcPath = "/apiserver-inf/components/v1_0/";
 
 
     public void setIp(String ip)
@@ -57,35 +64,43 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
     }
 
 
-    public Object invoke(String cfcPath_, String method_, String argList_, Map<String,Object> methodArgs_) throws Throwable
+    public void setCfcPath(String cfcPath)
+    {
+        this.cfcPath = cfcPath;
+    }
+
+
+    public Object invoke(String cfcPath_, String method_, Map<String,Object> methodArgs_) throws Throwable
     {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         try {
-            HttpHost host = new HttpHost(ip, 8501, "http");
-            HttpPost method = new HttpPost(contextRoot +cfcPath_);
+            HttpHost host = new HttpHost(ip, port, "http");
+            HttpPost method = new HttpPost(validatePath(contextRoot +cfcPath) +cfcPath_);
 
             MultipartEntity me = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
-            //me.addPart("cfcArguments", new StringBody(argList_, "text/plain", Charset.forName("UTF-8")));
 
-            for (String s : methodArgs_.keySet())
+            if( methodArgs_ != null )
             {
-                Object obj = methodArgs_.get(s);
+                for (String s : methodArgs_.keySet())
+                {
+                    Object obj = methodArgs_.get(s);
 
-                if( obj instanceof String )
-                {
-                    me.addPart(s, new StringBody( (String)obj, "text/plain", Charset.forName( "UTF-8" ) ));
-                }
-                else if( obj instanceof Integer )
-                {
-                    me.addPart(s, new StringBody( ((Integer)obj).toString(), "text/plain", Charset.forName( "UTF-8" ) ));
-                }
-                else if( obj instanceof File )
-                {
-                    me.addPart(s, new FileBody( (File)obj ));
-                }
-                else if( obj instanceof CachedImage)
-                {
-                    me.addPart(s, new FileBody( ((CachedImage)obj).getFile() ));
+                    if( obj instanceof String )
+                    {
+                        me.addPart(s, new StringBody( (String)obj, "text/plain", Charset.forName( "UTF-8" ) ));
+                    }
+                    else if( obj instanceof Integer )
+                    {
+                        me.addPart(s, new StringBody( ((Integer)obj).toString(), "text/plain", Charset.forName( "UTF-8" ) ));
+                    }
+                    else if( obj instanceof File )
+                    {
+                        me.addPart(s, new FileBody( (File)obj ));
+                    }
+                    else if( obj instanceof CachedImage)
+                    {
+                        me.addPart(s, new FileBody( ((CachedImage)obj).getFile() ));
+                    }
                 }
             }
 
@@ -119,6 +134,7 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
         }
         catch (Exception ex)
         {
+            ex.printStackTrace();
             throw new ColdFusionException("Invalid Result");
         }
         finally
@@ -136,5 +152,69 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
         Map<String,Object> map = mapper.readValue(result, new TypeReference<Map<String,Object>>() { });
 
         return map;
+    }
+
+
+    /**
+     * make sure the path starts and ends with /'s
+     * @param path
+     */
+    protected String validatePath(String path)
+    {
+        String _path = path.trim();
+        if( !_path.startsWith("/") )
+        {
+            _path = "/" +path;
+        }
+
+        if( !_path.endsWith("/") )
+        {
+            _path = _path +"/";
+        }
+
+        _path = _path.replace("//", "/");
+        return _path;
+    }
+
+
+    /**
+     * return all of the message payload properties, without http request/response parts.
+     * @param props
+     * @return
+     */
+    public Map<String, Object> extractPropertiesFromPayload(Object props) throws IOException
+    {
+        Map<String, Object> methodArgs = new HashMap<String, Object>();
+
+
+        if( props instanceof Map )
+        {
+            methodArgs.putAll( (Map)props );
+        }
+        else
+        {
+            Method[] methods = props.getClass().getDeclaredMethods();
+
+            for (Method method : methods)
+            {
+                if( method.getName().startsWith("get") )
+                {
+                    try
+                    {
+                        String name = method.getName().substring(3, method.getName().length());
+                        Object val = method.invoke(props, null);
+
+                        methodArgs.put(name, val);
+                    }catch (Exception ex){}
+                }
+            }
+
+            if( props instanceof ImageModel )
+            {
+                methodArgs.put(ApiServerConstants.IMAGE, ((ImageModel)props).getFile() );
+            }
+        }
+
+        return methodArgs;
     }
 }

@@ -1,14 +1,10 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
-import apiserver.ApiServerConstants;
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
-import apiserver.exceptions.MessageConfigException;
 import org.springframework.integration.Message;
+import org.springframework.integration.support.MessageBuilder;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,36 +27,20 @@ public class ImageDrawingCFService
     public Object imageBorderHandler(Message<?> message) throws ColdFusionException
     {
         Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
 
         try
         {
-            long start = System.currentTimeMillis();
-
-            cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
-            String method = "addBorder";
-            String arguments = "";
+            cfcPath = "api-image.cfc?method=addBorder";
+            String method = "GET";
             Map<String, Object> methodArgs = new HashMap();
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
-
-            long end = System.currentTimeMillis();
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
 
-            // Could be a HashMap or a MultiValueMap
-            Map payload = (Map) message.getPayload();
-            payload.putAll( cfcResult );
-
-
-            Map cfData = new HashMap();
-            cfData.put("executiontime", end - start);
-            payload.put("coldfusion", cfData);
-            return payload;
+            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
+            return _message;
         }
         catch (Throwable e)
         {
-            //URL location = coldfusion.runtime.NeoPageContext.class.getProtectionDomain().getCodeSource().getLocation();
-            //System.out.print(location);
-
             e.printStackTrace(); //todo use logging library
             throw new RuntimeException(e);
         }
@@ -70,39 +50,20 @@ public class ImageDrawingCFService
     public Object imageDrawTextHandler(Message<?> message) throws ColdFusionException
     {
         Map props = (Map)message.getPayload();
-        HttpServletRequest request = (HttpServletRequest)props.get(ApiServerConstants.HTTP_REQUEST);
-
 
         try
         {
-            long start = System.currentTimeMillis();
-
-            cfcPath = "/WEB-INF/cfservices-inf/components/v1_0/api-image.cfc";
-            String method = "addText";
-            Map<String, Object> methodArgs = new HashMap<String, Object>();
-            String arguments = "";
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, arguments, methodArgs);
-
-            long end = System.currentTimeMillis();
+            cfcPath = "api-image.cfc?method=addText";
+            String method = "GET";
+            Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
+            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
 
-            // Could be a HashMap or a MultiValueMap
-            Map payload = (Map) message.getPayload();
-            payload.putAll(cfcResult);
-
-
-            Map cfData = new HashMap();
-            cfData.put("executiontime", end - start);
-            payload.put("coldfusion", cfData);
-
-
-            return payload;
+            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
+            return _message;
         }
         catch (Throwable e)
         {
-            //URL location = coldfusion.runtime.NeoPageContext.class.getProtectionDomain().getCodeSource().getLocation();
-            //System.out.print(location);
-
             e.printStackTrace(); //todo use logging library
             throw new RuntimeException(e);
         }
