@@ -57,6 +57,26 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     private Map<String, Cache> imageApiCache = new HashMap<String, Cache>();
 
 
+    /**
+     * ColdFusion CFC Paths
+     */
+
+    //Image Info
+    private String imageInfoPath = "api-image.cfc?method=imageInfo";
+    private String imageInfoMethod = "GET";
+    //Image Border Info
+    private String imageBorderPath = "api-image.cfc?method=addBorder";
+    private String imageBorderMethod = "GET";
+    //Image Text Info
+    private String imageTextPath = "api-image.cfc?method=addText";
+    private String imageTextMethod = "GET";
+    //Image Resize Info
+    private String imageResizePath = "api-image.cfc?method=resizeImage";
+    private String imageResizeMethod = "GET";
+    //Image Resize Info
+    private String imageRotatePath = "api-image.cfc?method=rotateImage";
+    private String imageRotateMethod = "GET";
+
     public ImageConfigMBeanImpl()
     {
         initializeSampleResources();
@@ -64,6 +84,9 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     }
 
 
+    /**
+     * Store an initial image in the cache for unit tests.
+     */
     private void initializeSampleResources()
     {
         try
@@ -155,5 +178,144 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public void setMetadataLibrary(String metadataLibrary)
     {
         this.metadataLibrary = metadataLibrary;
+    }
+
+
+    @ManagedAttribute(description = "get Image Info CFC path")
+    public String getImageInfoPath()
+    {
+        return imageInfoPath;
+    }
+
+
+    @ManagedAttribute(description = "set Image Info CFC Path", persistPolicy = "OnUpdate")
+    public void setImageInfoPath(String imageInfoPath)
+    {
+        this.imageInfoPath = imageInfoPath;
+    }
+
+    @ManagedAttribute(description = "get Image Info CFC http method")
+    public String getImageInfoMethod()
+    {
+        return imageInfoMethod;
+    }
+
+
+    @ManagedAttribute(description = "set Image Info CFC http method", persistPolicy = "OnUpdate")
+    public void setImageInfoMethod(String method)
+    {
+        imageInfoMethod = method;
+    }
+
+
+    @ManagedAttribute(description = "set Image Border CFC http path")
+    public String getImageBorderPath()
+    {
+        return imageBorderPath;
+    }
+
+
+    @ManagedAttribute(description = "set Image Border CFC http path", persistPolicy = "OnUpdate")
+    public void setImageBorderPath(String path)
+    {
+        imageBorderPath = path;
+    }
+
+
+    @ManagedAttribute(description = "set Image Border CFC http method")
+    public String getImageBorderMethod()
+    {
+        return imageBorderMethod;
+    }
+
+
+    @ManagedAttribute(description = "set Image Border CFC http method", persistPolicy = "OnUpdate")
+    public void setImageBorderMethod(String method)
+    {
+        imageBorderMethod = method;
+    }
+
+
+    @ManagedAttribute(description = "set Image Text CFC http path")
+    public String getImageTextPath()
+    {
+        return imageTextPath;
+    }
+
+
+    @ManagedAttribute(description = "set Image Text CFC http path", persistPolicy = "OnUpdate")
+    public void setImageTextPath(String path)
+    {
+        imageTextPath = path;
+    }
+
+
+    @ManagedAttribute(description = "set Image Text CFC http method")
+    public String getImageTextMethod()
+    {
+        return imageTextMethod;
+    }
+
+
+    @ManagedAttribute(description = "set Image Text CFC http method", persistPolicy = "OnUpdate")
+    public void setImageTextMethod(String method)
+    {
+        imageTextMethod = method;
+    }
+
+
+    @ManagedAttribute(description = "set Image Resize CFC http path")
+    public String getImageResizePath()
+    {
+        return imageResizePath;
+    }
+
+
+    @ManagedAttribute(description = "set Image Resize CFC http path", persistPolicy = "OnUpdate")
+    public void setImageResizePath(String path)
+    {
+        imageResizePath = path;
+    }
+
+
+    @ManagedAttribute(description = "set Image Resize CFC http method")
+    public String getImageResizeMethod()
+    {
+        return imageResizeMethod;
+    }
+
+
+    @ManagedAttribute(description = "set Image Resize CFC http method", persistPolicy = "OnUpdate")
+    public void setImageResizeMethod(String method)
+    {
+        imageResizeMethod = method;
+    }
+
+
+    @ManagedAttribute(description = "set Image Rotate CFC http path")
+    public String getImageRotatePath()
+    {
+        return imageRotatePath;
+    }
+
+
+    @ManagedAttribute(description = "set Image Rotate CFC http path", persistPolicy = "OnUpdate")
+    public void setImageRotatePath(String path)
+    {
+        imageRotatePath = path;
+    }
+
+
+    @ManagedAttribute(description = "set Image Rotate CFC http method")
+    public String getImageRotateMethod()
+    {
+        return imageRotateMethod;
+    }
+
+
+    @ManagedAttribute(description = "set Image Rotate CFC http method", persistPolicy = "OnUpdate")
+    public void setImageRotateMethod(String method)
+    {
+        imageRotateMethod = method;
     }
 }

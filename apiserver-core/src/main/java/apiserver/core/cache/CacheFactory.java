@@ -20,7 +20,11 @@ public class CacheFactory
         // todo add support for other cache libraries
         // todo add Cache Configuration support (via MBean)
 
-        if( library == CacheServiceMBean.JCACHE )
+        if( library == CacheServiceMBean.EHCACHE )
+        {
+            ehCacheService = net.sf.ehcache.CacheManager.getInstance();
+        }
+        else if( library == CacheServiceMBean.JCACHE )
         {
             if( jCacheManager == null )
             {
@@ -28,10 +32,7 @@ public class CacheFactory
             }
             return jCacheManager;
         }
-        if( library == CacheServiceMBean.EHCACHE )
-        {
-            ehCacheService = net.sf.ehcache.CacheManager.getInstance();
-        }
+
 
         throw new FactoryException("cache '" +library +"' does not exist");
     }

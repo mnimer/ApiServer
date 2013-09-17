@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
+ * A simple transformer that we can inject into a flow and hit breakpoints
  * User: mikenimer
  * Date: 7/6/13
  */

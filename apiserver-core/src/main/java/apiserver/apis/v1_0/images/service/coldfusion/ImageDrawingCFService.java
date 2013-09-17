@@ -1,7 +1,9 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.integration.support.MessageBuilder;
 
@@ -17,7 +19,10 @@ public class ImageDrawingCFService
 
     private static String cfcPath;
 
+    @Autowired
+    private ImageConfigMBean imageConfigMBean;
 
+    @Autowired
     public IColdFusionBridge coldFusionBridge;
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
@@ -30,8 +35,8 @@ public class ImageDrawingCFService
 
         try
         {
-            cfcPath = "api-image.cfc?method=addBorder";
-            String method = "GET";
+            cfcPath = imageConfigMBean.getImageBorderPath();
+            String method = imageConfigMBean.getImageBorderMethod();
             Map<String, Object> methodArgs = new HashMap();
             Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
@@ -53,8 +58,8 @@ public class ImageDrawingCFService
 
         try
         {
-            cfcPath = "api-image.cfc?method=addText";
-            String method = "GET";
+            cfcPath = imageConfigMBean.getImageTextPath();
+            String method = imageConfigMBean.getImageTextMethod();
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
             Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs);
 

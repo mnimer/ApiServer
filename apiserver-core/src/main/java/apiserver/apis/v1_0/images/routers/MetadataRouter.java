@@ -9,7 +9,7 @@ import org.springframework.integration.annotation.Router;
  * User: mnimer
  * Date: 10/19/12
  */
-
+// todo: replace with header router
 public class MetadataRouter
 {
     @Autowired

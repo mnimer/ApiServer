@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Convert properties into the ColdFusion UPPERCASE maps/structs
+ *
  * User: mikenimer
  * Date: 7/6/13
  */

@@ -6,6 +6,7 @@ import apiserver.apis.v1_0.images.models.images.ImageMetadataModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.integration.MessageChannel;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,7 @@ public class ImageMetadataController
     @Autowired
     public ImageMetadataGateway imageMetadataGateway;
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
     public MessageChannel imageMetadataStripMetadataInputChannel;
@@ -65,7 +67,7 @@ public class ImageMetadataController
                 args.setCacheId(_cacheId);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
-                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload.getMetadata();
             }
@@ -96,7 +98,7 @@ public class ImageMetadataController
                 args.setFile(_file);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
-                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                ImageMetadataModel payload = (ImageMetadataModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload.getMetadata();
             }

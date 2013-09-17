@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.models.images.ImageRotateModel;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
@@ -25,6 +26,9 @@ public class ImageRotateCFService
     private static String cfcPath;
 
     @Autowired
+    private ImageConfigMBean imageConfigMBean;
+
+    @Autowired
     public IColdFusionBridge coldFusionBridge;
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
@@ -37,8 +41,8 @@ public class ImageRotateCFService
 
         try
         {
-            cfcPath = "api-image.cfc?method=rotateImage";
-            String method = "GET";
+            cfcPath = imageConfigMBean.getImageRotatePath();
+            String method = imageConfigMBean.getImageRotateMethod();
 
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);

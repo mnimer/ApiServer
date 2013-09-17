@@ -7,11 +7,41 @@
        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
        http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
+
+
+    <si:channel id="imageDrawTextRequestChannel">
+        <si:queue/>
+    </si:channel>
+    <si:channel id="imageDrawTextReplyChannel">
+        <si:queue/>
+    </si:channel>
+
+    <si:gateway id="imageDrawTextApiGateway"
+                service-interface="apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway"
+                default-reply-channel="imageDrawBorderReplyChannel"
+                default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
+
+        <si:method name="imageInfo"
+                   request-channel="imageDrawTextRequestChannel"
+                   payload-expression="#args[0]">
+            <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>
+        </si:method>
+    </si:gateway>
+
+
+    <si:header-value-router input-channel="imageDrawTextRequestChannel"
+                            header-name="REQUEST_TYPE">
+        <si:poller fixed-rate="100" max-messages-per-poll="1" />
+        <si:mapping value="http" channel="imageDrawTextHTTPChannel"/>
+    </si:header-value-router>
+
+
+
     <!--
             Image Draw text (watermark) on image
         -->
-    <si:channel id="imageDrawTextInputChannel"/>
-    <si:chain input-channel="imageDrawTextInputChannel" >
+    <si:channel id="imageDrawTextHTTPChannel"/>
+    <si:chain input-channel="imageDrawTextHTTPChannel" >
 
         <si:service-activator
                 method="checkCache">

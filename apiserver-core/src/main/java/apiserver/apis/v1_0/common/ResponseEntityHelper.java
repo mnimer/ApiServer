@@ -24,6 +24,7 @@ public class ResponseEntityHelper
 
     /**
      * return a BufferedImage as byte[] array or as a base64 version of the image bytes
+     *
      * @param image
      * @param contentType
      * @param returnAsBase64
@@ -37,65 +38,88 @@ public class ResponseEntityHelper
         // set content type
         String convertToType = "jpg";
 
-        if(contentType == null )
+        if (contentType == null)
         {
             contentType = "jpg";
             contentType = contentType.toLowerCase();
         }
 
 
-        if( contentType.contains("jpg") || contentType.contains("jpeg"))
+        if (contentType.contains("jpg") || contentType.contains("jpeg"))
         {
             convertToType = "jpg";
             headers.setContentType(MediaType.IMAGE_JPEG);
-        }
-        else if( contentType.contains("png"))
+        } else if (contentType.contains("png"))
         {
             convertToType = "png";
             headers.setContentType(MediaType.IMAGE_PNG);
-        }
-        else if( contentType.contains("gif"))
+        } else if (contentType.contains("gif"))
         {
             convertToType = "gif";
             headers.setContentType(MediaType.IMAGE_GIF);
-        }
-        else
+        } else
         {
             headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         }
 
 
-
-        if( image instanceof BufferedImage)
+        if (image instanceof BufferedImage)
         {
             //DataBufferByte bytes = (DataBufferByte)((BufferedImage) image).getRaster().getDataBuffer();
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ImageIO.write((BufferedImage) image, convertToType, baos);
-            byte [] bytes = baos.toByteArray();
+            byte[] bytes = baos.toByteArray();
 
 
             if (!returnAsBase64)
             {
                 return new ResponseEntity<byte[]>(bytes, headers, HttpStatus.OK);
-            }
-            else
+            } else
             {
-                return new ResponseEntity<byte[]>(Base64.encode(bytes) , headers, HttpStatus.OK);
+                return new ResponseEntity<byte[]>(Base64.encode(bytes), headers, HttpStatus.OK);
             }
-        }
-        else if(  image instanceof byte[]  )
+        } else if (image instanceof byte[])
         {
             if (!returnAsBase64)
             {
-                return new ResponseEntity<byte[]>( (byte[])image, headers, HttpStatus.OK);
-            }
-            else
+                return new ResponseEntity<byte[]>((byte[]) image, headers, HttpStatus.OK);
+            } else
             {
-                return new ResponseEntity<byte[]>(Base64.encode((byte[])image) , headers, HttpStatus.OK);
+                return new ResponseEntity<byte[]>(Base64.encode((byte[]) image), headers, HttpStatus.OK);
             }
         }
 
         throw new RuntimeException("Invalid Image bytes");
+    }
+
+
+    /**
+     * return a BufferedImage as byte[] array or as a base64 version of the image bytes
+     *
+     * @param image
+     * @param contentType
+     * @param returnAsBase64
+     * @return
+     * @throws java.io.IOException
+     */
+    public static ResponseEntity<byte[]> processFile(byte[] bytes, String contentType, Boolean returnAsBase64) throws IOException
+    {
+        HttpHeaders headers = new HttpHeaders();
+
+        headers.setContentType( MediaType.parseMediaType(contentType) ); //todo verify this is right.
+
+        if (bytes instanceof byte[])
+        {
+            if (!returnAsBase64)
+            {
+                return new ResponseEntity<byte[]>((byte[]) bytes, headers, HttpStatus.OK);
+            } else
+            {
+                return new ResponseEntity<byte[]>(Base64.encode((byte[]) bytes), headers, HttpStatus.OK);
+            }
+        }
+
+        throw new RuntimeException("Invalid bytes");
     }
 }

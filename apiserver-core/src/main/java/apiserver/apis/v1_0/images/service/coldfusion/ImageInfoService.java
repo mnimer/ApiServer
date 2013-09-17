@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
@@ -15,11 +16,12 @@ import java.util.Map;
  */
 public class ImageInfoService
 {
-    private static String cfcPath;
-
+    @Autowired
+    public ImageConfigMBean imageConfigMBean;
 
     @Autowired
     public IColdFusionBridge coldFusionBridge;
+
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
         this.coldFusionBridge = coldFusionBridge;
@@ -32,8 +34,8 @@ public class ImageInfoService
 
         try
         {
-            cfcPath = "api-image.cfc?method=imageInfo";
-            String method = "GET";
+            String cfcPath = imageConfigMBean.getImageInfoPath();
+            String method = imageConfigMBean.getImageInfoMethod();
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
             methodArgs.put("image", props.getFile());

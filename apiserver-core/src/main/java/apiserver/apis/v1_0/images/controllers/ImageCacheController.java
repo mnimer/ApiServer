@@ -10,6 +10,7 @@ import apiserver.apis.v1_0.images.models.cache.CacheGetModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,6 +34,8 @@ public class ImageCacheController
     public CacheGetGateway cacheGetGateway;
     @Autowired
     public CacheDeleteGateway cacheDeleteGateway;
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
     /**
@@ -66,7 +69,7 @@ public class ImageCacheController
                 args.setTimeToLiveInSeconds(_timeToLiveInSeconds);
 
                 Future<Map> imageFuture = cacheAddGateway.addToCache(args);
-                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload;
             }
@@ -94,7 +97,7 @@ public class ImageCacheController
         args.setCacheId(cacheId);
 
         Future<Map> imageFuture = cacheGetGateway.getFromCache(args);
-        CacheGetModel payload = (CacheGetModel) imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        CacheGetModel payload = (CacheGetModel) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getProcessedFile();
         String contentType = payload.getContentType();
@@ -128,7 +131,7 @@ public class ImageCacheController
                 try
                 {
                     Future<Boolean> imageFuture = cacheDeleteGateway.deleteFromCache(args);
-                    Object payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                    Object payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                     return Boolean.TRUE;
                 }catch (Exception ex){

@@ -52,9 +52,6 @@
         </si:service-activator>
 
 
-        <!--si:transformer>
-            <bean class="apiserver.core.transformers.InputStreamToStringTransformer"/>
-        </si:transformer-->
         <si:json-to-object-transformer type="java.util.HashMap"/>
 
     </si:chain>

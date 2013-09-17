@@ -9,6 +9,7 @@ import apiserver.apis.v1_0.images.models.images.ImageRotateModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,6 +48,10 @@ public class ImageManipulationController
 
     @Autowired
     private ImageRotateGateway imageRotateGateway;
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
+
     /**
      * rotate an image
      *
@@ -68,11 +73,11 @@ public class ImageManipulationController
         args.setAngle(angle);
 
         Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageRotateModel payload = (ImageRotateModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -99,11 +104,11 @@ public class ImageManipulationController
         args.setAngle(angle);
 
         Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageRotateModel payload = (ImageRotateModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -139,11 +144,11 @@ public class ImageManipulationController
         args.setScaleToFit(scaleToFit);
 
         Future<Map> imageFuture = imageResizeGateway.resizeImage(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageResizeModel payload = (ImageResizeModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -178,11 +183,11 @@ public class ImageManipulationController
         args.setScaleToFit(scaleToFit);
 
         Future<Map> imageFuture = imageResizeGateway.resizeImage(args);
-        Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageResizeModel payload = (ImageResizeModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
-        BufferedImage bufferedImage = (BufferedImage)payload.get(ImageConfigMBeanImpl.RESULT);
-        String contentType = (String)payload.get(ImageConfigMBeanImpl.CONTENT_TYPE);
+        BufferedImage bufferedImage = payload.getProcessedFile();
+        String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }

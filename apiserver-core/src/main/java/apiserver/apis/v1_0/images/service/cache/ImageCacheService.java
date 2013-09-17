@@ -80,7 +80,7 @@ public class ImageCacheService
         {
             Object file = props.getFile();
 
-            // replace File or Multipart File with CachedImage wrapped version
+            // replace File or Multipart File with CachedFile wrapped version
             if( file instanceof MultipartFile )
             {
                 Map cachedProperties = getFileProperties(  (MultipartFile)props.getFile() );
@@ -131,7 +131,7 @@ public class ImageCacheService
             {
                 Object file = props.getFile();
 
-                // replace File or Multipart File with CachedImage wrapped version
+                // replace File or Multipart File with CachedFile wrapped version
                 if( file instanceof MultipartFile )
                 {
                     Map cachedProperties = getFileProperties((MultipartFile)file);

@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.service.coldfusion;
 
+import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.models.images.ImageResizeModel;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
@@ -21,6 +22,9 @@ public class ImageResizeCFService
     private static String cfcPath;
 
     @Autowired
+    private ImageConfigMBean imageConfigMBean;
+
+    @Autowired
     public IColdFusionBridge coldFusionBridge;
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
@@ -35,8 +39,8 @@ public class ImageResizeCFService
         try
         {
 
-            cfcPath = "api-image.cfc?method=resizeImage";
-            String method = "GET";
+            cfcPath = imageConfigMBean.getImageResizePath();
+            String method = imageConfigMBean.getImageResizeMethod();
             String arguments = "";
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);

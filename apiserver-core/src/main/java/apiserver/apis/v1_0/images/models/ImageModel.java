@@ -72,7 +72,7 @@ public class ImageModel
 
     /**
      *
-     * @param file instance of File, MultiPartFile, CachedImage
+     * @param file instance of File, MultiPartFile, CachedFile
      */
     public void setFile(Object file)
     {
@@ -103,7 +103,7 @@ public class ImageModel
     {
         if( file == null || !(file instanceof CachedImage) )
         {
-            throw new Exception("File is NULL or Not a CachedImage");
+            throw new Exception("File is NULL or Not a CachedFile");
         }
 
         return (CachedImage)file;

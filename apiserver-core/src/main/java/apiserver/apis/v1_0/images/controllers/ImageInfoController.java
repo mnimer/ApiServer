@@ -5,6 +5,7 @@ import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,8 @@ public class ImageInfoController
     @Autowired
     private ImageInfoGateway gateway;
 
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
     /**
      * get basic info
      * @param cacheId - any valid URL or cache ID
@@ -53,7 +56,7 @@ public class ImageInfoController
                 args.setCacheId(_cacheId);
 
                 Future<Map> imageFuture = gateway.imageInfo(args);
-                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload;
             }
@@ -88,7 +91,7 @@ public class ImageInfoController
                 args.setFile(_file);
 
                 Future<Map> imageFuture = gateway.imageInfo(args);
-                Map payload = imageFuture.get(10000, TimeUnit.MILLISECONDS);
+                Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload;
             }
@@ -96,7 +99,5 @@ public class ImageInfoController
 
         return callable;//new WebAsyncTask<Map>(10000, callable);
     }
-
-
 
 }
