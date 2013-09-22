@@ -3,3 +3,6 @@ target
 cfusion
 resources
 derby.log
+.classpath
+.project
+.settings
