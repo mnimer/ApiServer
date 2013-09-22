@@ -39,14 +39,8 @@
 
 
         <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-        </si:service-activator>
-
-
-        <si:service-activator
                 method="doFilter">
-            <bean class="apiserver.apis.v1_0.images.service.jhlabs.MinimumFilterService"/>
+            <bean class="apiserver.apis.v1_0.images.services.jhlabs.MinimumFilterService"/>
         </si:service-activator>
 
     </si:chain>

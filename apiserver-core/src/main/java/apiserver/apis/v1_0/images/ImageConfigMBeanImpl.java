@@ -1,17 +1,14 @@
 package apiserver.apis.v1_0.images;
 
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.core.cache.CacheServiceMBean;
 import apiserver.exceptions.FactoryException;
 import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,14 +76,14 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 
     public ImageConfigMBeanImpl()
     {
-        initializeSampleResources();
+        //initializeSampleResources();
 
     }
 
 
     /**
      * Store an initial image in the cache for unit tests.
-     */
+
     private void initializeSampleResources()
     {
         try
@@ -94,13 +91,13 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
             String key = "a3c8af38-82e3-4241-8162-28e17ebcbf52";
             File file = new File(getClass().getClassLoader().getResource("sample.png").toURI());
 
-            CachedImage cachedImage = new CachedImage(file);
-            cachedImage.setFileName(file.getName());
-            cachedImage.setSize( file.length() );
-            cachedImage.setContentType( "image/png" );
+            FileModel CachedFile = new FileModel(file);
+            CachedFile.setFileName(file.getName());
+            CachedFile.setSize( file.length() );
+            CachedFile.setContentType( "image/png" );
 
             Map cachedProperties = new HashMap();
-            cachedProperties.put(ImageConfigMBeanImpl.FILE, cachedImage);
+            cachedProperties.put(ImageConfigMBeanImpl.FILE, CachedFile);
             cachedProperties.put(ImageConfigMBeanImpl.CONTENT_TYPE, "image/png" );
             cachedProperties.put(ImageConfigMBeanImpl.ORIGINAL_FILE_NAME, file.getName() );
             cachedProperties.put(ImageConfigMBeanImpl.NAME, file.getName() );
@@ -112,19 +109,19 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 
             getCache().put(element);
 
-            /**
-            Map<String, Object> args = new HashMap<String, Object>();
-            args.put(ImageConfigMBeanImpl.FILE, file);
-            args.put(ImageConfigMBeanImpl.TIME_TO_LIVE, 0);
-            ModelAndView view = channelInvoker.invokeGenericChannel(null, null, args, imageCacheAddInputChannel);
-            **/
+
+            //Map<String, Object> args = new HashMap<String, Object>();
+            //args.put(ImageConfigMBeanImpl.FILE, file);
+            //args.put(ImageConfigMBeanImpl.TIME_TO_LIVE, 0);
+            //ModelAndView view = channelInvoker.invokeGenericChannel(null, null, args, imageCacheAddInputChannel);
+
         }
         catch (Exception ex1)
         {
             //do nothing
         }
     }
-
+    */
 
     public Cache getCache() throws FactoryException
     {

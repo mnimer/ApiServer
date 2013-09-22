@@ -40,14 +40,8 @@
 
 
         <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-        </si:service-activator>
-
-
-        <si:service-activator
                 method="doFilter">
-            <bean class="apiserver.apis.v1_0.images.service.jhlabs.LensBlurFilterService"/>
+            <bean class="apiserver.apis.v1_0.images.services.jhlabs.LensBlurFilterService"/>
         </si:service-activator>
 
     </si:chain>

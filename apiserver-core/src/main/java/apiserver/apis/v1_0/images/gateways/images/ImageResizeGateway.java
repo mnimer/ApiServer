@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.images;
 
-import apiserver.apis.v1_0.images.models.images.ImageResizeModel;
+import apiserver.apis.v1_0.images.models.images.FileResizeModel;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ImageResizeGateway
 {
-    Future<Map> resizeImage(ImageResizeModel args);
+    Future<Map> resizeImage(FileResizeModel args);
 }

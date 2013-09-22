@@ -1,6 +1,5 @@
 package apiserver.apis.v1_0.images;
 
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
@@ -21,10 +20,6 @@ public class FileHelper
         {
             return ((CommonsMultipartFile)uploadedFile).getOriginalFilename();
         }
-        else if( uploadedFile instanceof CachedImage)
-        {
-            return ((CachedImage)uploadedFile).getFileName();
-        }
         else if( uploadedFile instanceof BufferedImage)
         {
             return null;
@@ -40,10 +35,6 @@ public class FileHelper
         if( uploadedFile instanceof CommonsMultipartFile)
         {
             return ((CommonsMultipartFile)uploadedFile).getBytes();
-        }
-        else if( uploadedFile instanceof CachedImage)
-        {
-            return ((CachedImage)uploadedFile).getFileBytes();
         }
         else if( uploadedFile instanceof BufferedImage)
         {

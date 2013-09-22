@@ -1,9 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.images;
 
-import apiserver.apis.v1_0.images.models.ImageModel;
-import apiserver.apis.v1_0.images.models.images.ImageBorderModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import apiserver.apis.v1_0.images.models.images.FileBorderModel;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -14,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ImageDrawBorderGateway
 {
-    Future<Map> imageDrawBorderFilter(ImageBorderModel imageModel);
+    Future<Map> imageDrawBorderFilter(FileBorderModel imageModel);
 }

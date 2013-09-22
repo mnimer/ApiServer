@@ -48,7 +48,7 @@
 
         <si:service-activator
                 method="execute">
-            <bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageInfoService"/>
+            <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageInfoService"/>
         </si:service-activator>
 
 

@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.images;
 
-import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
+import apiserver.apis.v1_0.images.models.images.FileInfoModel;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ImageInfoGateway
 {
-    Future<Map> imageInfo(ImageInfoModel args);
+    Future<Map> imageInfo(FileInfoModel args);
 }

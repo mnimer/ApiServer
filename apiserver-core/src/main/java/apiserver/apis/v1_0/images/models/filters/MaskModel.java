@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.images.models.filters;
 
-import apiserver.apis.v1_0.images.models.ImageModel;
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
+import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +11,7 @@ import java.io.File;
  * User: mikenimer
  * Date: 7/14/13
  */
-public class MaskModel extends ImageModel
+public class MaskModel extends FileModel
 {
     public final Logger log = LoggerFactory.getLogger(MaskModel.class);
 
@@ -34,10 +33,6 @@ public class MaskModel extends ImageModel
         this.mask = mask;
     }
     public void setMask(MultipartFile mask)
-    {
-        this.mask = mask;
-    }
-    public void setMask(CachedImage mask)
     {
         this.mask = mask;
     }

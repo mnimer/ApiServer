@@ -1,16 +1,14 @@
 package apiserver.apis.v1_0.images.transformers;
 
-import apiserver.apis.v1_0.images.models.ImageModel;
+import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.integration.Message;
 import org.springframework.integration.annotation.Transformer;
 import org.springframework.stereotype.Component;
-import sun.misc.BASE64Decoder;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
+import javax.xml.bind.DatatypeConverter;
+import java.io.IOException;
 import java.util.Map;
 
 /**
@@ -33,38 +31,38 @@ public class JsonBase64ToBufferedImage
     {
         Object payload = message.getPayload();
 
-        if( payload instanceof ImageModel )
+        if( payload instanceof FileModel)
         {
-            if( ((ImageModel)payload).getProcessedFile() == null && ((ImageModel)payload).getBase64File() != null )
+            try
             {
-                String base64 = ((ImageModel)payload).getBase64File();
-                if( base64 == null )
+                if( ((FileModel)payload).getBufferedImage() == null && ((FileModel)payload).getBase64File() != null )
                 {
-                    throw new RuntimeException("No image for processing found");
-                }
-
-
-                try
-                {
-                    BufferedImage image = null;
-                    byte[] imageByte;
-                    try {
-                        BASE64Decoder decoder = new BASE64Decoder();
-                        imageByte = decoder.decodeBuffer(base64);
-                        ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
-                        image = ImageIO.read(bis);
-                        bis.close();
-                    }
-                    catch (Exception e)
+                    String base64 = ((FileModel)payload).getBase64File();
+                    if( base64 == null )
                     {
-                        e.printStackTrace();
+                        throw new RuntimeException("No image for processing found");
                     }
 
-                    ((ImageModel)payload).setProcessedFile(image);
+
+                    try
+                    {
+                        try {
+                            byte[] imageByte = DatatypeConverter.parseBase64Binary(base64);
+                            ((FileModel)payload).setProcessedFileBytes(imageByte);
+                        }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    catch (Exception ex){
+                        throw new RuntimeException(ex);
+                    }
                 }
-                catch (Exception ex){
-                    throw new RuntimeException(ex);
-                }
+            }
+            catch( IOException ex)
+            {
+                log.error(ex.getMessage(), ex);
             }
         }
 

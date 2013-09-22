@@ -2,7 +2,7 @@ package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
-import apiserver.apis.v1_0.images.models.images.ImageInfoModel;
+import apiserver.apis.v1_0.images.models.images.FileInfoModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -69,7 +69,7 @@ public class ImageInfoTest
     {
         try
         {
-            ImageInfoModel args = new ImageInfoModel();
+            FileInfoModel args = new FileInfoModel();
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.imageInfo(args);

@@ -1,18 +1,14 @@
 package apiserver.apis.v1_0.pdf;
 
-import apiserver.apis.v1_0.images.ImageConfigMBean;
-import apiserver.apis.v1_0.images.wrappers.CachedImage;
 import apiserver.core.cache.CacheServiceMBean;
 import apiserver.exceptions.FactoryException;
 import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
 import net.sf.ehcache.config.CacheConfiguration;
 import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 

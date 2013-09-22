@@ -44,13 +44,8 @@
     <si:chain input-channel="imageDrawTextHTTPChannel" >
 
         <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-        </si:service-activator>
-
-        <si:service-activator
                 method="imageDrawTextHandler">
-            <bean class="apiserver.apis.v1_0.images.service.coldfusion.ImageDrawingCFService"/>
+            <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageDrawingCFService"/>
         </si:service-activator>
 
     </si:chain>

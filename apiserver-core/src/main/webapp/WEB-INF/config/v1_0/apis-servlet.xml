@@ -94,7 +94,7 @@
 	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
 
 
-    <bean name="imageCacheController" class="apiserver.apis.v1_0.images.controllers.ImageCacheController"/>
+    <bean name="imageCacheController" class="apiserver.apis.v1_0.cache.controllers.CacheController"/>
 	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
 	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
 	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>

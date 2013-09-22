@@ -1,7 +1,7 @@
 package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
-import apiserver.apis.v1_0.images.models.images.ImageRotateModel;
+import apiserver.apis.v1_0.images.models.images.FileRotateModel;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,15 +62,15 @@ public class ImageRotateTest
 
         try
         {
-            ImageRotateModel args = new ImageRotateModel();
+            FileRotateModel args = new FileRotateModel();
             args.setAngle(90);
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.rotateImage(args);
-            ImageRotateModel result = (ImageRotateModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileRotateModel result = (FileRotateModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
 
-            BufferedImage bimg =  result.getProcessedFile();
+            BufferedImage bimg =  result.getBufferedImage();
             int imgWidth          = bimg.getWidth();
             int imgHeight         = bimg.getHeight();
 

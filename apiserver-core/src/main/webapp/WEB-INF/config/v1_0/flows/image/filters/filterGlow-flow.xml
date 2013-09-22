@@ -37,16 +37,9 @@
 
         <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
-
-        <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-        </si:service-activator>
-
-
         <si:service-activator
                 method="doFilter">
-            <bean class="apiserver.apis.v1_0.images.service.jhlabs.GlowFilterService"/>
+            <bean class="apiserver.apis.v1_0.images.services.jhlabs.GlowFilterService"/>
         </si:service-activator>
 
     </si:chain>

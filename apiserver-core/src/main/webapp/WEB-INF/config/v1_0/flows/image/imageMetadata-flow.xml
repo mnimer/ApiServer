@@ -44,17 +44,9 @@
     </si:gateway>
 
 
-    <si:service-activator
-            input-channel="imageMetadataChannelRequestChannel"
-            output-channel="imageMetadataChannelInfoRouter"
-            method="checkCache">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
-        <bean class="apiserver.apis.v1_0.images.service.cache.ImageCacheService"/>
-    </si:service-activator>
-
 
     <si:router
-            input-channel="imageMetadataChannelInfoRouter"
+            input-channel="imageMetadataChannelRequestChannel"
             method="route">
         <!-- todo: add support for header var router -->
         <bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
@@ -65,7 +57,7 @@
             input-channel="drewMetadataExtractor"
             output-channel="imageMetadataChannelReplyChannel"
             method="imageMetadataHandler">
-        <bean class="apiserver.apis.v1_0.images.service.drewMetadata.ImageMetadataService"/>
+        <bean class="apiserver.apis.v1_0.images.services.drewMetadata.ImageMetadataService"/>
     </si:service-activator>
 
 
@@ -73,7 +65,7 @@
             input-channel="exifTool"
             output-channel="imageMetadataChannelReplyChannel"
             method="metadataInfo">
-        <bean class="apiserver.apis.v1_0.images.service.exiftool.ImageMetadataService"/>
+        <bean class="apiserver.apis.v1_0.images.services.exiftool.ImageMetadataService"/>
     </si:service-activator>
 
 </beans>

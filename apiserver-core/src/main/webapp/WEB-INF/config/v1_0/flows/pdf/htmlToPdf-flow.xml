@@ -38,12 +38,6 @@
         <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
-                method="checkCache">
-            <bean class="apiserver.apis.v1_0.pdf.service.cache.PdfCacheService"/>
-        </si:service-activator>
-
-
-        <si:service-activator
                 method="execute">
             <bean class="apiserver.apis.v1_0.pdf.service.PdfHtmlService"/>
         </si:service-activator>

@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import apiserver.apis.v1_0.images.models.ImageModel;
+import apiserver.core.models.FileModel;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterGrayScaleGateway
 {
-    Future<Map> imageGrayScaleFilter(ImageModel imageModel);
+    Future<Map> imageGrayScaleFilter(FileModel fileModel);
 }
