@@ -15,10 +15,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -33,12 +35,15 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterBump-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml"})
 public class ImageBumpTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageBumpTests.class);
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterBumpGateway imageBumpFilterGateway;
@@ -59,6 +64,7 @@ public class ImageBumpTests
         float[] matrix = new float[]{-1.0F,-1.0F,0.0F,-1.0F,1.0F,1.0F,0.0F,1.0F,1.0F};
 
         BumpModel args = new BumpModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
         args.setEdgeAction(1);
         args.setUseAlpha(true);
@@ -87,6 +93,7 @@ public class ImageBumpTests
         float[] matrix = new float[]{-1.0F,-1.0F,0.0F,-1.0F,1.0F,1.0F,0.0F,1.0F,1.0F};
 
         BumpModel args = new BumpModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
         args.setEdgeAction(1);
         args.setUseAlpha(true);

@@ -2,7 +2,10 @@ package apiserver.apis.v1_0.status.controllers;
 
 import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
 import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
+import com.mangofactory.swagger.annotations.ApiModel;
 import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,6 +59,7 @@ public class StatusController
         Future<Map> result = gateway.checkApiServerAsync();
         Map finalResult = (Map)result.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
+        //return finalResult;
         return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
 
@@ -88,41 +92,5 @@ public class StatusController
         //Map finalResult = CFGateway.checkColdfusionSync();
         //return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
-
-
-
-
-    @RequestMapping(value = "/jcr/health", method = RequestMethod.GET)
-    public ModelAndView jcrCheck(HttpServletRequest req) throws ServletException, IOException
-    {
-        ModelAndView view = new ModelAndView("help");
-
-
-        try
-        {
-            System.out.println("JCR SERVLET STATUS: SUCCESS - ");// + repository.login().getRootNode().getNodes().toString());
-        } catch (Exception ex)
-        {
-            System.out.println("JCR SERVLET STATUS: FAILED");
-        }
-        /**
-         try
-         {
-
-         InitialContext ctx = new InitialContext();
-         Context env = (Context) ctx.lookup("java:comp/env");
-         Repository repo = (Repository) env.lookup("jcr/repository");
-         Session session = repo.login(new SimpleCredentials("admin", "admin".toCharArray()));
-
-         out.println("JCR JNDI STATUS: SUCCESS - " +session.getRootNode().toString() );
-         }catch(Exception ex){
-         out.println("JCR JNDI STATUS: FAILED");
-         }
-         **/
-
-        return view;
-        //return httpChannelInvoker.invokeGenericChannel(request, null, null, coldFusionInputChannel);
-    }
-
 
 }

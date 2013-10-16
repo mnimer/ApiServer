@@ -14,10 +14,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -32,10 +34,13 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterMaximum-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml"})
 public class ImageMaximumTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMaximumTests.class);
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterMaximumGateway imageMaximumFilterGateway;
@@ -54,6 +59,7 @@ public class ImageMaximumTests
     public void testMaximumByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);
@@ -75,6 +81,7 @@ public class ImageMaximumTests
     public void testMaximumBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);

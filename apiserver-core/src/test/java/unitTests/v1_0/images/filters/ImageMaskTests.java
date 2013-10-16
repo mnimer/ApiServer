@@ -35,7 +35,7 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterMask-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml"})
 public class ImageMaskTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMaskTests.class);

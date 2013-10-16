@@ -13,10 +13,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -33,6 +35,9 @@ import java.util.concurrent.TimeUnit;
 public class ImageResizePNGTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageResizePNGTest.class);
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ImageResizeGateway gateway;
@@ -66,6 +71,7 @@ public class ImageResizePNGTest
         try
         {
             FileResizeModel args = new FileResizeModel();
+            args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
@@ -100,6 +106,7 @@ public class ImageResizePNGTest
         try
         {
             FileResizeModel args = new FileResizeModel();
+            args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);

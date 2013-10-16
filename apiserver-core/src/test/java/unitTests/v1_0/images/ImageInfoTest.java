@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +33,10 @@ import java.util.concurrent.TimeUnit;
 public class ImageInfoTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageInfoTest.class);
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
+
 
     @Autowired
     private ImageInfoGateway gateway;
@@ -70,6 +75,7 @@ public class ImageInfoTest
         try
         {
             FileInfoModel args = new FileInfoModel();
+            args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.imageInfo(args);

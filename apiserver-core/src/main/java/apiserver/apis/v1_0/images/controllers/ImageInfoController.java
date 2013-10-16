@@ -30,8 +30,6 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/image/info")
 public class ImageInfoController
 {
-    @Autowired(required = false)
-    private HttpServletRequest request;
 
     @Autowired
     private ImageInfoGateway gateway;

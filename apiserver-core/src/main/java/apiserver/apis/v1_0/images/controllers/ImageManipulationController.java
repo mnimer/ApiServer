@@ -10,6 +10,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +39,7 @@ import java.util.concurrent.TimeoutException;
  * User: mnimer
  * Date: 9/15/12
  */
-//Controller
+@Controller
 @RequestMapping("/image/manipulation")
 public class ImageManipulationController
 {

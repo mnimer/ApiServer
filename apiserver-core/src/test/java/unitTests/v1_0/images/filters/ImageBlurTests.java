@@ -15,10 +15,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -33,13 +35,16 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterBlur-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml"})
 public class ImageBlurTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageBlurTests.class);
 
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterBlurGateway imageBlurFilterGateway;
@@ -60,18 +65,20 @@ public class ImageBlurTests
     {
 
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
+
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);
         FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
-        BufferedImage bufferedImage = payload.getBufferedImage();
+        BufferedImage bufferedImage = payload.getProcessedBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
         String contentType = payload.getContentType();
-        Assert.assertEquals("image/png",contentType);
+        Assert.assertEquals("image/png", contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -83,6 +90,7 @@ public class ImageBlurTests
     public void testBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);

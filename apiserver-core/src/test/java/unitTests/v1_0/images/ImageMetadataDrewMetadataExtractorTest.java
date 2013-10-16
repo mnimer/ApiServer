@@ -4,7 +4,7 @@ import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
 import apiserver.apis.v1_0.images.models.images.FileMetadataModel;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +16,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -40,6 +42,9 @@ public class ImageMetadataDrewMetadataExtractorTest
 
     public String hostName = "";
     public int port = 0;
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     public ImageMetadataGateway gateway;
@@ -72,6 +77,7 @@ public class ImageMetadataDrewMetadataExtractorTest
 
 
         FileMetadataModel model = new FileMetadataModel();
+        model.supportedMimeTypes = supportedMimeTypes;
         model.setFile(file);
         Future<Map> future = gateway.getMetadata(model);
 

@@ -7,7 +7,7 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="jackrabbitExplorer" />
+      <artifact name="apiserver-core:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
@@ -15,275 +15,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="add swagger maven plugin to test.. This plugin will work, if we fork the code and modify it to understand the springMVC synt">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileInfoModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/RaysModel.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageCacheController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageMetadataController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/cache/CacheDeleteGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/cache/CacheGetGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/cache/cacheAddGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/cache/CacheAddModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/cache/CacheDeleteModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/cache/CacheGetModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageInfoModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/cache/ImageCacheService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/wrappers/CachedImage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfCacheController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/cache/CacheAddGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/cache/CacheDeleteGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/cache/CacheGetGateway.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/models/PdfModel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/service/cache/PdfCacheService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/wrappers/CachedFile.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/cache/cacheAdd-flow.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/cache/cacheDelete-flow.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/cache/cacheGet-flow.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/ResponseEntityHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/interceptors/TokenAccessInterceptor.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/interceptors/TokenAccessInterceptor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/messageHandlers/PreOrPostWireTap.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/PreOrPostWireTap.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/common/messageHandlers/TokenAnalyticsCollector.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/TokenAnalyticsCollector.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/ImageModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageBorderModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileBorderModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageMetadataModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileMetadataModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageResizeModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileResizeModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageRotateModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileRotateModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageTextModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileTextModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageDrawingCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageResizeCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/coldfusion/ImageRotateCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/drewMetadata/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/exiftool/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BoxBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BoxBlurFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/BumpFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/DespeckleFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/DespeckleFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GaussianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GlowFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/GrayscaleFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GrayscaleFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/LensBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MaskFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MaximumFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaximumFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MedianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MinimumFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MinimumFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/MotionBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/OilFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/OilFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/service/jhlabs/RaysFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageBorderTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBorderTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageBoxBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageBrushedTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBrushedTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageBumpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCausticsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCausticsTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCellularTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCellularTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageChannelMixTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChannelMixTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCheckTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCheckTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageChromeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChromeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCircleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCircleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageColorHalftoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageColorHalftoneTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCompoundTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCompoundTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageContrastTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageContrastTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCropTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCropTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCrystallizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCrystallizeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageCurvesTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCurvesTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDespeckleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDiffuseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffuseTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDiffusionTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffusionTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDisplaceTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDisplaceTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDissolveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDissolveTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDitherTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDitherTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageDoGTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDoGTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageEdgeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEdgeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageEmbossTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEmbossTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageExposureTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageExposureTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFBMTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFBMTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFeedbackTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFeedbackTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFillTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFillTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFlareTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlareTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFlipTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlipTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageFourColorTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFourColorTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGainTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGainTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGammaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGammaTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGaussianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGlowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGradientTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGradientWipeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientWipeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGrayScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageGrayTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageHSBAdjustTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHSBAdjustTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageHalftoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHalftoneTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageInvertAlphaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertAlphaTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageInvertTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageIteratedTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageIteratedTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageKaleidoscopeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageKaleidoscopeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageLaplaceTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLaplaceTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageLensBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageLevelsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLevelsTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageLightTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLightTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageLookupTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLookupTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMapColorsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMapColorsTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMarbleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMarbleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMaskTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMaximumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMedianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMinimumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMirrorTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMirrorTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageMotionBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageNoiseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageNoiseTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageOffsetTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOffsetTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageOilTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageOpacityTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOpacityTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePerspectiveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePerspectiveTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePinchTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePinchTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePlasmaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePlasmaTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePointillizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePointillizeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePolarTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePolarTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePosterizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePosterizeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImagePreMultiplyTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePreMultiplyTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageQuantizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageQuantizeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageRGBAdjustTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRGBAdjustTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageRaysTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRaysTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageReduceNoiseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageReduceNoiseTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageRescaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRescaleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageRippleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRippleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageRotateTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRotateTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScaleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageScratchTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScratchTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageShadowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShadowTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageShapeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShapeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSharpenTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSharpenTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageShearTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShearTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSmartBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmartBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSmearTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmearTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSolarizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSolarizeTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSparkleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSparkleTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSphereTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSphereTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageStampTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageStampTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageSwimTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSwimTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageTextureTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTextureTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageThresholdTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageThresholdTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageTileImageTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTileImageTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageTritoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTritoneTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageTwirlTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTwirlTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageUnPreMultiplyTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnPreMultiplyTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageUnSharpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnSharpTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageVariableBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageVariableBlurTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageWarpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWarpTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageWaterTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWaterTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageWeaveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWeaveTests.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters/ImageWoodTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWoodTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BoxBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BoxBlurModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BumpModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BumpModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/CaptchaCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/CaptchaCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/CaptchaCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/CaptchaCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/ColdFusionException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/ColdFusionException.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred/content.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/handlebars-1.0.0.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/highlight.default.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/screen.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred.bundle.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/css/hightlight.default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/css/screen.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/handlebars-1.0.rc.1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/handlebars.runtime-1.0.0.beta.6.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/swagger.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/swagger-ui.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/swagger-ui.min.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/logo_small.png" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/images/logo_small.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/pet_store_api.png" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/images/pet_store_api.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/throbber.gif" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/images/throbber.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/images/wordnik_api.png" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/images/wordnik_api.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/backbone-min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/backbone-min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/highlight.7.3.pack.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/highlight.7.3.pack.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery-1.8.0.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery-1.8.0.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.ba-bbq.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.ba-bbq.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.slideto.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.slideto.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/jquery.wiggle.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.wiggle.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services/lib/underscore-min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/underscore-min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GaussianModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GaussianModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GlowModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GlowModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/transformers/HttpPostPropertyTransformer.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/transformers/HttpPostPropertyTransformer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageCacheController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageCacheController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageCacheController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageCacheController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageDrawingCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageDrawingCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageInfoCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageInfoCFService.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileInfoModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileInfoModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageManipulationCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageManipulationCFService.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageMetadataGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageMetadataGateway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/transformers/JsonBase64ToBufferedImage.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/transformers/JsonBase64ToBufferedImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/LensBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/LensBlurModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/Main.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MaskModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MaskModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/MessageConfigException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/MessageConfigException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MotionBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MotionBlurModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/OilModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/OilModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/models/PdfHtmlModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/models/PdfHtmlModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/servlets/PingServlet.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/servlets/PingServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/PreOrPostWireTap.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/PreOrPostWireTap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/PreOrPostWireTap.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/PreOrPostWireTap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/TokenAccessInterceptor.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/TokenAccessInterceptor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/class-use/TokenAccessInterceptor.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/class-use/TokenAccessInterceptor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/TokenAnalyticsCollector.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/TokenAnalyticsCollector.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/TokenAnalyticsCollector.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/TokenAnalyticsCollector.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/pdf/PdfHtmlGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/pdf/PdfHtmlGateway.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/TravelGateway.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/TravelGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/test/java/org/springframework/integration/samples/travel/TravelGatewayTest.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/test/java/org/springframework/integration/samples/travel/TravelGatewayTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfhtml.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfhtml.cfc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBoxBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBoxBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGaussian-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGaussian-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGlow-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGlow-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGrayScale-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGrayScale-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterLensBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterLensBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMedian-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMedian-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMinimum-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMinimum-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMotionBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMotionBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterOil-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterOil-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawBorder-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawBorder-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawText-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawText-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageMetadata-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageMetadata-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageResize-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageResize-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageRotate-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageRotate-flow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-context.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-http-context.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-http-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-use.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/pom.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -356,108 +166,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BumpFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java">
+      <file leaf-file-name="GaussianController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1005">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpPostPropertyTransformer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/transformers/HttpPostPropertyTransformer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="65" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0" vertical-offset="649" max-vertical-offset="975">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LensBlurFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="930">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageMetadataService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="70" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0" vertical-offset="649" max-vertical-offset="975">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileModel.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="5" selection-start="2737" selection-end="2737" vertical-scroll-proportion="0.0" vertical-offset="1482" max-vertical-offset="2805">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MedianFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GaussianFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="40" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+            <state line="31" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="930">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MotionBlurFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java">
+      <file leaf-file-name="GlowController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="24" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="975">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="0" selection-start="7100" selection-end="7100" vertical-scroll-proportion="0.71246004" vertical-offset="2057" max-vertical-offset="2370">
+            <state line="31" column="0" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="930">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RaysFilterService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java">
+      <file leaf-file-name="LensBlurController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="49" selection-start="3485" selection-end="3485" vertical-scroll-proportion="0.0" vertical-offset="1182" max-vertical-offset="1710">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="31" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1020">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaskController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="915">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MedianController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="885">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MinimumController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MotionBlurController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1065">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OilBlurController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="0" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="1035">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GrayscaleController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="-0.5529412" vertical-offset="355" max-vertical-offset="855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MaximumController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="810">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -490,22 +284,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/DespeckleFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaximumFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MaskModel.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/servlets/PingServlet.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MinimumFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GrayscaleFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/RaysModel.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/transformers/HttpPostPropertyTransformer.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" />
       </list>
     </option>
   </component>
@@ -540,7 +334,6 @@
     <option name="enabledProfiles">
       <list>
         <option value="build-war" />
-        <option value="build-jar" />
       </list>
     </option>
   </component>
@@ -551,14 +344,8 @@
           <option name="myItemId" value="" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
-      </PATH>
-      <PATH>
         <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="ApiServer" />
+          <option name="myItemId" value="apiserver-coldfusion" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -568,12 +355,28 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="ApiServer" />
+          <option name="myItemId" value="apiserver-coldfusion" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
           <option name="myItemId" value="Lifecycle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Profiles" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProfilesNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -651,7 +454,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -683,6 +485,122 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -826,7 +744,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -864,7 +782,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -872,8 +790,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -889,7 +818,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="57" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="last_opened_file_path" value="/Applications/ColdFusion10/cfusion/wwwroot/apiserver-inf/components/v1_0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Applications/ColdFusion10/cfusion/bin/coldfusion" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="64" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="611" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="608" />
@@ -914,34 +843,12 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="reference.settings.project.maven.runner" />
+    <property name="options.lastSelected" value="preferences.externalTools" />
     <property name="project.structure.side.proportion" value="0.15812431" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.searchVisible" value="true" />
-  </component>
-  <component name="PublishConfig" serverName="Local ColdFusion" serverId="2258d8e3-c88f-4d08-844c-dd97014c7c38" autoUpload="true" showEqualInSync="true" showDifferentInSync="false" showNewOnTargetInSync="false">
-    <servers>
-      <server id="00f2459e-2bc6-492a-bfb2-2c51916c940a">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$/apiserver-core" />
-            <mapping local="$PROJECT_DIR$/../../../github/swagger-springmvc" />
-          </mappings>
-        </serverdata>
-      </server>
-      <server id="08d13821-a0a0-4232-97d5-c955a6cc8384">
-        <serverdata />
-      </server>
-      <server id="a4c9ee72-7297-492c-9d2c-dbef12458eb3">
-        <serverdata>
-          <mappings>
-            <mapping deploy="Applications/ColdFusion10/cfusion/wwwroot/apiserver-inf/components/v1_0" local="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0" web="/components/v1_0" />
-          </mappings>
-        </serverdata>
-      </server>
-    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -952,18 +859,11 @@
       <recent name="integrationTests.v1_0.images" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/services" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdfs/gateways" />
       <recent name="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/image_filters" />
       <recent name="$PROJECT_DIR$/../familycloud/familycloud/src/main/java/com/mikenimer/familycloud" />
       <recent name="$PROJECT_DIR$/../familycloud/familycloud/src/main/resources/jcr" />
-      <recent name="$PROJECT_DIR$/server-standalone/src/main/resources" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="apiserver.apis.v1_0.pdf.service" />
-      <recent name="apiserver.apis.v1_0.pdfs.gateways.pdf" />
-      <recent name="apiserver.services.cache" />
-      <recent name="apiserver.apis.v1_0.images.service.cache" />
-      <recent name="apiserver.apis.v1_0.images.cache" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image" />
@@ -972,76 +872,19 @@
       <recent name="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/cache" />
       <recent name="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/WEB-INF" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="apiserver.apis.v1_0.pdf.service" />
+      <recent name="apiserver.apis.v1_0.pdfs.gateways.pdf" />
+      <recent name="apiserver.services.cache" />
+      <recent name="apiserver.apis.v1_0.images.service.cache" />
+      <recent name="apiserver.apis.v1_0.images.cache" />
+    </key>
   </component>
   <component name="RestClientSettings">
     <option name="LAST_HOST" value="http://localhost:8500" />
   </component>
-  <component name="RunManager" selected="Tomcat Server.apiserver-core">
-    <configuration default="false" name="ImageResizeJPGTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="unitTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="apiserver-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageResizeJPGTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ImageResizePNGTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="unitTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="apiserver-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageResizePNGTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ImageResizeCacheTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jetty Server.ApiServer (Jetty9)">
+    <configuration default="false" name="ImageResizeCacheTest.testPngResize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="unitTests.v1_0.images.*" />
@@ -1053,8 +896,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
       <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageResizeCacheTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testPngResize" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1064,6 +907,7 @@
         <value defaultName="moduleWithDependencies" />
       </option>
       <envs />
+      <dir value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0" />
       <patterns />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
@@ -1073,20 +917,15 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <configuration default="false" name="ImageRotateCacheTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="unitTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration default="false" name="ImageInfoTest and 7 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="apiserver-core" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageRotateCacheTest" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="pattern" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1096,7 +935,16 @@
         <value defaultName="moduleWithDependencies" />
       </option>
       <envs />
-      <patterns />
+      <patterns>
+        <pattern testClass="unitTests.v1_0.images.ImageInfoTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageMetadataDrewMetadataExtractorTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageMetadataEXIFToolExtractorTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageResizeCacheTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageResizeJPGTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageResizePNGTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageRotateCacheTest" />
+        <pattern testClass="unitTests.v1_0.images.ImageRotateTest" />
+      </patterns>
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
@@ -1105,7 +953,7 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
-    <configuration default="false" name="All in apiserver-core" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="All in apiserver-core (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="apiserver-core" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1123,16 +971,90 @@
         <value defaultName="moduleWithDependencies" />
       </option>
       <envs />
-      <dir value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0" />
+      <dir value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters" />
       <patterns />
-      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ImageBlurTests.testBlurByFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="unitTests.v1_0.images.filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="unitTests.v1_0.images.filters" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.filters.ImageBlurTests" />
+      <option name="METHOD_NAME" value="testBlurByFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <dir value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters" />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ImageGrayScaleTests.testGrayScaleByFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="unitTests.v1_0.images.filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="unitTests.v1_0.images.filters" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.filters.ImageGrayScaleTests" />
+      <option name="METHOD_NAME" value="testGrayScaleByFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <dir value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters" />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails" singleton="true">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin" singleton="true">
@@ -1192,8 +1114,8 @@
       </MavenSettings>
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
-      <setting name="config_file" value="" />
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1205,6 +1127,10 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <browser start="false" url="" with-js-debugger="false" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -1327,6 +1253,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="true" type="CfmlUnitRunConfigurationType" factoryName="MXUnit" method="" path="" scope="Component" webpath="">
@@ -1344,6 +1271,39 @@
       </option>
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JettyConfiguration" factoryName="Local">
@@ -1364,21 +1324,6 @@
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -1393,6 +1338,7 @@
       <option name="NETWORK_SPEED" value="full" />
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
     <configuration default="false" name="ApiServer (Jetty9)" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 8.1.10.v20130312">
@@ -1508,7 +1454,28 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper VM_VAR="" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -1847,19 +1814,19 @@
       <item index="3" class="java.lang.String" itemvalue="Maven.ApiServer-core [exec:java]" />
       <item index="4" class="java.lang.String" itemvalue="Remote.ColdFusion10 (remote)" />
       <item index="5" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.ImageResizeJPGTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.ImageResizePNGTest" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTest" />
-      <item index="10" class="java.lang.String" itemvalue="JUnit.All in apiserver-core" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest.testPngResize" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.ImageInfoTest and 7 more" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.All in apiserver-core (1)" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.ImageBlurTests.testBlurByFile" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.ImageGrayScaleTests.testGrayScaleByFile" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in apiserver-core" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ImageResizePNGTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ImageResizeJPGTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ImageBlurTests.testBlurByFile" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.All in apiserver-core (1)" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ImageGrayScaleTests.testGrayScaleByFile" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ImageInfoTest and 7 more" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest.testPngResize" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1902,7 +1869,24 @@
       <workItem from="1378914901388" duration="3542000" />
       <workItem from="1379289230050" duration="14349000" />
       <workItem from="1379715078543" duration="6047000" />
-      <workItem from="1379873938686" duration="4591000" />
+      <workItem from="1379873938686" duration="16110000" />
+      <workItem from="1379951968181" duration="555000" />
+      <workItem from="1379953358653" duration="159000" />
+      <workItem from="1379954237982" duration="562000" />
+      <workItem from="1380073867132" duration="542000" />
+      <workItem from="1380074549468" duration="618000" />
+      <workItem from="1380130800053" duration="75000" />
+      <workItem from="1380209214521" duration="698000" />
+      <workItem from="1380309169485" duration="2061000" />
+      <workItem from="1380314485412" duration="4049000" />
+      <workItem from="1380409442045" duration="2507000" />
+      <workItem from="1380430573631" duration="597000" />
+      <workItem from="1381883327119" duration="1755000" />
+      <workItem from="1381892083364" duration="85000" />
+      <workItem from="1381892181167" duration="352000" />
+      <workItem from="1381892572764" duration="637000" />
+      <workItem from="1381893406389" duration="3810000" />
+      <workItem from="1381897623168" duration="9126000" />
     </task>
     <task id="LOCAL-00001" summary="Get the embedded Jackrabbit and Jetty configured and running.">
       <created>1368468502484</created>
@@ -1944,7 +1928,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58481000" />
+    <option name="totallyTimeSpent" value="98188000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1974,101 +1958,53 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6414634" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49756098" sideWeight="0.39045286" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.49326804" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22766218" sideWeight="0.4597561" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5402439" sideWeight="0.8280294" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="TunnelliJ" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4878049" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.47001225" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41585365" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22766218" sideWeight="0.2914634" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26009792" sideWeight="0.67195123" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1866585" sideWeight="0.4597561" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.497552" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="CQ Node Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
-      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52815175" sideWeight="0.7304878" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6210826" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3195122" sideWeight="0.38922888" order="19" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6414634" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49756098" sideWeight="0.39045286" order="17" side_tool="true" content_ui="tabs" />
-      <window_info id="CQ Node Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
-      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52815175" sideWeight="0.7304878" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="22" side_tool="false" content_ui="tabs" />
-      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.49326804" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22766218" sideWeight="0.67195123" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2695122" sideWeight="0.8280294" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="24" side_tool="false" content_ui="tabs" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2735618" sideWeight="0.6727273" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27804878" sideWeight="0.8280294" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6210826" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="TunnelliJ" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4878049" sideWeight="0.5" order="23" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TunnelliJ" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4878049" sideWeight="0.5" order="22" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32804877" sideWeight="0.47001225" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32682925" sideWeight="0.47001225" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41585365" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37560976" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3195122" sideWeight="0.38922888" order="26" side_tool="false" content_ui="tabs" />
+      <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22766218" sideWeight="0.2914634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26009792" sideWeight="0.67195123" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1866585" sideWeight="0.67195123" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.497552" order="25" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1866585" sideWeight="0.6727273" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="JSON Formatter" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.497552" order="24" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="CQ Node Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="21" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953465" sideWeight="0.49786323" order="23" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52815175" sideWeight="0.7304878" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="25" side_tool="false" content_ui="tabs" />
+      <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
+      <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
+      <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.6210826" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -2097,6 +2033,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
@@ -2108,140 +2045,114 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="12" selection-start="790" selection-end="1004" vertical-scroll-proportion="0.0" vertical-offset="304" max-vertical-offset="840">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MinimumFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="9" selection-start="609" selection-end="609" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="780">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GrayscaleFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0" vertical-offset="184" max-vertical-offset="780">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BumpModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="13" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="870">
+        <state line="102" column="30" selection-start="5320" selection-end="5320" vertical-scroll-proportion="0.0" vertical-offset="1395" max-vertical-offset="2145">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="28" selection-start="3238" selection-end="3238" vertical-scroll-proportion="0.0" vertical-offset="1999" max-vertical-offset="2325">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/RaysModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="40" selection-start="3182" selection-end="3182" vertical-scroll-proportion="0.0" vertical-offset="2394" max-vertical-offset="3615">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="49" selection-start="3485" selection-end="3485" vertical-scroll-proportion="0.0" vertical-offset="1182" max-vertical-offset="1710">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1119" selection-end="1119" vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1005">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/transformers/HttpPostPropertyTransformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="65" selection-start="1173" selection-end="1173" vertical-scroll-proportion="0.0" vertical-offset="649" max-vertical-offset="975">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="930">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="70" selection-start="939" selection-end="939" vertical-scroll-proportion="0.0" vertical-offset="649" max-vertical-offset="975">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="5" selection-start="2737" selection-end="2737" vertical-scroll-proportion="0.0" vertical-offset="1482" max-vertical-offset="2805">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="40" selection-start="93" selection-end="93" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+        <state line="41" column="11" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.0" vertical-offset="548" max-vertical-offset="1695">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="24" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="975">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="31" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="900">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="0" selection-start="7100" selection-end="7100" vertical-scroll-proportion="0.71246004" vertical-offset="2057" max-vertical-offset="2370">
+        <state line="25" column="0" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="960">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="1107" selection-end="1107" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" vertical-offset="16" max-vertical-offset="1020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1269" selection-end="1269" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="1035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="-0.5529412" vertical-offset="355" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
@@ -2301,11 +2212,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>apiserver-coldfusion</last-edited>
+          <last-edited>swagger-springmvc</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.15812431" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

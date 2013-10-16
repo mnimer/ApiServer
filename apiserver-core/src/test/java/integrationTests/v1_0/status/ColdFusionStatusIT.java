@@ -1,10 +1,10 @@
 package integrationTests.v1_0.status;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import integrationTests.v1_0.HttpTest;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -41,18 +41,8 @@ public class ColdFusionStatusIT extends HttpTest
         JsonNode root = mapper.readTree( result );
 
         Assert.notNull(root.get("coldfusion"));
-        Assert.isTrue(  ((JsonNode)root.get("coldfusion").get("status")).getTextValue().equals("ok") );
+        Assert.isTrue(  ((JsonNode)root.get("coldfusion").get("status")).textValue().equals("ok") );
 
         in.close();
-
-        /**
-       MockHttpServletRequest request = new MockHttpServletRequest();
-       MockHttpServletResponse response = new MockHttpServletResponse();
-
-       Object view = statusController.coldFusionCheck(request, response);
-
-       Assert.isInstanceOf(ModelAndView.class, view);
-       Assert.isTrue(((ModelAndView) view).getModel().get("status").toString().equals("ok"));
-        **/
     }
 }

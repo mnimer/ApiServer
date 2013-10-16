@@ -15,10 +15,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -33,12 +35,15 @@ import java.util.concurrent.TimeoutException;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image-filters/filterDespeckle-flow.xml"})
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml"})
 public class ImageDespeckleTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageDespeckleTests.class);
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterDespeckleGateway imageDespeckleFilterGateway;
@@ -57,6 +62,7 @@ public class ImageDespeckleTests
     public void testDespeckleByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
 
         Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
@@ -80,6 +86,7 @@ public class ImageDespeckleTests
     public void testDespeckleBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
+        args.supportedMimeTypes = supportedMimeTypes;
         args.setFile(file);
 
         Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);

@@ -5,11 +5,16 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-
            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <!--context:annotation-config/-->
     <!--mvc:annotation-driven/-->
+
+    <si:logging-channel-adapter
+            id="logger"
+            log-full-message="true"
+            level="DEBUG"/>
+
 
     <bean id="coldFusionHttpGateway" class="apiserver.core.connectors.coldfusion.ColdFusionHttpBridge">
         <property name="ip" value="localhost"/>
@@ -22,7 +27,7 @@
         <property name="messageConverters">
             <util:list>
                 <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-                <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+                <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
             </util:list>
         </property>
     </bean>
@@ -33,12 +38,6 @@
         <property name="maxUploadSize" value="10000000"/>
     </bean>
 
-
-
-    <si:logging-channel-adapter
-            id="logger"
-            log-full-message="true"
-            level="DEBUG"/>
 
 
 

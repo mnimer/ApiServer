@@ -5,8 +5,6 @@
 
         <!--cfdump var="#html#" output="console"/-->
 
-<!---cfset fileName =  "#getTempDirectory()#/#createUUID()#.pdfs"--->
-
         <cfdocument name="pdf" format="pdfs">
             <cfoutput>#arguments.html#</cfoutput>
         </cfdocument>

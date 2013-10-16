@@ -1,10 +1,10 @@
 package integrationTests.v1_0.images;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import integrationTests.v1_0.HttpTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -55,8 +55,8 @@ public class ImageInfoIT extends HttpTest
         JsonNode root = mapper.readTree(in);
 
         //Assert.notNull(root.get("coldfusion"));
-        Assert.isTrue(((JsonNode) root.get("width")).getIntValue() == width, "Received=" + ((JsonNode) root.get("width")).getIntValue() + " expected=" + width);
-        Assert.isTrue(((JsonNode) root.get("height")).getIntValue() == height, "Received=" + ((JsonNode) root.get("height")).getIntValue() + " expected=" + height);
+        Assert.isTrue(((JsonNode) root.get("width")).intValue() == width, "Received=" + ((JsonNode) root.get("width")).intValue() + " expected=" + width);
+        Assert.isTrue(((JsonNode) root.get("height")).intValue() == height, "Received=" + ((JsonNode) root.get("height")).intValue() + " expected=" + height);
 
         in.close();
 

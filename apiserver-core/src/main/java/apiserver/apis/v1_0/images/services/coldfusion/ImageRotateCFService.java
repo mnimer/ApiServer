@@ -4,8 +4,8 @@ import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.models.images.FileRotateModel;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
-import org.codehaus.jackson.map.DeserializationConfig;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +53,7 @@ public class ImageRotateCFService
 
             // strip out the base64 string from the json packet
             ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
-            mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             String img = mapper.readValue((String)cfcResult, String.class);
 
             if( cfcResult instanceof String )

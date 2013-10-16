@@ -14,8 +14,11 @@
 
            http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
 
-	<context:annotation-config />
-	<mvc:annotation-driven />
+	<!--context:annotation-config /-->
+    <context:annotation-config />
+    <mvc:annotation-driven />
+
+    <!--context:component-scan base-package="apiserver.apis.v1_0.pdf.gateways.pdf" /-->
 
 
     <context:mbean-export registration="replaceExisting"/>
@@ -26,12 +29,7 @@
     <import resource="flows/status/apiserverHealth-flow.xml"/>
     <import resource="flows/status/coldFusionHealth-flow.xml"/>
 
-    <!-- image cache -->
-    <import resource="flows/cache/cacheAdd-flow.xml"/>
-    <import resource="flows/cache/cacheDelete-flow.xml"/>
-    <import resource="flows/cache/cacheGet-flow.xml"/>
-
-
+  
     <!-- Image -->
     <import resource="flows/image/imageMetadata-flow.xml"/>
     <import resource="flows/image/imageResize-flow.xml"/>
@@ -41,20 +39,21 @@
     <import resource="flows/image/imageInfo-flow.xml"/>
 
     <!-- image filters -->
-    <import resource="flows/image-filters/filterBlur-flow.xml"/>
-    <import resource="flows/image-filters/filterBoxBlur-flow.xml"/>
-    <import resource="flows/image-filters/filterBump-flow.xml"/>
-    <import resource="flows/image-filters/filterDespeckle-flow.xml"/>
-    <import resource="flows/image-filters/filterGaussian-flow.xml"/>
-    <import resource="flows/image-filters/filterGlow-flow.xml"/>
-    <import resource="flows/image-filters/filterGrayScale-flow.xml"/>
-    <import resource="flows/image-filters/filterLensBlur-flow.xml"/>
-    <import resource="flows/image-filters/filterMask-flow.xml"/>
-    <import resource="flows/image-filters/filterMaximum-flow.xml"/>
-    <import resource="flows/image-filters/filterMedian-flow.xml"/>
-    <import resource="flows/image-filters/filterMinimum-flow.xml"/>
-    <import resource="flows/image-filters/filterMotionBlur-flow.xml"/>
-    <import resource="flows/image-filters/filterOil-flow.xml"/>
+    <import resource="flows/image/filters/filterBlur-flow.xml"/>
+    <import resource="flows/image/filters/filterBoxBlur-flow.xml"/>
+    <import resource="flows/image/filters/filterBump-flow.xml"/>
+    <import resource="flows/image/filters/filterDespeckle-flow.xml"/>
+    <import resource="flows/image/filters/filterGaussian-flow.xml"/>
+    <import resource="flows/image/filters/filterGlow-flow.xml"/>
+    <import resource="flows/image/filters/filterGrayScale-flow.xml"/>
+    <import resource="flows/image/filters/filterLensBlur-flow.xml"/>
+    <import resource="flows/image/filters/filterMask-flow.xml"/>
+    <import resource="flows/image/filters/filterMaximum-flow.xml"/>
+    <import resource="flows/image/filters/filterMedian-flow.xml"/>
+    <import resource="flows/image/filters/filterMinimum-flow.xml"/>
+    <import resource="flows/image/filters/filterMotionBlur-flow.xml"/>
+    <import resource="flows/image/filters/filterOil-flow.xml"/>
+
 
 
     <!-- to specify swagger properties
@@ -70,6 +69,8 @@
     <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
 
 
+
+
     <!-- Common Beans -->
     <!--task:executor id="taskExecutor"  pool-size="100"/-->
     <si:poller id="defaultPoller"
@@ -82,51 +83,55 @@
 		<property name="messageConverters">
 			<util:list>
 				<bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
-				<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+				<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
 			</util:list>
 		</property>
 	</bean>
 
 
 
-
-	<!-- Spring MVC CONTROLLERS -->
-	<bean name="statusController" class="apiserver.apis.v1_0.status.controllers.StatusController"/>
-
-
-    <bean name="imageCacheController" class="apiserver.apis.v1_0.cache.controllers.CacheController"/>
-	<bean name="imageDrawController" class="apiserver.apis.v1_0.images.controllers.ImageDrawingController"/>
-	<bean name="imageInfoController" class="apiserver.apis.v1_0.images.controllers.ImageInfoController"/>
-	<bean name="imageMetadataController" class="apiserver.apis.v1_0.images.controllers.ImageMetadataController"/>
-	<bean name="imageManipulationController" class="apiserver.apis.v1_0.images.controllers.ImageManipulationController"/>
-	<bean name="imageFiltersController" class="apiserver.apis.v1_0.images.controllers.ImageFiltersController"/>
-
-
-
-
 	<!-- Note: The default parameter name for favorParameter is 'format'. For instance, when this flag is true, a request for /services/employee/{id}/search?format=json will result
 			 in an MappingJacksonJsonView being resolved, while the Accept header can be the browser-defined text/html,application/xhtml+xml  -->
 
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="order" value="1" />
-		<property name="defaultContentType" value="application/json"/>
-		<property name="mediaTypes">
-			<map>
-				<entry key="json" value="application/json" />
-				<!--entry key="xml" value="application/xml" /-->
-			</map>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"></bean>
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="favorParameter" value="false" />
+        <property name="defaultContentType" value="application/json" />
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="mediaTypes" >
+            <map>
+                <entry key="json" value="application/json" />
+            </map>
+        </property>
+    </bean>
 
-				<!--bean class="org.springframework.web.servlet.view.xml.MarshallingView">
-					<constructor-arg ref="marshaller"/>
-				</bean-->
-			</list>
-		</property>
-	</bean>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper" ref="jacksonObjectMapper" />
+                <property name="supportedMediaTypes">
+                    <list>
+                        <bean class="org.springframework.http.MediaType">
+                            <constructor-arg index="0" value="application" />
+                            <constructor-arg index="1" value="json" />
+                            <constructor-arg index="2" value="UTF-8" />
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
+    <bean id="jaxbAnnotationInspector" class="com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector" />
+    <bean id="jacksonAnnotationIntrospector" class="com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector" />
 
+    <bean id="jacksonObjectMapper" class="com.fasterxml.jackson.databind.ObjectMapper">
+        <property name="annotationIntrospector">
+            <bean class="com.fasterxml.jackson.databind.introspect.AnnotationIntrospectorPair">
+                <constructor-arg index="0" ref="jacksonAnnotationIntrospector" />
+                <constructor-arg index="1" ref="jaxbAnnotationInspector" />
+            </bean>
+        </property>
+    </bean>
 </beans>
 

@@ -43,7 +43,6 @@ public class ResponseEntityHelper
         }
 
 
-
         if (image instanceof BufferedImage)
         {
             //DataBufferByte bytes = (DataBufferByte)((BufferedImage) image).getRaster().getDataBuffer();
@@ -52,11 +51,11 @@ public class ResponseEntityHelper
             ImageIO.write((BufferedImage) image, convertToType, baos);
             byte[] bytes = baos.toByteArray();
 
-            processFile(bytes, contentType, returnAsBase64);
+            return processFile(bytes, contentType, returnAsBase64);
 
         } else if (image instanceof byte[])
         {
-            processFile((byte[])image, contentType, returnAsBase64);
+            return processFile((byte[]) image, contentType, returnAsBase64);
         }
 
         throw new RuntimeException("Invalid Image bytes");
@@ -76,7 +75,7 @@ public class ResponseEntityHelper
     {
         HttpHeaders headers = new HttpHeaders();
 
-        headers.setContentType( MediaType.parseMediaType(contentType) ); //todo verify this is right.
+        headers.setContentType(MediaType.parseMediaType(contentType)); //todo verify this is right.
 
         if (bytes instanceof byte[])
         {

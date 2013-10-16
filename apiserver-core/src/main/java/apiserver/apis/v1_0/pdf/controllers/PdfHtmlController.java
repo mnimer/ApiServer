@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.Produces;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -22,12 +23,12 @@ import java.util.concurrent.TimeoutException;
  * User: mnimer
  * Date: 9/15/12
  */
-@Controller
+//@Controller
 @RequestMapping("/pdf")
 public class PdfHtmlController
 {
-    @Autowired
-    public PdfHtmlGateway pdfHtmlGateway;
+    //@Autowired
+    //public PdfHtmlGateway pdfHtmlGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
@@ -44,7 +45,8 @@ public class PdfHtmlController
      */
     @ResponseBody
     @ApiOperation(value = "Convert HTML into a PDF document")
-    @RequestMapping(value = "/generate/html", method = {RequestMethod.POST})
+    @Produces("application/pdf")
+    @RequestMapping(value = "/generate/html", method = RequestMethod.POST)
     public ResponseEntity<byte[]> generatePdfByHtml(
             @ApiParam(name="html", required = true) @RequestPart("html") String html
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
@@ -53,12 +55,15 @@ public class PdfHtmlController
         PdfHtmlModel args = new PdfHtmlModel();
         args.setHtml(html);
 
-        Future<Map> future = pdfHtmlGateway.convertHtmlToPdf(args);
+        Future<Map> future = null;//pdfHtmlGateway.convertHtmlToPdf(args);
         PdfHtmlModel payload = (PdfHtmlModel)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] file = payload.getProcessedFileBytes();
-        String contentType = payload.getContentType();
+        String contentType = "application/pdf";//payload.getContentType();
 
+
+        ///response.setHeader( "Content-Disposition", "attachment;filename=" + filename );
+        //response.setContentType("application/pdf");
         ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(file, contentType, returnAsBase64);
         return result;
     }

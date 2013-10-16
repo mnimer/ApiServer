@@ -1,9 +1,13 @@
 package apiserver.core.models;
 
+import com.adobe.xmp.impl.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -20,7 +24,6 @@ import java.util.HashMap;
  * User: mikenimer
  * Date: 7/13/13
  */
-@Component
 public class FileModel
 {
     public final Logger log = LoggerFactory.getLogger(FileModel.class);
@@ -75,9 +78,8 @@ public class FileModel
         if( file instanceof  File)
         {
             String extension = ((File)file).getName().split("\\.")[1];
-            String mimeType = null;//(String)supportedMimeTypes.get( extension );   //todo
-            contentType = supportedMimeTypes.get(extension);
-            if( mimeType == null )
+             contentType = supportedMimeTypes.get(extension);
+            if( contentType == null )
             {
                 contentType = "application/octet-stream";//catch all
             }
@@ -139,6 +141,10 @@ public class FileModel
     public void setBase64File(String base64File)
     {
         this.base64File = base64File;
+
+        // convert back to the bytes.
+        byte[] bytes = Base64.decode(base64File.getBytes());
+        this.setProcessedFileBytes(bytes);
     }
 
 
@@ -174,6 +180,17 @@ public class FileModel
             return bufferedImage;
         }
         bufferedImage = ImageIO.read(new ByteArrayInputStream(getFileBytes()));
+        return bufferedImage;
+    }
+
+
+    public BufferedImage getProcessedBufferedImage() throws IOException
+    {
+        if( bufferedImage != null )
+        {
+            return bufferedImage;
+        }
+        bufferedImage = ImageIO.read(new ByteArrayInputStream(getProcessedFileBytes()));
         return bufferedImage;
     }
 

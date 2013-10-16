@@ -20,7 +20,7 @@ public class ConvertHtmlToPDFTest
 {
     public final Logger log = LoggerFactory.getLogger(ConvertHtmlToPDFTest.class);
 
-    @Autowired
+    //@Autowired
     private PdfHtmlGateway gateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;

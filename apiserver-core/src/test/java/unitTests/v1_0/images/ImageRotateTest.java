@@ -12,10 +12,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +34,9 @@ import java.util.concurrent.TimeUnit;
 public class ImageRotateTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageRotateTest.class);
+
+    @Resource(name="supportedMimeTypes")
+    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ImageRotateGateway gateway;
@@ -63,6 +68,7 @@ public class ImageRotateTest
         try
         {
             FileRotateModel args = new FileRotateModel();
+            args.supportedMimeTypes = supportedMimeTypes;
             args.setAngle(90);
             args.setFile(file);
 
