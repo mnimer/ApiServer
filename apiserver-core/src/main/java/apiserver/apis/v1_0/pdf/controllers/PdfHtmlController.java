@@ -23,7 +23,7 @@ import java.util.concurrent.TimeoutException;
  * User: mnimer
  * Date: 9/15/12
  */
-//@Controller
+@Controller
 @RequestMapping("/pdf")
 public class PdfHtmlController
 {
@@ -64,6 +64,15 @@ public class PdfHtmlController
 
         ///response.setHeader( "Content-Disposition", "attachment;filename=" + filename );
         //response.setContentType("application/pdf");
+        /**
+         * HttpHeaders headers = new HttpHeaders();
+         headers.setContentType(MediaType.parseMediaType("application/pdf"));
+         String filename = "output.pdf";
+         headers.setContentDispositionFormData(filename, filename);
+         headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+         ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(contents, headers, HttpStatus.OK);
+
+         */
         ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(file, contentType, returnAsBase64);
         return result;
     }

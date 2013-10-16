@@ -64,9 +64,10 @@
     <!-- pulls in the Controllers to document -->
     <context:component-scan base-package="apiserver.apis.v1_0" />
     <!-- Configuration Bean -->
-    <bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/>
+    <!--bean id="documentationConfig" class="com.mangofactory.swagger.configuration.DocumentationConfig"/-->
     <!-- Custom extensibility module (bean) Has override methods to customize the document generation-->
-    <!-- bean id="extensibilityModule" class="com.mangofactory.swagger.springmvc.example.config.ExampleExtensibilityModule" /-->
+    <bean id="documentationConfig" class="apiserver.core.swagger.CustomDocumentationConfig"/>
+    <bean id="extensibilityModule" class="apiserver.core.swagger.SwaggerExtensibilityModule" />
 
 
 
