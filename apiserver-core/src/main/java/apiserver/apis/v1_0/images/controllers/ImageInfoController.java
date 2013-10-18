@@ -5,6 +5,7 @@ import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
 import apiserver.apis.v1_0.images.models.images.FileInfoModel;
 import apiserver.apis.v1_0.images.models.images.FileMetadataModel;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ import java.util.concurrent.TimeUnit;
  * Date: 9/15/12
  */
 @Controller
+@Api(value = "/image/info", description = "[IMAGE]")
 @RequestMapping("/image/info")
 public class ImageInfoController
 {

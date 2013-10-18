@@ -15,22 +15,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="add swagger maven plugin to test.. This plugin will work, if we fork the code and modify it to understand the springMVC synt">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/jcr-context.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/jackrabbit/bootstrap.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/jackrabbit/repository.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/jackrabbit/webdav-config.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/Main.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/TravelGateway.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/java/org/springframework/integration/samples/travel/TravelGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/test/java/org/springframework/integration/samples/travel/TravelGatewayTest.java" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/test/java/org/springframework/integration/samples/travel/TravelGatewayTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-context.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-http-context.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/src/main/resources/META-INF/spring/integration-http-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/pom.xml" afterPath="$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,88 +123,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
+      <file leaf-file-name="BlurController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="11" selection-start="1650" selection-end="1650" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="13065">
+            <state line="36" column="0" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.028169014" vertical-offset="113" max-vertical-offset="930">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PdfHtmlController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="61" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1020">
-              <folding />
-            </state>
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml">
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apis-servlet.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="70" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="2160">
-              <folding />
-            </state>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomDocumentationConfig.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="555">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+            <state />
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SwaggerExtensibilityModule.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="67" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.8287671" vertical-offset="1107" max-vertical-offset="1635">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjectMapper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.1.4/jackson-databind-2.1.4-sources.jar!/com/fasterxml/jackson/databind/ObjectMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="788" column="22" selection-start="30454" selection-end="30454" vertical-scroll-proportion="0.0" vertical-offset="10856" max-vertical-offset="42795">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NameOperationComparator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NameEndPointComparator.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CORSFilter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/filters/CORSFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="660">
+            <state line="6" column="18" selection-start="328" selection-end="328" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="1665">
               <folding />
             </state>
           </provider>
@@ -234,22 +178,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java" />
         <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/ResponseEntityMapAlternative.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
         <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" />
       </list>
     </option>
   </component>
@@ -403,7 +347,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -419,6 +363,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -457,30 +423,8 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,15 +446,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,15 +472,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -566,15 +532,89 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="swagger" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -605,48 +645,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -719,6 +717,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -734,7 +774,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1818,7 +1858,9 @@
       <workItem from="1381892181167" duration="352000" />
       <workItem from="1381892572764" duration="637000" />
       <workItem from="1381893406389" duration="3810000" />
-      <workItem from="1381897623168" duration="12048000" />
+      <workItem from="1381897623168" duration="14102000" />
+      <workItem from="1381984458467" duration="2630000" />
+      <workItem from="1382064103244" duration="447000" />
     </task>
     <task id="LOCAL-00001" summary="Get the embedded Jackrabbit and Jetty configured and running.">
       <created>1368468502484</created>
@@ -1860,7 +1902,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101110000" />
+    <option name="totallyTimeSpent" value="106241000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1907,12 +1949,10 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32682925" sideWeight="0.47001225" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37560976" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37560976" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3195122" sideWeight="0.38922888" order="26" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="27" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22766218" sideWeight="0.2914634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26009792" sideWeight="0.67195123" order="4" side_tool="false" content_ui="tabs" />
@@ -1927,7 +1967,9 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="25" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32682925" sideWeight="0.47001225" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3195122" sideWeight="0.38922888" order="26" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
@@ -1962,10 +2004,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js</url>
+          <line>459</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js</url>
+          <line>1512</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="XPathView.XPathProjectComponent">
@@ -1977,114 +2031,101 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="810">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1211" selection-end="1211" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="885">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="1065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0" vertical-offset="355" max-vertical-offset="855">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="11" selection-start="1650" selection-end="1650" vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="13065">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="70" selection-start="3930" selection-end="3930" vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="2160">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.1.4/jackson-databind-2.1.4-sources.jar!/com/fasterxml/jackson/databind/ObjectMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="788" column="22" selection-start="30454" selection-end="30454" vertical-scroll-proportion="0.0" vertical-offset="10856" max-vertical-offset="42795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/filters/CORSFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" vertical-offset="174" max-vertical-offset="660">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+        <state line="98" column="67" selection-start="3405" selection-end="3405" vertical-scroll-proportion="2.2451193" vertical-offset="435" max-vertical-offset="1635">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="719" selection-end="719" vertical-scroll-proportion="0.0" vertical-offset="117" max-vertical-offset="555">
+        <state line="23" column="0" selection-start="719" selection-end="719" vertical-scroll-proportion="0.5444685" vertical-offset="94" max-vertical-offset="555">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="61" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1020">
+        <state line="27" column="0" selection-start="927" selection-end="970" vertical-scroll-proportion="0.2866242" vertical-offset="0" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="67" selection-start="3405" selection-end="3405" vertical-scroll-proportion="0.8287671" vertical-offset="1107" max-vertical-offset="1635">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="19" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.46487603" vertical-offset="0" max-vertical-offset="484">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="557" selection-end="557" vertical-scroll-proportion="0.6198347" vertical-offset="0" max-vertical-offset="484" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/filters/CORSFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="492" selection-end="492" vertical-scroll-proportion="0.29936305" vertical-offset="174" max-vertical-offset="660" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1-sources.jar!/javax/ws/rs/core/MediaType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="13" selection-start="891" selection-end="891" vertical-scroll-proportion="0.31847134" vertical-offset="0" max-vertical-offset="3645" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="459" column="97" selection-start="21237" selection-end="21266" vertical-scroll-proportion="0.33197555" vertical-offset="6722" max-vertical-offset="30525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="1116" selection-end="1116" vertical-scroll-proportion="0.5476673" vertical-offset="0" max-vertical-offset="1350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="41550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="18" selection-start="328" selection-end="328" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="1665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="415" column="58" selection-start="13906" selection-end="13906" vertical-scroll-proportion="0.33290654" vertical-offset="5965" max-vertical-offset="18675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1366" selection-end="1366" vertical-scroll-proportion="0.028169014" vertical-offset="113" max-vertical-offset="930">
+          <folding />
         </state>
       </provider>
     </entry>

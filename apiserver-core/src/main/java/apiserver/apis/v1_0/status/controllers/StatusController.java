@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 
 
 @Controller
-@Api("/status")
+@Api(value = "/status", description = "[GENERAL]")
 @RequestMapping("/status")
 public class StatusController
 {

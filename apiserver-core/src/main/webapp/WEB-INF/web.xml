@@ -58,7 +58,6 @@
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-		<!--listener-class>com.mikenimer.palladium.bootstrap.SpringContextLoaderListener</listener-class-->
 	</listener>
 
 
@@ -69,161 +68,10 @@
     </servlet>
 
 
-	<!-- ###########################
-	##  JCR/JACKRABBIT Repository
-	########################### -->
-    <!-- configured by spring
-    <servlet>
-        <servlet-name>ContentRepository</servlet-name>
-        <servlet-class>org.apache.jackrabbit.servlet.jackrabbit.JackrabbitRepositoryServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-
-        <init-param>
-            <param-name>repository.home</param-name>
-            <param-value>jackrabbit-repository</param-value>
-        </init-param>
-
-        <init-param>
-            <param-name>repository.config</param-name>
-            <param-value>src/main/webapp/WEB-INF/jackrabbit/repository.xml</param-value>
-        </init-param>
-    </servlet>
-    -->
-
-    <!-- ALTERNATIVE J2EE
-    <servlet>
-        <servlet-name>ContentRepository</servlet-name>
-        <servlet-class>org.apache.jackrabbit.j2ee.RepositoryStartupServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-
-        <init-param>
-        <param-name>bootstrap-config</param-name>
-        <param-value>/WEB-INF/jackrabbit/bootstrap.properties</param-value>
-        </init-param>
-    </servlet>
-    -->
-
-
-    <!-- ====================================================================== -->
-    <!-- REPOSITORY SERVLET                                    -->
-    <!-- ====================================================================== -->
-    <servlet>
-        <servlet-name>Repository</servlet-name>
-        <servlet-class>org.apache.jackrabbit.j2ee.RepositoryAccessServlet</servlet-class>
-
-        <init-param>
-            <param-name>repository.context.attribute.name</param-name>
-            <param-value>javax.jcr.Repository</param-value>
-        </init-param>
-
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-
-
-    <!-- ====================================================================== -->
-    <!-- WEBDAV  SERVLET  -->
-    <!-- ====================================================================== -->
-    <servlet>
-        <servlet-name>Webdav</servlet-name>
-        <description>
-            The webdav servlet that connects HTTP request to the repository.
-        </description>
-        <servlet-class>org.apache.jackrabbit.j2ee.SimpleWebdavServlet</servlet-class>
-
-        <init-param>
-            <param-name>resource-path-prefix</param-name>
-            <param-value>/repository</param-value>
-            <description>
-                defines the prefix for spooling resources out of the repository.
-            </description>
-        </init-param>
-        <!--
-            Optional parameter to define the value of the 'WWW-Authenticate' header
-        -->
-        <!--
-        <init-param>
-            <param-name>authenticate-header</param-name>
-            <param-value>Basic realm="Jackrabbit Webdav Server"</param-value>
-            <description>
-                Defines the value of the 'WWW-Authenticate' header.
-            </description>
-        </init-param>
-        -->
-        <!--
-            Parameter used to configure behaviour of webdav resources such as:
-            - destinction between collections and non-collections
-            - resource filtering
-        -->
-        <init-param>
-            <param-name>resource-config</param-name>
-            <param-value>/WEB-INF/jackrabbit/webdav-config.xml</param-value>
-            <description>
-                Defines various dav-resource configuration parameters.
-            </description>
-        </init-param>
-        <load-on-startup>4</load-on-startup>
-    </servlet>
-
-    <!-- ==================================================================-->
-    <!-- WEBDAV SERVER SERVLET -->
-    <!-- =====================================================================
-
-    <servlet>
-        <servlet-name>JCRWebdavServer</servlet-name>
-        <description>
-            The webdav servlet that connects HTTP request to the repository.
-        </description>
-        <servlet-class>org.apache.jackrabbit.j2ee.JCRWebdavServerServlet</servlet-class>
-        <init-param>
-            <param-name>resource-path-prefix</param-name>
-            <param-value>/server</param-value>
-            <description>
-                defines the prefix for spooling resources out of the repository.
-            </description>
-        </init-param>
-    -->
-
-
-    <!--
-        Optional parameter to define the value of the 'WWW-Authenticate' header
-    -->
-    <!--
-    <init-param>
-        <param-name>authenticate-header</param-name>
-        <param-value>Basic realm="Jackrabbit Webdav Server"</param-value>
-        <description>
-            Defines the value of the 'WWW-Authenticate' header.
-        </description>
-    </init-param>
-    -->
-
-
-    <!--
-    <load-on-startup>5</load-on-startup>
-</servlet>
- -->
-
-
-    <!-- ==================================================================== -->
-    <!-- RMI BINDING SERVLETS                                                 -->
-    <!-- ==================================================================== -->
-    <servlet>
-        <servlet-name>RMI</servlet-name>
-        <servlet-class>org.apache.jackrabbit.servlet.remote.RMIRemoteBindingServlet</servlet-class>
-        <init-param>
-            <param-name>url</param-name>
-            <param-value>//localhost/jackrabbit.repository</param-value>
-        </init-param>
-    </servlet>
-
-
-
-
 
     <!-- ###########################
 	##  API SERVER
 	########################### -->
-
 	<servlet id="api-status">
 		<servlet-name>api-status</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -245,27 +93,7 @@
 		<url-pattern>/rest/v1/*</url-pattern>
 	</servlet-mapping>
 
-    <!-- ==================================================================-->
-    <!-- JCR SERVLET MAPPING -->
-    <!-- ===================================================================-->
-    <servlet-mapping>
-        <servlet-name>Webdav</servlet-name>
-        <url-pattern>/repository/*</url-pattern>
-    </servlet-mapping>
-    <!--servlet-mapping>
-        <servlet-name>JCRWebdavServer</servlet-name>
-        <url-pattern>/server/*</url-pattern>
-    </servlet-mapping-->
-    <servlet-mapping>
-        <servlet-name>RMI</servlet-name>
-        <url-pattern>/rmi</url-pattern>
-    </servlet-mapping>
 
-
-
-	<session-config>
-		<session-timeout>30</session-timeout>
-	</session-config>
 
 	<welcome-file-list id="WelcomeFileList">
 		<welcome-file>index.jsp</welcome-file>

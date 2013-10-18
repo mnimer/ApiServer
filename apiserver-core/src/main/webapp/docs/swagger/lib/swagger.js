@@ -413,7 +413,7 @@
 
     SwaggerResource.prototype.sanitize = function(nickname) {
       var op;
-      op = nickname.replace(/[\s!@#$%^&*()_+=\[{\]};:<>|./?,\\'""-]/g, '_');
+      op = nickname.replace(/[\s!@#$%^&*()_+=\[{\]};:<>|.\/?,\\'""-]/g, '_');
       op = op.replace(/((_){2,})/g, '_');
       op = op.replace(/^(_)*/g, '');
       op = op.replace(/([_])*$/g, '');
@@ -712,12 +712,7 @@
         return type;
       } else {
         if (listType != null) {
-            try
-            {
-                return models[listType].getMockSignature();
-            }catch(err){
-                return "UNKNOWN";
-            }
+          return models[listType].getMockSignature();
         } else {
           return models[type].getMockSignature();
         }
@@ -942,7 +937,7 @@
       }
       this.type = this.type.toUpperCase();
       headers = params.headers;
-      myHeaders = {"accept":"application/json"};
+      myHeaders = {};
       body = params.body;
       parent = params["parent"];
       requestContentType = "application/json";

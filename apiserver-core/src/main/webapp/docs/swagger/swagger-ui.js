@@ -457,7 +457,7 @@ function program11(depth0,data) {
   buffer += "\n        ";
   stack1 = helpers['if'].call(depth0, depth0.type, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n        <form accept-charset='UTF-8' class='sandbox'>\n          <div style='margin:0;padding:0;display:inline'></div>\n          ";
+  buffer += "\n        <form accept-charset='UTF-8' class='sandbox' enctype='multipart/form-data'>\n          <div style='margin:0;padding:0;display:inline'></div>\n          ";
   stack1 = helpers['if'].call(depth0, depth0.parameters, {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
   buffer += "\n          ";

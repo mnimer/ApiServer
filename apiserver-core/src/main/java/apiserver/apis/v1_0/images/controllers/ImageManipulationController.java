@@ -5,6 +5,7 @@ import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
 import apiserver.apis.v1_0.images.models.images.FileResizeModel;
 import apiserver.apis.v1_0.images.models.images.FileRotateModel;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/15/12
  */
 @Controller
+@Api(value = "/image/manipulation", description = "[IMAGE]")
 @RequestMapping("/image/manipulation")
 public class ImageManipulationController
 {
