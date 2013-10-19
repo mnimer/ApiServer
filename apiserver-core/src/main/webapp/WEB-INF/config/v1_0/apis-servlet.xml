@@ -72,12 +72,21 @@
 
 
 
+
     <!-- Common Beans -->
     <!--task:executor id="taskExecutor"  pool-size="100"/-->
     <si:poller id="defaultPoller"
                default="true"
                max-messages-per-poll="1"
                fixed-rate="100"/>
+
+
+
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- one of the properties available; the maximum file size in bytes -->
+        <property name="maxUploadSize" value="10000000"/>
+    </bean>
 
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

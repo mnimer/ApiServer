@@ -34,8 +34,8 @@ import java.util.concurrent.TimeoutException;
  * Date: 8/29/13
  */
 @Controller
-@Api(description = "[IMAGE]")
 @RequestMapping("/image/filters")
+@Api(value="/image/filters", description = "[IMAGE] Image Filter APIs")
 public class BlurController
 {
     public final Logger log = LoggerFactory.getLogger(BlurController.class);
@@ -58,10 +58,9 @@ public class BlurController
      * @throws InterruptedException
      * @throws IOException
      */
+    @Consumes("multipart/form-data")
     @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
     @RequestMapping(value = "/blur", method = RequestMethod.POST)
-    @Consumes(javax.ws.rs.core.MediaType.MULTIPART_FORM_DATA)
-    @Produces("image/png")
     public ResponseEntity<byte[]> imageBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
