@@ -116,6 +116,7 @@ public class HttpTest
         client.getParams().setParameter(CoreProtocolPNames.PROTOCOL_VERSION, HttpVersion.HTTP_1_1);
 
         HttpPost post = new HttpPost(url);
+        //post.setHeader("accept", "image/png");
         MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
         post.setEntity(entity);
 

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
@@ -46,7 +47,6 @@ public class BlurController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
     /**
      * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
      *
@@ -58,10 +58,10 @@ public class BlurController
      * @throws InterruptedException
      * @throws IOException
      */
-    @Consumes("multipart/form-data")
+
     @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
-    @RequestMapping(value = "/blur", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> imageBlurByFile(
+    @RequestMapping(value = "/blur.{format}", method = RequestMethod.POST)
+    public ModelAndView imageBlurByFile2(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
@@ -75,7 +75,12 @@ public class BlurController
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
-        return result;
+        //return result;
+
+        ModelAndView view = new ModelAndView("/dir/sub/foo");
+        view.addObject("bytes", result.getBody());
+        view.addObject("name", "foo.png");
+        return view;
     }
 
 
