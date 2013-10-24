@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
-import apiserver.apis.v1_0.images.models.filters.OilModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -58,17 +58,17 @@ public class OilBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
-    @RequestMapping(value = "/oil", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/oil", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageOilBlurByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            @ApiParam(name = "documentId", required = true) @RequestParam(value = "documentId") String documentId
             , @ApiParam(name="level", required = true, defaultValue = "3")  @RequestParam(value="angle", required = false, defaultValue="3") int level
             , @ApiParam(name="range", required = true, defaultValue = "256")  @RequestParam(value="range", required = false,  defaultValue="256") int range
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        OilModel args = new OilModel();
-        args.setFile(file);
+        OilJob args = new OilJob();
+        args.setDocumentId(documentId);
         args.setLevels(level);
         args.setRange(range);
 

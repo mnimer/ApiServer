@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.images.models.filters.GlowModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GlowJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GlowFilter;
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ public class GlowFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        GlowModel props = (GlowModel) message.getPayload();
+        GlowJob props = (GlowJob) message.getPayload();
 
         int amount = props.getAmount();
 
@@ -37,7 +37,7 @@ public class GlowFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

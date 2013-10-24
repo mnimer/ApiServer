@@ -1,5 +1,6 @@
-package apiserver.apis.v1_0.images.models.filters;
+package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,9 +12,9 @@ import java.io.File;
  * User: mikenimer
  * Date: 7/14/13
  */
-public class MaskModel extends FileModel
+public class MaskJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(MaskModel.class);
+    public final Logger log = LoggerFactory.getLogger(MaskJob.class);
 
     Object mask; //String, File, MultipartFile
 

@@ -1,11 +1,10 @@
 package unitTests.v1_0.pdf;
 
-import apiserver.apis.v1_0.pdf.gateways.pdf.PdfHtmlGateway;
-import apiserver.apis.v1_0.pdf.models.PdfHtmlModel;
+import apiserver.apis.v1_0.pdf.gateways.PdfHtmlGateway;
+import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Map;
@@ -31,7 +30,7 @@ public class ConvertHtmlToPDFTest
     {
         try
         {
-            PdfHtmlModel args = new PdfHtmlModel();
+            PdfHtmlJob args = new PdfHtmlJob();
             args.setHtml("<b>Hello World</b>");
 
             Future<Map> resultFuture = gateway.convertHtmlToPdf(args);

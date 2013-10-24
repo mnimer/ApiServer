@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
-import apiserver.apis.v1_0.images.models.filters.MaskModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -60,13 +60,13 @@ public class ImageMaskTests
     @Test
     public void testMaskByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        MaskModel args = new MaskModel();
+        MaskJob args = new MaskJob();
         args.setFile(file);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
 
-        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        MaskJob payload = (MaskJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -83,13 +83,13 @@ public class ImageMaskTests
     @Test
     public void testMaskBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        MaskModel args = new MaskModel();
+        MaskJob args = new MaskJob();
         args.setFile(file);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
 
-        MaskModel payload = (MaskModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        MaskJob payload = (MaskJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

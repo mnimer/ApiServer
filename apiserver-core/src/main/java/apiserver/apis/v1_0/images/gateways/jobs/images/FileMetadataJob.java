@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.models.images;
+package apiserver.apis.v1_0.images.gateways.jobs.images;
 
 import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
@@ -10,9 +10,9 @@ import java.util.Map;
  * User: mikenimer
  * Date: 8/26/13
  */
-public class FileMetadataModel extends FileModel
+public class FileMetadataJob extends FileModel
 {
-    public final Logger log = LoggerFactory.getLogger(FileMetadataModel.class);
+    public final Logger log = LoggerFactory.getLogger(FileMetadataJob.class);
 
     private Map metadata;
 

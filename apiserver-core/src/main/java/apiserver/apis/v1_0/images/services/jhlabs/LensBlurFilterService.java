@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.LensBlurJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.LensBlurFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class LensBlurFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        LensBlurModel props = (LensBlurModel) message.getPayload();
+        LensBlurJob props = (LensBlurJob) message.getPayload();
 
         float radius = props.getRadius();
         int sides = props.getSides();
@@ -43,7 +43,7 @@ public class LensBlurFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes( outFile );
+            props.setBufferedImage( outFile );
             return message;
         }
         catch (Throwable e)

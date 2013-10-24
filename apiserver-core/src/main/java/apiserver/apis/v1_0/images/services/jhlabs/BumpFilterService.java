@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.images.models.filters.BumpModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.BumpJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BumpFilter;
 import org.apache.log4j.Logger;
@@ -22,7 +22,7 @@ public class BumpFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        BumpModel props = (BumpModel) message.getPayload();
+        BumpJob props = (BumpJob) message.getPayload();
 
         int edgeAction = props.getEdgeAction();
         boolean useAlpha = props.isUseAlpha();
@@ -49,7 +49,7 @@ public class BumpFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

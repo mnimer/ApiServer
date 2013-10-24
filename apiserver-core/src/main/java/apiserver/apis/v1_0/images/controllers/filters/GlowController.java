@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGlowGateway;
-import apiserver.apis.v1_0.images.models.filters.GlowModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GlowJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,13 +42,11 @@ public class GlowController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
-
     /**
      * This filter produces a glowing effect on an uploaded image by adding a blurred version of the image to subtracted from the original image.
-     * @param file
+     *
+     * @param documentId
      * @param amount
-     * @param returnAsBase64
      * @return
      * @throws TimeoutException
      * @throws ExecutionException
@@ -55,15 +54,14 @@ public class GlowController
      * @throws IOException
      */
     @ApiOperation(value = "This filter produces a glowing effect on an image by adding a blurred version of the image to subtracted from the original image.")
-    @RequestMapping(value = "/glow", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/glow", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageGlowByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "amount", required = true, defaultValue = "2") @RequestParam(required = false, defaultValue = "2") int amount
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GlowModel args = new GlowModel();
-        args.setFile(file);
+        GlowJob args = new GlowJob();
+        args.setDocumentId(documentId);
         args.setAmount(amount);
 
         Future<Map> imageFuture = imageFilterGlowGateway.imageGlowFilter(args);
@@ -71,7 +69,7 @@ public class GlowController
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
 

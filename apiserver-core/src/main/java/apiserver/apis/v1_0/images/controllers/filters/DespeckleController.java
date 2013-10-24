@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterDespeckleGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +46,7 @@ public class DespeckleController
     /**
      * This filter reduces light noise in an image using the eight hull algorithm described in Applied Optics, Vol. 24, No. 10, 15 May 1985, "Geometric filter for Speckle Reduction", by Thomas R Crimmins. Basically, it tries to move each pixel closer in value to its neighbours. As it only has a small effect, you may need to apply it several times. This is good for removing small levels of noise from an image but does give the image some fuzziness.
      *
-     * @param file
+     * @param documentId
      * @return
      * @throws TimeoutException
      * @throws ExecutionException
@@ -52,13 +54,13 @@ public class DespeckleController
      * @throws IOException
      */
     @ApiOperation(value = "This filter reduces light noise in an image using the eight hull algorithm described in Applied Optics, Vol. 24, No. 10, 15 May 1985, \"Geometric filter for Speckle Reduction\", by Thomas R Crimmins. Basically, it tries to move each pixel closer in value to its neighbours. As it only has a small effect, you may need to apply it several times. This is good for removing small levels of noise from an image but does give the image some fuzziness.")
-    @RequestMapping(value = "/despeckle.{format}", method = {RequestMethod.POST})
-    public ModelAndView imageDespeckleByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+    @RequestMapping(value = "/{documentId}/despeckle", method = {RequestMethod.GET})
+    public ResponseEntity<byte[]> imageDespeckleByFile(
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.setFile(file);
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageFilterDespeckleGateway.imageDespeckleFilter(args);
         FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
@@ -66,13 +68,8 @@ public class DespeckleController
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
-        //return result;
+        return result;
 
-
-        ModelAndView view = new ModelAndView("image");
-        view.addObject("bytes", result.getBody());
-        view.addObject("url", "foo.png");
-        return view;
     }
 
 }

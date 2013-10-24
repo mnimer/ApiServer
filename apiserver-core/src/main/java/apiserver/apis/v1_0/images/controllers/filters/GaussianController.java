@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGaussianGateway;
-import apiserver.apis.v1_0.images.models.filters.GaussianModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GaussianJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,13 +42,11 @@ public class GaussianController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
     /**
      * This filter performs a Gaussian blur on an uploaded image.
      *
-     * @param file
+     * @param documentId
      * @param radius
-     * @param returnAsBase64
      * @return
      * @throws TimeoutException
      * @throws ExecutionException
@@ -55,15 +54,14 @@ public class GaussianController
      * @throws IOException
      */
     @ApiOperation(value = "This filter performs a Gaussian blur on an image.")
-    @RequestMapping(value = "/gaussian", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/gaussian", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageDespeckleByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "radius", required = true, defaultValue = "2") @RequestParam(required = false, defaultValue = "2") int radius
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GaussianModel args = new GaussianModel();
-        args.setFile(file);
+        GaussianJob args = new GaussianJob();
+        args.setDocumentId(documentId);
         args.setRadius(radius);
 
         Future<Map> imageFuture = imageFilterGaussianGateway.imageGaussianFilter(args);
@@ -71,7 +69,7 @@ public class GaussianController
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
 

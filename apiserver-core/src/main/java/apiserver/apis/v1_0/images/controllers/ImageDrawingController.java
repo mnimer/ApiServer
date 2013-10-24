@@ -2,18 +2,15 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageDrawBorderGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway;
-import apiserver.apis.v1_0.images.models.images.FileBorderModel;
-import apiserver.apis.v1_0.images.models.images.FileTextModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileBorderJob;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileTextJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.integration.MessageChannel;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
@@ -46,10 +43,10 @@ public class ImageDrawingController
     public MessageChannel imageDrawTextInputChannel;
 
 
-
     /**
      * Draw a border around an image
-     * @param file
+     *
+     * @param documentId
      * @param color
      * @param thickness
      * @param returnAsBase64
@@ -59,21 +56,21 @@ public class ImageDrawingController
      * @throws TimeoutException
      * @throws IOException
      */
-    @RequestMapping(value = "/border", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/border", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> drawBorderByImage(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
             , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException
     {
-        FileBorderModel args = new FileBorderModel();
-        args.setFile(file);
+        FileBorderJob args = new FileBorderJob();
+        args.setDocumentId(documentId);
         args.setColor(color);
         args.setThickness(thickness);
 
         Future<Map> imageFuture = imageDrawBorderGateway.imageDrawBorderFilter(args);
-        FileBorderModel payload = (FileBorderModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
@@ -85,7 +82,7 @@ public class ImageDrawingController
     /**
      * Overlay text onto an image
      *
-     * @param file
+     * @param documentId
      * @param text
      * @param color
      * @param fontSize
@@ -100,9 +97,9 @@ public class ImageDrawingController
      * @throws TimeoutException
      * @throws IOException
      */
-    @RequestMapping(value = "/text", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/text", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> drawTextByImage(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
             , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
@@ -113,8 +110,8 @@ public class ImageDrawingController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException
     {
-        FileTextModel args = new FileTextModel();
-        args.setFile(file);
+        FileTextJob args = new FileTextJob();
+        args.setDocumentId(documentId);
         args.setText(text);
         args.setColor(color);
         args.setFontSize(fontSize);
@@ -124,7 +121,7 @@ public class ImageDrawingController
         args.setY(y);
 
         Future<Map> imageFuture = imageDrawTextGateway.imageDrawTextFilter(args);
-        FileTextModel payload = (FileTextModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        FileTextJob payload = (FileTextJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();

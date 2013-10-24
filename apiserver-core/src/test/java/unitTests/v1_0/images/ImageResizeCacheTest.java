@@ -1,7 +1,7 @@
 package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
-import apiserver.apis.v1_0.images.models.images.FileResizeModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -70,7 +70,7 @@ public class ImageResizeCacheTest
 
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
@@ -79,7 +79,7 @@ public class ImageResizeCacheTest
             args.setScaleToFit(false);
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
 
             BufferedImage bimg =  result.getBufferedImage();

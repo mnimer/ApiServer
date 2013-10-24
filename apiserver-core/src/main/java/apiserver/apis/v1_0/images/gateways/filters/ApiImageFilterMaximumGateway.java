@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.models.FileModel;
 
 import java.util.Map;
@@ -11,5 +12,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMaximumGateway
 {
-    Future<Map> imageMaximumFilter(FileModel fileModel);
+    Future<Map> imageMaximumFilter(ImageDocumentJob fileModel);
 }

@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.coldfusion;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
-import apiserver.apis.v1_0.images.models.images.FileResizeModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -34,7 +34,7 @@ public class ImageResizeCFService
 
     public Object execute(Message<?> message) throws ColdFusionException
     {
-        FileResizeModel props = (FileResizeModel)message.getPayload();
+        FileResizeJob props = (FileResizeJob)message.getPayload();
 
         try
         {

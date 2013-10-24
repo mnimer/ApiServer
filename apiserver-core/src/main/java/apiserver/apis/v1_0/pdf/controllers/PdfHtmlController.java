@@ -1,12 +1,10 @@
 package apiserver.apis.v1_0.pdf.controllers;
 
-import apiserver.apis.v1_0.pdf.gateways.pdf.PdfHtmlGateway;
-import apiserver.apis.v1_0.pdf.models.PdfHtmlModel;
+import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,11 +52,11 @@ public class PdfHtmlController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException
     {
-        PdfHtmlModel args = new PdfHtmlModel();
+        PdfHtmlJob args = new PdfHtmlJob();
         args.setHtml(html);
 
         Future<Map> future = null;//pdfHtmlGateway.convertHtmlToPdf(args);
-        PdfHtmlModel payload = (PdfHtmlModel)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        PdfHtmlJob payload = (PdfHtmlJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] file = payload.getProcessedFileBytes();
         String contentType = "application/pdf";//payload.getContentType();

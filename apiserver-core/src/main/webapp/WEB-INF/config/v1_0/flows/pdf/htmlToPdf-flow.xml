@@ -20,7 +20,7 @@
 
 
     <si:gateway id="convertHtmlToPdfChannelApiGateway"
-                service-interface="apiserver.apis.v1_0.pdf.gateways.pdf.PdfHtmlGateway"
+                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfHtmlGateway"
                 default-reply-channel="convertHtmlToPdfChannelReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 

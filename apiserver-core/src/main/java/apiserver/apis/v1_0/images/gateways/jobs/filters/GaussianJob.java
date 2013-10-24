@@ -1,5 +1,6 @@
-package apiserver.apis.v1_0.images.models.filters;
+package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +9,9 @@ import org.slf4j.LoggerFactory;
  * User: mikenimer
  * Date: 7/14/13
  */
-public class GaussianModel extends FileModel
+public class GaussianJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(GaussianModel.class);
+    public final Logger log = LoggerFactory.getLogger(GaussianJob.class);
 
     private int radius;
 

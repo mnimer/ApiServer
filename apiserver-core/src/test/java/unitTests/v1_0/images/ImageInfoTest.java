@@ -2,7 +2,7 @@ package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
-import apiserver.apis.v1_0.images.models.images.FileInfoModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -74,8 +74,8 @@ public class ImageInfoTest
     {
         try
         {
-            FileInfoModel args = new FileInfoModel();
-            args.supportedMimeTypes = supportedMimeTypes;
+            FileInfoJob args = new FileInfoJob();
+            args.setSupportedMimeTypes(supportedMimeTypes);
             args.setFile(file);
 
             Future<Map> resultFuture = gateway.imageInfo(args);

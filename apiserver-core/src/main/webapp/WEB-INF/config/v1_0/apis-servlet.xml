@@ -29,7 +29,11 @@
     <import resource="flows/status/apiserverHealth-flow.xml"/>
     <import resource="flows/status/coldFusionHealth-flow.xml"/>
 
-  
+    <!-- cache flows -->
+    <import resource="flows/documents/cacheGet-flow.xml"/>
+    <import resource="flows/documents/cacheAdd-flow.xml"/>
+    <import resource="flows/documents/cacheDelete-flow.xml"/>
+
     <!-- Image -->
     <import resource="flows/image/imageMetadata-flow.xml"/>
     <import resource="flows/image/imageResize-flow.xml"/>

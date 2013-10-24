@@ -63,6 +63,7 @@ public class StatusController
         return new ResponseEntity<Map>(finalResult, HttpStatus.OK);
     }
 
+
     @RequestMapping(value = "/async/health", method = RequestMethod.GET)
     public WebAsyncTask<Map> checkApiServerAsync(HttpServletRequest request, HttpServletResponse response)
     {

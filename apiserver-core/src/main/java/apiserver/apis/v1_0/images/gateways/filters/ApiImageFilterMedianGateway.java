@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMedianGateway
 {
-    Future<Map> imageMedianFilter(FileModel fileModel);
+    Future<Map> imageMedianFilter(ImageDocumentJob fileModel);
 }

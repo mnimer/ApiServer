@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.coldfusion;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
-import apiserver.apis.v1_0.images.models.images.FileRotateModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileRotateJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -37,7 +37,7 @@ public class ImageRotateCFService
 
     public Object execute(Message<?> message) throws ColdFusionException
     {
-        FileRotateModel props = (FileRotateModel)message.getPayload();
+        FileRotateJob props = (FileRotateJob)message.getPayload();
 
         try
         {

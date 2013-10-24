@@ -1,8 +1,7 @@
 package apiserver.apis.v1_0.images.services.exiftool;
 
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.apis.v1_0.images.models.images.FileMetadataModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileMetadataJob;
 import org.im4java.core.ETOperation;
 import org.im4java.core.ExiftoolCmd;
 import org.im4java.process.ArrayListOutputConsumer;
@@ -25,7 +24,7 @@ public class ImageMetadataService
 
     public Object metadataInfo(Message<?> message)
     {
-        FileMetadataModel props = (FileMetadataModel)message.getPayload();
+        FileMetadataJob props = (FileMetadataJob)message.getPayload();
 
         try
         {
@@ -84,7 +83,7 @@ public class ImageMetadataService
 
     public Object metadataClear(Message<?> message)
     {
-        FileMetadataModel props = (FileMetadataModel)message.getPayload();
+        FileMetadataJob props = (FileMetadataJob)message.getPayload();
 
         try
         {

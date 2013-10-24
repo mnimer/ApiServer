@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGaussianGateway;
-import apiserver.apis.v1_0.images.models.filters.GaussianModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GaussianJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -61,14 +61,14 @@ public class ImageGaussianTests
     @Test
     public void testGaussianByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GaussianModel args = new GaussianModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        GaussianJob args = new GaussianJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setRadius(2);
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
 
-        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        GaussianJob payload = (GaussianJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -86,14 +86,14 @@ public class ImageGaussianTests
     @Test
     public void testGaussianBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GaussianModel args = new GaussianModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        GaussianJob args = new GaussianJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setRadius(2);
 
         Future<Map> imageFuture = imageGaussianFilterGateway.imageGaussianFilter(args);
 
-        GaussianModel payload = (GaussianModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        GaussianJob payload = (GaussianJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

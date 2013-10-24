@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBoxBlurGateway;
-import apiserver.apis.v1_0.images.models.filters.BoxBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.BoxBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -61,8 +61,8 @@ public class ImageBoxBlurTests
     @Test
     public void testBoxBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        BoxBlurModel args = new BoxBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        BoxBlurJob args = new BoxBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setHRadius(2);
         args.setVRadius(2);
@@ -71,7 +71,7 @@ public class ImageBoxBlurTests
 
 
         Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
-        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        BoxBlurJob payload = (BoxBlurJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -89,8 +89,8 @@ public class ImageBoxBlurTests
     @Test
     public void testBoxBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        BoxBlurModel args = new BoxBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        BoxBlurJob args = new BoxBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setHRadius(2);
         args.setVRadius(2);
@@ -98,7 +98,7 @@ public class ImageBoxBlurTests
         args.setPreMultiplyAlpha(true);
 
         Future<Map> imageFuture = imageBoxBlurFilterGateway.imageBoxBlurFilter(args);
-        BoxBlurModel payload = (BoxBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        BoxBlurJob payload = (BoxBlurJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

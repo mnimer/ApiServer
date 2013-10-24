@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
-import apiserver.apis.v1_0.images.models.filters.OilModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -59,14 +59,14 @@ public class ImageOilTests
     @Test
     public void testOilByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        OilModel args = new OilModel();
+        OilJob args = new OilJob();
         args.setFile(file);
         args.setLevels(3);
         args.setRange(256);
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        OilJob payload = (OilJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
@@ -83,14 +83,14 @@ public class ImageOilTests
     @Test
     public void testOilBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        OilModel args = new OilModel();
+        OilJob args = new OilJob();
         args.setFile(file);
         args.setLevels(3);
         args.setRange(256);
 
         Future<Map> imageFuture = imageOilFilterGateway.imageOilFilter(args);
 
-        OilModel payload = (OilModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        OilJob payload = (OilJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();

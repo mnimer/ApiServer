@@ -1,10 +1,10 @@
-package apiserver.apis.v1_0.images.models.images;
+package apiserver.apis.v1_0.images.gateways.jobs.images;
 
 /**
  * User: mikenimer
  * Date: 7/7/13
  */
-public class ImageSizeModel
+public class ImageSizeJob
 {
     private Integer width;
     private Integer height;

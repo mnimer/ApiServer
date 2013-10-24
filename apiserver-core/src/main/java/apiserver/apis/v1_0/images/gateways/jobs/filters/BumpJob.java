@@ -1,6 +1,6 @@
-package apiserver.apis.v1_0.images.models.filters;
+package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
  * User: mikenimer
  * Date: 7/14/13
  */
-public class BumpModel extends FileModel
+public class BumpJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(BumpModel.class);
+    public final Logger log = LoggerFactory.getLogger(BumpJob.class);
 
     private int edgeAction;
     private boolean useAlpha;

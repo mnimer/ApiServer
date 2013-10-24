@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBumpGateway;
-import apiserver.apis.v1_0.images.models.filters.BumpModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.BumpJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -63,8 +63,8 @@ public class ImageBumpTests
     {
         float[] matrix = new float[]{-1.0F,-1.0F,0.0F,-1.0F,1.0F,1.0F,0.0F,1.0F,1.0F};
 
-        BumpModel args = new BumpModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        BumpJob args = new BumpJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setEdgeAction(1);
         args.setUseAlpha(true);
@@ -72,7 +72,7 @@ public class ImageBumpTests
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
 
-        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        BumpJob payload = (BumpJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -92,8 +92,8 @@ public class ImageBumpTests
     {
         float[] matrix = new float[]{-1.0F,-1.0F,0.0F,-1.0F,1.0F,1.0F,0.0F,1.0F,1.0F};
 
-        BumpModel args = new BumpModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        BumpJob args = new BumpJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setEdgeAction(1);
         args.setUseAlpha(true);
@@ -101,7 +101,7 @@ public class ImageBumpTests
 
         Future<Map> imageFuture = imageBumpFilterGateway.imageBumpFilter(args);
 
-        BumpModel payload = (BumpModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        BumpJob payload = (BumpJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

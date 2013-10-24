@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGlowGateway;
-import apiserver.apis.v1_0.images.models.filters.GlowModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GlowJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -59,14 +59,14 @@ public class ImageGlowTests
     @Test
     public void testGlowByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GlowModel args = new GlowModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        GlowJob args = new GlowJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setAmount(2);
 
         Future<Map> imageFuture = imageGlowFilterGateway.imageGlowFilter(args);
 
-        GlowModel payload = (GlowModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GlowJob payload = (GlowJob)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -84,14 +84,14 @@ public class ImageGlowTests
     @Test
     public void testGlowBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        GlowModel args = new GlowModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        GlowJob args = new GlowJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setAmount(2);
 
         Future<Map> imageFuture = imageGlowFilterGateway.imageGlowFilter(args);
 
-        GlowModel payload = (GlowModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        GlowJob payload = (GlowJob)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

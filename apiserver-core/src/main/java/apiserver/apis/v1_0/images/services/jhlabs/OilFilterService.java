@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.images.models.filters.OilModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.OilFilter;
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ public class OilFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        OilModel props = (OilModel) message.getPayload();
+        OilJob props = (OilJob) message.getPayload();
         int levels = props.getLevels();
         int range = props.getRange();
 
@@ -39,7 +39,7 @@ public class OilFilterService
 
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Exception e)

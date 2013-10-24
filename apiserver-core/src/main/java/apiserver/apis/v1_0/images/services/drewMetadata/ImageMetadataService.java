@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.drewMetadata;
 
-import apiserver.apis.v1_0.images.models.images.FileMetadataModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileMetadataJob;
 import apiserver.exceptions.ColdFusionException;
 import com.drew.imaging.ImageMetadataReader;
 import com.drew.metadata.Directory;
@@ -21,7 +21,7 @@ public class ImageMetadataService
 
     public Object imageMetadataHandler(Message<?> message) throws ColdFusionException
     {
-        FileMetadataModel props = (FileMetadataModel)message.getPayload();
+        FileMetadataJob props = (FileMetadataJob)message.getPayload();
 
         try
         {

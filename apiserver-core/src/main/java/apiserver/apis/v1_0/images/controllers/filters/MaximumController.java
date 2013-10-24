@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaximumGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -11,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
@@ -44,27 +42,29 @@ public class MaximumController
     /**
      * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
      *
-     * @param file
-     * @param returnAsBase64
-     * @return image
+     * @param documentId
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
      */
     @ApiOperation(value = "This filter replaces each pixel by the maximum of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.")
-    @RequestMapping(value = "/maximum", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/maximum", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMaximumByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.setFile(file);
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageFilterMaximumGateway.imageMaximumFilter(args);
         FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
 

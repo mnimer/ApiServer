@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.apis.v1_0.images.models.filters.MotionBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MotionBlurJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.MotionBlurFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class MotionBlurFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        MotionBlurModel props = (MotionBlurModel) message.getPayload();
+        MotionBlurJob props = (MotionBlurJob) message.getPayload();
 
         float angle = props.getAngle();
         float distance = props.getDistance();
@@ -46,7 +46,7 @@ public class MotionBlurFilterService
 
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

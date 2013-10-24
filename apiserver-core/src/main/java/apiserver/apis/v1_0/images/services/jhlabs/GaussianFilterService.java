@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.apis.v1_0.images.models.filters.GaussianModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GaussianJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GaussianFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class GaussianFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        GaussianModel props = (GaussianModel)message.getPayload();
+        GaussianJob props = (GaussianJob)message.getPayload();
 
         int radius = props.getRadius();
 
@@ -35,7 +35,7 @@ public class GaussianFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

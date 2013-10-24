@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
-import apiserver.apis.v1_0.images.models.filters.MaskModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -12,10 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
@@ -42,28 +39,27 @@ public class MaskController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
-
-
     /**
      * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
      *
-     * @param file
+     * @param documentId
      * @param maskFile
-     * @param returnAsBase64
-     * @return image
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
      */
     @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
-    @RequestMapping(value = "/mask", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/mask", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMaskByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "maskFile", required = true) @RequestParam MultipartFile maskFile
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        MaskModel args = new MaskModel();
-        args.setFile(file);
+        MaskJob args = new MaskJob();
+        args.setDocumentId(documentId);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
@@ -71,7 +67,7 @@ public class MaskController
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
 

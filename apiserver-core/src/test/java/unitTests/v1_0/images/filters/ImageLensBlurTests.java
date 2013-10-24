@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterLensBlurGateway;
-import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.LensBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -62,8 +62,8 @@ public class ImageLensBlurTests
     @Test
     public void testLensBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        LensBlurModel args = new LensBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        LensBlurJob args = new LensBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setRadius(10);
         args.setSides(5);
@@ -71,7 +71,7 @@ public class ImageLensBlurTests
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
 
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        LensBlurJob payload = (LensBlurJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -88,8 +88,8 @@ public class ImageLensBlurTests
     @Test
     public void testLensBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        LensBlurModel args = new LensBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        LensBlurJob args = new LensBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setRadius(10);
         args.setSides(5);
@@ -97,7 +97,7 @@ public class ImageLensBlurTests
 
         Future<Map> imageFuture = imageLensBlurFilterGateway.imageLensBlurFilter(args);
 
-        LensBlurModel payload = (LensBlurModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        LensBlurJob payload = (LensBlurJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();

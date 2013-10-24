@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import apiserver.apis.v1_0.images.models.filters.MaskModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterMaskGateway
 {
-    Future<Map> imageMaskFilter(MaskModel maskFilterModel);
+    Future<Map> imageMaskFilter(MaskJob maskFilterModel);
 }

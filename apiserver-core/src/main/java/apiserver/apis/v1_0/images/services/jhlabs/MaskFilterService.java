@@ -1,16 +1,13 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.images.models.filters.MaskModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.ApplyMaskFilter;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 
 /**
  * User: mnimer
@@ -22,7 +19,7 @@ public class MaskFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        MaskModel props = (MaskModel) message.getPayload();
+        MaskJob props = (MaskJob) message.getPayload();
 
         Object maskImage = props.getMask();
 
@@ -44,7 +41,7 @@ public class MaskFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

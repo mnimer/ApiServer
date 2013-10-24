@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.pdf.service;
 
 import apiserver.apis.v1_0.pdf.PdfConfigMBean;
-import apiserver.apis.v1_0.pdf.models.PdfHtmlModel;
+import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import org.slf4j.Logger;
@@ -33,7 +33,7 @@ public class PdfHtmlService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        PdfHtmlModel props = (PdfHtmlModel)message.getPayload();
+        PdfHtmlJob props = (PdfHtmlJob)message.getPayload();
 
         try
         {

@@ -2,8 +2,8 @@ package apiserver.apis.v1_0.images.controllers;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
-import apiserver.apis.v1_0.images.models.images.FileResizeModel;
-import apiserver.apis.v1_0.images.models.images.FileRotateModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileRotateJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -75,12 +75,12 @@ public class ImageManipulationController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        FileRotateModel args = new FileRotateModel();
+        FileRotateJob args = new FileRotateJob();
         args.setFile(file);
         args.setAngle(angle);
 
         Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
-        FileRotateModel payload = (FileRotateModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        FileRotateJob payload = (FileRotateJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();
@@ -112,7 +112,7 @@ public class ImageManipulationController
             , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
-        FileResizeModel args = new FileResizeModel();
+        FileResizeJob args = new FileResizeJob();
         args.setFile(file);
         args.setWidth(width);
         args.setHeight(height);
@@ -120,7 +120,7 @@ public class ImageManipulationController
         args.setScaleToFit(scaleToFit);
 
         Future<Map> imageFuture = imageResizeGateway.resizeImage(args);
-        FileResizeModel payload = (FileResizeModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        FileResizeJob payload = (FileResizeJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();

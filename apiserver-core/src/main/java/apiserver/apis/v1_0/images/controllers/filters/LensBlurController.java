@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterLensBlurGateway;
-import apiserver.apis.v1_0.images.models.filters.LensBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.LensBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,15 +42,13 @@ public class LensBlurController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
     /**
      * This filter simulates the blurring caused by a camera lens. You can change the aperture size and shape and also specify blooming of the uploaded image. This filter is very slow.
      *
-     * @param file
+     * @param documentId
      * @param radius
      * @param sides
      * @param bloom
-     * @param returnAsBase64
      * @return
      * @throws TimeoutException
      * @throws ExecutionException
@@ -57,17 +56,16 @@ public class LensBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter simulates the blurring caused by a camera lens. You can change the aperture size and shape and also specify blooming of the image. This filter is very slow.")
-    @RequestMapping(value = "/lensblur", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/lensblur", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageLensBlurByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "radius", required = false, defaultValue = "10") @RequestParam(value = "radius", required = false, defaultValue = "10") float radius
             , @ApiParam(name = "sides", required = false, defaultValue = "5") @RequestParam(value = "sides", required = false, defaultValue = "5") int sides
             , @ApiParam(name = "bloom", required = false, defaultValue = "2") @RequestParam(value = "bloom", required = false, defaultValue = "2") float bloom
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        LensBlurModel args = new LensBlurModel();
-        args.setFile(file);
+        LensBlurJob args = new LensBlurJob();
+        args.setDocumentId(documentId);
         args.setRadius(radius);
         args.setSides(sides);
         args.setBloom(bloom);
@@ -77,7 +75,7 @@ public class LensBlurController
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
 

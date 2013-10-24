@@ -1,6 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGrayScaleGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import org.junit.Assert;
@@ -62,8 +63,8 @@ public class ImageGrayScaleTests
     @Test
     public void testGrayScaleByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
 
         Future<Map> imageFuture = imageGrayScaleFilterGateway.imageGrayScaleFilter(args);
@@ -85,8 +86,8 @@ public class ImageGrayScaleTests
     @Test
     public void testGrayScaleBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
 
         Future<Map> imageFuture = imageGrayScaleFilterGateway.imageGrayScaleFilter(args);

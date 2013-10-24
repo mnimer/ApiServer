@@ -1,6 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBlurGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import org.junit.Assert;
@@ -64,8 +65,8 @@ public class ImageBlurTests
     public void testBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
 
-        FileModel args = new FileModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
 
 
@@ -89,8 +90,8 @@ public class ImageBlurTests
     @Test
     public void testBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        ImageDocumentJob args = new ImageDocumentJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
 
         Future<Map> imageFuture = imageBlurFilterGateway.imageBlurFilter(args);

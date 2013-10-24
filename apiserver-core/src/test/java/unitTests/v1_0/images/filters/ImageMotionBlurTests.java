@@ -1,7 +1,7 @@
 package unitTests.v1_0.images.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway;
-import apiserver.apis.v1_0.images.models.filters.MotionBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.MotionBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import org.junit.Assert;
@@ -63,8 +63,8 @@ public class ImageMotionBlurTests
     @Test
     public void testMotionBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        MotionBlurModel args = new MotionBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        MotionBlurJob args = new MotionBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setAngle(0);
         args.setDistance(0);
@@ -93,8 +93,8 @@ public class ImageMotionBlurTests
     @Test
     public void testMotionBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        MotionBlurModel args = new MotionBlurModel();
-        args.supportedMimeTypes = supportedMimeTypes;
+        MotionBlurJob args = new MotionBlurJob();
+        args.setSupportedMimeTypes(supportedMimeTypes);
         args.setFile(file);
         args.setAngle(0);
         args.setDistance(0);

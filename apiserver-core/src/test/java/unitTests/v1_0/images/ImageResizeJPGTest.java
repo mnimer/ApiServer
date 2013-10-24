@@ -1,7 +1,7 @@
 package unitTests.v1_0.images;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
-import apiserver.apis.v1_0.images.models.images.FileResizeModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,7 +72,7 @@ public class ImageResizeJPGTest
 
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
@@ -81,7 +81,7 @@ public class ImageResizeJPGTest
             args.setScaleToFit(false);
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
 
             BufferedImage bimg =  result.getBufferedImage();
@@ -107,7 +107,7 @@ public class ImageResizeJPGTest
 
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
@@ -115,7 +115,7 @@ public class ImageResizeJPGTest
             args.setInterpolation("bicubic");
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
 
             BufferedImage bimg =  result.getBufferedImage();
@@ -140,14 +140,14 @@ public class ImageResizeJPGTest
 
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
 
             BufferedImage bimg =  result.getBufferedImage();
@@ -174,7 +174,7 @@ public class ImageResizeJPGTest
 
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(-1); //bad arg
@@ -183,7 +183,7 @@ public class ImageResizeJPGTest
             args.setScaleToFit(false);
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             org.junit.Assert.fail("Exception Expected");
         }
@@ -202,7 +202,7 @@ public class ImageResizeJPGTest
         int height = 1000;
         try
         {
-            FileResizeModel args = new FileResizeModel();
+            FileResizeJob args = new FileResizeJob();
             args.supportedMimeTypes = supportedMimeTypes;
             args.setFile(file);
             args.setWidth(width);
@@ -210,7 +210,7 @@ public class ImageResizeJPGTest
             args.setInterpolation("garble");
 
             Future<Map> resultFuture = gateway.resizeImage(args);
-            FileResizeModel result = (FileResizeModel)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
+            FileResizeJob result = (FileResizeJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             org.junit.Assert.fail("Exception expected");
         }

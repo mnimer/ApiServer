@@ -1,6 +1,8 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBlurGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.Api;
@@ -13,10 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,37 +48,30 @@ public class BlurController
 
     /**
      * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
-     * Supported {formats} are .json, .png, .jpg, .base64
      *
-     * @param file
-     * @return image
+     * @param documentId
+     * @return
      * @throws TimeoutException
      * @throws ExecutionException
      * @throws InterruptedException
      * @throws IOException
      */
-
-    @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel. Supported formats are .json, .png, .jpg, .base64")
-    @RequestMapping(value = "/blur.{format}", method = RequestMethod.POST)
-    public ModelAndView imageBlurByFile(
-            @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
+    @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
+    @RequestMapping(value = "/{documentId}/blur", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> imageBlurByFile(
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
-        FileModel args = new FileModel();
-        args.setFile(file);
+        ImageDocumentJob job = new ImageDocumentJob();
+        job.setDocumentId(documentId);
 
-        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(args);
+        Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(job);
         FileModel payload = (FileModel) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
-        //return result;
-
-        ModelAndView view = new ModelAndView("image");
-        view.addObject("bytes", result.getBody());
-        view.addObject("url", "foo.png");
-        return view;
+        return result;
     }
 
 

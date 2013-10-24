@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.filters;
 
-import apiserver.apis.v1_0.images.models.filters.GaussianModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.GaussianJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ApiImageFilterGaussianGateway
 {
-    Future<Map> imageGaussianFilter(GaussianModel gaussianFilterModel);
+    Future<Map> imageGaussianFilter(GaussianJob gaussianFilterModel);
 }

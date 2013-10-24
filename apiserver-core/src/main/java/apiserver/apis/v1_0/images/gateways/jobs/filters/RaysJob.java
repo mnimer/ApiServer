@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.models.filters;
+package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
 import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
  * User: mikenimer
  * Date: 9/22/13
  */
-public class RaysModel extends FileModel
+public class RaysJob extends FileModel
 {
-    public final Logger log = LoggerFactory.getLogger(RaysModel.class);
+    public final Logger log = LoggerFactory.getLogger(RaysJob.class);
     private Float opacity;
     private Float strength;
     private Float threshold;

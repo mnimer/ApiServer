@@ -1,8 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
-import apiserver.apis.v1_0.images.models.filters.RaysModel;
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.RaysJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.*;
 import org.apache.log4j.Logger;
@@ -10,7 +8,6 @@ import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.Map;
 
 /**
  * User: mnimer
@@ -22,7 +19,7 @@ public class RaysFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        RaysModel props = (RaysModel) message.getPayload();      //todo replace with real Model class
+        RaysJob props = (RaysJob) message.getPayload();      //todo replace with real Model class
         float opacity = props.getOpacity();
         float strength = props.getStrength();
         float threshold = props.getThreshold();

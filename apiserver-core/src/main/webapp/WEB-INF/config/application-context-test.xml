@@ -14,7 +14,7 @@
     <!--context:annotation-config/-->
     <!--mvc:annotation-driven/-->
     <context:component-scan base-package="apiserver.core.models" />
-    <context:component-scan base-package="apiserver.apis.v1_0.images.models" />
+    <context:component-scan base-package="apiserver.apis.v1_0.images.jobs" />
 
 
     <!--bean id="fileModel" class="apiserver.core.models.FileModel"/-->

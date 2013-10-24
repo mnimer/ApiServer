@@ -3,7 +3,7 @@ package unitTests.v1_0.images;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
-import apiserver.apis.v1_0.images.models.images.FileMetadataModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileMetadataJob;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -76,13 +76,13 @@ public class ImageMetadataDrewMetadataExtractorTest
         File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
 
 
-        FileMetadataModel model = new FileMetadataModel();
+        FileMetadataJob model = new FileMetadataJob();
         model.supportedMimeTypes = supportedMimeTypes;
         model.setFile(file);
         Future<Map> future = gateway.getMetadata(model);
 
 
-        FileMetadataModel result = (FileMetadataModel)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        FileMetadataJob result = (FileMetadataJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
 
         ObjectMapper mapper = new ObjectMapper();

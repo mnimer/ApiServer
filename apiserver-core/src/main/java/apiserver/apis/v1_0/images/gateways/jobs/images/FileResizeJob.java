@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.models.images;
+package apiserver.apis.v1_0.images.gateways.jobs.images;
 
 import apiserver.core.models.FileModel;
 
@@ -6,7 +6,7 @@ import apiserver.core.models.FileModel;
  * User: mikenimer
  * Date: 7/21/13
  */
-public class FileResizeModel extends FileModel
+public class FileResizeJob extends FileModel
 {
     private Integer width;
     private Integer height;

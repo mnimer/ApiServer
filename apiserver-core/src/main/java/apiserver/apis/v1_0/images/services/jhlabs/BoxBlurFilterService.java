@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.images.models.filters.BoxBlurModel;
+import apiserver.apis.v1_0.images.gateways.jobs.filters.BoxBlurJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BoxBlurFilter;
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ public class BoxBlurFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        BoxBlurModel props = (BoxBlurModel) message.getPayload();
+        BoxBlurJob props = (BoxBlurJob) message.getPayload();
 
         int hRadius = props.getHRadius();
         int vRadius = props.getVRadius();
@@ -41,7 +41,7 @@ public class BoxBlurFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

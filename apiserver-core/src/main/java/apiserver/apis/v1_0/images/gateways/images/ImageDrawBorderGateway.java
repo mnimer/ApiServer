@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.images;
 
-import apiserver.apis.v1_0.images.models.images.FileBorderModel;
+import apiserver.apis.v1_0.images.gateways.jobs.images.FileBorderJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,5 +11,5 @@ import java.util.concurrent.Future;
  */
 public interface ImageDrawBorderGateway
 {
-    Future<Map> imageDrawBorderFilter(FileBorderModel imageModel);
+    Future<Map> imageDrawBorderFilter(FileBorderJob imageModel);
 }
