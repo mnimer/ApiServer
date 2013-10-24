@@ -332,9 +332,6 @@
     <file url="file://$PROJECT_DIR$/apiserver-coldfusion" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/apiserver-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../../github/spring-integration-samples/intermediate/travel" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../../github/swagger-maven-plugin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/../../../github/swagger-springmvc" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -1459,35 +1456,35 @@
     </library>
     <library name="Maven: org.springframework.integration:spring-integration-core:3.0.0.BUILD-SNAPSHOT">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131016.190638-203.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131018.091817-204.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131016.190638-203-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131018.091817-204-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131016.190638-203-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-core/3.0.0.BUILD-SNAPSHOT/spring-integration-core-3.0.0.BUILD-20131018.091817-204-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.integration:spring-integration-http:3.0.0.BUILD-SNAPSHOT">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131016.190638-203.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131018.091817-204.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131016.190638-203-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131018.091817-204-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131016.190638-203-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-http/3.0.0.BUILD-SNAPSHOT/spring-integration-http-3.0.0.BUILD-20131018.091817-204-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.integration:spring-integration-jmx:3.0.0.BUILD-SNAPSHOT">
       <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131016.190638-203.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131018.091817-204.jar!/" />
       </CLASSES>
       <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131016.190638-203-javadoc.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131018.091817-204-javadoc.jar!/" />
       </JAVADOC>
       <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131016.190638-203-sources.jar!/" />
+        <root url="jar://$MAVEN_REPOSITORY$/org/springframework/integration/spring-integration-jmx/3.0.0.BUILD-SNAPSHOT/spring-integration-jmx-3.0.0.BUILD-20131018.091817-204-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.springframework.retry:spring-retry:1.0.2.RELEASE">

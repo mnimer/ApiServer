@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -49,8 +50,8 @@ public class BumpController
      * @throws java.io.IOException
      */
     @ApiOperation(value = "This filter does a simple convolution which emphasises edges in an image.")
-    @RequestMapping(value = "/bump", method = {RequestMethod.POST})
-    public ResponseEntity<byte[]> imageBumpByFile(
+    @RequestMapping(value = "/bump.{format}", method = {RequestMethod.POST})
+    public ModelAndView imageBumpByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name = "edgeAction", required = false, defaultValue = "1") @RequestParam(value = "edgeAction", required = false, defaultValue = "1") int edgeAction
             , @ApiParam(name = "useAlpha", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "useAlpha", required = false, defaultValue = "true") boolean useAlpha
@@ -80,6 +81,11 @@ public class BumpController
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
-        return result;
+        //return result;
+
+        ModelAndView view = new ModelAndView("image");
+        view.addObject("bytes", result.getBody());
+        view.addObject("url", "foo.png");
+        return view;
     }
 }

@@ -49,9 +49,9 @@ public class BlurController
 
     /**
      * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
+     * Supported {formats} are .json, .png, .jpg, .base64
      *
      * @param file
-     * @param returnAsBase64
      * @return image
      * @throws TimeoutException
      * @throws ExecutionException
@@ -59,11 +59,10 @@ public class BlurController
      * @throws IOException
      */
 
-    @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
+    @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel. Supported formats are .json, .png, .jpg, .base64")
     @RequestMapping(value = "/blur.{format}", method = RequestMethod.POST)
-    public ModelAndView imageBlurByFile2(
+    public ModelAndView imageBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         FileModel args = new FileModel();
@@ -74,12 +73,12 @@ public class BlurController
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
         //return result;
 
-        ModelAndView view = new ModelAndView("/dir/sub/foo");
+        ModelAndView view = new ModelAndView("image");
         view.addObject("bytes", result.getBody());
-        view.addObject("name", "foo.png");
+        view.addObject("url", "foo.png");
         return view;
     }
 

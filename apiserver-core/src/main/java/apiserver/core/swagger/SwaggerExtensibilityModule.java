@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.context.request.async.WebAsyncTask;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.math.BigDecimal;
@@ -45,6 +46,7 @@ public class SwaggerExtensibilityModule extends ExtensibilityModule
     @Override
     protected void customizeTypeProcessingRules(List<TypeProcessingRule> rules) {
         rules.add(ignorable(UriComponentsBuilder.class));
+        rules.add(new AlternateTypeProcessingRule(ModelAndView.class, Map.class));
         rules.add(new AlternateTypeProcessingRule(BigDecimal.class, Double.class));
         rules.add(new AlternateTypeProcessingRule(LocalDate.class, Date.class));
         rules.add(responseEntityMapAlternate());

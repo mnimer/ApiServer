@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -50,10 +51,10 @@ public class BoxBlurController
      * @throws InterruptedException
      * @throws java.io.IOException
      */
-    @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
-    @RequestMapping(value = "/boxblur", method = {RequestMethod.POST})
+    @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.  Supported formats are .json, .png, .jpg, .base64")
+    @RequestMapping(value = "/boxblur.{format}", method = {RequestMethod.POST})
     @ResponseBody
-    public ResponseEntity<byte[]> imageBoxBlurByFile(
+    public ModelAndView imageBoxBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam MultipartFile file
             , @ApiParam(name = "hRadius", required = false, defaultValue = "2", value = "the horizontal radius of blur") @RequestParam(value = "hRadius", defaultValue = "2") int hRadius
             , @ApiParam(name = "vRadius", required = false, defaultValue = "2", value = "the vertical radius of blur") @RequestParam(value = "vRadius", defaultValue = "2") int vRadius
@@ -75,6 +76,11 @@ public class BoxBlurController
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
-        return result;
+
+
+        ModelAndView view = new ModelAndView("image");
+        view.addObject("bytes", result.getBody());
+        view.addObject("url", "foo.png");
+        return view;
     }
 }
