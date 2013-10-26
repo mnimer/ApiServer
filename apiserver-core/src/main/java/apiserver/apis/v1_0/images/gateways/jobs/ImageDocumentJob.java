@@ -1,57 +1,47 @@
 package apiserver.apis.v1_0.images.gateways.jobs;
 
-import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.util.Map;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 
 /**
  * User: mikenimer
  * Date: 10/24/13
  */
-public class ImageDocumentJob extends DocumentJob
+public class ImageDocumentJob extends GetDocumentJob
 {
     private final Logger log = LoggerFactory.getLogger(ImageDocumentJob.class);
 
-    private String contentType;
     private BufferedImage bufferedImage;
-    private Map<String, String> supportedMimeTypes;
 
 
-    public String getContentType()
+
+    /**
+     * Convert the internal byte Array back into a BufferedImage file.
+     * @return BufferedImage
+     * @throws java.io.IOException if the bytes are not a valid image.
+     */
+    public BufferedImage getBufferedImage() throws IOException
     {
-        return contentType;
-    }
-
-
-    public void setContentType(String contentType)
-    {
-        this.contentType = contentType;
-    }
-
-
-    public Map<String, String> getSupportedMimeTypes()
-    {
-        return supportedMimeTypes;
-    }
-
-
-    public void setSupportedMimeTypes(Map<String, String> supportedMimeTypes)
-    {
-        this.supportedMimeTypes = supportedMimeTypes;
-    }
-
-
-    public BufferedImage getBufferedImage()
-    {
+        if( bufferedImage != null )
+        {
+            return bufferedImage;
+        }
+        bufferedImage = ImageIO.read(new ByteArrayInputStream(this.getDocument().getFileBytes()));
         return bufferedImage;
     }
 
 
-    public void setBufferedImage(BufferedImage bufferedImage)
+    public void setBufferedImage(BufferedImage bufferedImage) throws IOException
     {
         this.bufferedImage = bufferedImage;
+
+        this.setDocument(new Document(bufferedImage));
     }
 }

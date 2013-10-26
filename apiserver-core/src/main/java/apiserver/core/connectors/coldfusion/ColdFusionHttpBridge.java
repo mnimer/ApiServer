@@ -14,12 +14,14 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.ByteArrayBody;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,6 +97,10 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                     else if( obj instanceof File )
                     {
                         me.addPart(s, new FileBody( (File)obj ));
+                    }
+                    else if( obj instanceof byte[])
+                    {
+                        me.addPart(s, new ByteArrayBody( (byte[])obj, (String)methodArgs_.get("name") ));
                     }
                 }
             }

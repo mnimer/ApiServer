@@ -1,6 +1,5 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
-import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBlurGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
@@ -12,15 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Map;
@@ -59,18 +55,19 @@ public class BlurController
     @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
     @RequestMapping(value = "/{documentId}/blur", method = RequestMethod.GET)
     public ResponseEntity<byte[]> imageBlurByFile(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true,  defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA")
+            @PathVariable(value = "documentId") String documentId
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob job = new ImageDocumentJob();
         job.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageFilterBlurGateway.imageBlurFilter(job);
-        FileModel payload = (FileModel) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
+        //BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(payload.getDocument().getFileBytes(), "image/png", false);
         return result;
     }
 

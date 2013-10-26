@@ -975,6 +975,8 @@
           } else {
             requestContentType = "application/x-www-form-urlencoded";
           }
+        } else if (this.type === "POST") {
+          requestContentType = "multipart/form-data";
         } else if (this.type !== "DELETE") {
           requestContentType = null;
         }

@@ -1,5 +1,6 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaximumGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
@@ -60,8 +61,7 @@ public class ImageMaximumTests
     public void testMaximumByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob args = new ImageDocumentJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocument(new Document(file));
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);
         FileModel payload = (FileModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
@@ -82,8 +82,7 @@ public class ImageMaximumTests
     public void testMaximumBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob args = new ImageDocumentJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocument(new Document(file));
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);
         FileModel payload = (FileModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);

@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
-import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class GlowJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(GlowJob.class);
+    private final Logger log = LoggerFactory.getLogger(GlowJob.class);
 
     private int amount;
 

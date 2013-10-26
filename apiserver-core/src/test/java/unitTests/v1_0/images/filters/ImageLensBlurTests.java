@@ -1,15 +1,19 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterLensBlurGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.LensBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
@@ -48,14 +52,31 @@ public class ImageLensBlurTests
     @Autowired
     private ApiImageFilterLensBlurGateway imageLensBlurFilterGateway;
 
-    static File file = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageLensBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
 
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
+    }
 
 
 
@@ -63,8 +84,7 @@ public class ImageLensBlurTests
     public void testLensBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         LensBlurJob args = new LensBlurJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setRadius(10);
         args.setSides(5);
         args.setBloom(2);
@@ -77,7 +97,7 @@ public class ImageLensBlurTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -89,8 +109,7 @@ public class ImageLensBlurTests
     public void testLensBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         LensBlurJob args = new LensBlurJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setRadius(10);
         args.setSides(5);
         args.setBloom(2);
@@ -103,7 +122,7 @@ public class ImageLensBlurTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

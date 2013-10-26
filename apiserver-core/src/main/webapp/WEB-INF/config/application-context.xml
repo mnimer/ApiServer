@@ -23,6 +23,16 @@
     </bean>
 
 
+    <!--
+       *** PREFERRED CACHING PROVIDER
+    -->
+    <bean id="cacheProvider" class="apiserver.core.providers.cache.InMemoryCacheProvider"/>
+
+    <!--
+       *** PREFERRED PERSISTENCE PROVIDER
+    -->
+
+
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <util:list>

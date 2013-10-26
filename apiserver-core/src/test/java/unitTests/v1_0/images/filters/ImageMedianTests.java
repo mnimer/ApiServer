@@ -1,16 +1,20 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMedianGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
@@ -43,27 +47,43 @@ public class ImageMedianTests
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterMedianGateway imageMedianFilterGateway;
 
-    static File file = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageMedianTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
+
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
+    }
+
 
 
     @Test
     public void testMedianByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob args = new ImageDocumentJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageMedianFilterGateway.imageMedianFilter(args);
 
@@ -85,8 +105,7 @@ public class ImageMedianTests
     public void testMedianBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob args = new ImageDocumentJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageMedianFilterGateway.imageMedianFilter(args);
         FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);

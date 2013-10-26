@@ -15,111 +15,85 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="add swagger maven plugin to test.. This plugin will work, if we fork the code and modify it to understand the springMVC synt">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/PdfHtmlGateway.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/pdf/PdfHtmlGateway.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BoxBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BoxBlurJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/BumpModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BumpJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GaussianModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GaussianJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/GlowModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GlowJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/LensBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/LensBlurJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MaskModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MaskJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/MotionBlurModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/OilModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/OilJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/filters/RaysModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/RaysJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileBorderModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileBorderJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileInfoModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileInfoJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileMetadataModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileMetadataJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileResizeModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileResizeJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileRotateModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileRotateJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/FileTextModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileTextJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/models/images/ImageSizeModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/ImageSizeJob.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/models/PdfHtmlModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/jobs/PdfHtmlJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBoxBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBoxBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBumpGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBumpGateway.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/EhCacheProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/persistence/IDocumentPersistenceProvider.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/InMemoryCacheProvider.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/cache/CacheFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/cache/CacheServiceMBean.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageDrawingController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageManipulationController.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/cache/ICacheService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/IDocumentCacheProvider.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGaussianGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGaussianGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGlowGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGlowGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterLensBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterLensBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaskGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaskGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMotionBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMotionBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterOilGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterOilGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BoxBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BoxBlurFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BoxBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BoxBlurJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BumpJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BumpJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/models/FileModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileBorderJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileBorderJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileInfoJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileInfoJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileTextJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileTextJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GaussianJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GaussianJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GlowJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GlowJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageDrawingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageDrawingController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageDrawingController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageDrawingController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageDrawingController.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageManipulationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageManipulationController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageManipulationController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageManipulationController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageManipulationController.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/LensBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/LensBlurJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MaskJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MaskJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/OilFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/OilFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfHtmlController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/service/PdfHtmlService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/service/PdfHtmlService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/OilJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/OilJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/RaysJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/RaysJob.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -192,91 +166,108 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ImageMedianTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java">
+      <file leaf-file-name="ImageInfoController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="55" selection-start="2378" selection-end="2378" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1260">
+            <state line="53" column="113" selection-start="1924" selection-end="1978" vertical-scroll-proportion="0.0" vertical-offset="443" max-vertical-offset="1425">
+              <folding>
+                <element signature="e#2139#2565#0" expanded="true" />
+                <element signature="e#2554#2555#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="apis-servlet.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="154" column="0" selection-start="7681" selection-end="7681" vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="3315">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageBoxBlurTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java">
+      <file leaf-file-name="application-context.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="55" selection-start="2337" selection-end="2337" vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1425">
+            <state line="35" column="5" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageMaximumTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java">
+      <file leaf-file-name="BlurFilterService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="55" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1260">
+            <state line="40" column="0" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="735">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
+      <file leaf-file-name="BlurController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="22" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.33333334" vertical-offset="323" max-vertical-offset="2370">
+            <state line="58" column="12" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.8319838" vertical-offset="114" max-vertical-offset="870">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageLensBlurTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java">
+      <file leaf-file-name="InvocableHandlerMethod.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.2.RELEASE/spring-web-3.2.2.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="11" selection-start="3377" selection-end="3377" vertical-scroll-proportion="0.0" vertical-offset="859" max-vertical-offset="1395">
+            <state line="218" column="0" selection-start="8325" selection-end="8325" vertical-scroll-proportion="0.0" vertical-offset="2637" max-vertical-offset="3495">
+              <folding>
+                <element signature="e#0#9688#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#3404#3405#0" expanded="false" />
+                <element signature="e#3453#3454#0" expanded="false" />
+                <element signature="e#3670#3671#0" expanded="false" />
+                <element signature="e#3719#3720#0" expanded="false" />
+                <element signature="e#4044#4045#0" expanded="false" />
+                <element signature="e#4105#4106#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseEntityHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="157" column="0" selection-start="4664" selection-end="4664" vertical-scroll-proportion="0.0" vertical-offset="2052" max-vertical-offset="2625">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageBumpTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java">
+      <file leaf-file-name="Document.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/model/Document.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="55" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1470">
-              <folding />
+            <state line="128" column="0" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.0" vertical-offset="1418" max-vertical-offset="2205">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2619#2620#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageGrayScaleTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java">
+      <file leaf-file-name="DocumentJob.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="55" selection-start="2404" selection-end="2404" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="1305">
-              <folding />
+            <state line="19" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
+              <folding>
+                <element signature="e#401#402#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageMinimumTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java">
+      <file leaf-file-name="ImageDocumentJob.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="55" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageBlurTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="55" selection-start="2366" selection-end="2366" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1380">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageDespeckleTests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="8" selection-start="2300" selection-end="2403" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="1320">
+            <state line="36" column="0" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -310,22 +301,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/services/DocumentService.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" />
-        <option value="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageDrawingController.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBean.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/EhCacheProvider.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/pom.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/InMemoryCacheProvider.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
+        <option value="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
       </list>
     </option>
   </component>
@@ -356,12 +347,6 @@
         <option name="downloadSourcesAutomatically" value="true" />
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
-    </option>
-    <option name="enabledProfiles">
-      <list>
-        <option value="build-war" />
-        <option value="build-jar" />
-      </list>
     </option>
   </component>
   <component name="MavenProjectNavigator">
@@ -394,6 +379,16 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="Lifecycle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Profiles" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProfilesNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -513,7 +508,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="temp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,6 +589,122 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -558,6 +731,138 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="providers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="providers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cache" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,7 +896,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="status" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -625,7 +930,87 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="status" />
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="v1_0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -662,118 +1047,16 @@
               <option name="myItemId" value="v1_0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gateways" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jobs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apiserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="v1_0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gateways" />
+              <option name="myItemId" value="filters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -808,6 +1091,48 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="documents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-coldfusion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -897,38 +1222,6 @@
     <option name="LAST_HOST" value="http://localhost:8500" />
   </component>
   <component name="RunManager" selected="Tomcat Server.apiserver-core">
-    <configuration default="false" name="ImageResizeJPGTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="unitTests.v1_0.images.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="apiserver-core" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
-      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageResizeJPGTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
     <configuration default="false" name="ImageResizePNGTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1349,8 +1642,39 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
       <method />
     </configuration>
-    <configuration default="false" name="ApiServer (Jetty9)" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 8.1.10.v20130312">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/" />
+    <configuration default="false" name="ImageResizeJPGTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="unitTests.v1_0.images.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="apiserver-core" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="unitTests.v1_0.images" />
+      <option name="MAIN_CLASS_NAME" value="unitTests.v1_0.images.ImageResizeJPGTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="ApiServer (Jetty9)" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 9.0.0.M5">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
@@ -1384,7 +1708,6 @@
                 <option name="path" value="etc/jetty-spdy.xml" />
               </JettyConfigFile>
               <JettyConfigFile>
-                <option name="active" value="true" />
                 <option name="path" value="etc/jetty.xml" />
               </JettyConfigFile>
               <JettyConfigFile>
@@ -1458,6 +1781,11 @@
       <predefined_log_file id="Jetty" enabled="true" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="JRebel Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
@@ -1658,6 +1986,11 @@
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
+      <RunnerSettings RunnerId="Debug with VisualVM">
+        <option name="DEBUG_PORT" value="64943" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="JRebel" />
       <RunnerSettings RunnerId="JRebel Debug">
         <option name="DEBUG_PORT" value="62567" />
@@ -1682,6 +2015,7 @@
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <RunnerSettings RunnerId="Run with VisualVM" />
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
@@ -1698,6 +2032,21 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug with VisualVM">
         <option name="USE_ENV_VARIABLES" value="true" />
         <STARTUP>
           <option name="USE_DEFAULT" value="true" />
@@ -1792,28 +2141,42 @@
           <option name="IS_PREDEFINED" value="false" />
         </EnvironmentVariables>
       </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run with VisualVM">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method />
     </configuration>
     <list size="11">
-      <item index="0" class="java.lang.String" itemvalue="Jetty Server.ApiServer (Jetty9)" />
-      <item index="1" class="java.lang.String" itemvalue="Maven.ApiServer (Launcher)" />
-      <item index="2" class="java.lang.String" itemvalue="Maven.familycloud" />
-      <item index="3" class="java.lang.String" itemvalue="Maven.ApiServer-core [exec:java]" />
-      <item index="4" class="java.lang.String" itemvalue="Remote.ColdFusion10 (remote)" />
-      <item index="5" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.ImageResizeJPGTest" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.ImageResizePNGTest" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTest" />
-      <item index="10" class="java.lang.String" itemvalue="JUnit.All in apiserver-core" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ImageResizeJPGTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ImageResizePNGTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.All in apiserver-core" />
+      <item index="5" class="java.lang.String" itemvalue="Jetty Server.ApiServer (Jetty9)" />
+      <item index="6" class="java.lang.String" itemvalue="Maven.ApiServer (Launcher)" />
+      <item index="7" class="java.lang.String" itemvalue="Maven.familycloud" />
+      <item index="8" class="java.lang.String" itemvalue="Maven.ApiServer-core [exec:java]" />
+      <item index="9" class="java.lang.String" itemvalue="Remote.ColdFusion10 (remote)" />
+      <item index="10" class="java.lang.String" itemvalue="Tomcat Server.apiserver-core" />
     </list>
     <recent_temporary>
-      <list size="5">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="JUnit.All in apiserver-core" />
         <item index="1" class="java.lang.String" itemvalue="JUnit.ImageRotateCacheTest" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.ImageResizeCacheTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ImageResizePNGTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.ImageResizeJPGTest" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -1856,7 +2219,7 @@
       <workItem from="1378914901388" duration="3542000" />
       <workItem from="1379289230050" duration="12844000" />
       <workItem from="1382589033207" duration="634000" />
-      <workItem from="1382590678852" duration="7102000" />
+      <workItem from="1382590678852" duration="31004000" />
     </task>
     <task id="LOCAL-00001" summary="Get the embedded Jackrabbit and Jetty configured and running.">
       <created>1368468502484</created>
@@ -1898,7 +2261,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54074000" />
+    <option name="totallyTimeSpent" value="77976000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1922,8 +2285,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1680" height="940" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.497552" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6414634" order="1" side_tool="false" content_ui="tabs" />
@@ -1938,8 +2302,8 @@
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.49326804" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22766218" sideWeight="0.67195123" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45731708" sideWeight="0.8280294" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22766218" sideWeight="0.67195123" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45731708" sideWeight="0.8280294" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TunnelliJ" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4878049" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1950,6 +2314,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41585365" sideWeight="0.6089351" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3195122" sideWeight="0.38922888" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22766218" sideWeight="0.2914634" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26009792" sideWeight="0.67195123" order="3" side_tool="false" content_ui="tabs" />
@@ -1965,8 +2330,6 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IntelliJad Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328585" sideWeight="0.48557693" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3195122" sideWeight="0.38922888" order="19" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="122" width="1480" height="740" />
       <window_info id="JavaRebel Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="JavaRebel" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3292683" sideWeight="0.5" order="20" side_tool="false" content_ui="tabs" />
@@ -2064,119 +2427,131 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="810">
+        <state line="43" column="0" selection-start="1778" selection-end="1778" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.2.2.RELEASE/spring-expression-3.2.2.RELEASE-sources.jar!/org/springframework/expression/spel/support/ReflectiveMethodExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="0" selection-start="2446" selection-end="2446" vertical-scroll-proportion="0.0" vertical-offset="487" max-vertical-offset="915">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.2.2.RELEASE/spring-expression-3.2.2.RELEASE-sources.jar!/org/springframework/expression/spel/ast/MethodReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="2393" selection-end="2393" vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="3825">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.2.2.RELEASE/spring-expression-3.2.2.RELEASE-sources.jar!/org/springframework/expression/spel/ast/CompoundExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="2736" selection-end="2736" vertical-scroll-proportion="0.0" vertical-offset="822" max-vertical-offset="1410">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/3.2.2.RELEASE/spring-expression-3.2.2.RELEASE-sources.jar!/org/springframework/expression/spel/ast/SpelNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="0" selection-start="3222" selection-end="3222" vertical-scroll-proportion="0.0" vertical-offset="1043" max-vertical-offset="2010">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="398" max-vertical-offset="915">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="5" selection-start="1042" selection-end="1042" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="690">
+        <state line="36" column="0" selection-start="1031" selection-end="1031" vertical-scroll-proportion="0.0" vertical-offset="247" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
           <folding>
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#952#953#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/model/Document.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="8" selection-start="2107" selection-end="2154" vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1320">
+        <state line="128" column="0" selection-start="2589" selection-end="2589" vertical-scroll-proportion="0.0" vertical-offset="1418" max-vertical-offset="2205">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2619#2620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="0" selection-start="4664" selection-end="4664" vertical-scroll-proportion="0.0" vertical-offset="2052" max-vertical-offset="2625">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/3.2.2.RELEASE/spring-web-3.2.2.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="55" selection-start="2348" selection-end="2348" vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1335">
+        <state line="218" column="0" selection-start="8325" selection-end="8325" vertical-scroll-proportion="0.0" vertical-offset="2637" max-vertical-offset="3495">
+          <folding>
+            <element signature="e#0#9688#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#3404#3405#0" expanded="false" />
+            <element signature="e#3453#3454#0" expanded="false" />
+            <element signature="e#3670#3671#0" expanded="false" />
+            <element signature="e#3719#3720#0" expanded="false" />
+            <element signature="e#4044#4045#0" expanded="false" />
+            <element signature="e#4105#4106#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="154" column="0" selection-start="7681" selection-end="7681" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="3315">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="59" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0" vertical-offset="739" max-vertical-offset="1215">
+        <state line="35" column="5" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1230">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="55" selection-start="2409" selection-end="2409" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="1515">
-          <folding />
+        <state line="53" column="113" selection-start="1924" selection-end="1978" vertical-scroll-proportion="0.0" vertical-offset="443" max-vertical-offset="1425">
+          <folding>
+            <element signature="e#2139#2565#0" expanded="true" />
+            <element signature="e#2554#2555#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java">
+    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="55" selection-start="2337" selection-end="2337" vertical-scroll-proportion="0.0" vertical-offset="454" max-vertical-offset="1425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="55" selection-start="2392" selection-end="2392" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1470">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="11" selection-start="3377" selection-end="3377" vertical-scroll-proportion="0.0" vertical-offset="859" max-vertical-offset="1395">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="55" selection-start="2404" selection-end="2404" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="1305">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="55" selection-start="2366" selection-end="2366" vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="8" selection-start="2300" selection-end="2403" vertical-scroll-proportion="0.0" vertical-offset="499" max-vertical-offset="1320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="55" selection-start="2378" selection-end="2378" vertical-scroll-proportion="0.0" vertical-offset="484" max-vertical-offset="1260">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="55" selection-start="2236" selection-end="2236" vertical-scroll-proportion="0.0" vertical-offset="469" max-vertical-offset="1260">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="22" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.33333334" vertical-offset="323" max-vertical-offset="2370">
+        <state line="58" column="12" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.8319838" vertical-offset="114" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
@@ -2236,11 +2611,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>apiserver-coldfusion</last-edited>
+          <last-edited>apiserver-core</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.15812431" />
+                <option value="0.4" />
               </list>
             </option>
           </splitter-proportions>

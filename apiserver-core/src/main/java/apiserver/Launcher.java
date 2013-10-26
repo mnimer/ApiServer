@@ -1,10 +1,5 @@
 package apiserver;
 
-import org.eclipse.jetty.server.Handler;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.webapp.WebAppContext;
-
 /**
  *
  * This class launches the web application in an embedded Jetty container.
@@ -17,6 +12,11 @@ public class Launcher {
     /**
      * @param args
      */
+    public static void main(String[] args) throws Exception{
+
+    }
+
+    /**
     public static void main(String[] args) throws Exception{
         String webappDirLocation = "src/main/webapp/";
         String warDirLocation = "src/main/wars/";
@@ -44,7 +44,7 @@ public class Launcher {
 
 
         ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[] { root /*, war1*/ });
+        contexts.setHandlers(new Handler[] { root }); // , war1 });
         server.setHandler(contexts);
 
 
@@ -62,6 +62,7 @@ public class Launcher {
         server.start();
         server.join();
     }
+     **/
 
 
     /**

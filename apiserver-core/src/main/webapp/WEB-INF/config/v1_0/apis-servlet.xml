@@ -30,9 +30,9 @@
     <import resource="flows/status/coldFusionHealth-flow.xml"/>
 
     <!-- cache flows -->
-    <import resource="flows/documents/cacheGet-flow.xml"/>
-    <import resource="flows/documents/cacheAdd-flow.xml"/>
-    <import resource="flows/documents/cacheDelete-flow.xml"/>
+    <import resource="flows/documents/documentGet-flow.xml"/>
+    <import resource="flows/documents/documentAdd-flow.xml"/>
+    <import resource="flows/documents/documentDelete-flow.xml"/>
 
     <!-- Image -->
     <import resource="flows/image/imageMetadata-flow.xml"/>
@@ -81,7 +81,7 @@
     <!--task:executor id="taskExecutor"  pool-size="100"/-->
     <si:poller id="defaultPoller"
                default="true"
-               max-messages-per-poll="1"
+               max-messages-per-poll="10"
                fixed-rate="100"/>
 
 
@@ -94,24 +94,22 @@
 
 
 
-
-    <!--
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<util:list>
-				<bean id="pngMessageConverter" class="apiserver.core.convertors.PngMessageConvertor"/>
+				<!--bean id="pngMessageConverter" class="apiserver.core.convertors.PngMessageConvertor"/-->
 				<bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
 				<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
 			</util:list>
 		</property>
 	</bean>
-	-->
+
 
 
 
 	<!-- Note: The default parameter name for favorParameter is 'format'. For instance, when this flag is true, a request for /services/employee/{id}/search?format=json will result
 			 in an MappingJacksonJsonView being resolved, while the Accept header can be the browser-defined text/html,application/xhtml+xml  -->
-<!--
+
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="favorPathExtension" value="true" />
         <property name="favorParameter" value="false" />
@@ -154,7 +152,7 @@
             </bean>
         </property>
     </bean>
--->
+
 
 
     <!--
@@ -178,7 +176,7 @@
     <!-- Note: The default parameter name for favorParameter is 'format'. For instance, when this flag is true, a request for /services/employee/{id}/search?format=json will result
              in an MappingJacksonJsonView being resolved, while the Accept header can be the browser-defined text/html,application/xhtml+xml  -->
 
-    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+    <!--bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="favorPathExtension" value="true" />
         <property name="favorParameter" value="false" />
         <property name="defaultContentType" value="application/json" />
@@ -198,17 +196,17 @@
                 <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"></bean>
             </list>
         </property>
-    </bean>
+    </bean-->
 
 
 
-    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <!--bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="order" value="2"/>
         <property name="prefix" value=""/>
         <property name="suffix" value=".png"/>
         <property name="contentType" value="image/png"/>
         <property name="viewClass" value="apiserver.core.views.ImageViewHandler" />
-    </bean>
+    </bean-->
 
     <!--bean class="org.springframework.web.servlet.view.xml.MarshallingView">
         <constructor-arg ref="marshaller"/>

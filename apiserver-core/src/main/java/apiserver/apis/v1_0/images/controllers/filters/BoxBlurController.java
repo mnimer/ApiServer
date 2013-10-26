@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -70,7 +68,7 @@ public class BoxBlurController
         BoxBlurJob payload = (BoxBlurJob) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
     }

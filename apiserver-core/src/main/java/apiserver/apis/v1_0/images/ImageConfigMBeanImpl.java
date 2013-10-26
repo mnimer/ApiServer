@@ -1,6 +1,5 @@
 package apiserver.apis.v1_0.images;
 
-import apiserver.core.cache.CacheServiceMBean;
 import apiserver.exceptions.FactoryException;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.config.CacheConfiguration;
@@ -49,7 +48,6 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 
 
     private String cacheName = "imageApiCache";
-    private String cacheLibrary = CacheServiceMBean.EHCACHE;
     private String metadataLibrary = ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR;
     private Map<String, Cache> imageApiCache = new HashMap<String, Cache>();
 
@@ -147,20 +145,6 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public void setCacheName(String cacheName)
     {
         this.cacheName = cacheName;
-    }
-
-
-    @ManagedAttribute(description = "get cache library for image operations")
-    public String getCacheLibrary()
-    {
-        return cacheLibrary;
-    }
-
-
-    @ManagedAttribute(description = "set cache library for image operations, possible values are: 'ehcache' (default), 'jcache'")
-    public void setCacheLibrary(String cacheLibrary)
-    {
-        this.cacheLibrary = cacheLibrary;
     }
 
 

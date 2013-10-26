@@ -38,13 +38,16 @@ public class ImageInfoService
             String method = imageConfigMBean.getImageInfoMethod();
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
-            methodArgs.put("image", props.getFile());
+            methodArgs.put("image", props.getDocument().getFileBytes());
+            methodArgs.put("contentType", props.getDocument().getContentType());
+            methodArgs.put("name", props.getDocument().getFileName());
 
             // execute
             Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
-            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
-            return _message;
+            MessageBuilder _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders());
+            _message.copyHeaders(message.getHeaders());
+            return _message.build();
         }
         catch (Throwable e)
         {

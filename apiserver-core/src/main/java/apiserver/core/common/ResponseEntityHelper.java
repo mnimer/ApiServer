@@ -99,15 +99,8 @@ public class ResponseEntityHelper
     }
      */
 
-    /**
-     * return a BufferedImage as byte[] array or as a base64 version of the image bytes
-     *
-     * @param image
-     * @param contentType
-     * @param returnAsBase64
-     * @return
-     * @throws java.io.IOException
-     */
+
+
     public static ResponseEntity<byte[]> processImage(Object image, String contentType, Boolean returnAsBase64) throws IOException
     {
         // set content type

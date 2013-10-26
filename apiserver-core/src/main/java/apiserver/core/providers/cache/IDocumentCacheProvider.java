@@ -1,4 +1,6 @@
-package apiserver.core.cache;
+package apiserver.core.providers.cache;
+
+import apiserver.apis.v1_0.documents.model.Document;
 
 /**
  * User: mnimer
@@ -6,20 +8,26 @@ package apiserver.core.cache;
  *
  * A cache interface that could be implemented by a system like ehcache, or memcache - then exposed to applications through this interface.
  */
-public interface ICacheService
+public interface IDocumentCacheProvider
 {
     /**
      *
      * @param obj
-     * @param timeoutInSeconds -1, cache forever (with no guarentee it will be forever)
      * @return  key
      */
-    String add(Object obj, int timeoutInSeconds);
+    Document add(Document obj);
 
     /**
      * Get an item out of the cache, based on KEY returned from add() method
      * @param key
      * @return  object in cache or NULL
      */
-    Object getCache(String key);
+    Document get(String key);
+
+    /**
+     * Get an item out of the cache, based on KEY returned from add() method
+     * @param key
+     * @return  object in cache or NULL
+     */
+    Document delete(String key);
 }

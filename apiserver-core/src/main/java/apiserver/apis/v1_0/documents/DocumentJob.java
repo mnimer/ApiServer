@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.documents;
 
+import apiserver.apis.v1_0.documents.model.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,30 +12,16 @@ public class DocumentJob
 {
     private final Logger log = LoggerFactory.getLogger(DocumentJob.class);
 
-    private String documentId;
-    private Object file;
+    private Document document;
 
 
-    public String getDocumentId()
+    public Document getDocument()
     {
-        return documentId;
+        return document;
     }
 
-
-    public void setDocumentId(String documentId)
+    public void setDocument(Document document)
     {
-        this.documentId = documentId;
-    }
-
-
-    public Object getFile()
-    {
-        return file;
-    }
-
-
-    public void setFile(Object file)
-    {
-        this.file = file;
+        this.document = document;
     }
 }

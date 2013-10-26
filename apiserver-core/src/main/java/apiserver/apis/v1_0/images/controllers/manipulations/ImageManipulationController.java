@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.controllers;
+package apiserver.apis.v1_0.images.controllers.manipulations;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;

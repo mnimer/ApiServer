@@ -1,17 +1,22 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.MotionBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.models.FileModel;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.task.support.ConcurrentExecutorAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,6 +26,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ConcurrentModificationException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -43,19 +49,34 @@ public class ImageMotionBlurTests
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
 
     @Autowired
     private ApiImageFilterMotionBlurGateway imageMotionBlurFilterGateway;
 
-    static File file = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
+    }
+
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
     }
 
 
@@ -64,8 +85,7 @@ public class ImageMotionBlurTests
     public void testMotionBlurByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MotionBlurJob args = new MotionBlurJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setAngle(0);
         args.setDistance(0);
         args.setRotation(0);
@@ -94,8 +114,7 @@ public class ImageMotionBlurTests
     public void testMotionBlurBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MotionBlurJob args = new MotionBlurJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setAngle(0);
         args.setDistance(0);
         args.setRotation(0);

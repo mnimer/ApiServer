@@ -9,14 +9,6 @@ import net.sf.ehcache.Cache;
  */
 public interface PdfConfigMBean
 {
-    public Cache getCache() throws FactoryException;
-
-    public String getCacheName();
-    public void setCacheName(String cacheName);
-
-    public String getCacheLibrary();
-    public void setCacheLibrary(String cacheLibrary);
-
     public String getConvertHtmlToPdfPath();
     public void setConvertHtmlToPdfPath(String path);
 

@@ -1,15 +1,19 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterGlowGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.GlowJob;
 import apiserver.core.common.ResponseEntityHelper;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -39,19 +43,36 @@ public class ImageGlowTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageGlowTests.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterGlowGateway imageGlowFilterGateway;
 
-    static File file = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageGlowTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
+
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
+    }
+
 
 
 
@@ -60,8 +81,7 @@ public class ImageGlowTests
     public void testGlowByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         GlowJob args = new GlowJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setAmount(2);
 
         Future<Map> imageFuture = imageGlowFilterGateway.imageGlowFilter(args);
@@ -72,7 +92,7 @@ public class ImageGlowTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
 
@@ -85,8 +105,7 @@ public class ImageGlowTests
     public void testGlowBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         GlowJob args = new GlowJob();
-        args.setSupportedMimeTypes(supportedMimeTypes);
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setAmount(2);
 
         Future<Map> imageFuture = imageGlowFilterGateway.imageGlowFilter(args);
@@ -97,7 +116,7 @@ public class ImageGlowTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

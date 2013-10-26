@@ -1,16 +1,19 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
 import apiserver.core.common.ResponseEntityHelper;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
@@ -45,15 +48,34 @@ public class ImageMaskTests
     @Autowired
     private ApiImageFilterMaskGateway imageMaskFilterGateway;
 
-    static File file = null;
     static File maskFile = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageMaskTests.class.getClassLoader().getResource("sample.png").toURI()  );
-        maskFile = new File(  ImageMaskTests.class.getClassLoader().getResource("sample_mask.jpeg").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
+
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
+    }
+
 
 
 
@@ -61,7 +83,7 @@ public class ImageMaskTests
     public void testMaskByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MaskJob args = new MaskJob();
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
@@ -72,7 +94,7 @@ public class ImageMaskTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -84,7 +106,7 @@ public class ImageMaskTests
     public void testMaskBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         MaskJob args = new MaskJob();
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageMaskFilterGateway.imageMaskFilter(args);
@@ -95,7 +117,7 @@ public class ImageMaskTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

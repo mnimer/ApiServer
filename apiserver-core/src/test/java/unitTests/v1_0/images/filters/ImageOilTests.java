@@ -1,16 +1,19 @@
 package unitTests.v1_0.images.filters;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
 import apiserver.core.common.ResponseEntityHelper;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
@@ -46,12 +49,30 @@ public class ImageOilTests
     @Autowired
     private ApiImageFilterOilGateway imageOilFilterGateway;
 
-    static File file = null;
 
-    @BeforeClass
-    public static void setup() throws URISyntaxException
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        file = new File(  ImageOilTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
+    }
+
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
     }
 
 
@@ -60,7 +81,7 @@ public class ImageOilTests
     public void testOilByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         OilJob args = new OilJob();
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setLevels(3);
         args.setRange(256);
 
@@ -72,7 +93,7 @@ public class ImageOilTests
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getContentType();
+        String contentType = (String)payload.getDocument().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -84,7 +105,7 @@ public class ImageOilTests
     public void testOilBase64ByFile() throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         OilJob args = new OilJob();
-        args.setFile(file);
+        args.setDocumentId(documentId);
         args.setLevels(3);
         args.setRange(256);
 
@@ -96,7 +117,7 @@ public class ImageOilTests
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getContentType();
+        String contentType = (String)payload.getDocument().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

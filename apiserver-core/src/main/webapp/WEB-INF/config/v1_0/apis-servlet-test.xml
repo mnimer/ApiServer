@@ -21,6 +21,12 @@
 
 
 
+    <!-- cache flows -->
+    <import resource="flows/documents/documentGet-flow.xml"/>
+    <import resource="flows/documents/documentAdd-flow.xml"/>
+    <import resource="flows/documents/documentDelete-flow.xml"/>
+
+
     <!-- status flows
     <import resource="flows/status/apiserverHealth-flow.xml"/>
     <import resource="flows/status/coldFusionHealth-flow.xml"/> -->

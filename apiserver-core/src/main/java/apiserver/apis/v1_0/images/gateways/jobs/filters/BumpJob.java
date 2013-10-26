@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class BumpJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(BumpJob.class);
+    private final Logger log = LoggerFactory.getLogger(BumpJob.class);
 
     private int edgeAction;
     private boolean useAlpha;

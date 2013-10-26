@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.controllers;
+package apiserver.apis.v1_0.images.controllers.manipulations;
 
 import apiserver.apis.v1_0.images.gateways.images.ImageDrawBorderGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway;
@@ -73,7 +73,7 @@ public class ImageDrawingController
         FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
     }
@@ -124,7 +124,7 @@ public class ImageDrawingController
         FileTextJob payload = (FileTextJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, returnAsBase64);
         return result;
 

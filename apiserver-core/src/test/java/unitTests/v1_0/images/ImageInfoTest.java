@@ -1,23 +1,32 @@
 package unitTests.v1_0.images;
 
-import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
+import org.junit.After;
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -46,28 +55,35 @@ public class ImageInfoTest
 
     int width = 500;
     int height = 296;
-    static String fileName = "IMG_5932_sm.png";
     static String url = "/rest/v1/image/info/size.json";
     static File file = null;
     static Map<String, Object> args = null;
 
 
-    @BeforeClass
-    public static void beforeClass()
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    String documentId = null;
+
+    @Before
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        try
-        {
-            file = new File(ImageInfoTest.class.getClassLoader().getSystemResource(fileName).toURI());
+        File file = new File(  ImageInfoTest.class.getClassLoader().getResource("IMG_5932_sm.png").toURI()  );
 
-            args = new HashMap();
-            args.put(ImageConfigMBeanImpl.FILE, file);
-
-
-        }catch (Exception ex){
-            Assert.fail(ex.getMessage());
-        }
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
 
+    @After
+    public void tearDown() throws InterruptedException, ExecutionException
+    {
+        DeleteDocumentJob job = new DeleteDocumentJob();
+        job.setDocumentId(documentId);
+        documentGateway.deleteDocument(job).get();
+    }
 
     @Test
     public void testImageInfo()
@@ -75,8 +91,7 @@ public class ImageInfoTest
         try
         {
             FileInfoJob args = new FileInfoJob();
-            args.setSupportedMimeTypes(supportedMimeTypes);
-            args.setFile(file);
+            args.setDocumentId(documentId);
 
             Future<Map> resultFuture = gateway.imageInfo(args);
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );

@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.jobs.filters;
 
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
-import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,7 +13,7 @@ import java.io.File;
  */
 public class MaskJob extends ImageDocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(MaskJob.class);
+    private final Logger log = LoggerFactory.getLogger(MaskJob.class);
 
     Object mask; //String, File, MultipartFile
 

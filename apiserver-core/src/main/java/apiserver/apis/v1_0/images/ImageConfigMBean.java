@@ -11,12 +11,6 @@ public interface ImageConfigMBean
 {
     public Cache getCache() throws FactoryException;
 
-    public String getCacheName();
-    public void setCacheName(String cacheName);
-
-    public String getCacheLibrary();
-    public void setCacheLibrary(String cacheLibrary);
-
     public String getMetadataLibrary();
     public void setMetadataLibrary(String metadataLibrary);
 

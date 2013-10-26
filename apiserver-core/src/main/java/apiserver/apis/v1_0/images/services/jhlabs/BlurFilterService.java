@@ -1,6 +1,8 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.models.FileModel;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BlurFilter;
@@ -19,7 +21,7 @@ public class BlurFilterService
 
     public Object doFilter(Message<?> message)
     {
-        FileModel props = (FileModel) message.getPayload();
+        ImageDocumentJob props = (ImageDocumentJob) message.getPayload();
         //Map headers = (Map) message.getHeaders();
 
         try
@@ -36,7 +38,7 @@ public class BlurFilterService
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
             // add image into the payload, and return
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

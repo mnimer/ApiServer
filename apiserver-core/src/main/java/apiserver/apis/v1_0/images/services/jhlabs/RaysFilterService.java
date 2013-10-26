@@ -41,13 +41,6 @@ public class RaysFilterService
 
         try
         {
-            File inFile = props.getFile();
-
-            if (inFile == null)
-            {
-                throw new MessageConfigException(MessageConfigException.MISSING_PROPERTY);
-            }
-
             Colormap colorMap = null;
             if( colorMapType.equalsIgnoreCase("gradient"))
             {
@@ -92,7 +85,7 @@ public class RaysFilterService
             BufferedImage bufferedImage = props.getBufferedImage();
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return props;
         }
         catch (Throwable e)
