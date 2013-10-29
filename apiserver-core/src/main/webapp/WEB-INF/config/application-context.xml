@@ -33,14 +33,17 @@
     -->
 
 
+    <!--
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <util:list>
-                <bean id="byteArrayMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+                <bean id="formHttpMessageConverter" class="org.springframework.http.converter.FormHttpMessageConverter"/>
+                <bean id="bufferedImageMessageConverter" class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
                 <bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
             </util:list>
         </property>
     </bean>
+    -->
 
 
 

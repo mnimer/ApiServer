@@ -33,6 +33,7 @@ public class InMemoryCacheProvider implements IDocumentCacheProvider
             File file = new File(  InMemoryCacheProvider.class.getClassLoader().getResource("sample.png").toURI()  );
             Document doc = new Document(file);
             doc.setId(imgID);
+            doc.setContentType("image/png");
             cache.put(imgID, doc);
         }
         catch(Exception e){

@@ -94,10 +94,15 @@
             <version>5.1.2</version>
         </dependency>
 
-        <dependency>
+        <!--dependency>
             <groupId>com.jhlabs</groupId>
             <artifactId>filters</artifactId>
             <version>1.0.0</version>
+        </dependency-->
+        <dependency>
+            <groupId>com.jhlabs</groupId>
+            <artifactId>filters</artifactId>
+            <version>2.0.235-1</version>
         </dependency>
 
         <dependency>

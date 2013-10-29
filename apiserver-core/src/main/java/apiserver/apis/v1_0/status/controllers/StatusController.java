@@ -83,6 +83,34 @@ public class StatusController
     }
 
 
+    @RequestMapping(value = "/async/health2", method = RequestMethod.GET)
+    public Callable<Map> checkApiServerAsync2(HttpServletRequest request, HttpServletResponse response)
+    {
+        Callable<Map> callable = new Callable<Map>()
+        {
+            @Override
+            public Map call() throws Exception
+            {
+                Future<Map> result = gateway.checkApiServerAsync();
+                Map m = result.get(defaultTimeout, TimeUnit.MILLISECONDS);
+                return m;
+
+            }
+        };
+
+        return callable;
+    }
+
+
+
+    @RequestMapping(value = "/async/health3", method = RequestMethod.GET)
+    public Future<Map> checkApiServerAsync3(HttpServletRequest request, HttpServletResponse response)
+    {
+        Future<Map> result = gateway.checkApiServerAsync();
+        return result;
+    }
+
+
 
     @RequestMapping(value = "/coldfusion/health", method = RequestMethod.GET)
     public ResponseEntity<Map> checkColdfusionSync(HttpServletRequest request, HttpServletResponse response) throws  Exception

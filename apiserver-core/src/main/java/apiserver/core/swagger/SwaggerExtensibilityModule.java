@@ -1,5 +1,6 @@
 package apiserver.core.swagger;
 
+import apiserver.apis.v1_0.images.model.ImageInfo;
 import com.fasterxml.classmate.TypeResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,6 +93,15 @@ public class SwaggerExtensibilityModule extends ExtensibilityModule
     public AlternateTypeProcessingRule webAsyncTaskMapAlternate() {
         TypeResolver resolver = new TypeResolver();
         return alternate(resolver.resolve(WebAsyncTask.class, Map.class), resolver.resolve(Map.class));
+    }
+
+    /**
+     * Handles WebAsyncTask<ImageInfo> results
+     * @return
+     */
+    public AlternateTypeProcessingRule webAsyncTaskImageInfoAlternate() {
+        TypeResolver resolver = new TypeResolver();
+        return alternate(resolver.resolve(WebAsyncTask.class, ImageInfo.class), resolver.resolve(ImageInfo.class));
     }
 
     /**

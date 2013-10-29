@@ -4,10 +4,13 @@ package apiserver.apis.v1_0.images.services.jhlabs;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.BoxBlurJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BoxBlurFilter;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.io.File;
 
 /**
  * User: mnimer
@@ -39,6 +42,9 @@ public class BoxBlurFilterService
             }
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
+
+            File newF = new File("/Users/mikenimer/Desktop/img3.png");
+            FileUtils.writeByteArrayToFile(newF, ((DataBufferByte) ((BufferedImage) outFile).getData().getDataBuffer()).getData());
 
 
             props.setBufferedImage(outFile);

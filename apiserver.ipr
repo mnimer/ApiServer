@@ -23,7 +23,7 @@
             <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
             <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.6.4" />
             <element id="library" level="project" name="Maven: com.adobe.xmp:xmpcore:5.1.2" />
-            <element id="library" level="project" name="Maven: com.jhlabs:filters:1.0.0" />
+            <element id="library" level="project" name="Maven: com.jhlabs:filters:2.0.235-1" />
             <element id="library" level="project" name="Maven: org.im4java:im4java:1.3.2" />
             <element id="library" level="project" name="Maven: com.drewnoakes:metadata-extractor:2.6.2" />
             <element id="library" level="project" name="Maven: xerces:xercesImpl:2.8.1" />
@@ -623,7 +623,6 @@
   <component name="RegexUtilComponent" text="1900-01-01 2007/08/13 1900.01.01 1900 01 01 1900-01.01 1900 13 01 1900 02 31" flags="0" regex="(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])" mode="0" />
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../../github/spring-integration-samples" vcs="Git" />
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
   <component name="libraryTable">
@@ -814,6 +813,17 @@
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/jhlabs/filters/1.0.0/filters-1.0.0-sources.jar!/" />
         <root url="file:///var/folders/2m/2tfb5my902ggdnbp491mpbq80000gn/T/intellijad" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.jhlabs:filters:2.0.235-1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jhlabs/filters/2.0.235-1/filters-2.0.235-1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jhlabs/filters/2.0.235-1/filters-2.0.235-1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/jhlabs/filters/2.0.235-1/filters-2.0.235-1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.mangofactory:swagger-springmvc:0.7.0-SNAPSHOT">

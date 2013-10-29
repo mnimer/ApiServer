@@ -16,9 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.async.WebAsyncTask;
 
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * User: mnimer
@@ -40,8 +38,8 @@ public class ImageInfoController
 
 
     /**
-     * get basic info
-     * @param file
+     * get basic info about image.
+     * @param documentId cache id
      * @return   height,width, pixel size, transparency
      * , @RequestPart("meta-data") Object metadata
      *
@@ -49,11 +47,11 @@ public class ImageInfoController
 
      */
     @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{documentId}/size", method = {RequestMethod.GET})
-    public WebAsyncTask<Map> imageInfoByImage(
+    @RequestMapping(value = "/{documentId}/size.{format}", method = {RequestMethod.GET})
+    public WebAsyncTask<Map> imageInfoByImageAsync(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA")
             @PathVariable(value = "documentId") String documentId
-    )
+    ) throws ExecutionException, TimeoutException, InterruptedException
     {
         final String _documentId = documentId;
 
@@ -72,15 +70,15 @@ public class ImageInfoController
             }
         };
 
-        return new WebAsyncTask<>(10000, callable);
+        return new WebAsyncTask<>(defaultTimeout, callable);
     }
 
 
 
     /**
      * get embedded metadata
-     * @param file
-     * @return   height,width, pixel size, transparency
+     * @param documentId
+     * @return   height,width
      */
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
     @RequestMapping(value = "/{documentId}/metadata", method = {RequestMethod.GET})
@@ -105,7 +103,7 @@ public class ImageInfoController
             }
         };
 
-        return new WebAsyncTask<Map>(10000, callable);
+        return new WebAsyncTask<Map>(defaultTimeout, callable);
     }
 
 

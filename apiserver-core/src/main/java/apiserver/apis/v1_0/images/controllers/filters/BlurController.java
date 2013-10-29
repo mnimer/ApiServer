@@ -7,18 +7,25 @@ import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -57,7 +64,7 @@ public class BlurController
     public ResponseEntity<byte[]> imageBlurByFile(
             @ApiParam(name = "documentId", required = true,  defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA")
             @PathVariable(value = "documentId") String documentId
-    ) throws TimeoutException, ExecutionException, InterruptedException, IOException
+    ) throws TimeoutException, ExecutionException, InterruptedException, IOException, URISyntaxException
     {
         ImageDocumentJob job = new ImageDocumentJob();
         job.setDocumentId(documentId);
@@ -67,7 +74,7 @@ public class BlurController
 
         //BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getDocument().getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(payload.getDocument().getFileBytes(), "image/png", false);
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(payload.getDocument().getFileBytes(), contentType, false);
         return result;
     }
 

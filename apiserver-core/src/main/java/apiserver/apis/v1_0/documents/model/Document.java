@@ -37,17 +37,7 @@ public class Document implements Serializable
      */
     public Document(File file)  throws IOException
     {
-        if( !file.exists() || file.isDirectory() )
-        {
-            throw new IOException("Invalid File Reference");
-        }
-
-        fileName = file.getName();
-        this.file = file;
-
-        byte[] bytes = FileUtils.readFileToByteArray(file);
-        this.setFileBytes(bytes);
-        this.setSize( new Integer(bytes.length).longValue() );
+        setFile(file);
     }
 
 
@@ -58,8 +48,7 @@ public class Document implements Serializable
      */
     public Document(MultipartFile file) throws IOException
     {
-        fileName = file.getOriginalFilename();
-        this.setFileBytes(file.getBytes());
+        setFile(file);
     }
 
 
@@ -70,9 +59,45 @@ public class Document implements Serializable
      */
     public Document(BufferedImage file) throws IOException
     {
-        fileName = UUID.randomUUID().toString();
-        byte[] imageBytes = ((DataBufferByte) file.getData().getDataBuffer()).getData();
-        this.setFileBytes(imageBytes);
+        setFile(file);
+    }
+
+
+    public void setFile(Object file) throws IOException
+    {
+        if( file instanceof  File )
+        {
+            if( !((File)file).exists() || ((File)file).isDirectory() )
+            {
+                throw new IOException("Invalid File Reference");
+            }
+
+            fileName = ((File)file).getName();
+            this.file = file;
+
+            byte[] bytes = FileUtils.readFileToByteArray(((File)file));
+            this.setFileBytes(bytes);
+            this.setSize( new Integer(bytes.length).longValue() );
+        }
+        else if( file instanceof MultipartFile)
+        {
+            fileName = ((MultipartFile)file).getOriginalFilename();
+            this.setFileBytes(((MultipartFile)file).getBytes());
+        }
+        else if (file instanceof BufferedImage)
+        {
+            fileName = UUID.randomUUID().toString();
+
+            // Convert buffered reader to byte array
+            String _mime = this.getContentType().substring(this.getContentType().lastIndexOf('/')+1);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            ImageIO.write( (BufferedImage)file, _mime, byteArrayOutputStream );
+            byteArrayOutputStream.flush();
+            byte[] imageBytes = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            this.setFileBytes(imageBytes);
+        }
     }
 
 
