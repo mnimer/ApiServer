@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 
 /**
  * User: mnimer

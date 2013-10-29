@@ -24,6 +24,7 @@ public class ImageDrawingCFService
 
     @Autowired
     public IColdFusionBridge coldFusionBridge;
+
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
         this.coldFusionBridge = coldFusionBridge;

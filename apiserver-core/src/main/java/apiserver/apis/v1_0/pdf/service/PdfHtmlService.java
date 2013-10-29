@@ -41,7 +41,7 @@ public class PdfHtmlService
             String method = pdfConfigMBean.getConvertHtmlToPdfMethod();
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
-            methodArgs.put("image", props.getFile());
+            methodArgs.put("image", props.getDocument().getFile());
 
             // execute
             Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);

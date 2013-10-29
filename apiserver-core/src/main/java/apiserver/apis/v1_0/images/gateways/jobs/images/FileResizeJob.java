@@ -1,12 +1,12 @@
 package apiserver.apis.v1_0.images.gateways.jobs.images;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 
 /**
  * User: mikenimer
  * Date: 7/21/13
  */
-public class FileResizeJob extends FileModel
+public class FileResizeJob extends ImageDocumentJob
 {
     private Integer width;
     private Integer height;

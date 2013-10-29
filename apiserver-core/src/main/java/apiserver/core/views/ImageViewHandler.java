@@ -3,8 +3,6 @@ package apiserver.core.views;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
-import org.springframework.web.servlet.view.InternalResourceView;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

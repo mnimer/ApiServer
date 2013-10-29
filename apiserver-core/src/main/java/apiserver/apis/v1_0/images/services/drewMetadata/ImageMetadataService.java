@@ -25,8 +25,8 @@ public class ImageMetadataService
 
         try
         {
-            File file = props.getFile();
-            String contentType = (String)props.getContentType();
+            File file = props.getDocument().getFile();
+            String contentType = (String)props.getDocument().getContentType();
 
             Map metadataDirectories = new HashMap();
 

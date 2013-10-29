@@ -2,7 +2,6 @@ package apiserver.apis.v1_0.images.services.coldfusion;
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
-import apiserver.apis.v1_0.images.model.ImageInfo;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,15 +1,11 @@
 package apiserver.apis.v1_0.documents.model;
 
 import org.apache.commons.io.FileUtils;
-import org.springframework.util.FileCopyUtils;
-import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 import java.io.*;
-import java.util.Date;
 import java.util.UUID;
 
 /**

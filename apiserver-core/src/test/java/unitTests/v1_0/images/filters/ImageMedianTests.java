@@ -8,8 +8,10 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMedianGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.core.models.FileModel;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +22,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -87,13 +87,13 @@ public class ImageMedianTests
 
         Future<Map> imageFuture = imageMedianFilterGateway.imageMedianFilter(args);
 
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -108,13 +108,13 @@ public class ImageMedianTests
         args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageMedianFilterGateway.imageMedianFilter(args);
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

@@ -77,8 +77,7 @@ public class ImageMetadataDrewMetadataExtractorTest
 
 
         FileMetadataJob model = new FileMetadataJob();
-        model.supportedMimeTypes = supportedMimeTypes;
-        model.setFile(file);
+        //model.setFile(file);
         Future<Map> future = gateway.getMetadata(model);
 
 

@@ -9,8 +9,6 @@ import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-import com.wordnik.swagger.annotations.ApiParamImplicit;
-import com.wordnik.swagger.annotations.ApiParamsImplicit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.WebAsyncTask;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.ws.rs.Consumes;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -58,7 +55,7 @@ public class DocumentController
      * @param tags list of metadata tags
      * @return cache ID
      */
-    @ApiOperation(value = "add an document to cache",multiValueResponse = true)
+    @ApiOperation(value = "add an document to cache", multiValueResponse = true)
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public WebAsyncTask<String> addDocument(
             @ApiParam(name = "uploadedFile", required = true)

@@ -17,8 +17,6 @@
     <context:component-scan base-package="apiserver.apis.v1_0.images.jobs" />
 
 
-    <!--bean id="fileModel" class="apiserver.core.models.FileModel"/-->
-
     <si:logging-channel-adapter
             id="logger"
             log-full-message="true"

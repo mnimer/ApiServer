@@ -1,7 +1,7 @@
 package apiserver.core.connectors.coldfusion;
 
 import apiserver.ApiServerConstants;
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -21,7 +21,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -210,9 +209,9 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 }
             }
 
-            if( props instanceof FileModel)
+            if( props instanceof ImageDocumentJob)
             {
-                methodArgs.put(ApiServerConstants.IMAGE, ((FileModel)props).getFile() );
+                methodArgs.put(ApiServerConstants.IMAGE, ((ImageDocumentJob)props).getDocument().getFile() );
             }
         }
 

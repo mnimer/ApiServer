@@ -68,9 +68,8 @@ public class ImageRotateTest
         try
         {
             FileRotateJob args = new FileRotateJob();
-            args.supportedMimeTypes = supportedMimeTypes;
+            //args.setFile(file);
             args.setAngle(90);
-            args.setFile(file);
 
             Future<Map> resultFuture = gateway.rotateImage(args);
             FileRotateJob result = (FileRotateJob)resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );

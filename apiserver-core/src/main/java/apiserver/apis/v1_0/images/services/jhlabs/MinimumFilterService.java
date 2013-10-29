@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.MinimumFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class MinimumFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        FileModel props = (FileModel) message.getPayload();
+        ImageDocumentJob props = (ImageDocumentJob) message.getPayload();
 
         try
         {
@@ -33,7 +33,7 @@ public class MinimumFilterService
 
             BufferedImage outFile = filter.filter(bufferedImage, null);
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

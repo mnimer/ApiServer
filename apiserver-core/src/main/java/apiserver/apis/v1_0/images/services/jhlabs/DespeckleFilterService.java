@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.DespeckleFilter;
 import org.apache.log4j.Logger;
@@ -18,7 +18,7 @@ public class DespeckleFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        FileModel props = (FileModel) message.getPayload();
+        ImageDocumentJob props = (ImageDocumentJob) message.getPayload();
         //Map headers = (Map) message.getHeaders();
 
         try
@@ -34,7 +34,7 @@ public class DespeckleFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
             return message;
         }
         catch (Throwable e)

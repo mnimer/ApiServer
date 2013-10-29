@@ -28,7 +28,7 @@ public class ImageMetadataService
 
         try
         {
-            File CachedFile = props.getFile();
+            File CachedFile = props.getDocument().getFile();
 
             Map metadataDirectories = new HashMap();
 
@@ -87,7 +87,7 @@ public class ImageMetadataService
 
         try
         {
-            File file = props.getFile();
+            File file = props.getDocument().getFile();
 
             Map metadataDirectories = new HashMap();
 

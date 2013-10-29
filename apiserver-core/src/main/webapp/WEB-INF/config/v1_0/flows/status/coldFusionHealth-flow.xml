@@ -88,7 +88,7 @@
               input-channel="coldFusionHealthHTTPChannel"
               output-channel="coldFusionHealthReplyChannel">
         <si:transformer>
-            <bean class="apiserver.core.transformers.DebugTransformer"/>
+            <bean class="apiserver.core.common.transformers.DebugTransformer"/>
         </si:transformer>
 
     </si:chain-->

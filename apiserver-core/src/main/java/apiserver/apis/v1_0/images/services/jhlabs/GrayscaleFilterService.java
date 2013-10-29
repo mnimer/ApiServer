@@ -1,7 +1,7 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.GrayscaleFilter;
 import org.springframework.integration.Message;
@@ -18,7 +18,7 @@ public class GrayscaleFilterService
 
     public Object doFilter(Message<?> message) throws MessageConfigException
     {
-        FileModel props = (FileModel) message.getPayload();
+        ImageDocumentJob props = (ImageDocumentJob) message.getPayload();
 
         try
         {
@@ -32,7 +32,7 @@ public class GrayscaleFilterService
             }
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
-            props.setProcessedFileBytes(outFile);
+            props.setBufferedImage(outFile);
 
             return message;
         }

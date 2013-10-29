@@ -1,8 +1,5 @@
 package apiserver.core.providers.cache;
 
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

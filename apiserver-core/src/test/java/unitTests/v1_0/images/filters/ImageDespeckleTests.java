@@ -8,8 +8,10 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterDespeckleGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.core.models.FileModel;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,13 +91,13 @@ public class ImageDespeckleTests
 
         Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
 
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
 
@@ -112,13 +114,13 @@ public class ImageDespeckleTests
 
         Future<Map> imageFuture = imageDespeckleFilterGateway.imageDespeckleFilter(args);
 
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
 

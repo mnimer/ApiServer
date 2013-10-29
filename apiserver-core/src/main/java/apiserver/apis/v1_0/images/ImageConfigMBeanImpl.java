@@ -74,52 +74,10 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
 
     public ImageConfigMBeanImpl()
     {
-        //initializeSampleResources();
 
     }
 
 
-    /**
-     * Store an initial image in the cache for unit tests.
-
-    private void initializeSampleResources()
-    {
-        try
-        {
-            String key = "a3c8af38-82e3-4241-8162-28e17ebcbf52";
-            File file = new File(getClass().getClassLoader().getResource("sample.png").toURI());
-
-            FileModel CachedFile = new FileModel(file);
-            CachedFile.setFileName(file.getName());
-            CachedFile.setSize( file.length() );
-            CachedFile.setContentType( "image/png" );
-
-            Map cachedProperties = new HashMap();
-            cachedProperties.put(ImageConfigMBeanImpl.FILE, CachedFile);
-            cachedProperties.put(ImageConfigMBeanImpl.CONTENT_TYPE, "image/png" );
-            cachedProperties.put(ImageConfigMBeanImpl.ORIGINAL_FILE_NAME, file.getName() );
-            cachedProperties.put(ImageConfigMBeanImpl.NAME, file.getName() );
-            cachedProperties.put(ImageConfigMBeanImpl.SIZE, file.length() );
-
-
-            Element element = new Element(key, cachedProperties );
-            element.setEternal(true);
-
-            getCache().put(element);
-
-
-            //Map<String, Object> args = new HashMap<String, Object>();
-            //args.put(ImageConfigMBeanImpl.FILE, file);
-            //args.put(ImageConfigMBeanImpl.TIME_TO_LIVE, 0);
-            //ModelAndView view = channelInvoker.invokeGenericChannel(null, null, args, imageCacheAddInputChannel);
-
-        }
-        catch (Exception ex1)
-        {
-            //do nothing
-        }
-    }
-    */
 
     public Cache getCache() throws FactoryException
     {

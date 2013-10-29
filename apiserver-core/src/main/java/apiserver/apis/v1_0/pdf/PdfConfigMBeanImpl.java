@@ -1,9 +1,6 @@
 package apiserver.apis.v1_0.pdf;
 
-import apiserver.exceptions.FactoryException;
 import net.sf.ehcache.Cache;
-import net.sf.ehcache.config.CacheConfiguration;
-import net.sf.ehcache.store.MemoryStoreEvictionPolicy;
 import org.springframework.jmx.export.annotation.ManagedAttribute;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Component;

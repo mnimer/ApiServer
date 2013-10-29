@@ -1,11 +1,10 @@
 package apiserver.apis.v1_0.documents.gateway;
 
 import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 
-import java.util.Map;
 import java.util.concurrent.Future;
 
 /**

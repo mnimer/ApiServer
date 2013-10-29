@@ -1,7 +1,6 @@
 package apiserver.apis.v1_0.documents.gateway.jobs;
 
 import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.core.models.FileModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

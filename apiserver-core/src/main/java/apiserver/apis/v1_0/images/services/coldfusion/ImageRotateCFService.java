@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.awt.image.BufferedImage;
 import java.util.Map;
@@ -56,13 +57,13 @@ public class ImageRotateCFService
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             String img = mapper.readValue((String)cfcResult, String.class);
 
-            if( cfcResult instanceof String )
+            if( cfcResult instanceof BufferedImage )
             {
-                props.setBase64File(img);
+                props.setBufferedImage((BufferedImage) cfcResult);
             }
-            else if( cfcResult instanceof BufferedImage )
+            else
             {
-                props.setProcessedFileBytes((BufferedImage)cfcResult);
+                throw new NotImplementedException();
             }
 
             return props;

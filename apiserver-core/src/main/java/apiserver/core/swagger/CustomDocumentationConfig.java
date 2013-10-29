@@ -1,7 +1,6 @@
 package apiserver.core.swagger;
 
 import com.mangofactory.swagger.EndpointComparator;
-import com.mangofactory.swagger.OperationComparator;
 import com.mangofactory.swagger.configuration.DocumentationConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

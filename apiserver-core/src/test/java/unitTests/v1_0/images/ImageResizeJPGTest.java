@@ -73,8 +73,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -108,8 +107,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -141,8 +139,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
 
@@ -175,8 +172,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(-1); //bad arg
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -203,8 +199,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("garble");

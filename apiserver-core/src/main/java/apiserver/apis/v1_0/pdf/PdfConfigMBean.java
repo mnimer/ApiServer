@@ -1,8 +1,5 @@
 package apiserver.apis.v1_0.pdf;
 
-import apiserver.exceptions.FactoryException;
-import net.sf.ehcache.Cache;
-
 /**
  * User: mnimer
  * Date: 10/19/12

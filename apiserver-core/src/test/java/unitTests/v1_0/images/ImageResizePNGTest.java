@@ -71,8 +71,7 @@ public class ImageResizePNGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -106,8 +105,7 @@ public class ImageResizePNGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            args.supportedMimeTypes = supportedMimeTypes;
-            args.setFile(file);
+            //args.setFile(file);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");

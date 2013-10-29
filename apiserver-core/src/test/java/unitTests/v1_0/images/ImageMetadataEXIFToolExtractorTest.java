@@ -1,5 +1,9 @@
 package unitTests.v1_0.images;
 
+import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
+import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
@@ -11,17 +15,21 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
+import unitTests.v1_0.images.filters.ImageMotionBlurTests;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
@@ -43,8 +51,6 @@ public class ImageMetadataEXIFToolExtractorTest
     public String hostName = "";
     public int port = 0;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     public ImageMetadataGateway gateway;
@@ -54,13 +60,25 @@ public class ImageMetadataEXIFToolExtractorTest
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
+    @Qualifier("documentAddGateway")
+    @Autowired
+    private DocumentGateway documentGateway;
+
+    private String documentId;
+
 
     @Before
-    public void setup() throws Exception
+    public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
         config.setMetadataLibrary(ImageConfigMBeanImpl.EXIFTOOL_METADATA_EXTRACTOR);
-
         System.out.println(config.getMetadataLibrary());
+
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+
+        UploadDocumentJob job = new UploadDocumentJob(file);
+        job.setDocument(new Document(file));
+        Future<DocumentJob> doc = documentGateway.addDocument(job);
+        documentId = ((DocumentJob)doc.get()).getDocument().getId();
     }
 
 
@@ -77,8 +95,7 @@ public class ImageMetadataEXIFToolExtractorTest
 
 
         FileMetadataJob model = new FileMetadataJob();
-        model.supportedMimeTypes = supportedMimeTypes;
-        model.setFile(file);
+        model.setDocumentId(documentId);
         Future<Map> future = gateway.getMetadata(model);
 
 

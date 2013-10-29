@@ -3,7 +3,6 @@ package apiserver.apis.v1_0.images.controllers.filters;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMinimumGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.core.models.FileModel;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -62,10 +61,10 @@ public class MinimumController
         args.setDocumentId(documentId);
 
         Future<Map> imageFuture = imageFilterMinimumGateway.imageMinimumFilter(args);
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }

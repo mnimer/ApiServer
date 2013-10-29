@@ -76,7 +76,7 @@ public class ImageManipulationController
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
         FileRotateJob args = new FileRotateJob();
-        args.setFile(file);
+        //args.setFile(file);
         args.setAngle(angle);
 
         Future<Map> imageFuture = imageRotateGateway.rotateImage(args);
@@ -84,7 +84,7 @@ public class ImageManipulationController
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -113,7 +113,7 @@ public class ImageManipulationController
     ) throws IOException, InterruptedException, ExecutionException, TimeoutException
     {
         FileResizeJob args = new FileResizeJob();
-        args.setFile(file);
+        //args.setFile(file);
         args.setWidth(width);
         args.setHeight(height);
         args.setInterpolation(interpolation.toUpperCase());
@@ -124,7 +124,7 @@ public class ImageManipulationController
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }

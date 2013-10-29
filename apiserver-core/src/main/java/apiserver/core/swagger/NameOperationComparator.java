@@ -1,10 +1,9 @@
 package apiserver.core.swagger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.mangofactory.swagger.OperationComparator;
 import com.wordnik.swagger.core.DocumentationOperation;
-import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**

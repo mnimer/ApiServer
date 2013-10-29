@@ -47,7 +47,7 @@ public class ImageInfoController
 
      */
     @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{documentId}/size.{format}", method = {RequestMethod.GET})
+    @RequestMapping(value = "/{documentId}/size", method = {RequestMethod.GET})
     public WebAsyncTask<Map> imageInfoByImageAsync(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA")
             @PathVariable(value = "documentId") String documentId
@@ -83,7 +83,7 @@ public class ImageInfoController
     @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
     @RequestMapping(value = "/{documentId}/metadata", method = {RequestMethod.GET})
     public WebAsyncTask<Map> imageMetadataByImage(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
     )
     {
         final String _documentId = documentId;
@@ -94,7 +94,7 @@ public class ImageInfoController
             public Map call() throws Exception
             {
                 FileMetadataJob args = new FileMetadataJob();
-                args.setFile(_documentId);
+                args.setDocumentId(_documentId);
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
                 FileMetadataJob payload = (FileMetadataJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);

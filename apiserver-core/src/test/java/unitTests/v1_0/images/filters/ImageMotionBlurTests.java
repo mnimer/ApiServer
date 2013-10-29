@@ -6,28 +6,27 @@ import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.MotionBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.core.models.FileModel;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.task.support.ConcurrentExecutorAdapter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.annotation.Resource;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -95,13 +94,13 @@ public class ImageMotionBlurTests
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
 
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getContentType();
+        String contentType = (String)payload.getDocument().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 
@@ -124,13 +123,13 @@ public class ImageMotionBlurTests
 
         Future<Map> imageFuture = imageMotionBlurFilterGateway.imageMotionBlurFilter(args);
 
-        FileModel payload = (FileModel)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null);
 
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getContentType();
+        String contentType = (String)payload.getDocument().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 

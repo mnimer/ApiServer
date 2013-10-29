@@ -4,7 +4,6 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaximumGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.core.models.FileModel;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -64,13 +63,13 @@ public class ImageMaximumTests
         args.setDocument(new Document(file));
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);
-        FileModel payload = (FileModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getContentType();
+        String contentType = payload.getDocument().getContentType();
         Assert.assertEquals("image/png",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -85,14 +84,14 @@ public class ImageMaximumTests
         args.setDocument(new Document(file));
 
         Future<Map> imageFuture = imageMaximumFilterGateway.imageMaximumFilter(args);
-        FileModel payload = (FileModel)imageFuture.get(10000, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(10000, TimeUnit.MILLISECONDS);
         Assert.assertTrue("NULL Payload", payload != null );
 
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getContentType();
+        String contentType = (String)payload.getDocument().getContentType();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
 

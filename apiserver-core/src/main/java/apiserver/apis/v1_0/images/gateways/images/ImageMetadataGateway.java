@@ -1,6 +1,6 @@
 package apiserver.apis.v1_0.images.gateways.images;
 
-import apiserver.core.models.FileModel;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -11,6 +11,6 @@ import java.util.concurrent.Future;
  */
 public interface ImageMetadataGateway
 {
-    Future<Map> getMetadata(FileModel args);
+    Future<Map> getMetadata(ImageDocumentJob args);
 
 }

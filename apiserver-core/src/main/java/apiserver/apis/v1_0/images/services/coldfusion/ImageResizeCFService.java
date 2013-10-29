@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.awt.image.BufferedImage;
 import java.util.Map;
@@ -26,6 +27,7 @@ public class ImageResizeCFService
 
     @Autowired
     public IColdFusionBridge coldFusionBridge;
+
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
         this.coldFusionBridge = coldFusionBridge;
@@ -38,7 +40,6 @@ public class ImageResizeCFService
 
         try
         {
-
             cfcPath = imageConfigMBean.getImageResizePath();
             String method = imageConfigMBean.getImageResizeMethod();
             String arguments = "";
@@ -54,14 +55,15 @@ public class ImageResizeCFService
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             String img = mapper.readValue((String)cfcResult, String.class);
 
-            if( cfcResult instanceof String )
+            if( cfcResult instanceof BufferedImage )
             {
-                props.setBase64File(img);
+                props.setBufferedImage( ((BufferedImage) cfcResult) );
             }
-            else if( cfcResult instanceof BufferedImage )
+            else
             {
-                props.setProcessedFileBytes( ((BufferedImage)cfcResult)  );
+                throw new NotImplementedException();
             }
+
 
             return props;
 

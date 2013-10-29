@@ -1,18 +1,13 @@
 package apiserver.apis.v1_0.images.services.jhlabs;
 
 
-import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
-import apiserver.core.models.FileModel;
 import apiserver.exceptions.MessageConfigException;
 import com.jhlabs.image.BlurFilter;
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.integration.Message;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.io.File;
 
 /**
  * User: mnimer

@@ -58,7 +58,7 @@ public class PdfHtmlController
         Future<Map> future = null;//pdfHtmlGateway.convertHtmlToPdf(args);
         PdfHtmlJob payload = (PdfHtmlJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
-        byte[] file = payload.getProcessedFileBytes();
+        byte[] file = payload.getDocument().getFileBytes();
         String contentType = "application/pdf";//payload.getContentType();
 
 

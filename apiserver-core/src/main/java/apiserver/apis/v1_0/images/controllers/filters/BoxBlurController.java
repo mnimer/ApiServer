@@ -1,6 +1,7 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBoxBlurGateway;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.BoxBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -65,7 +66,7 @@ public class BoxBlurController
         args.setPreMultiplyAlpha(preMultiplyAlpha);
 
         Future<Map> imageFuture = imageFilterBoxBlurGateway.imageBoxBlurFilter(args);
-        BoxBlurJob payload = (BoxBlurJob) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        ImageDocumentJob payload = (ImageDocumentJob) imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
         String contentType = payload.getDocument().getContentType();
