@@ -47,6 +47,11 @@
     <si:chain input-channel="imageResizeHTTPChannel" >
 
         <si:service-activator
+                method="getFromCache">
+            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
+        </si:service-activator>
+
+        <si:service-activator
                 method="execute">
             <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageResizeCFService"/>
         </si:service-activator>

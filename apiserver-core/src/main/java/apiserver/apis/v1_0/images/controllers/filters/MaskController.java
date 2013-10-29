@@ -54,7 +54,7 @@ public class MaskController
     @RequestMapping(value = "/{documentId}/mask", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMaskByFile(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "maskFile", required = true) @RequestParam MultipartFile maskFile
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {

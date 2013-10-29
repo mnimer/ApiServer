@@ -55,7 +55,7 @@ public class GlowController
     @ApiOperation(value = "This filter produces a glowing effect on an image by adding a blurred version of the image to subtracted from the original image.")
     @RequestMapping(value = "/{documentId}/glow", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageGlowByFile(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "amount", required = true, defaultValue = "2") @RequestParam(required = false, defaultValue = "2") int amount
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {

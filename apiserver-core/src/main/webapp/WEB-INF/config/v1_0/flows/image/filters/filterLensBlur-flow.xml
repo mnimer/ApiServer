@@ -38,6 +38,11 @@
 
         <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
+        <si:service-activator
+                method="getFromCache">
+            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
+        </si:service-activator>
+
 
         <si:service-activator
                 method="doFilter">

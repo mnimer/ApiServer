@@ -55,7 +55,7 @@ public class MaximumController
     @RequestMapping(value = "/{documentId}/maximum", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMaximumByFile(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {
         ImageDocumentJob args = new ImageDocumentJob();

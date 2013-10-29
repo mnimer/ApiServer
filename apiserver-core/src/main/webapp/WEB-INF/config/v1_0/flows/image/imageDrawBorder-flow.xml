@@ -41,6 +41,12 @@
     <si:channel id="imageDrawBorderHTTPChannel"/>
     <si:chain input-channel="imageDrawBorderHTTPChannel" >
 
+
+        <si:service-activator
+                method="getFromCache">
+            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
+        </si:service-activator>
+
         <si:service-activator
                 method="imageBorderHandler">
             <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageDrawingCFService"/>

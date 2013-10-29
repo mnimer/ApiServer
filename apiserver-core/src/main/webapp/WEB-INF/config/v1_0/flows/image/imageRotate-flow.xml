@@ -49,6 +49,11 @@
     <si:chain input-channel="imageRotateHTTPChannel" >
 
         <si:service-activator
+                method="getFromCache">
+            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
+        </si:service-activator>
+
+        <si:service-activator
                 method="execute">
             <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageRotateCFService"/>
         </si:service-activator>

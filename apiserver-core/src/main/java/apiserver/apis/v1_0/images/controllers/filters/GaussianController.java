@@ -55,7 +55,7 @@ public class GaussianController
     @ApiOperation(value = "This filter performs a Gaussian blur on an image.")
     @RequestMapping(value = "/{documentId}/gaussian", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageDespeckleByFile(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "radius", required = true, defaultValue = "2") @RequestParam(required = false, defaultValue = "2") int radius
     ) throws TimeoutException, ExecutionException, InterruptedException, IOException
     {

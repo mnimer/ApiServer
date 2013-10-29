@@ -7,7 +7,6 @@ import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
-import apiserver.apis.v1_0.images.model.ImageInfo;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -98,7 +97,7 @@ public class ImageInfoTest
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );
-            Assert.assertTrue( result instanceof ImageInfo );
+            Assert.assertTrue( result instanceof Map );
             Assert.assertEquals(width, ((Map)result).get("width"));
             Assert.assertEquals(height, ((Map) result).get("height"));
         }
