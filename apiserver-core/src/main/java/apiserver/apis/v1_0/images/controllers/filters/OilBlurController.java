@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -43,7 +45,7 @@ public class OilBlurController
     /**
      * This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.
      *
-     * @param file
+     * @param documentId
      * @param level
      * @param range
      * @param returnAsBase64
@@ -79,5 +81,47 @@ public class OilBlurController
     }
 
 
+
+
+    /**
+     * This filter replaces each pixel by the median of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.
+     *
+     * @param file
+     * @param level
+     * @param range
+     * @param returnAsBase64
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
+     */
+    @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
+    @RequestMapping(value = "/oil", method = {RequestMethod.POST})
+    @ResponseBody
+    public ResponseEntity<byte[]> imageOilBlurByFile(
+            @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
+            , @ApiParam(name="level", required = true, defaultValue = "3")  @RequestParam(value="angle", required = false, defaultValue="3") int level
+            , @ApiParam(name="range", required = true, defaultValue = "256")  @RequestParam(value="range", required = false,  defaultValue="256") int range
+            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
+    ) throws TimeoutException, ExecutionException, InterruptedException, IOException
+    {
+        OilJob job = new OilJob();
+        job.setDocumentId(null);
+        job.setDocument( new Document(file) );
+        job.getDocument().setContentType( file.getContentType() );
+        job.getDocument().setFileName(file.getOriginalFilename());
+        job.setLevels(level);
+        job.setRange(range);
+
+
+        Future<Map> imageFuture = imageFilterOilGateway.imageOilFilter(job);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        return result;
+    }
 
 }

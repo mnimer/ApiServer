@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.controllers.filters;
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMaskGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.MaskJob;
@@ -63,6 +64,43 @@ public class MaskController
         args.setMask(maskFile);
 
         Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(args);
+        ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
+        return result;
+    }
+
+
+
+    /**
+     * This filter blurs an uploaded image very slightly using a 3x3 blur kernel.
+     *
+     * @param file
+     * @param maskFile
+     * @return
+     * @throws TimeoutException
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws IOException
+     */
+    @ApiOperation(value = "This filter blurs an image very slightly using a 3x3 blur kernel.")
+    @RequestMapping(value = "/mask", method = {RequestMethod.POST})
+    @ResponseBody
+    public ResponseEntity<byte[]> imageMaskByFile(
+            @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
+            , @ApiParam(name = "maskFile", required = true) @RequestParam MultipartFile maskFile
+    ) throws TimeoutException, ExecutionException, InterruptedException, IOException
+    {
+        MaskJob job = new MaskJob();
+        job.setDocumentId(null);
+        job.setDocument( new Document(file) );
+        job.getDocument().setContentType( file.getContentType() );
+        job.getDocument().setFileName( file.getOriginalFilename() );
+        job.setMask(maskFile);
+
+        Future<Map> imageFuture = imageFilterMaskGateway.imageMaskFilter(job);
         ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();

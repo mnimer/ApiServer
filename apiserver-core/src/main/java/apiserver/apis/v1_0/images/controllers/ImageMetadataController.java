@@ -28,7 +28,7 @@ import java.util.concurrent.*;
 @Controller
 @Api(value = "/image/info", description = "[IMAGE]")
 @RequestMapping("/image/info")
-public class ImageInfoController
+public class ImageMetadataController
 {
     @Autowired
     private ImageInfoGateway gateway;
@@ -39,22 +39,16 @@ public class ImageInfoController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
     /**
-     * get basic info about image.
-     * @param documentId cache id
-     * @return   height,width, pixel size, transparency
-     * , @RequestPart("meta-data") Object metadata
-     *
-    , @RequestParam MultipartFile file
-
+     * get embedded metadata
+     * @param documentId
+     * @return   height,width
      */
-    @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
-    @RequestMapping(value = "/{documentId}/size", method = {RequestMethod.GET})
-    public WebAsyncTask<Map> imageInfoByImageAsync(
-            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA")
-            @PathVariable(value = "documentId") String documentId
-    ) throws ExecutionException, TimeoutException, InterruptedException
+    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
+    @RequestMapping(value = "/{documentId}/metadata", method = {RequestMethod.GET})
+    public WebAsyncTask<Map> imageMetadataByImage(
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
+    )
     {
         final String _documentId = documentId;
 
@@ -63,33 +57,31 @@ public class ImageInfoController
             @Override
             public Map call() throws Exception
             {
-                FileInfoJob args = new FileInfoJob();
+                FileMetadataJob args = new FileMetadataJob();
                 args.setDocumentId(_documentId);
 
-                Future<Map> imageFuture = gateway.imageInfo(args);
-                Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+                Future<Map> imageFuture = imageMetadataGateway.getMetadata(args);
+                FileMetadataJob payload = (FileMetadataJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
-                return payload;
+                return payload.getMetadata();
             }
         };
 
-        return new WebAsyncTask<>(defaultTimeout, callable);
+        return new WebAsyncTask<Map>(defaultTimeout, callable);
     }
 
-    /**
-     * get basic info about image.
-     * @param file uploaded Image
-     * @return   height,width, pixel size, transparency
-     * , @RequestPart("meta-data") Object metadata
-     *
-    , @RequestParam MultipartFile file
 
+
+    /**
+     * get embedded metadata
+     * @param file uploaded image
+     * @return   height,width
      */
-    @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
-    @RequestMapping(value = "/size", method = {RequestMethod.POST})
-    public WebAsyncTask<Map> imageInfoByImageAsync(
+    @ApiOperation(value = "Get the embedded metadata", responseClass = "java.util.Map")
+    @RequestMapping(value = "/metadata", method = {RequestMethod.POST})
+    public WebAsyncTask<Map> imageMetadataByImage(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
-    ) throws ExecutionException, TimeoutException, InterruptedException
+    )
     {
         final MultipartFile _file = file;
 
@@ -98,21 +90,20 @@ public class ImageInfoController
             @Override
             public Map call() throws Exception
             {
-                FileInfoJob job = new FileInfoJob();
+                FileMetadataJob job = new FileMetadataJob();
                 job.setDocumentId(null);
                 job.setDocument( new Document(_file) );
                 job.getDocument().setContentType( _file.getContentType() );
                 job.getDocument().setFileName(_file.getOriginalFilename());
 
+                Future<Map> imageFuture = imageMetadataGateway.getMetadata(job);
+                FileMetadataJob payload = (FileMetadataJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
-                Future<Map> imageFuture = gateway.imageInfo(job);
-                Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-                return payload;
+                return payload.getMetadata();
             }
         };
 
-        return new WebAsyncTask<>(defaultTimeout, callable);
+        return new WebAsyncTask<Map>(defaultTimeout, callable);
     }
 
 

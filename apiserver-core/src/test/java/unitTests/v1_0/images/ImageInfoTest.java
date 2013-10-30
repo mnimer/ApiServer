@@ -43,9 +43,6 @@ public class ImageInfoTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageInfoTest.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
 
     @Autowired
     private ImageInfoGateway gateway;

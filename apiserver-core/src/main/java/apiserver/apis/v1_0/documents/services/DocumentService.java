@@ -23,11 +23,12 @@ public class DocumentService
 
     public Message<?> getFromCache(Message<?> message) throws MessageConfigException, IOException
     {
-        if( !(message.getPayload() instanceof DocumentJob) ){ return message; }
+        Object payload = message.getPayload();
+        if( !(payload instanceof GetDocumentJob) || ((GetDocumentJob)payload).getDocumentId() == null ){ return message; }
 
-        GetDocumentJob payload = (GetDocumentJob) message.getPayload();
-        Document document = cacheProvider.get(payload.getDocumentId());
-        payload.setDocument(document);
+        GetDocumentJob p = (GetDocumentJob) payload;
+        Document document = cacheProvider.get(p.getDocumentId());
+        p.setDocument(document);
         return message;
     }
 
