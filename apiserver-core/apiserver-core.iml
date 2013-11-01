@@ -33,6 +33,40 @@
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml</file>
           <file>file://$MODULE_DIR$/temp/apis-servlet.xml</file>
         </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/status/apiserverHealth-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/application-context-test.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/application-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/status/coldFusionHealth-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentAdd-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentDelete-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentGet-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBoxBlur-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGaussian-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGlow-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGrayScale-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterLensBlur-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMedian-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMinimum-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMotionBlur-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterOil-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawBorder-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawText-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageMetadata-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageResize-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageRotate-flow.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/jcr-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/config/security-config.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -48,25 +82,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../resources/ColdFusion10/cfusion/WEB-INF/lib/cfx.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" scope="PROVIDED">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../resources/ColdFusion10/cfusion/WEB-INF/lib/cfmx_bootstrap.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:11.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />

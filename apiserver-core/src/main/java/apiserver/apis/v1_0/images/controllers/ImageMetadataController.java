@@ -1,9 +1,27 @@
 package apiserver.apis.v1_0.images.controllers;
 
+/*******************************************************************************
+ Copyright (c) 2013 Mike Nimer.
+
+ This file is part of ApiServer Project.
+
+ The ApiServer Project is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+
+ The ApiServer Project is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
-import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileMetadataJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -19,7 +37,9 @@ import org.springframework.web.context.request.async.WebAsyncTask;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
-import java.util.concurrent.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 
 /**
  * User: mnimer
