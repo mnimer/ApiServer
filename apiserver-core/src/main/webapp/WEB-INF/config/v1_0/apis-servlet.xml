@@ -111,10 +111,10 @@
 
     <!-- Common Beans -->
     <!--task:executor id="taskExecutor"  pool-size="100"/-->
-    <si:poller id="defaultPoller"
+    <!--si:poller id="defaultPoller"
                default="true"
                max-messages-per-poll="10"
-               fixed-rate="100"/>
+               fixed-rate="100"/-->
 
 
 
