@@ -1581,7 +1581,7 @@
       <workItem from="1383104778713" duration="10470000" />
       <workItem from="1383195050793" duration="2353000" />
       <workItem from="1383268712974" duration="5191000" />
-      <workItem from="1383279152771" duration="572000" />
+      <workItem from="1383279152771" duration="998000" />
     </task>
     <task id="LOCAL-00001" summary="Get the embedded Jackrabbit and Jetty configured and running.">
       <created>1368468502484</created>
@@ -1631,7 +1631,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136863000" />
+    <option name="totallyTimeSpent" value="137289000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
