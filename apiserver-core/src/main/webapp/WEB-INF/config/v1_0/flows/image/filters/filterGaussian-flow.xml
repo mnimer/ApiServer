@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageGaussianFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGaussianFilterChannelRequestChannel"/>
 
-    <si:channel id="imageGaussianFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGaussianFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageGaussianFilterChannelApiGateway"
@@ -53,8 +49,6 @@
 
     <si:chain input-channel="imageGaussianFilterChannelRequestChannel"
               output-channel="imageGaussianFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

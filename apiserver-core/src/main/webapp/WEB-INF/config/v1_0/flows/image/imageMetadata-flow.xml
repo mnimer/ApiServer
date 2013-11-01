@@ -36,13 +36,9 @@
         <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>
     </util:list>
 
-    <si:channel id="imageMetadataChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMetadataChannelRequestChannel"/>
 
-    <si:channel id="imageMetadataChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMetadataChannelReplyChannel"/>
 
     <!--
           Image Embedded Metadata

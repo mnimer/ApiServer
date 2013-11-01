@@ -37,13 +37,9 @@
     </util:list>
 
 
-    <si:channel id="cacheDeleteChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="cacheDeleteChannelRequestChannel"/>
 
-    <si:channel id="cacheDeleteChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="cacheDeleteChannelReplyChannel"/>
 
 
     <si:gateway id="documentDeleteGateway"
@@ -61,8 +57,6 @@
 
     <si:chain input-channel="cacheDeleteChannelRequestChannel"
               output-channel="cacheDeleteChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
                 method="deleteFromCache">

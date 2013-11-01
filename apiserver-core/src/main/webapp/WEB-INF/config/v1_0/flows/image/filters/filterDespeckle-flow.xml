@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageDespeckleFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageDespeckleFilterChannelRequestChannel"/>
 
-    <si:channel id="imageDespeckleFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageDespeckleFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageDespeckleFilterChannelApiGateway"
@@ -54,8 +50,6 @@
 
     <si:chain input-channel="imageDespeckleFilterChannelRequestChannel"
               output-channel="imageDespeckleFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

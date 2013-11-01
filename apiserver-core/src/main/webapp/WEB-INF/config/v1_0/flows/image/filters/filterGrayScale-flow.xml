@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageGrayScaleFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGrayScaleFilterChannelRequestChannel"/>
 
-    <si:channel id="imageGrayScaleFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGrayScaleFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageGrayScaleFilterChannelApiGateway"
@@ -53,8 +49,6 @@
 
     <si:chain input-channel="imageGrayScaleFilterChannelRequestChannel"
               output-channel="imageGrayScaleFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

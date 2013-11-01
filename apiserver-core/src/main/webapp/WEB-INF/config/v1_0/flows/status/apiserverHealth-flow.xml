@@ -28,13 +28,9 @@
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
-    <si:channel id="apiserverHealthRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="apiserverHealthRequestChannel"/>
 
-    <si:channel id="apiserverHealthResponseChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="apiserverHealthResponseChannel"/>
 
     <si:channel id="apiserverHealthTransformChannel"/>
 

@@ -28,13 +28,9 @@
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
-    <si:channel id="imageMaskFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMaskFilterChannelRequestChannel"/>
 
-    <si:channel id="imageMaskFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMaskFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageMaskFilterChannelApiGateway"
@@ -52,8 +48,6 @@
 
     <si:chain input-channel="imageMaskFilterChannelRequestChannel"
               output-channel="imageMaskFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

@@ -28,19 +28,16 @@
 
 
 
-    <si:channel id="imageDrawTextRequestChannel">
-        <si:queue/>
-    </si:channel>
-    <si:channel id="imageDrawTextReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageDrawTextRequestChannel"/>
+    <si:channel id="imageDrawTextReplyChannel"/>
+
 
     <si:gateway id="imageDrawTextApiGateway"
                 service-interface="apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway"
                 default-reply-channel="imageDrawBorderReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="imageInfo"
+        <si:method name="imageDrawTextFilter"
                    request-channel="imageDrawTextRequestChannel"
                    payload-expression="#args[0]">
             <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>
@@ -50,7 +47,6 @@
 
     <si:header-value-router input-channel="imageDrawTextRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
         <si:mapping value="http" channel="imageDrawTextHTTPChannel"/>
     </si:header-value-router>
 

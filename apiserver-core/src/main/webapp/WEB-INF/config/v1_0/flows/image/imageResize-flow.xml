@@ -30,15 +30,11 @@
         Image RESIZE
     -->
 
-    <si:channel id="imageResizeRequestChannel">
-        <si:queue/>
-    </si:channel>
-    <si:channel id="imageResizeReplyChannel">
-        <si:queue/>
-    </si:channel>
-    <si:channel id="imageResizeHTTPChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageResizeRequestChannel"/>
+
+    <si:channel id="imageResizeReplyChannel"/>
+
+    <si:channel id="imageResizeHTTPChannel"/>
 
 
     <si:gateway id="imageResizeGateway"
@@ -57,7 +53,6 @@
 
     <si:header-value-router input-channel="imageResizeRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
         <si:mapping value="http" channel="imageResizeHTTPChannel"/>
     </si:header-value-router>
 

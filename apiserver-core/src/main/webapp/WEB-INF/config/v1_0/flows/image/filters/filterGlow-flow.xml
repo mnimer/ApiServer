@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageGlowFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGlowFilterChannelRequestChannel"/>
 
-    <si:channel id="imageGlowFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageGlowFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageGlowFilterChannelApiGateway"
@@ -53,8 +49,6 @@
 
     <si:chain input-channel="imageGlowFilterChannelRequestChannel"
               output-channel="imageGlowFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

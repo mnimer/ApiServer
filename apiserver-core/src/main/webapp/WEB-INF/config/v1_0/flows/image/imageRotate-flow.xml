@@ -30,17 +30,11 @@
         Image RESIZE
     -->
 
-    <si:channel id="imageRotateRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageRotateRequestChannel"/>
 
-    <si:channel id="imageRotateReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageRotateReplyChannel"/>
 
-    <si:channel id="imageRotateHTTPChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageRotateHTTPChannel"/>
 
 
     <si:gateway id="imageRotateGateway"
@@ -59,7 +53,6 @@
 
     <si:header-value-router input-channel="imageRotateRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
         <si:mapping value="http" channel="imageRotateHTTPChannel"/>
     </si:header-value-router>
 

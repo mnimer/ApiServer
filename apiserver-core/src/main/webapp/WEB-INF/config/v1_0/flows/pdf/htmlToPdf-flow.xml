@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="convertHtmlToPdfChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="convertHtmlToPdfChannelRequestChannel"/>
 
-    <si:channel id="convertHtmlToPdfChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="convertHtmlToPdfChannelReplyChannel"/>
 
 
     <si:gateway id="convertHtmlToPdfChannelApiGateway"
@@ -53,8 +49,6 @@
 
     <si:chain input-channel="convertHtmlToPdfChannelRequestChannel"
               output-channel="convertHtmlToPdfChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
                 method="execute">

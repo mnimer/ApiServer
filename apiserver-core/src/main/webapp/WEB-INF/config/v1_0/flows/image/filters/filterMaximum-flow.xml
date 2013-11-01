@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageMaximumFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMaximumFilterChannelRequestChannel"/>
 
-    <si:channel id="imageMaximumFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMaximumFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageMaximumFilterChannelApiGateway"
@@ -54,7 +50,6 @@
     <si:chain input-channel="imageMaximumFilterChannelRequestChannel"
               output-channel="imageMaximumFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
                 method="getFromCache">

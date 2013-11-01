@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageBoxBlurFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageBoxBlurFilterChannelRequestChannel"/>
 
-    <si:channel id="imageBoxBlurFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageBoxBlurFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageBoxBlurFilterChannelApiGateway"
@@ -51,7 +47,6 @@
     <si:chain input-channel="imageBoxBlurFilterChannelRequestChannel"
               output-channel="imageBoxBlurFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1"/>
 
         <si:service-activator
                 method="getFromCache">

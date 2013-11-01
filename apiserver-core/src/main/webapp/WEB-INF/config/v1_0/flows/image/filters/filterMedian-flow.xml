@@ -30,13 +30,9 @@
 
 
 
-    <si:channel id="imageMedianFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMedianFilterChannelRequestChannel"/>
 
-    <si:channel id="imageMedianFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMedianFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageMedianFilterChannelApiGateway"
@@ -54,8 +50,6 @@
 
     <si:chain input-channel="imageMedianFilterChannelRequestChannel"
               output-channel="imageMedianFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
                 method="getFromCache">

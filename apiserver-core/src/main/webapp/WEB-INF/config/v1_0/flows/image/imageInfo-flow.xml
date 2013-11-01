@@ -28,17 +28,11 @@
 		http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
 
 
-    <si:channel id="imageInfoRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageInfoRequestChannel"/>
 
-    <si:channel id="imageInfoReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageInfoReplyChannel"/>
 
-    <si:channel id="imageInfoHTTPChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageInfoHTTPChannel"/>
 
 
     <si:gateway id="imageInfoApiGateway"
@@ -56,7 +50,6 @@
 
     <si:header-value-router input-channel="imageInfoRequestChannel"
                             header-name="REQUEST_TYPE">
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
         <si:mapping value="http" channel="imageInfoHTTPChannel"/>
     </si:header-value-router>
 

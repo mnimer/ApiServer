@@ -79,14 +79,5 @@
 
 
 
-    <!-- Common Beans -->
-    <task:executor id="taskExecutor"  pool-size="100"/>
-    <si:poller id="defaultPoller"
-               default="true"
-               max-messages-per-poll="1"
-               fixed-rate="100"
-               task-executor="taskExecutor"/>
-
-
 </beans>
 

@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageBumpFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageBumpFilterChannelRequestChannel"/>
 
-    <si:channel id="imageBumpFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageBumpFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageBumpFilterChannelApiGateway"
@@ -53,9 +49,6 @@
 
     <si:chain input-channel="imageBumpFilterChannelRequestChannel"
               output-channel="imageBumpFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
-
 
         <si:service-activator
                 method="getFromCache">

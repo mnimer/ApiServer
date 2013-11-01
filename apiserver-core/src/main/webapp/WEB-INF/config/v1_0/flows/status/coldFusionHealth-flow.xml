@@ -39,21 +39,18 @@
     <!--task:executor id="coldFusionHealthTaskExecutor"  /-->
 
     <si:channel id="coldFusionHealthRequestChannel">
-        <si:queue/>
         <si:interceptors>
             <si:wire-tap channel="CFLoggingChannel"/>
         </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthReplyChannel">
-        <si:queue/>
         <si:interceptors>
             <si:wire-tap channel="CFLoggingChannel"/>
         </si:interceptors>
     </si:channel>
 
     <si:channel id="coldFusionHealthHTTPChannel">
-        <si:queue/>
         <si:interceptors>
             <si:wire-tap channel="CFLoggingChannel"/>
         </si:interceptors>
@@ -90,7 +87,6 @@
 
     <si:header-value-router input-channel="coldFusionHealthRequestChannel"
                             header-name="REQUEST_TYPE" >
-        <!--si:poller fixed-rate="5" max-messages-per-poll="1"/-->
         <si:mapping value="http" channel="coldFusionHealthHTTPChannel"/>
     </si:header-value-router>
 

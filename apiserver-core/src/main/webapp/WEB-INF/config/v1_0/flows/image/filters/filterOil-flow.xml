@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageOilFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageOilFilterChannelRequestChannel"/>
 
-    <si:channel id="imageOilFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageOilFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageOilFilterChannelApiGateway"
@@ -53,8 +49,6 @@
 
     <si:chain input-channel="imageOilFilterChannelRequestChannel"
               output-channel="imageOilFilterChannelReplyChannel">
-
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
 
         <si:service-activator

@@ -29,13 +29,9 @@
 
 
 
-    <si:channel id="imageMinimumFilterChannelRequestChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMinimumFilterChannelRequestChannel"/>
 
-    <si:channel id="imageMinimumFilterChannelReplyChannel">
-        <si:queue/>
-    </si:channel>
+    <si:channel id="imageMinimumFilterChannelReplyChannel"/>
 
 
     <si:gateway id="imageMinimumFilterChannelApiGateway"
@@ -54,7 +50,6 @@
     <si:chain input-channel="imageMinimumFilterChannelRequestChannel"
               output-channel="imageMinimumFilterChannelReplyChannel">
 
-        <si:poller fixed-rate="100" max-messages-per-poll="1" />
 
         <si:service-activator
                 method="getFromCache">
