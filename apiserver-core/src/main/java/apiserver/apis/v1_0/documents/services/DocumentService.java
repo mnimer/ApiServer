@@ -14,6 +14,7 @@ import java.io.IOException;
  * User: mnimer
  * Date: 9/27/12
  */
+// todo? investigate cache regions, maybe put all of these in a document 'region' to separate the cache from connection and encryption cache
 public class DocumentService
 {
 

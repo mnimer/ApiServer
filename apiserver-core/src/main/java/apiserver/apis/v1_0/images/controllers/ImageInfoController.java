@@ -4,7 +4,6 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
-import apiserver.apis.v1_0.images.gateways.jobs.images.FileMetadataJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -76,14 +75,16 @@ public class ImageInfoController
         return new WebAsyncTask<>(defaultTimeout, callable);
     }
 
+
+
+
     /**
      * get basic info about image.
-     * @param file uploaded Image
-     * @return   height,width, pixel size, transparency
-     * , @RequestPart("meta-data") Object metadata
-     *
-    , @RequestParam MultipartFile file
-
+     * @param file
+     * @return
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws InterruptedException
      */
     @ApiOperation(value = "Get the height and width for the image", responseClass = "java.util.Map")
     @RequestMapping(value = "/size", method = {RequestMethod.POST})

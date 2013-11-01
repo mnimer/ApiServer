@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.transformers;
+package apiserver.core.common.transformers;
 
 import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;

@@ -57,7 +57,7 @@
         </si:service-activator>
 
         <si:transformer method="transform">
-            <bean class="apiserver.apis.v1_0.images.transformers.JsonBase64ToBufferedImage"/>
+            <bean class="apiserver.core.common.transformers.JsonBase64ToBufferedImage"/>
         </si:transformer>
     </si:chain>
 
