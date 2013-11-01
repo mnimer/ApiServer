@@ -14,473 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bbdbb1b-8102-4763-bd00-5cadbb7219d3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-coldfusion/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apiserver-core/displays.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBoxBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBoxBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBumpGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterBumpGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterDespeckleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGaussianGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGaussianGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGlowGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGlowGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterGrayScaleGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterLensBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterLensBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaskGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaskGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMaximumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMedianGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMinimumGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMotionBlurGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterMotionBlurGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterOilGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/filters/ApiImageFilterOilGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/json/ApiObjectMapper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/json/ApiObjectMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/ApiServerConstants.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/ApiServerConstants.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/class-use/ApiServerConstants.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/class-use/ApiServerConstants.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/ApiServerConstants.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/ApiServerConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/gateways/ApiStatusColdFusionGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/gateways/ApiStatusColdFusionGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/gateways/ApiStatusGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/gateways/ApiStatusGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/test/java/com/mikenimer/apiserver/AppTest.java" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/test/java/com/mikenimer/apiserver/AppTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/Application.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/Application.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/services/filters/BlurFilter.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/services/filters/BlurFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BoxBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BoxBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BoxBlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BoxBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BoxBlurJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/BumpController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/BumpFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BumpJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/BumpJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/filters/CORSFilter.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/filters/CORSFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/Cache.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/Cache.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/class-use/Cache.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/class-use/Cache.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/CacheFactory.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/CacheFactory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/class-use/CacheFactory.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/class-use/CacheFactory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/CaptchaCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/CaptchaCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/CaptchaCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/CaptchaCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/CaptchaController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/CaptchaController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/CaptchaController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/CaptchaController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/ColdFusionException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/ColdFusionException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/ColdFusionException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/ColdFusionException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/ColdFusionException.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/ColdFusionException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/ColdFusionHttpBridge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/ColdFusionStatusHealthTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/ColdFusionStatusHealthTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/status/ColdFusionStatusIT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/ColdFusionStatusService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/ColdFusionStatusService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/class-use/ColdFusionStatusService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/class-use/ColdFusionStatusService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/ColdFusionStatusService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/categories/ColdFusionTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/categories/ColdFusionTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/controllers/ConversionController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/controllers/ConversionController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/pdf/ConvertHtmlToPDFTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/CustomDocumentationConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/interceptors/DebugTraceInterceptor.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/interceptors/DebugTraceInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/transformers/DebugTransformer.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/transformers/DebugTransformer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/DeleteDocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/DeleteDocumentJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/DespeckleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/DespeckleFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/DespeckleFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/model/Document.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/model/Document.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/controllers/DocumentController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/controllers/DocumentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/DocumentGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/DocumentGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/DocumentJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/services/DocumentService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/services/DocumentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/EhCacheProvider.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/EhCacheProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/EhcacheService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/EhcacheService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/class-use/EhcacheService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/class-use/EhcacheService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/FactoryException.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/FactoryException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileBorderJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileBorderJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/FileHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileInfoJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileInfoJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileMetadataJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileMetadataJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileResizeJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileResizeJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileRotateJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileRotateJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileTextJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/FileTextJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GaussianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GaussianFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GaussianJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GaussianJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/GetDocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/GetDocumentJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GlowController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GlowFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GlowJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/GlowJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/GrayscaleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GrayscaleFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/GrayscaleFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/java/com/mikenimer/apiserver/HttpBridgeServlet.java" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/java/com/mikenimer/apiserver/HttpBridgeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/HttpChannelInvoker.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/HttpChannelInvoker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/class-use/HttpChannelInvoker.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/class-use/HttpChannelInvoker.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/HttpTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/java/com/mikenimer/apiserver/IColdFusionBridge.java" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/java/com/mikenimer/apiserver/IColdFusionBridge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/IColdFusionBridge.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/connectors/coldfusion/IColdFusionBridge.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/IDocumentCacheProvider.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/IDocumentCacheProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/persistence/IDocumentPersistenceProvider.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/persistence/IDocumentPersistenceProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBorderTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBorderTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBoxBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBrushedTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBrushedTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageBumpTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageCacheController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageCacheController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageCacheController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageCacheController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCausticsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCausticsTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCellularTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCellularTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChannelMixTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChannelMixTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCheckTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCheckTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChromeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageChromeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCircleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCircleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageColorHalftoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageColorHalftoneTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCompoundTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCompoundTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/ImageConfigMBean.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/ImageConfigMBean.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/class-use/ImageConfigMBean.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/class-use/ImageConfigMBean.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/ImageConfigMBeanImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageContrastTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageContrastTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCropTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCropTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCrystallizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCrystallizeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCurvesTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageCurvesTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDespeckleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffuseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffuseTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffusionTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDiffusionTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDisplaceTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDisplaceTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDissolveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDissolveTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDitherTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDitherTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDoGTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageDoGTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/ImageDocumentJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawBorderGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageDrawTextGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageDrawingCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageDrawingCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageDrawingCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageDrawingCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageDrawingCFService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageDrawingController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageDrawingController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageDrawingController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageDrawingController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageDrawingController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageDrawingController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEdgeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEdgeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEmbossTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageEmbossTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageExposureTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageExposureTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFBMTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFBMTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFeedbackTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFeedbackTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFillTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFillTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageFilterBlurIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageFilterBlurIT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlareTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlareTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlipTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFlipTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFourColorTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageFourColorTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGainTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGainTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGammaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGammaTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGaussianTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGlowTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientWipeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGradientWipeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayScaleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageGrayTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHSBAdjustTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHSBAdjustTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHalftoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageHalftoneTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageInfoCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageInfoCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageInfoCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageInfoController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageInfoController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageInfoController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageInfoController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageInfoGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/integrationTests/v1_0/images/ImageInfoIT.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageInfoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageInfoTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertAlphaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertAlphaTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageInvertTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageIteratedTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageIteratedTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageKaleidoscopeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageKaleidoscopeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLaplaceTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLaplaceTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLensBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLevelsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLevelsTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLightTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLightTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLookupTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageLookupTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/ImageManipulationCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageManipulationCFService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/class-use/ImageManipulationCFService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageManipulationController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/ImageManipulationController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageManipulationController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/class-use/ImageManipulationController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageManipulationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/manipulations/ImageManipulationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMapColorsTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMapColorsTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMarbleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMarbleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaskTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMaximumTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMedianTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageMetadataController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/ImageMetadataController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataDrewMetadataExtractorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageMetadataEXIFToolExtractorTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageMetadataGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageMetadataGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/drewMetadata/ImageMetadataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/exiftool/ImageMetadataService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMinimumTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMirrorTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMirrorTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageMotionBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageNoiseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageNoiseTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOffsetTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOffsetTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOilTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOpacityTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageOpacityTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePerspectiveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePerspectiveTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePinchTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePinchTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePlasmaTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePlasmaTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePointillizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePointillizeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePolarTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePolarTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePosterizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePosterizeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePreMultiplyTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImagePreMultiplyTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageQuantizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageQuantizeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRGBAdjustTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRGBAdjustTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRaysTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRaysTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageReduceNoiseTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageReduceNoiseTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRescaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRescaleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageResizeCFService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageResizeGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizeJPGTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageResizePNGTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRippleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRippleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/coldfusion/ImageRotateCFService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateCacheTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/images/ImageRotateGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/ImageRotateTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRotateTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageRotateTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScaleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScaleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScratchTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageScratchTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShadowTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShadowTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShapeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShapeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSharpenTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSharpenTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShearTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageShearTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/ImageSizeJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/images/ImageSizeJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmartBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmartBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmearTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSmearTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSolarizeTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSolarizeTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSparkleTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSparkleTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSphereTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSphereTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageStampTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageStampTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSwimTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageSwimTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTextureTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTextureTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageThresholdTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageThresholdTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTileImageTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTileImageTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTritoneTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTritoneTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTwirlTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageTwirlTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnPreMultiplyTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnPreMultiplyTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnSharpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageUnSharpTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageVariableBlurTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageVariableBlurTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/views/ImageViewHandler.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/views/ImageViewHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWarpTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWarpTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWaterTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWaterTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWeaveTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWeaveTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWoodTests.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/images/filters/ImageWoodTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/InMemoryCacheProvider.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/providers/cache/InMemoryCacheProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/transformers/JsonBase64ToBufferedImage.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/transformers/JsonBase64ToBufferedImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/LensBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/LensBlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/LensBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/LensBlurJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaskFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MaskJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MaskJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MaximumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaximumFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MaximumFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MedianController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MedianFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/MessageConfigException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/MessageConfigException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/MessageConfigException.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/class-use/MessageConfigException.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/MessageConfigException.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/MessageConfigException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/routers/MetadataRouter.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/routers/MetadataRouter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/MimeType.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/MimeType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MinimumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MinimumFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MinimumFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/MotionBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/MotionBlurFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/MotionBlurJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameEndPointComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/NameOperationComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/NoOpService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/NoOpService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/class-use/NoOpService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/class-use/NoOpService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/NotSupportedException.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/exceptions/NotSupportedException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/controllers/filters/OilBlurController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/OilFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/OilFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/OilJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/OilJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/PdfConfigMBeanImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfCreationController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfCreationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/PdfFormController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/PdfFormController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/class-use/PdfFormController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/class-use/PdfFormController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfFormController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfFormController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/PdfHtmlController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/PdfHtmlController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/class-use/PdfHtmlController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/class-use/PdfHtmlController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/PdfHtmlGateway.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/PdfHtmlGateway.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/jobs/PdfHtmlJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/gateways/jobs/PdfHtmlJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/service/PdfHtmlService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/service/PdfHtmlService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfInfoController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfInfoController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfManipulateController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/pdf/controllers/PdfManipulateController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/servlets/PingServlet.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/servlets/PingServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/PreOrPostWireTap.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/PreOrPostWireTap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/PreOrPostWireTap.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/PreOrPostWireTap.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/PreOrPostWireTap.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/PreOrPostWireTap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/services/jhlabs/RaysFilterService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/RaysJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/images/gateways/jobs/filters/RaysJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/ResponseEntityHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/StatusController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/StatusController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/class-use/StatusController.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/class-use/StatusController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/controllers/StatusController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/StatusMBean.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/StatusMBean.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/class-use/StatusMBean.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/class-use/StatusMBean.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/StatusMBean.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/StatusMBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/StatusService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/StatusService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/class-use/StatusService.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/class-use/StatusService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/StatusService.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/status/services/StatusService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" afterPath="$PROJECT_DIR$/apiserver-core/src/test/java/unitTests/v1_0/status/StatusTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/swagger/SwaggerExtensibilityModule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/TokenAccessInterceptor.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/TokenAccessInterceptor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/class-use/TokenAccessInterceptor.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/class-use/TokenAccessInterceptor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/interceptors/TokenAccessInterceptor.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/interceptors/TokenAccessInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/TokenAnalyticsCollector.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/TokenAnalyticsCollector.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/TokenAnalyticsCollector.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/class-use/TokenAnalyticsCollector.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/TokenAnalyticsCollector.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/core/common/messageHandlers/TokenAnalyticsCollector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/UploadDocumentJob.java" afterPath="$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/apis/v1_0/documents/gateway/jobs/UploadDocumentJob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/allclasses-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/allclasses-noframe.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-captcha.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-captcha.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-cfpresentation.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-cfpresentation.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-cfspreadsheet.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-cfspreadsheet.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-debug.cfm" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-debug.cfm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-image.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-image.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfform.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfform.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfhtml.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfhtml.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfurl.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfurl.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-qofq.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-qofq.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-status.cfc" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-status.cfc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" afterPath="$PROJECT_DIR$/apiserver-core/apiserver-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.ipr" afterPath="$PROJECT_DIR$/apiserver.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver.iws" afterPath="$PROJECT_DIR$/apiserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/apiserverHealth-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/apiserverHealth-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/application-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/backbone-min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/backbone-min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/buildnumber.properties" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/buildnumber.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/coldFusionHealth-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/coldFusionHealth-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/constant-values.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred/content.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred/content.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/deprecated-list.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentAdd-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentAdd-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentDelete-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentDelete-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentGet-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/documents/documentGet-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/ehcache.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/ehcache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBoxBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBoxBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterBump-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterDespeckle-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGaussian-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGaussian-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGlow-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGlow-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGrayScale-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterGrayScale-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterLensBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterLensBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMask-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMaximum-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMedian-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMedian-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMinimum-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMinimum-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMotionBlur-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterMotionBlur-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterOil-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/filters/filterOil-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/handlebars-1.0.0.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/handlebars-1.0.0.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/help-doc.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/highlight.7.3.pack.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/highlight.7.3.pack.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/highlight.default.css" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/highlight.default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawBorder-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawBorder-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawText-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageDrawText-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageInfo-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageMetadata-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageMetadata-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageResize-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageResize-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageRotate-flow.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/image/imageRotate-flow.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-1.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-10.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-10.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-11.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-11.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-12.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-12.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-13.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-13.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-14.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-14.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-15.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-15.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-16.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-16.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-17.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-17.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-18.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-18.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-2.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-3.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-4.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-5.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-6.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-7.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-7.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-8.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-9.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index-files/index-9.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/jcr-context.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/jcr-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery-1.8.0.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery-1.8.0.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.ba-bbq.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.ba-bbq.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.slideto.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.slideto.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.wiggle.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/jquery.wiggle.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/apiserver-core/src/main/resources/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/overview-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-frame.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-summary.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-tree.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/interceptors/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/common/messageHandlers/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/controllers/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/images/service/coldfusion/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/pdfs/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/controllers/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/apis/v1_0/status/services/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/exceptions/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-use.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/apiserver/services/v1_0/cache/package-use.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/pom.xml" afterPath="$PROJECT_DIR$/apiserver-coldfusion/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/pom.xml" afterPath="$PROJECT_DIR$/apiserver-core/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/screen.css" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/css/screen.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/security-config.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/config/security-config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/serialized-form.html" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/serialized-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred.bundle.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/shred.bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/stylesheet.css" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/javadoc/stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/swagger-ui.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/swagger.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/underscore-min.js" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/docs/swagger/lib/underscore-min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/apiserver-core/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="apiserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -628,112 +162,7 @@
     <favorites_list name="Current task" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="api-image.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-image.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="2475">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api-pdfform.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfform.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1350">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api-pdfhtml.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfhtml.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1050">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api-pdfurl.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-pdfurl.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="630">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api-qofq.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-qofq.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="780">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api-status.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/api-status.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="525">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Application.cfc" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/apiserver-inf/components/v1_0/Application.cfc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="420">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-coldfusion/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiServerConstants.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/ApiServerConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="13" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="555">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="13" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.862423" vertical-offset="0" max-vertical-offset="2715">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -901,6 +330,74 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -909,23 +406,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Facets" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="51" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="83" />
     <property name="project.structure.proportion" value="0.09881423" />
     <property name="OverrideImplement.combined" value="false" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="58" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="223" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="56" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="152" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="last_opened_file_path" value="/Applications/ColdFusion10/cfusion/wwwroot/apiserver-inf/components/v1_0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="60" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="601" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="604" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="59" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="57" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="96" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="697" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="756" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="156" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="153" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
@@ -2048,7 +1545,7 @@
       <workItem from="1383055208858" duration="1493000" />
       <workItem from="1383104778713" duration="10470000" />
       <workItem from="1383195050793" duration="2353000" />
-      <workItem from="1383268712974" duration="4205000" />
+      <workItem from="1383268712974" duration="4460000" />
     </task>
     <task id="LOCAL-00001" summary="Get the embedded Jackrabbit and Jetty configured and running.">
       <created>1368468502484</created>
@@ -2090,11 +1587,15 @@
       <created>1383275736817</created>
       <updated>1383275736817</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update Copyright on project and in all files.">
+      <created>1383278079133</created>
+      <updated>1383278079133</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135305000" />
+    <option name="totallyTimeSpent" value="135560000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -2121,17 +1622,17 @@
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32804877" sideWeight="0.6750306" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.6750306" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.249694" sideWeight="0.6414634" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32804877" sideWeight="0.3249694" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3390244" sideWeight="0.2643819" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3390244" sideWeight="0.7356181" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.49326804" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804877" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -2242,9 +1743,9 @@
     <MESSAGE value="refactor code to use a service, not the outbound-gateway for CF methods that require a Form Post call.&#10;&#10;other general code cleanup" />
     <MESSAGE value="Stub in the rest of the Image Filter Unit Tests, so we remember which ones still need to be implemented." />
     <MESSAGE value="add configuration for a few more file upload methods  in the image controllers&#10;&#10;Stub out the PDF Services" />
-    <option name="LAST_COMMIT_MESSAGE" value="add configuration for a few more file upload methods  in the image controllers&#10;&#10;Stub out the PDF Services" />
+    <MESSAGE value="Update Copyright on project and in all files." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Copyright on project and in all files." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2391,7 +1892,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apiserver-core/src/main/java/apiserver/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.862423" vertical-offset="0" max-vertical-offset="2715">
+        <state line="28" column="13" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.8235294" vertical-offset="0" max-vertical-offset="2715">
           <folding />
         </state>
       </provider>
