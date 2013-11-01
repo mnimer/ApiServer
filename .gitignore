@@ -1,8 +1,6 @@
 out
 target
-cfusion
-resources
-derby.log
+*.log
 .classpath
 .project
 .settings
