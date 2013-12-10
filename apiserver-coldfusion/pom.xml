@@ -36,12 +36,12 @@
   <dependencies>
 
 
-      <dependency>
+      <!--dependency>
           <groupId>com.adobe</groupId>
           <artifactId>ColdFusion</artifactId>
           <scope>provided</scope>
           <version>10</version>
-      </dependency>
+      </dependency-->
 
 
       <dependency>
