@@ -35,29 +35,6 @@
 
   <dependencies>
 
-
-      <!--dependency>
-          <groupId>com.adobe</groupId>
-          <artifactId>ColdFusion</artifactId>
-          <scope>provided</scope>
-          <version>10</version>
-      </dependency-->
-
-
-      <dependency>
-          <groupId>javax</groupId>
-          <artifactId>javaee-web-api</artifactId>
-          <version>6.0</version>
-          <scope>provided</scope>
-      </dependency>
-
-      <dependency>
-          <groupId>commons-fileupload</groupId>
-          <artifactId>commons-fileupload</artifactId>
-          <version>1.2.2</version>
-      </dependency>
-
-
       <!-- Use Log4J for logging -->
       <dependency>
           <groupId>org.slf4j</groupId>
