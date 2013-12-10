@@ -50,7 +50,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image/filters")
+@RequestMapping("/image-filters")
 public class GrayscaleController
 {
     public final Logger log = LoggerFactory.getLogger(GrayscaleController.class);

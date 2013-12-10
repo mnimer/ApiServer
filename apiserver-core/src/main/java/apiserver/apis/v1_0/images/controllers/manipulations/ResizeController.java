@@ -59,9 +59,9 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/15/12
  */
 @Controller
-@Api(value = "/image/manipulation", description = "[IMAGE]")
-@RequestMapping("/image/manipulate")
-public class ImageManipulationController
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
+public class ResizeController
 {
     @Autowired(required = false)
     private HttpServletRequest request;
@@ -77,77 +77,6 @@ public class ImageManipulationController
 
 
 
-    /**
-     * rotate an image
-     *
-     * @param documentId
-     * @param angle
-     * @return
-     */
-    @ApiOperation(value="Rotate an uploaded image")
-    @RequestMapping(value = "/{documentId}/rotate", method = {RequestMethod.POST})
-    @ResponseBody
-    public ResponseEntity<byte[]> rotateImageByImage(
-            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
-            , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
-    {
-        FileRotateJob job = new FileRotateJob();
-        job.setDocumentId(documentId);
-        job.setAngle(angle);
-
-        Future<Map> imageFuture = imageRotateGateway.rotateImage(job);
-        FileRotateJob payload = (FileRotateJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
-        return result;
-    }
-
-
-
-    /**
-     * rotate an image
-     *
-     * @param file
-     * @param angle
-     * @return
-     */
-    @ApiOperation(value="Rotate an uploaded image")
-    @RequestMapping(value = "/rotate", method = {RequestMethod.POST})
-    @ResponseBody
-    public ResponseEntity<byte[]> rotateImageByImage(
-            @ApiParam(name="file", required = true) @RequestParam MultipartFile file
-            , @ApiParam(name="angle", required = true, defaultValue = "90") @RequestParam(required = true, defaultValue = "90") Integer angle
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
-    {
-        FileRotateJob job = new FileRotateJob();
-        job.setDocumentId(null);
-        job.setDocument( new Document(file) );
-        job.getDocument().setContentType(file.getContentType() );
-        job.getDocument().setFileName(file.getOriginalFilename());
-        job.setAngle(angle);
-
-        Future<Map> imageFuture = imageRotateGateway.rotateImage(job);
-        FileRotateJob payload = (FileRotateJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
-        return result;
-    }
-
-
-
-
-
-
-
 
     /**
      * Resize an image
@@ -159,7 +88,7 @@ public class ImageManipulationController
      * @return
      */
     @ApiOperation(value="Resize an uploaded image")
-    @RequestMapping(value = "/{documentId}/resize", method = {RequestMethod.POST})
+    @RequestMapping(value = "/{documentId}/resize", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> resizeImageByImage(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId

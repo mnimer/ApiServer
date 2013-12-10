@@ -27,7 +27,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import apiserver.exceptions.NotImplementedException;
@@ -43,8 +42,8 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-manipulate")
-public class PdfManipulateController
+@RequestMapping("/pdf-form")
+public class FormController
 {
     //@Autowired
     //public PdfHtmlGateway pdfHtmlGateway;
@@ -52,11 +51,9 @@ public class PdfManipulateController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
     /**
-     * Add Header to PDF pages
+     * Extract the value of the form fields in a pdf
      * @param file
-     * @param DDX
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -64,20 +61,23 @@ public class PdfManipulateController
      * @throws IOException
      * @throws Exception
      */
-    @ApiOperation(value = "Add Header to PDF pages")
+    @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/header", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> addHeader(
+    @RequestMapping(value = "/extract", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> extractFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS218B0C7A-5120-4583-A7BA-E0A2657F1362.html
+        //Take existing PDF and populate form fields with XML data
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11c2b-7ffa.html
+
     }
+
+
     /**
-     * Add Header to cached PDF pages
-     * @param file
-     * @param DDX
+     * Extract the value of the form fields in a pdf
+     * @param documentId
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -85,21 +85,24 @@ public class PdfManipulateController
      * @throws IOException
      * @throws Exception
      */
-    @ApiOperation(value = "Add Header to cached PDF pages")
+    @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/header", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> addHeaderToCachedPdf(
+    @RequestMapping(value = "/{documentId}/extract", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> extractCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS218B0C7A-5120-4583-A7BA-E0A2657F1362.html
+        //Take existing PDF and populate form fields with XML data
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11c2b-7ffa.html
+
     }
 
 
     /**
-     * Add Footer to PDF pages
+     * Populate the pdf form fields
      * @param file
+     * @param XFDF
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -107,67 +110,25 @@ public class PdfManipulateController
      * @throws IOException
      * @throws Exception
      */
-    @ApiOperation(value = "Add Footer to PDF pages")
+    @ApiOperation(value = "Populate the pdf form fields")
     @Produces("application/pdf")
-    @RequestMapping(value = "/footer", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> addFooter(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS218B0C7A-5120-4583-A7BA-E0A2657F1362.html
-    }
-
-    /**
-     * Add Footer to PDF pages
-     * @param file
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
-     */
-    @ApiOperation(value = "Add Footer to cached PDF pages")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/footer", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> addFooterToCachedPdf(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS218B0C7A-5120-4583-A7BA-E0A2657F1362.html
-    }
-
-
-    /**
-     * Apply a DDX file to a PDF for advanced manipulation
-     * @param file
-     * @param DDX
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
-     */
-    @ApiOperation(value = "Use a DDX file for advanced manipulation")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/ddx", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> processDDX(
+    @RequestMapping(value = "/populate", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> populateFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
-            @ApiParam(name="ddx", required = true) @RequestParam("ddx") String DDX
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
+        //Take existing PDF and populate form fields with XML data
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7994.html
+
     }
 
 
-
     /**
-     * apply a DDX file to a cached PDF for advanced manipulation
-     * @param file
-     * @param DDX
+     * Populate the pdf form fields
+     * @param documentId
+     * @param XFDF
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -175,15 +136,19 @@ public class PdfManipulateController
      * @throws IOException
      * @throws Exception
      */
-    @ApiOperation(value = "Use a DDX file for advanced manipulation")
+    @ApiOperation(value = "Populate the pdf form fields")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/ddx", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> processCachedPdfDDX(
+    @RequestMapping(value = "/{documentId}/populate", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> populateCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
-            @ApiParam(name="ddx", required = true) @RequestParam("ddx") String DDX
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
+        //Take existing PDF and populate form fields with XML data
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7994.html
+
     }
+
 
 }

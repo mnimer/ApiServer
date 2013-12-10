@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import apiserver.exceptions.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
@@ -42,8 +42,8 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf/manipulate")
-public class PdfInfoController
+@RequestMapping("/pdf")
+public class PdfController
 {
     //@Autowired
     //public PdfHtmlGateway pdfHtmlGateway;
@@ -56,47 +56,19 @@ public class PdfInfoController
     @RequestMapping(value = "/info", method = RequestMethod.POST)
     public ResponseEntity<byte[]> getPdfInfo(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
         //
     }
 
 
-
     @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/info", method = RequestMethod.PUT)
-    public ResponseEntity<byte[]> setPdfInfo(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        throw new NotImplementedException();
-        //
-        //
-    }
-
-
-
-    @ApiOperation(value = "TODO")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/protect", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> protectPdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile[] file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        throw new NotImplementedException();
-
-    }
-
-
-
-    @ApiOperation(value = "TODO")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/optimize", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> optimizePdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    @RequestMapping(value = "/{documentId}/info", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getCachedPdfInfo(
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
         //
@@ -109,7 +81,7 @@ public class PdfInfoController
     @RequestMapping(value = "/extract/text", method = RequestMethod.POST)
     public ResponseEntity<byte[]> extractTextFromPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
         //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
@@ -123,7 +95,7 @@ public class PdfInfoController
     @RequestMapping(value = "/extract/image", method = RequestMethod.POST)
     public ResponseEntity<byte[]> extractImageFromPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
         //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
@@ -131,27 +103,5 @@ public class PdfInfoController
 
 
 
-    /**
-     *
-     For efficient access of PDF files over the web, linearize PDF documents.
-     A linearized PDF file is structured in a way that displays the first page of the PDF file in the browser
-     before the entire file is downloaded from the web server. As a result linear PDF documents open almost instantly.
-     * @param file
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @ApiOperation(value = "For efficient access of PDF files over the web, linearize PDF documents. A linearized PDF file is structured in a way that displays the first page of the PDF file in the browser before the entire file is downloaded from the web server. As a result linear PDF documents open almost instantly.")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/linearize", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> processDDX(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        throw new NotImplementedException();
-
-    }
 
 }

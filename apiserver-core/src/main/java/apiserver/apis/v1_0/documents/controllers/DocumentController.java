@@ -70,7 +70,7 @@ public class DocumentController
     /**
      * put document into cache, usable for future manipulations APIs
      *
-     * @param file uploaded file
+     * @param uploadedFile uploaded file
      * @param tags list of metadata tags
      * @return cache ID
      */
@@ -141,7 +141,7 @@ public class DocumentController
      * @return Map of metadata & file properties
      */
     @ResponseBody
-    @ApiOperation(value = "override a document")
+    @ApiOperation(value = "Return the metadata and general file information about the object")
     @RequestMapping(value = "/{documentId}/info", method = {RequestMethod.GET})
     public ResponseEntity<Map> getDocumentInfo(
             @ApiParam(name = "documentId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")

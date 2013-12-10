@@ -51,7 +51,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image/filters")
+@RequestMapping("/image-filters")
 public class GlowController
 {
     public final Logger log = LoggerFactory.getLogger(GlowController.class);

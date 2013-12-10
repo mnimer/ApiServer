@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.controllers;
+package apiserver.apis.v1_0.pdf.controllers;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,17 +19,17 @@ package apiserver.apis.v1_0.documents.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.exceptions.NotImplementedException;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
@@ -37,25 +37,42 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 /**
- * User: mikenimer
- * Date: 10/30/13
+ * User: mnimer
+ * Date: 9/15/12
  */
 @Controller
-@RequestMapping("/office")
-public class ConversionController
+@Api(value = "/pdf", description = "[PDF]")
+@RequestMapping("/pdf-manipulate")
+public class MergeController
 {
-    private final Logger log = LoggerFactory.getLogger(ConversionController.class);
+    //@Autowired
+    //public PdfHtmlGateway pdfHtmlGateway;
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
-    @ApiOperation(value = "TODO")
-    @Produces("application/octet-stream")
-    @RequestMapping(value = "/conversion/ppt2pdf", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> ppt2pdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    /**
+     * Merge two pdf files into one.
+     * @param file
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Merge two pdf files into one.")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/merge", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> mergePdfDocuments(
+            @ApiParam(name="file1", required = true) @RequestPart("file1") MultipartFile[] file1,
+            @ApiParam(name="file2", required = true) @RequestPart("file2") MultipartFile[] file2
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
+        // add image to pdf as watermark
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
     }
+
 
 }

@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.exceptions.NotImplementedException;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -29,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
 @RequestMapping("/pdf")
-public class PdfFormController
+public class ThumbnailController
 {
     //@Autowired
     //public PdfHtmlGateway pdfHtmlGateway;
@@ -51,36 +51,49 @@ public class PdfFormController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-
-    @ApiOperation(value = "TODO")
+    /**
+     * Generate thumbnails from the pages of a PDF
+     * @param file
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Generate thumbnails from the pages of a PDF")
     @Produces("application/pdf")
-    @RequestMapping(value = "/form/extract", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> generatePdfWithHtmlString(
+    @RequestMapping(value = "/thumbnails", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> thumbnailPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11c2b-7ffa.html
-
+        // add image to pdf as watermark
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
     }
 
 
-
-
-    @ApiOperation(value = "TODO")
+    /**
+     * Generate thumbnails from the pages of a cached PDF
+     * @param documentID
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Generate thumbnails from the pages of a cached PDF")
     @Produces("application/pdf")
-    @RequestMapping(value = "/form/populate", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> generatePdfWithHtmlString(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
-            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    @RequestMapping(value = "/{documentId}/thumbnails", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> thumbnailCachedPdf(
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentID
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7994.html
-
+        // add image to pdf as watermark
+        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
     }
-
 
 }

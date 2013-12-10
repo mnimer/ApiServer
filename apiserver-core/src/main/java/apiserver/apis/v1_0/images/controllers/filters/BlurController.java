@@ -51,7 +51,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 8/29/13
  */
 @Controller
-@RequestMapping("/image/filters")
+@RequestMapping("/image-filters")
 @Api(value="/image/filters", description = "[IMAGE] Image Filter APIs")
 public class BlurController
 {

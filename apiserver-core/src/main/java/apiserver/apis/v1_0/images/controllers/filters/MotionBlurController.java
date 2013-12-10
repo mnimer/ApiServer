@@ -48,7 +48,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image/filters")
+@RequestMapping("/image-filters")
 public class MotionBlurController
 {
     public final Logger log = LoggerFactory.getLogger(MotionBlurController.class);
@@ -120,7 +120,7 @@ public class MotionBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter simulates motion blur on an image. You specify a combination of angle/distance for linear motion blur, a rotaiton angle for spin blur or a zoom factor for zoom blur. You can combine these in any proportions you want to get effects like spiral blurs.")
-    @RequestMapping(value = "/motionblur", method = {RequestMethod.GET})
+    @RequestMapping(value = "/motionblur", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageMotionBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file

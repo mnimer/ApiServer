@@ -48,8 +48,8 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/18/12
  */
 //Controller
-@RequestMapping("/image/manipulate")
-public class ImageDrawingController
+@RequestMapping("/image")
+public class TextController
 {
     @Autowired
     private ImageDrawBorderGateway imageDrawBorderGateway;
@@ -58,83 +58,6 @@ public class ImageDrawingController
     private ImageDrawTextGateway imageDrawTextGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
-
-
-    /**
-     * Draw a border around an image
-     *
-     * @param documentId
-     * @param color
-     * @param thickness
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     */
-    @RequestMapping(value = "/{documentId}/border", method = {RequestMethod.GET})
-    public ResponseEntity<byte[]> drawBorderByImage(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
-            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
-            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        FileBorderJob args = new FileBorderJob();
-        args.setDocumentId(documentId);
-        args.setColor(color);
-        args.setThickness(thickness);
-
-        Future<Map> imageFuture = imageDrawBorderGateway.imageDrawBorderFilter(args);
-        FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
-        return result;
-    }
-
-
-
-    /**
-     * Draw a border around an image
-     *
-     * @param file
-     * @param color
-     * @param thickness
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     */
-    @RequestMapping(value = "/border", method = {RequestMethod.POST})
-    public ResponseEntity<byte[]> drawBorderByImage(
-            @ApiParam(name = "file", required = true) @RequestParam(value = "file") MultipartFile file
-            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
-            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        FileBorderJob job = new FileBorderJob();
-        job.setDocumentId(null);
-        job.setDocument(new Document(file));
-        job.getDocument().setContentType(file.getContentType());
-        job.getDocument().setFileName(file.getOriginalFilename());
-        job.setColor(color);
-        job.setThickness(thickness);
-
-        Future<Map> imageFuture = imageDrawBorderGateway.imageDrawBorderFilter(job);
-        FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
-        return result;
-    }
-
-
-
-
-
 
 
 
@@ -151,9 +74,9 @@ public class ImageDrawingController
      * @param y
      * @return
      * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
+     * @throws java.util.concurrent.ExecutionException
+     * @throws java.util.concurrent.TimeoutException
+     * @throws java.io.IOException
      */
     @RequestMapping(value = "/{documentId}/text", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> drawTextByImage(
@@ -204,9 +127,9 @@ public class ImageDrawingController
      * @param y
      * @return
      * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
+     * @throws java.util.concurrent.ExecutionException
+     * @throws java.util.concurrent.TimeoutException
+     * @throws java.io.IOException
      */
     @RequestMapping(value = "/text", method = {RequestMethod.POST})
     public ResponseEntity<byte[]> drawTextByImage(

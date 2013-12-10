@@ -27,7 +27,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import apiserver.exceptions.NotImplementedException;
 
 import java.awt.image.BufferedImage;
 import java.util.Map;

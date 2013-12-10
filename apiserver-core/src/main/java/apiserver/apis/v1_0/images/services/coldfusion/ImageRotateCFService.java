@@ -23,13 +23,14 @@ import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileRotateJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
+import apiserver.exceptions.NotImplementedException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 
 import java.awt.image.BufferedImage;
 import java.util.Map;

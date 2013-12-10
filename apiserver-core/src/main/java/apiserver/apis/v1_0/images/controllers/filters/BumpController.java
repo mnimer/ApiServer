@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @Controller
-@RequestMapping("/image/filters")
+@RequestMapping("/image-filters")
 public class BumpController
 {
     @Autowired
