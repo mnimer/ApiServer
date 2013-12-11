@@ -19,6 +19,7 @@ package unitTests.v1_0.images;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
 import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
@@ -116,8 +117,8 @@ public class ImageInfoTest
 
             Assert.assertTrue( result != null );
             Assert.assertTrue( result instanceof Map );
-            Assert.assertEquals(width, ((Map)result).get("width"));
-            Assert.assertEquals(height, ((Map) result).get("height"));
+            Assert.assertEquals(width, ((Map)result).get(ApiServerConstants.WIDTH));
+            Assert.assertEquals(height, ((Map) result).get(ApiServerConstants.HEIGHT));
         }
         catch (Exception ex){
             ex.printStackTrace();

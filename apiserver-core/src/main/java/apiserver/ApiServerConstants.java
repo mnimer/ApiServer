@@ -28,4 +28,7 @@ public class ApiServerConstants
     public static String HTTP_RESPONSE = "__response";
 
     public static String IMAGE = "image";
+
+    public static String WIDTH = "width";
+    public static String HEIGHT = "height";
 }

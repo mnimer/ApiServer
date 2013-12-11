@@ -87,10 +87,6 @@ public class ImageRotateCFService
                 BufferedImage bi = ImageIO.read(new ByteArrayInputStream(bytes));
                 props.setBufferedImage( bi );
             }
-            else if( cfcResult instanceof BufferedImage )
-            {
-                props.setBufferedImage((BufferedImage) cfcResult);
-            }
             else
             {
                 throw new NotImplementedException();

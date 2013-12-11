@@ -67,12 +67,12 @@
     <import resource="flows/documents/documentDelete-flow.xml"/>
 
     <!-- Image -->
+    <import resource="flows/image/imageInfo-flow.xml"/>
     <import resource="flows/image/imageMetadata-flow.xml"/>
     <import resource="flows/image/imageResize-flow.xml"/>
     <import resource="flows/image/imageRotate-flow.xml"/>
-    <import resource="flows/image/imageDrawBorder-flow.xml"/>
-    <import resource="flows/image/imageDrawText-flow.xml"/>
-    <import resource="flows/image/imageInfo-flow.xml"/>
+    <import resource="flows/image/imageBorder-flow.xml"/>
+    <import resource="flows/image/imageText-flow.xml"/>
 
     <!-- image filters -->
     <import resource="flows/image/filters/filterBlur-flow.xml"/>
@@ -108,24 +108,11 @@
 
 
 
-
-    <!-- Common Beans -->
-    <!--task:executor id="taskExecutor"  pool-size="100"/-->
-    <!--si:poller id="defaultPoller"
-               default="true"
-               max-messages-per-poll="10"
-               fixed-rate="100"/-->
-
-
-
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- one of the properties available; the maximum file size in bytes -->
         <property name="maxUploadSize" value="10000000"/>
     </bean>
-
-
-
 
 
 

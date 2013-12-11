@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.images.services.coldfusion;
+package apiserver.apis.v1_0.images.services;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.images.services.coldfusion;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.ApiServerConstants;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileInfoJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
@@ -27,6 +28,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.integration.support.MessageBuilder;
 
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,48 +38,20 @@ import java.util.Map;
  */
 public class ImageInfoService
 {
-    @Autowired
-    public ImageConfigMBean imageConfigMBean;
 
-    @Autowired
-    public IColdFusionBridge coldFusionBridge;
-
-    public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
-    {
-        this.coldFusionBridge = coldFusionBridge;
-    }
-
-    public Object execute(Message<?> message) throws ColdFusionException
+    public Object execute(Message<?> message) throws IOException
     {
 
         FileInfoJob props = (FileInfoJob)message.getPayload();
 
-        try
-        {
-            String cfcPath = imageConfigMBean.getImageInfoPath();
-            String method = imageConfigMBean.getImageInfoMethod();
-            // extract properties
-            Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
-            methodArgs.put("image", props.getDocument().getFileBytes());
-            methodArgs.put("contentType", props.getDocument().getContentType());
-            methodArgs.put("name", props.getDocument().getFileName());
+        Map result = new HashMap();
+        result.put(ApiServerConstants.WIDTH, props.getBufferedImage().getWidth());
+        result.put(ApiServerConstants.HEIGHT, props.getBufferedImage().getHeight());
 
-            // execute
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
-
-            MessageBuilder _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders());
-            _message.copyHeaders(message.getHeaders());
-            return _message.build();
-        }
-        catch (Throwable e)
-        {
-            e.printStackTrace(); //todo use logging library
-            throw new RuntimeException(e);
-        }
-        finally
-        {
-
-        }
+        // return results
+        MessageBuilder mb = MessageBuilder.withPayload(result);
+        mb.copyHeaders(message.getHeaders());
+        return mb.build();
     }
 
 

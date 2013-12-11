@@ -80,20 +80,10 @@
         <!-- future plans to support, TCP, JMS -->
         <entry key="REQUEST_TYPE" value="http" />
         <entry key="host" value="localhost" />
-        <entry key="port" value="8501" />
+        <entry key="port" value="8500" />
         <entry key="contextRoot" value="/" />
-        <entry key="path" value="apiserver-inf/components/v1" />
+        <entry key="path" value="/apiserver-inf/components/v1" />
     </util:map>
 
-
-    <util:map id="supportedMimeTypes"
-              key-type="java.lang.String"
-              value-type="java.lang.String">
-        <entry key="png" value="image/png" />
-        <entry key="jpg" value="image/jpeg" />
-        <entry key="jpe" value="image/jpeg" />
-        <entry key="jpeg" value="image/jpeg" />
-        <entry key="gif" value="image/gif" />
-    </util:map>
 
 </beans>

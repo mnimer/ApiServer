@@ -72,14 +72,5 @@
     </util:map>
 
 
-    <util:map id="supportedMimeTypes"
-              key-type="java.lang.String"
-              value-type="java.lang.String">
-        <entry key="png" value="image/png" />
-        <entry key="jpg" value="image/jpeg" />
-        <entry key="jpe" value="image/jpeg" />
-        <entry key="jpeg" value="image/jpeg" />
-        <entry key="gif" value="image/gif" />
-    </util:map>
 
 </beans>

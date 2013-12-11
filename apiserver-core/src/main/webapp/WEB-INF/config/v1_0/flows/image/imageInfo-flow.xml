@@ -65,11 +65,8 @@
 
         <si:service-activator
                 method="execute">
-            <bean class="apiserver.apis.v1_0.images.services.coldfusion.ImageInfoService"/>
+            <bean class="apiserver.apis.v1_0.images.services.ImageInfoService"/>
         </si:service-activator>
-
-
-        <si:json-to-object-transformer type="java.util.HashMap"/>
 
     </si:chain>
 
