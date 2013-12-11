@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.documents.model;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,7 +38,7 @@ public class Document implements Serializable
 {
     private String id;
     private String fileName;
-    private String contentType;
+    private MimeType contentType;
     private Long size;
     private Object file;
     private byte[] fileBytes;
@@ -89,6 +90,7 @@ public class Document implements Serializable
 
             fileName = ((File)file).getName();
             this.file = file;
+            this.contentType = MimeType.getMimeType(fileName);
 
             byte[] bytes = FileUtils.readFileToByteArray(((File)file));
             this.setFileBytes(bytes);
@@ -101,10 +103,13 @@ public class Document implements Serializable
         }
         else if (file instanceof BufferedImage)
         {
-            fileName = UUID.randomUUID().toString();
+            if( fileName == null )
+            {
+                fileName = UUID.randomUUID().toString();
+            }
 
             // Convert buffered reader to byte array
-            String _mime = this.getContentType().substring(this.getContentType().lastIndexOf('/')+1);
+            String _mime = this.getContentType().name();
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             ImageIO.write( (BufferedImage)file, _mime, byteArrayOutputStream );
@@ -140,13 +145,13 @@ public class Document implements Serializable
     }
 
 
-    public String getContentType()
+    public MimeType getContentType()
     {
         return contentType;
     }
 
 
-    public void setContentType(String contentType)
+    public void setContentType(MimeType contentType)
     {
         this.contentType = contentType;
     }

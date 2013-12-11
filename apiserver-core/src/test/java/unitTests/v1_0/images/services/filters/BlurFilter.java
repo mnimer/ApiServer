@@ -28,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import unitTests.v1_0.images.filters.ImageMotionBlurTests;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -55,29 +56,29 @@ public class BlurFilter
     @Test
     public void testBlurFilter() throws URISyntaxException, IOException
     {
-        String fileName = "sample.png";
-        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+        File file = new File(  BlurFilter.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
+
         BufferedImage bufferedImage = ImageIO.read(file);
         //run filter
         com.jhlabs.image.BlurFilter filter = new com.jhlabs.image.BlurFilter();
         BufferedImage outFile = filter.filter( bufferedImage, null );
 
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
     }
 
     @Test
     public void testBlurFilterSavedToDisk() throws URISyntaxException, IOException
     {
-        String fileName = "sample.png";
-        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
+
         BufferedImage bufferedImage = ImageIO.read(file);
         //run filter
         com.jhlabs.image.BlurFilter filter = new com.jhlabs.image.BlurFilter();
         BufferedImage outFile = filter.filter( bufferedImage, null );
 
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
 
 
 
@@ -88,22 +89,22 @@ public class BlurFilter
         ImageIO.write(bufferedImage, "png", outputFile);
 
         BufferedImage newImage = ImageIO.read(outputFile);
-        Assert.assertEquals(500, newImage.getWidth());
-        Assert.assertEquals(296, newImage.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
     }
 
     @Test
     public void testBlurFilterPngMimeType1() throws URISyntaxException, IOException
     {
-        String fileName = "sample.png";
-        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
+
         BufferedImage bufferedImage = ImageIO.read(file);
         //run filter
         com.jhlabs.image.BlurFilter filter = new com.jhlabs.image.BlurFilter();
         BufferedImage outFile = filter.filter( bufferedImage, null );
 
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ImageIO.write( outFile, "image/png", byteArrayOutputStream );
@@ -112,23 +113,23 @@ public class BlurFilter
         byteArrayOutputStream.close();
 
         BufferedImage bImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
     }
 
 
     @Test
     public void testBlurFilterPngMimeType2() throws URISyntaxException, IOException
     {
-        String fileName = "sample.png";
-        File file = new File(this.getClass().getClassLoader().getSystemResource(fileName).toURI());
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
+
         BufferedImage bufferedImage = ImageIO.read(file);
         //run filter
         com.jhlabs.image.BlurFilter filter = new com.jhlabs.image.BlurFilter();
         BufferedImage outFile = filter.filter( bufferedImage, null );
 
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         ImageIO.write( outFile, "png", byteArrayOutputStream );
@@ -137,8 +138,8 @@ public class BlurFilter
         byteArrayOutputStream.close();
 
         BufferedImage bImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
-        Assert.assertEquals(500, outFile.getWidth());
-        Assert.assertEquals(296, outFile.getHeight());
+        Assert.assertEquals(4000, outFile.getWidth());
+        Assert.assertEquals(3000, outFile.getHeight());
     }
 
     @Ignore

@@ -78,6 +78,10 @@ public class ImageInfoTest
     @Autowired
     private DocumentGateway documentGateway;
 
+    @Qualifier("documentDeleteGateway")
+    @Autowired
+    private DocumentGateway documentDeleteGateway;
+
     String documentId = null;
 
     @Before
@@ -96,7 +100,7 @@ public class ImageInfoTest
     {
         DeleteDocumentJob job = new DeleteDocumentJob();
         job.setDocumentId(documentId);
-        documentGateway.deleteDocument(job).get();
+        documentDeleteGateway.deleteDocument(job).get();
     }
 
     @Test

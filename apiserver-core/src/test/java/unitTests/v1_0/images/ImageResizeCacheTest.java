@@ -19,6 +19,7 @@ package unitTests.v1_0.images;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
 import org.junit.BeforeClass;
@@ -90,7 +91,7 @@ public class ImageResizeCacheTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            //args.setFile(file);
+            args.setDocument(new Document(file));
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");

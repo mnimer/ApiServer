@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.images.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageInfoGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
@@ -113,7 +114,7 @@ public class MetadataController
                 FileMetadataJob job = new FileMetadataJob();
                 job.setDocumentId(null);
                 job.setDocument( new Document(_file) );
-                job.getDocument().setContentType( _file.getContentType() );
+                job.getDocument().setContentType(MimeType.getMimeType(_file.getContentType()) );
                 job.getDocument().setFileName(_file.getOriginalFilename());
 
                 Future<Map> imageFuture = imageMetadataGateway.getMetadata(job);

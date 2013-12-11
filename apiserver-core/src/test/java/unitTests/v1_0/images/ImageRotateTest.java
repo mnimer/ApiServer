@@ -19,6 +19,7 @@ package unitTests.v1_0.images;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileRotateJob;
 import org.junit.BeforeClass;
@@ -87,7 +88,7 @@ public class ImageRotateTest
         try
         {
             FileRotateJob args = new FileRotateJob();
-            //args.setFile(file);
+            args.setDocument(new Document(file));
             args.setAngle(90);
 
             Future<Map> resultFuture = gateway.rotateImage(args);

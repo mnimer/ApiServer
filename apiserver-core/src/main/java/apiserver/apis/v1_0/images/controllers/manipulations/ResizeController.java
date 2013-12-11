@@ -1,5 +1,6 @@
 package apiserver.apis.v1_0.images.controllers.manipulations;
 
+import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.images.ImageRotateGateway;
@@ -111,7 +112,7 @@ public class ResizeController
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
+        String contentType = payload.getDocument().getContentType().name();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
@@ -142,7 +143,7 @@ public class ResizeController
         FileResizeJob job = new FileResizeJob();
         job.setDocumentId(null);
         job.setDocument( new Document(file) );
-        job.getDocument().setContentType( file.getContentType() );
+        job.getDocument().setContentType(MimeType.getMimeType(file.getContentType()) );
         job.getDocument().setFileName(file.getOriginalFilename());
         job.setWidth(width);
         job.setHeight(height);
@@ -154,7 +155,7 @@ public class ResizeController
 
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
+        String contentType = payload.getDocument().getContentType().name();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }

@@ -79,12 +79,18 @@ public class ImageBumpTests
     @Autowired
     private DocumentGateway documentGateway;
 
+
+    @Qualifier("documentDeleteGateway")
+    @Autowired
+    private DocumentGateway documentDeleteGateway;
+
+
     String documentId = null;
 
     @Before
     public void setup() throws URISyntaxException, IOException, InterruptedException, ExecutionException
     {
-        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        File file = new File(  ImageMotionBlurTests.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
 
         UploadDocumentJob job = new UploadDocumentJob(file);
         job.setDocument(new Document(file));
@@ -97,7 +103,7 @@ public class ImageBumpTests
     {
         DeleteDocumentJob job = new DeleteDocumentJob();
         job.setDocumentId(documentId);
-        documentGateway.deleteDocument(job).get();
+        documentDeleteGateway.deleteDocument(job).get();
     }
 
 
@@ -122,12 +128,12 @@ public class ImageBumpTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getDocument().getContentType();
-        Assert.assertEquals("image/png",contentType);
+        String contentType = payload.getDocument().getContentType().contentType;
+        Assert.assertEquals("image/jpeg",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  397541, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  33697810, result.getBody().length);
     }
 
 
@@ -150,11 +156,11 @@ public class ImageBumpTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getDocument().getContentType();
-        Assert.assertEquals("image/png",contentType);
+        String contentType = payload.getDocument().getContentType().contentType;
+        Assert.assertEquals("image/jpeg",contentType);
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  530056, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  44930416, result.getBody().length);
     }
 }

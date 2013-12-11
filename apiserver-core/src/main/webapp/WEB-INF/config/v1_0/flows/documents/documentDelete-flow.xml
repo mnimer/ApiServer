@@ -37,26 +37,25 @@
     </util:list>
 
 
-    <si:channel id="cacheDeleteChannelRequestChannel"/>
+    <si:channel id="documentDeleteChannelRequestChannel"/>
 
-    <si:channel id="cacheDeleteChannelReplyChannel"/>
+    <si:channel id="documentDeleteChannelReplyChannel"/>
 
 
     <si:gateway id="documentDeleteGateway"
                 service-interface="apiserver.apis.v1_0.documents.gateway.DocumentGateway"
-                default-reply-channel="cacheDeleteChannelReplyChannel"
+                default-reply-channel="documentDeleteChannelReplyChannel"
+                default-request-channel="documentDeleteChannelRequestChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="deleteDocument"
-                   request-channel="cacheDeleteChannelRequestChannel">
+        <si:method name="deleteDocument"/>
 
-        </si:method>
     </si:gateway>
 
 
 
-    <si:chain input-channel="cacheDeleteChannelRequestChannel"
-              output-channel="cacheDeleteChannelReplyChannel">
+    <si:chain input-channel="documentDeleteChannelRequestChannel"
+              output-channel="documentDeleteChannelReplyChannel">
 
         <si:service-activator
                 method="deleteFromCache">

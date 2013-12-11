@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.images.controllers.filters;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
@@ -98,7 +99,7 @@ public class MotionBlurController
         ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
+        String contentType = payload.getDocument().getContentType().name();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }
@@ -134,7 +135,7 @@ public class MotionBlurController
         MotionBlurJob job = new MotionBlurJob();
         job.setDocumentId(null);
         job.setDocument( new Document(file) );
-        job.getDocument().setContentType( file.getContentType() );
+        job.getDocument().setContentType(MimeType.getMimeType(file.getContentType()) );
         job.getDocument().setFileName(file.getOriginalFilename());
         job.setAngle(angle);
         job.setDistance(distance);
@@ -147,7 +148,7 @@ public class MotionBlurController
         ImageDocumentJob payload = (ImageDocumentJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType();
+        String contentType = payload.getDocument().getContentType().name();
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, false );
         return result;
     }

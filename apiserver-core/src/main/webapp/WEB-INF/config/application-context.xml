@@ -82,7 +82,7 @@
         <entry key="host" value="localhost" />
         <entry key="port" value="8501" />
         <entry key="contextRoot" value="/" />
-        <entry key="path" value="apiserver-inf/components/v1_0" />
+        <entry key="path" value="apiserver-inf/components/v1" />
     </util:map>
 
 

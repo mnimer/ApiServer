@@ -112,7 +112,7 @@ public class ImageOilTests
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getDocument().getContentType();
+        String contentType = (String)payload.getDocument().getContentType().name();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
@@ -136,7 +136,7 @@ public class ImageOilTests
         BufferedImage bufferedImage = (BufferedImage)payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = (String)payload.getDocument().getContentType();
+        String contentType = (String)payload.getDocument().getContentType().name();
         Assert.assertTrue("NULL ContentType in payload", contentType != null );
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);

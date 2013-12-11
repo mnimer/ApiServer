@@ -19,6 +19,7 @@ package apiserver.core.providers.cache;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,7 +56,7 @@ public class InMemoryCacheProvider implements IDocumentCacheProvider
             File file = new File(  InMemoryCacheProvider.class.getClassLoader().getResource("sample.png").toURI()  );
             Document doc = new Document(file);
             doc.setId(imgID);
-            doc.setContentType("image/png");
+            doc.setContentType(MimeType.png);
             cache.put(imgID, doc);
         }
         catch(Exception e){

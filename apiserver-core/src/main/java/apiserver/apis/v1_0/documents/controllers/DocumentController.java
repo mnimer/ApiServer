@@ -129,7 +129,7 @@ public class DocumentController
 
         return ResponseEntityHelper.processFile(
                 payload.getDocument().getFileBytes(),
-                payload.getDocument().getContentType(), false);
+                payload.getDocument().getContentType().name(), false);
 
     }
 

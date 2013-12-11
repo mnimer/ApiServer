@@ -19,6 +19,7 @@ package unitTests.v1_0.images;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.ImageConfigMBean;
 import apiserver.apis.v1_0.images.ImageConfigMBeanImpl;
 import apiserver.apis.v1_0.images.gateways.images.ImageMetadataGateway;
@@ -96,7 +97,7 @@ public class ImageMetadataDrewMetadataExtractorTest
 
 
         FileMetadataJob model = new FileMetadataJob();
-        //model.setFile(file);
+        model.setDocument(new Document(file));
         Future<Map> future = gateway.getMetadata(model);
 
 

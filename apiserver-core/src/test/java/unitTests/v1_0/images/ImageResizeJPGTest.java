@@ -19,6 +19,7 @@ package unitTests.v1_0.images;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.images.ImageResizeGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileResizeJob;
 import org.junit.BeforeClass;
@@ -33,6 +34,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -65,6 +67,7 @@ public class ImageResizeJPGTest
 
 
     static File file = null;
+    static Document document;
 
 
     @BeforeClass
@@ -74,6 +77,8 @@ public class ImageResizeJPGTest
         {
             String fileName = "IMG_5932.JPG";
             file = new File(ImageInfoTest.class.getClassLoader().getSystemResource(fileName).toURI());
+
+            document = new Document(file);
 
         }catch (Exception ex){
             org.junit.Assert.fail(ex.getMessage());
@@ -93,6 +98,7 @@ public class ImageResizeJPGTest
         {
             FileResizeJob args = new FileResizeJob();
             //args.setFile(file);
+            args.setDocument(document);
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -118,7 +124,7 @@ public class ImageResizeJPGTest
 
 
     @Test
-    public void testJpgResizeDefaultArgs() throws ServletException, IOException, Exception
+    public void testJpgResizeDefaultArgs() throws ServletException, IOException
     {
         int width = 2000;
         int height = 1000;
@@ -126,7 +132,8 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            //args.setFile(file);
+            args.setDocument(document);
+            //args.setBufferedImage(ImageIO.read(file));
             args.setWidth(width);
             args.setHeight(height);
             args.setInterpolation("bicubic");
@@ -150,7 +157,7 @@ public class ImageResizeJPGTest
     }
 
     @Test
-    public void testJpgResizeDefaultArgs2() throws ServletException, IOException, Exception
+    public void testJpgResizeDefaultArgs2() throws ServletException, IOException
     {
         int width = 2000;
         int height = 1000;
@@ -158,7 +165,7 @@ public class ImageResizeJPGTest
         try
         {
             FileResizeJob args = new FileResizeJob();
-            //args.setFile(file);
+            args.setDocument(document);
             args.setWidth(width);
             args.setHeight(height);
 

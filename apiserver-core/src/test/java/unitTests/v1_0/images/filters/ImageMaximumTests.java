@@ -70,7 +70,8 @@ public class ImageMaximumTests
     @BeforeClass
     public static void setup() throws URISyntaxException
     {
-        file = new File(  ImageMaximumTests.class.getClassLoader().getResource("sample.png").toURI()  );
+        file = new File(  ImageMaximumTests.class.getClassLoader().getResource("IMG_5932.JPG").toURI()  );
+
     }
 
 
@@ -88,11 +89,11 @@ public class ImageMaximumTests
         BufferedImage bufferedImage = payload.getBufferedImage();
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
-        String contentType = payload.getDocument().getContentType();
-        Assert.assertEquals("image/png",contentType);
+        String contentType = payload.getDocument().getContentType().contentType;
+        Assert.assertEquals("image/jpeg",contentType);
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.FALSE);
-        Assert.assertEquals("Invalid image bytes",  284679, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  19686188, result.getBody().length);
     }
 
 
@@ -110,11 +111,11 @@ public class ImageMaximumTests
         Assert.assertTrue("NULL BufferedImage in payload", bufferedImage != null );
 
 
-        String contentType = (String)payload.getDocument().getContentType();
-        Assert.assertTrue("NULL ContentType in payload", contentType != null );
+        String contentType = (String)payload.getDocument().getContentType().contentType;
+        Assert.assertTrue("image/jpeg", contentType != null );
 
 
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, Boolean.TRUE);
-        Assert.assertEquals("Invalid image bytes",  379572, result.getBody().length);
+        Assert.assertEquals("Invalid image bytes",  26248252, result.getBody().length);
     }
 }

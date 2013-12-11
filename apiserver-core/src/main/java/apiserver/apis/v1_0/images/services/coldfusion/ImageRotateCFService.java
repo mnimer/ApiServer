@@ -26,13 +26,16 @@ import apiserver.exceptions.ColdFusionException;
 import apiserver.exceptions.NotImplementedException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 
 
+import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.Map;
 
 /**
@@ -73,11 +76,18 @@ public class ImageRotateCFService
             Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
             // strip out the base64 string from the json packet
-            ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
-            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            String img = mapper.readValue((String)cfcResult, String.class);
+            //ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
+            //mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            //String img = mapper.readValue((String)cfcResult, String.class);
 
-            if( cfcResult instanceof BufferedImage )
+            if( cfcResult instanceof String )
+            {
+                // convert base64 back to buffered image
+                byte[] bytes = Base64.decodeBase64((String) cfcResult);
+                BufferedImage bi = ImageIO.read(new ByteArrayInputStream(bytes));
+                props.setBufferedImage( bi );
+            }
+            else if( cfcResult instanceof BufferedImage )
             {
                 props.setBufferedImage((BufferedImage) cfcResult);
             }

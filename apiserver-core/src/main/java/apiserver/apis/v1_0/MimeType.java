@@ -66,13 +66,22 @@ public enum MimeType
         this.contentType = contentType;
     }
 
-    public MimeType getMimeType(String fileName)
+    public String getExtension()
     {
-        return null;
+        return this.name();
     }
 
-    public String getExtension(MimeType mimeType)
+    public static MimeType getMimeType(String fileName)
     {
-        return mimeType.name();
+        String extension = fileName.substring(fileName.lastIndexOf('.')+1);
+
+        for (MimeType mimeType : values()) {
+            if( mimeType.getExtension().equalsIgnoreCase(extension) || mimeType.contentType.equalsIgnoreCase(extension) )
+            {
+                return mimeType;
+            }
+        }
+        return BINARY;
     }
+
 }

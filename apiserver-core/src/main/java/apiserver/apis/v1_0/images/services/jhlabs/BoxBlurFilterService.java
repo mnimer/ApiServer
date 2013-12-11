@@ -62,7 +62,7 @@ public class BoxBlurFilterService
 
             BufferedImage outFile = filter.filter( bufferedImage, null );
 
-            File newF = new File("/Users/mikenimer/Desktop/img3.png");
+            File newF = new File(  BoxBlurFilterService.class.getClassLoader().getResource("sample.png").toURI()  );
             FileUtils.writeByteArrayToFile(newF, ((DataBufferByte) ((BufferedImage) outFile).getData().getDataBuffer()).getData());
 
 

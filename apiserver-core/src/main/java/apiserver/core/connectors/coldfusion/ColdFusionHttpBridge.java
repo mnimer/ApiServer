@@ -62,7 +62,7 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
     private String ip;
     private int port;
     private String contextRoot;
-    private String cfcPath = "/apiserver-inf/components/v1_0/";
+    private String cfcPath = "/apiserver-inf/components/v1/"; //todo pull from properties
 
 
     public void setIp(String ip)

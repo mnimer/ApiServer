@@ -63,24 +63,28 @@
     <si:router
             input-channel="imageMetadataChannelRequestChannel"
             method="route">
-        <!-- todo: add support for header var router -->
+        <!-- todo: replace with header property, or Job Type router -->
         <bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
     </si:router>
 
 
-    <si:service-activator
+    <!-- Drew Nokes Metadata -->
+    <si:chain
             input-channel="drewMetadataExtractor"
-            output-channel="imageMetadataChannelReplyChannel"
-            method="imageMetadataHandler">
-        <bean class="apiserver.apis.v1_0.images.services.drewMetadata.ImageMetadataService"/>
-    </si:service-activator>
+            output-channel="imageMetadataChannelReplyChannel">
+
+        <si:service-activator
+                method="getFromCache">
+            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
+        </si:service-activator>
+
+        <si:service-activator
+                method="imageMetadataHandler">
+            <bean class="apiserver.apis.v1_0.images.services.drewMetadata.ImageMetadataService"/>
+        </si:service-activator>
+
+    </si:chain>
 
 
-    <si:service-activator
-            input-channel="exifTool"
-            output-channel="imageMetadataChannelReplyChannel"
-            method="metadataInfo">
-        <bean class="apiserver.apis.v1_0.images.services.exiftool.ImageMetadataService"/>
-    </si:service-activator>
 
 </beans>
