@@ -29,5 +29,5 @@ public interface PdfConfigMBean
     public void setConvertHtmlToPdfPath(String path);
 
     public String getConvertHtmlToPdfMethod();
-    public void setConvertHtmlToPdfMethod(String path);
+    public void setConvertHtmlToPdfMethod(String method);
 }

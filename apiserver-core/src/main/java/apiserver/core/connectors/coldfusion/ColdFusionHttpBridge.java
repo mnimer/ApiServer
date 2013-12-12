@@ -144,7 +144,7 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 if (entity != null) {
                     InputStream inputStream = entity.getContent();
                     //return inputStream;
-                    return IOUtils.toString(inputStream);
+                    return IOUtils.toByteArray(inputStream);
                     //Map json = (Map)deSerializeJson(inputStream);
                     //return json;
                 }

@@ -65,9 +65,6 @@ public class ImageMinimumTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMinimumTests.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ApiImageFilterMinimumGateway imageMinimumFilterGateway;
 

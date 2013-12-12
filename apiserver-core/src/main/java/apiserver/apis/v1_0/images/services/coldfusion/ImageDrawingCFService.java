@@ -20,12 +20,18 @@ package apiserver.apis.v1_0.images.services.coldfusion;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.images.ImageConfigMBean;
+import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
+import apiserver.exceptions.NotImplementedException;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.integration.support.MessageBuilder;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,18 +57,32 @@ public class ImageDrawingCFService
 
     public Object imageBorderHandler(Message<?> message) throws ColdFusionException
     {
-        Map props = (Map)message.getPayload();
+        ImageDocumentJob props = (ImageDocumentJob)message.getPayload();
 
         try
         {
             cfcPath = imageConfigMBean.getImageBorderPath();
             String method = imageConfigMBean.getImageBorderMethod();
             Map<String, Object> methodArgs = new HashMap();
-            Map cfcResult = (Map)coldFusionBridge.invoke(cfcPath, method, methodArgs);
+
+            //todo
+
+            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
+
+            if( cfcResult instanceof byte[] )
+            {
+                // convert base64 back to buffered image
+                byte[] bytes = Base64.decodeBase64( new String((byte[])cfcResult) );
+                BufferedImage bi = ImageIO.read(new ByteArrayInputStream(bytes));
+                props.setBufferedImage( bi );
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
 
 
-            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
-            return _message;
+            return props;
         }
         catch (Throwable e)
         {

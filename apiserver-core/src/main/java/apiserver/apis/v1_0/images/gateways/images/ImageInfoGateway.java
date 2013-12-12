@@ -30,5 +30,5 @@ import java.util.concurrent.Future;
  */
 public interface ImageInfoGateway
 {
-    Future<Map> imageInfo(FileInfoJob args);
+    Future<Map> imageSize(FileInfoJob args);
 }

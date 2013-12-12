@@ -59,9 +59,6 @@ public class ImageMaximumTests
 {
     public final Logger log = LoggerFactory.getLogger(ImageMaximumTests.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ApiImageFilterMaximumGateway imageMaximumFilterGateway;
 

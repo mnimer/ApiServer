@@ -28,7 +28,7 @@ import java.util.concurrent.Future;
  * User: mikenimer
  * Date: 9/16/13
  */
-public interface PdfHtmlGateway
+public interface PdfConversionGateway
 {
     Future<Map> convertHtmlToPdf(PdfHtmlJob args);
 }

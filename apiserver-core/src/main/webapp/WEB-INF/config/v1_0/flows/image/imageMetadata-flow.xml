@@ -60,17 +60,17 @@
 
 
 
-    <si:router
+    <!-- si:header-value-router
             input-channel="imageMetadataChannelRequestChannel"
-            method="route">
-        <!-- todo: replace with header property, or Job Type router -->
-        <bean class="apiserver.apis.v1_0.images.routers.MetadataRouter"/>
-    </si:router>
+            default-output-channel="drewMetadataExtractor"
+            header-name="library">
+        <si:mapping value="drewnoakes" channel="drewMetadataExtractor"/>
+    </si:header-value-router-->
 
 
-    <!-- Drew Nokes Metadata -->
+    <!-- Drew Nokes Metadata Library-->
     <si:chain
-            input-channel="drewMetadataExtractor"
+            input-channel="imageMetadataChannelRequestChannel"
             output-channel="imageMetadataChannelReplyChannel">
 
         <si:service-activator
@@ -86,5 +86,6 @@
     </si:chain>
 
 
+    <!-- TODO: add Apache Commons Library -->
 
 </beans>

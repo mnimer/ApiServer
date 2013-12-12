@@ -37,7 +37,7 @@
 
     <context:mbean-export registration="replaceExisting"/>
     <bean id="imageConfigMBean" class="apiserver.apis.v1_0.images.ImageConfigMBeanImpl"/>  <!-- todo, why isn't this auto picked up -->
-
+    <bean id="pdfConfigMBean" class="apiserver.apis.v1_0.pdf.PdfConfigMBeanImpl"/>  <!-- todo, why isn't this auto picked up -->
 
 
     <!-- cache flows -->

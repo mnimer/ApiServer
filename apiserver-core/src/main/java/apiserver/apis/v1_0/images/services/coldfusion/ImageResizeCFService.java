@@ -73,10 +73,10 @@ public class ImageResizeCFService
             // execute
             Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
 
-            if( cfcResult instanceof String )
+            if( cfcResult instanceof byte[] )
             {
                 // convert base64 back to buffered image
-                byte[] bytes = Base64.decodeBase64((String)cfcResult);
+                byte[] bytes = Base64.decodeBase64( new String((byte[])cfcResult) );
                 BufferedImage bi = ImageIO.read(new ByteArrayInputStream(bytes));
                 props.setBufferedImage( bi );
             }

@@ -46,7 +46,7 @@ import java.util.concurrent.TimeoutException;
 public class ThumbnailController
 {
     //@Autowired
-    //public PdfHtmlGateway pdfHtmlGateway;
+    //public PdfConversionGateway pdfConversionGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 

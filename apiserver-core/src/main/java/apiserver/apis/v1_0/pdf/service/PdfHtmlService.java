@@ -23,12 +23,16 @@ import apiserver.apis.v1_0.pdf.PdfConfigMBean;
 import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
+import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
 import org.springframework.integration.support.MessageBuilder;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.Map;
 
 /**
@@ -44,6 +48,7 @@ public class PdfHtmlService
 
     @Autowired
     public IColdFusionBridge coldFusionBridge;
+
     public void setColdFusionBridge(IColdFusionBridge coldFusionBridge)
     {
         this.coldFusionBridge = coldFusionBridge;
@@ -58,15 +63,18 @@ public class PdfHtmlService
         {
             String cfcPath = pdfConfigMBean.getConvertHtmlToPdfPath();
             String method = pdfConfigMBean.getConvertHtmlToPdfMethod();
+
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
-            methodArgs.put("image", props.getDocument().getFile());
+            //methodArgs.put("html", props.getHtml());
+            //methodArgs.put("headerHtml", props.getHeaderHtml());
+            //methodArgs.put("footerHtml", props.getFooterHtml());
 
             // execute
-            Object cfcResult = coldFusionBridge.invoke(cfcPath, method, methodArgs);
+            byte[] cfcResult = (byte[])coldFusionBridge.invoke(cfcPath, method, methodArgs);
+            props.setPdfBytes(cfcResult);
 
-            Message<?> _message = MessageBuilder.withPayload(cfcResult).copyHeaders(message.getHeaders()).build();
-            return _message;
+            return message;
         }
         catch (Throwable e)
         {

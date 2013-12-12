@@ -63,9 +63,6 @@ public class ImageMetadataDrewMetadataExtractorTest
     public String hostName = "";
     public int port = 0;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     public ImageMetadataGateway gateway;
 

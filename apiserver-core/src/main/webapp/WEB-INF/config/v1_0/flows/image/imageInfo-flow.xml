@@ -40,7 +40,7 @@
                 default-reply-channel="imageInfoReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="imageInfo"
+        <si:method name="imageSize"
                    request-channel="imageInfoRequestChannel"
                    payload-expression="#args[0]">
             <si:header name="REQUEST_TYPE" value="#{coldfusionProperties.REQUEST_TYPE}"/>

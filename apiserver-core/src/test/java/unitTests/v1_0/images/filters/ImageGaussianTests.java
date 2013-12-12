@@ -68,8 +68,6 @@ public class ImageGaussianTests
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
 
     @Autowired
     private ApiImageFilterGaussianGateway imageGaussianFilterGateway;

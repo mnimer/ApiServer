@@ -53,8 +53,8 @@ public class PdfConfigMBeanImpl implements PdfConfigMBean
      */
 
     //convert HTML to PDF
-    private String convertHTMLPath = "api-pdfhtml.cfc?method=htmlToPdf";
-    private String convertHTMLMethod = "GET";
+    private String convertHTMLPath = "api-pdf-convert.cfc?method=htmlToPdf";
+    private String convertHTMLMethod = "POST";
 
     public PdfConfigMBeanImpl()
     {

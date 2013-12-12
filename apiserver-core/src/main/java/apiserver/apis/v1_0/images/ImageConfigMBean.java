@@ -34,21 +34,11 @@ public interface ImageConfigMBean
     public void setMetadataLibrary(String metadataLibrary);
 
 
-
-    public String getImageInfoPath();
-    public void setImageInfoPath(String path);
-
-    public String getImageInfoMethod();
-    public void setImageInfoMethod(String method);
-
-
-
     public String getImageBorderPath();
     public void setImageBorderPath(String path);
 
     public String getImageBorderMethod();
     public void setImageBorderMethod(String method);
-
 
 
     public String getImageTextPath();

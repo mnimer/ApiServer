@@ -53,8 +53,6 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public static String TIME_TO_LIVE = "timeToLive";
     public static String ANGLE = "angle";
     public static String INTERPOLATION = "interpolation";
-    public static String WIDTH = "width";
-    public static String HEIGHT = "height";
     public static String SCALE_TO_FIT = "scaleToFit";
     public static String COLOR = "color";
     public static String THICKNESS = "thickness";
@@ -74,9 +72,6 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
      * ColdFusion CFC Paths
      */
 
-    //Image Info
-    private String imageInfoPath = "api-image.cfc?method=imageInfo";
-    private String imageInfoMethod = "GET";
     //Image Border Info
     private String imageBorderPath = "api-image.cfc?method=addBorder";
     private String imageBorderMethod = "GET";
@@ -89,6 +84,8 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     //Image Resize Info
     private String imageRotatePath = "api-image.cfc?method=rotateImage";
     private String imageRotateMethod = "GET";
+
+
 
     public ImageConfigMBeanImpl()
     {
@@ -135,33 +132,6 @@ public class ImageConfigMBeanImpl implements ImageConfigMBean
     public void setMetadataLibrary(String metadataLibrary)
     {
         this.metadataLibrary = metadataLibrary;
-    }
-
-
-    @ManagedAttribute(description = "get Image Info CFC path")
-    public String getImageInfoPath()
-    {
-        return imageInfoPath;
-    }
-
-
-    @ManagedAttribute(description = "set Image Info CFC Path", persistPolicy = "OnUpdate")
-    public void setImageInfoPath(String imageInfoPath)
-    {
-        this.imageInfoPath = imageInfoPath;
-    }
-
-    @ManagedAttribute(description = "get Image Info CFC http method")
-    public String getImageInfoMethod()
-    {
-        return imageInfoMethod;
-    }
-
-
-    @ManagedAttribute(description = "set Image Info CFC http method", persistPolicy = "OnUpdate")
-    public void setImageInfoMethod(String method)
-    {
-        imageInfoMethod = method;
     }
 
 

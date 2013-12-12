@@ -68,9 +68,6 @@ public class ImageBumpTests
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ApiImageFilterBumpGateway imageBumpFilterGateway;
 

@@ -57,9 +57,6 @@ public class ImageResizeJPGTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageResizeJPGTest.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ImageResizeGateway gateway;
 

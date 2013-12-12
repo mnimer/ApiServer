@@ -85,7 +85,7 @@ public class ImageController
                 FileInfoJob args = new FileInfoJob();
                 args.setDocumentId(_documentId);
 
-                Future<Map> imageFuture = gateway.imageInfo(args);
+                Future<Map> imageFuture = gateway.imageSize(args);
                 Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload;
@@ -126,7 +126,7 @@ public class ImageController
                 job.getDocument().setFileName(_file.getOriginalFilename());
 
 
-                Future<Map> imageFuture = gateway.imageInfo(job);
+                Future<Map> imageFuture = gateway.imageSize(job);
                 Map payload = imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
                 return payload;

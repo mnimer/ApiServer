@@ -35,25 +35,19 @@
 
 
     <si:gateway id="convertHtmlToPdfChannelApiGateway"
-                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfHtmlGateway"
+                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
                 default-reply-channel="convertHtmlToPdfChannelReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
         <si:method name="convertHtmlToPdf"
-                   request-channel="convertHtmlToPdfChannelRequestChannel">
+                   request-channel="convertHtmlToPdfChannelRequestChannel"/>
 
-        </si:method>
     </si:gateway>
 
 
 
     <si:chain input-channel="convertHtmlToPdfChannelRequestChannel"
               output-channel="convertHtmlToPdfChannelReplyChannel">
-
-        <si:service-activator
-                method="getFromCache">
-            <bean class="apiserver.apis.v1_0.documents.services.DocumentService"/>
-        </si:service-activator>
 
         <si:service-activator
                 method="execute">

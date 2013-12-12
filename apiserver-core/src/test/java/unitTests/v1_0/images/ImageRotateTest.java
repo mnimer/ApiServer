@@ -55,9 +55,6 @@ public class ImageRotateTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageRotateTest.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ImageRotateGateway gateway;
 

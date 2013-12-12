@@ -57,9 +57,6 @@ public class ImageResizeCacheTest
 {
     public final Logger log = LoggerFactory.getLogger(ImageResizeCacheTest.class);
 
-    @Resource(name="supportedMimeTypes")
-    public HashMap<String, String> supportedMimeTypes;
-
     @Autowired
     private ImageResizeGateway gateway;
 

@@ -112,7 +112,7 @@ public class ImageInfoTest
             FileInfoJob args = new FileInfoJob();
             args.setDocumentId(documentId);
 
-            Future<Map> resultFuture = gateway.imageInfo(args);
+            Future<Map> resultFuture = gateway.imageSize(args);
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue( result != null );

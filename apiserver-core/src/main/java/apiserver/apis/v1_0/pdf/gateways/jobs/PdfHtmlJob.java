@@ -23,15 +23,20 @@ import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
+
 /**
  * User: mikenimer
  * Date: 9/16/13
  */
-public class PdfHtmlJob extends ImageDocumentJob
+public class PdfHtmlJob implements Serializable
 {
     public final Logger log = LoggerFactory.getLogger(PdfHtmlJob.class);
 
     private String html;
+    private String headerHtml;
+    private String footerHtml;
+    private byte[] pdfBytes;
 
 
     public String getHtml()
@@ -39,9 +44,32 @@ public class PdfHtmlJob extends ImageDocumentJob
         return html;
     }
 
-
     public void setHtml(String html)
     {
         this.html = html;
+    }
+
+    public String getHeaderHtml() {
+        return headerHtml;
+    }
+
+    public void setHeaderHtml(String headerHtml) {
+        this.headerHtml = headerHtml;
+    }
+
+    public String getFooterHtml() {
+        return footerHtml;
+    }
+
+    public void setFooterHtml(String footerHtml) {
+        this.footerHtml = footerHtml;
+    }
+
+    public byte[] getPdfBytes() {
+        return pdfBytes;
+    }
+
+    public void setPdfBytes(byte[] pdfBytes) {
+        this.pdfBytes = pdfBytes;
     }
 }
