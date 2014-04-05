@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-manipulate")
+@RequestMapping("/pdf")
 public class WatermarkController
 {
     //@Autowired
@@ -69,7 +69,7 @@ public class WatermarkController
      */
     @ApiOperation(value = "Add Watermark")
     @Produces("application/pdf")
-    @RequestMapping(value = "/watermark", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/watermark", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addWatermarkToPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
             @ApiParam(name="image", required = true) @RequestPart("image") MultipartFile image,
@@ -100,7 +100,7 @@ public class WatermarkController
      */
     @ApiOperation(value = "Add Watermark to cached pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/watermark", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/{documentId}/watermark", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addWatermarkToPdf(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
             @ApiParam(name="image", required = true) @RequestPart("image") MultipartFile image,
@@ -127,7 +127,7 @@ public class WatermarkController
      */
     @ApiOperation(value = "Remove Watermark")
     @Produces("application/pdf")
-    @RequestMapping(value = "/watermark", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/modify/watermark", method = RequestMethod.DELETE)
     public ResponseEntity<byte[]> removeWatermarkFromPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception

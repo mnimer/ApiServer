@@ -24,6 +24,7 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMinimumGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -48,7 +49,8 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image-filters")
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
 public class MinimumController
 {
     public final Logger log = LoggerFactory.getLogger(MinimumController.class);
@@ -70,7 +72,7 @@ public class MinimumController
      * @throws IOException
      */
     @ApiOperation(value = "This filter replaces each pixel by the minimum of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.")
-    @RequestMapping(value = "/{documentId}/minimum", method = {RequestMethod.GET})
+    @RequestMapping(value = "/filter/{documentId}/minimum", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMinimumByFile(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
@@ -100,7 +102,7 @@ public class MinimumController
      * @throws IOException
      */
     @ApiOperation(value = "This filter replaces each pixel by the minimum of the input pixel and its eight neighbours. Each of the RGB channels is considered separately.")
-    @RequestMapping(value = "/minimum", method = {RequestMethod.POST})
+    @RequestMapping(value = "/filter/minimum", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageMinimumByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file

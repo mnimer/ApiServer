@@ -26,6 +26,7 @@ import apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileBorderJob;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileTextJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,6 +50,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/18/12
  */
 //Controller
+@Api(value = "/image", description = "[IMAGE]")
 @RequestMapping("/image")
 public class BorderController
 {
@@ -64,41 +66,6 @@ public class BorderController
     /**
      * Draw a border around an image
      *
-     * @param documentId
-     * @param color
-     * @param thickness
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     */
-    @RequestMapping(value = "/{documentId}/border", method = {RequestMethod.GET})
-    public ResponseEntity<byte[]> drawBorderByImage(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
-            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
-            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        FileBorderJob args = new FileBorderJob();
-        args.setDocumentId(documentId);
-        args.setColor(color);
-        args.setThickness(thickness);
-
-        Future<Map> imageFuture = imageDrawBorderGateway.imageDrawBorderFilter(args);
-        FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType().name();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
-        return result;
-    }
-
-
-
-    /**
-     * Draw a border around an image
-     *
      * @param file
      * @param color
      * @param thickness
@@ -108,7 +75,7 @@ public class BorderController
      * @throws TimeoutException
      * @throws IOException
      */
-    @RequestMapping(value = "/border", method = {RequestMethod.POST})
+    @RequestMapping(value = "/modify/border", method = {RequestMethod.POST})
     public ResponseEntity<byte[]> drawBorderByImage(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file") MultipartFile file
             , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
@@ -131,6 +98,42 @@ public class BorderController
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
         return result;
     }
+
+
+    /**
+     * Draw a border around an image
+     *
+     * @param documentId
+     * @param color
+     * @param thickness
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     */
+    @RequestMapping(value = "/modify/{documentId}/border", method = {RequestMethod.GET})
+    public ResponseEntity<byte[]> drawBorderByImage(
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="thickness", required = true) @RequestParam(required = true) Integer thickness
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    {
+        FileBorderJob args = new FileBorderJob();
+        args.setDocumentId(documentId);
+        args.setColor(color);
+        args.setThickness(thickness);
+
+        Future<Map> imageFuture = imageDrawBorderGateway.imageDrawBorderFilter(args);
+        FileBorderJob payload = (FileBorderJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType().name();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
+        return result;
+    }
+
+
 
 
 }

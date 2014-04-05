@@ -41,7 +41,7 @@
 
     <servlet-mapping>
         <servlet-name>apiserver-httpbridge</servlet-name>
-        <url-pattern>/api</url-pattern>
+        <path-pattern>/api</path-pattern>
     </servlet-mapping>
 
 

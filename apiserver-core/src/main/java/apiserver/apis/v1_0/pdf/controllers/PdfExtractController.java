@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.exceptions.NotImplementedException;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -29,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import apiserver.exceptions.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
 @RequestMapping("/pdf")
-public class PagesController
+public class PdfExtractController
 {
     //@Autowired
     //public PdfConversionGateway pdfConversionGateway;
@@ -51,51 +51,32 @@ public class PagesController
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-    /**
-     * Delete one or more pages from a pdf
-     * @param file
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
-     */
-    @ApiOperation(value = "Delete one or more pages from a pdf")
+    @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/modify/pages", method = RequestMethod.DELETE)
-    public ResponseEntity<byte[]> deletePagesFromPdf(
+    @RequestMapping(value = "/extract/text", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> extractTextFromPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        // add image to pdf as watermark
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
+        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
     }
 
 
 
-    /**
-     * Delete one or more pages from a pdf
-     * @param documentId
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
-     */
-    @ApiOperation(value = "Delete one or more pages from a pdf")
+
+    @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/modify/{documentId}/pages", method = RequestMethod.DELETE)
-    public ResponseEntity<byte[]> deletePagesFromCachedPdf(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    @RequestMapping(value = "/extract/image", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> extractImageFromPdf(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        // add image to pdf as watermark
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
+        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
     }
+
+
 
 
 }

@@ -25,6 +25,7 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterMotionBlurGatew
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.MotionBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -49,7 +50,8 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image-filters")
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
 public class MotionBlurController
 {
     public final Logger log = LoggerFactory.getLogger(MotionBlurController.class);
@@ -75,7 +77,7 @@ public class MotionBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter simulates motion blur on an image. You specify a combination of angle/distance for linear motion blur, a rotaiton angle for spin blur or a zoom factor for zoom blur. You can combine these in any proportions you want to get effects like spiral blurs.")
-    @RequestMapping(value = "/{documentId}/motionblur", method = {RequestMethod.GET})
+    @RequestMapping(value = "/filter/{documentId}/motionblur", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageMotionBlurByFile(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
@@ -121,7 +123,7 @@ public class MotionBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter simulates motion blur on an image. You specify a combination of angle/distance for linear motion blur, a rotaiton angle for spin blur or a zoom factor for zoom blur. You can combine these in any proportions you want to get effects like spiral blurs.")
-    @RequestMapping(value = "/motionblur", method = {RequestMethod.POST})
+    @RequestMapping(value = "/filter/motionblur", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageMotionBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file

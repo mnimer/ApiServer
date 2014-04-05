@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-manipulate")
+@RequestMapping("/pdf")
 public class PdfManipulateController
 {
     //@Autowired
@@ -66,7 +66,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Add Header to PDF pages")
     @Produces("application/pdf")
-    @RequestMapping(value = "/header", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/header", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addHeader(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -87,7 +87,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Add Header to cached PDF pages")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/header", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/{documentId}/header", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addHeaderToCachedPdf(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -109,7 +109,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Add Footer to PDF pages")
     @Produces("application/pdf")
-    @RequestMapping(value = "/footer", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/footer", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addFooter(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -130,7 +130,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Add Footer to cached PDF pages")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/footer", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/{documentId}/footer", method = RequestMethod.POST)
     public ResponseEntity<byte[]> addFooterToCachedPdf(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -153,7 +153,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Use a DDX file for advanced manipulation")
     @Produces("application/pdf")
-    @RequestMapping(value = "/ddx", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/ddx", method = RequestMethod.POST)
     public ResponseEntity<byte[]> processDDX(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
             @ApiParam(name="ddx", required = true) @RequestParam("ddx") String DDX
@@ -177,7 +177,7 @@ public class PdfManipulateController
      */
     @ApiOperation(value = "Use a DDX file for advanced manipulation")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/ddx", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/{documentId}/ddx", method = RequestMethod.POST)
     public ResponseEntity<byte[]> processCachedPdfDDX(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
             @ApiParam(name="ddx", required = true) @RequestParam("ddx") String DDX

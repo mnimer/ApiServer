@@ -19,6 +19,16 @@
 
 <cfcomponent>
 
+    <cffunction name="urlToPdf" output="false" access="remote" returntype="ANY" >
+        <cfargument name="path" type="string">
+
+        <cfoutput>
+        <cfdocument src="#path#" format="pdf" ></cfdocument>
+        </cfoutput>
+    </cffunction>
+
+
+
     <cffunction name="htmlToPdf" output="false" access="remote" returntype="ANY" >
         <cfargument name="html" type="string">
         <cfargument name="headerHtml" type="string" required="false">

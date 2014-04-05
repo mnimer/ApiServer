@@ -77,48 +77,6 @@ public class ResizeController
 
 
 
-
-
-    /**
-     * Resize an image
-     *
-     * @param documentId
-     * @param interpolation - highestQuality,highQuality,mediumQuality,highestPerformance,highPerformance,mediumPerformance,nearest,bilinear,bicubic,bessel,blackman,hamming,hanning,hermite,lanczos,mitchell,quadratic
-     * @param width
-     * @param height
-     * @return
-     */
-    @ApiOperation(value="Resize an uploaded image")
-    @RequestMapping(value = "/{documentId}/resize", method = {RequestMethod.GET})
-    @ResponseBody
-    public ResponseEntity<byte[]> resizeImageByImage(
-            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
-            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
-            , @ApiParam(name="height", required = true, defaultValue = "200") @RequestParam(required = true) Integer height
-            , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
-            , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
-            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
-    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
-    {
-        FileResizeJob job = new FileResizeJob();
-        job.setDocumentId(documentId);
-        job.setWidth(width);
-        job.setHeight(height);
-        job.setInterpolation(interpolation.toUpperCase());
-        job.setScaleToFit(scaleToFit);
-
-        Future<Map> imageFuture = imageResizeGateway.resizeImage(job);
-        FileResizeJob payload = (FileResizeJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType().name();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
-        return result;
-    }
-
-
-
     /**
      * Resize an image
      *
@@ -129,7 +87,7 @@ public class ResizeController
      * @return
      */
     @ApiOperation(value="Resize an uploaded image")
-    @RequestMapping(value = "/resize", method = {RequestMethod.POST})
+    @RequestMapping(value = "/modify/resize", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> resizeImageByImage(
             @ApiParam(name="file", required = true) @RequestParam MultipartFile file
@@ -159,6 +117,48 @@ public class ResizeController
         ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
         return result;
     }
+
+
+
+
+    /**
+     * Resize an image
+     *
+     * @param documentId
+     * @param interpolation - highestQuality,highQuality,mediumQuality,highestPerformance,highPerformance,mediumPerformance,nearest,bilinear,bicubic,bessel,blackman,hamming,hanning,hermite,lanczos,mitchell,quadratic
+     * @param width
+     * @param height
+     * @return
+     */
+    @ApiOperation(value="Resize an uploaded image")
+    @RequestMapping(value = "/modify/{documentId}/resize", method = {RequestMethod.GET})
+    @ResponseBody
+    public ResponseEntity<byte[]> resizeImageByImage(
+            @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
+            , @ApiParam(name="width", required = true, defaultValue = "200") @RequestParam(required = true) Integer width
+            , @ApiParam(name="height", required = true, defaultValue = "200") @RequestParam(required = true) Integer height
+            , @ApiParam(name="interpolation", required = false, defaultValue = "bicubic") @RequestParam(required = false, defaultValue = "bicubic") String interpolation
+            , @ApiParam(name="scaleToFit", required = false, defaultValue = "false") @RequestParam(required = false, defaultValue = "false") Boolean scaleToFit
+            , @ApiParam(name = "returnAsBase64", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "returnAsBase64", required = false, defaultValue = "false") Boolean returnAsBase64
+    ) throws IOException, InterruptedException, ExecutionException, TimeoutException
+    {
+        FileResizeJob job = new FileResizeJob();
+        job.setDocumentId(documentId);
+        job.setWidth(width);
+        job.setHeight(height);
+        job.setInterpolation(interpolation.toUpperCase());
+        job.setScaleToFit(scaleToFit);
+
+        Future<Map> imageFuture = imageResizeGateway.resizeImage(job);
+        FileResizeJob payload = (FileResizeJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+
+        BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType().name();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage( bufferedImage, contentType, returnAsBase64 );
+        return result;
+    }
+
 
 
 }

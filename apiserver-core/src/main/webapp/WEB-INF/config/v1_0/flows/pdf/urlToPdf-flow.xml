@@ -29,29 +29,29 @@
 
 
 
-    <si:channel id="convertHtmlToPdfChannelRequestChannel"/>
+    <si:channel id="convertUrlToPdfChannelRequestChannel"/>
 
-    <si:channel id="convertHtmlToPdfChannelReplyChannel"/>
+    <si:channel id="convertUrlToPdfChannelReplyChannel"/>
 
 
-    <si:gateway id="convertHtmlToPdfChannelApiGateway"
+    <si:gateway id="convertUrlToPdfChannelApiGateway"
                 service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
-                default-reply-channel="convertHtmlToPdfChannelReplyChannel"
+                default-reply-channel="convertUrlToPdfChannelReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="convertHtmlToPdf"
-                   request-channel="convertHtmlToPdfChannelRequestChannel"/>
+        <si:method name="convertUrlToPdf"
+                   request-channel="convertUrlToPdfChannelRequestChannel"/>
 
     </si:gateway>
 
 
 
-    <si:chain input-channel="convertHtmlToPdfChannelRequestChannel"
-              output-channel="convertHtmlToPdfChannelReplyChannel">
+    <si:chain input-channel="convertUrlToPdfChannelRequestChannel"
+              output-channel="convertUrlToPdfChannelReplyChannel">
 
         <si:service-activator
                 method="execute">
-            <bean class="apiserver.apis.v1_0.pdf.service.Html2PdfService"/>
+            <bean class="apiserver.apis.v1_0.pdf.service.Url2PdfService"/>
         </si:service-activator>
 
     </si:chain>

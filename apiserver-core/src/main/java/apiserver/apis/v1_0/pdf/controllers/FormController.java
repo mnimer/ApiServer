@@ -42,7 +42,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-form")
+@RequestMapping("/pdf")
 public class FormController
 {
     //@Autowired
@@ -63,7 +63,7 @@ public class FormController
      */
     @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/extract", method = RequestMethod.POST)
+    @RequestMapping(value = "/form/extract", method = RequestMethod.POST)
     public ResponseEntity<byte[]> extractFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -87,7 +87,7 @@ public class FormController
      */
     @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/extract", method = RequestMethod.GET)
+    @RequestMapping(value = "/form/{documentId}/extract", method = RequestMethod.GET)
     public ResponseEntity<byte[]> extractCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -112,7 +112,7 @@ public class FormController
      */
     @ApiOperation(value = "Populate the pdf form fields")
     @Produces("application/pdf")
-    @RequestMapping(value = "/populate", method = RequestMethod.POST)
+    @RequestMapping(value = "/form/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
             @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
@@ -138,7 +138,7 @@ public class FormController
      */
     @ApiOperation(value = "Populate the pdf form fields")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/populate", method = RequestMethod.POST)
+    @RequestMapping(value = "/form/{documentId}/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
             @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF

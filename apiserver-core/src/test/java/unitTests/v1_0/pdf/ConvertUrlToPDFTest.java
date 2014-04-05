@@ -20,7 +20,7 @@ package unitTests.v1_0.pdf;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,14 +44,14 @@ import java.util.concurrent.TimeUnit;
 @ContextConfiguration(locations = {
         "file:apiserver-core/src/main/webapp/WEB-INF/config/application-context-test.xml",
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/apis-servlet-test.xml",
-        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/htmlToPdf-flow.xml"})
-public class ConvertHtmlToPDFTest
+        "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/pdf/urlToPdf-flow.xml"})
+public class ConvertUrlToPDFTest
 {
-    public final Logger log = LoggerFactory.getLogger(ConvertHtmlToPDFTest.class);
+    public final Logger log = LoggerFactory.getLogger(ConvertUrlToPDFTest.class);
 
-    @Qualifier("convertHtmlToPdfChannelApiGateway")
+    @Qualifier("convertUrlToPdfChannelApiGateway")
     @Autowired
-    public PdfConversionGateway pdfHtmlGateway;
+    public PdfConversionGateway pdfUrlGateway;
 
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
@@ -59,18 +59,18 @@ public class ConvertHtmlToPDFTest
 
 
     @Test
-    public void convertHtmlToPdf()
+    public void convertUrlToPdf()
     {
         try
         {
-            Html2PdfJob args = new Html2PdfJob();
-            args.setHtml("<b>Hello World</b>");
+            Url2PdfJob args = new Url2PdfJob();
+            args.setPath("http://www.google.com");
 
-            Future<Map> resultFuture = pdfHtmlGateway.convertHtmlToPdf(args);
+            Future<Map> resultFuture = pdfUrlGateway.convertUrlToPdf(args);
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue(result != null);
-            Assert.assertEquals(38639, ((Html2PdfJob)result).getPdfBytes().length);
+            Assert.assertTrue( ((Url2PdfJob)result).getPdfBytes().length > 0 );
         }
         catch (Exception ex){
             ex.printStackTrace();
@@ -78,25 +78,4 @@ public class ConvertHtmlToPDFTest
         }
     }
 
-    @Test
-    public void convertHtmlToPdf2()
-    {
-        try
-        {
-            Html2PdfJob args = new Html2PdfJob();
-            args.setHtml("<b>Hello World</b>");
-            args.setHeaderHtml("header");
-            args.setFooterHtml("footer");
-
-            Future<Map> resultFuture = pdfHtmlGateway.convertHtmlToPdf(args);
-            Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
-
-            Assert.assertTrue(result != null);
-            Assert.assertEquals(40432, ((Html2PdfJob)result).getPdfBytes().length);
-        }
-        catch (Exception ex){
-            ex.printStackTrace();
-            Assert.fail(ex.getMessage());
-        }
-    }
 }

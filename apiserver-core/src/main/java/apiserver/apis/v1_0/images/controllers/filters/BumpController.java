@@ -25,6 +25,7 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBumpGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.BumpJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @Controller
-@RequestMapping("/image-filters")
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
 public class BumpController
 {
     @Autowired
@@ -69,7 +71,7 @@ public class BumpController
      * @throws IOException
      */
     @ApiOperation(value = "This filter does a simple convolution which emphasises edges in an image.")
-    @RequestMapping(value = "/{documentId}/bump", method = {RequestMethod.GET})
+    @RequestMapping(value = "/filter/{documentId}/bump", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> imageBumpByFile(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
             , @ApiParam(name = "edgeAction", required = false, defaultValue = "1") @RequestParam(value = "edgeAction", required = false, defaultValue = "1") int edgeAction
@@ -117,7 +119,7 @@ public class BumpController
      * @throws IOException
      */
     @ApiOperation(value = "This filter does a simple convolution which emphasises edges in an image.")
-    @RequestMapping(value = "/bump", method = {RequestMethod.POST})
+    @RequestMapping(value = "/filter/bump", method = {RequestMethod.POST})
     public ResponseEntity<byte[]> imageBumpByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
             , @ApiParam(name = "edgeAction", required = false, defaultValue = "1") @RequestParam(value = "edgeAction", required = false, defaultValue = "1") int edgeAction

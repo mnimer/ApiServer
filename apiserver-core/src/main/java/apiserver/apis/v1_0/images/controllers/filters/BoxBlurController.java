@@ -25,6 +25,7 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterBoxBlurGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.BoxBlurJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 @Controller
-@RequestMapping("/image-filters")
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
 public class BoxBlurController
 {
 
@@ -69,7 +71,7 @@ public class BoxBlurController
      * @throws IOException
      */
     @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
-    @RequestMapping(value = "/{documentId}/boxblur", method = {RequestMethod.GET})
+    @RequestMapping(value = "/filter/{documentId}/boxblur", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageBoxBlurByFile(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
@@ -113,7 +115,7 @@ public class BoxBlurController
      * @throws IOException
      */
     @ApiOperation(value = "A filter which performs a box blur on an image. The horizontal and vertical blurs can be specified separately and a number of iterations can be given which allows an approximation to Gaussian blur.")
-    @RequestMapping(value = "/boxblur", method = {RequestMethod.POST})
+    @RequestMapping(value = "/filter/boxblur", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageBoxBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file

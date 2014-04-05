@@ -19,7 +19,6 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,9 +28,9 @@ import java.io.Serializable;
  * User: mikenimer
  * Date: 9/16/13
  */
-public class PdfHtmlJob implements Serializable
+public class Html2PdfJob implements Serializable
 {
-    public final Logger log = LoggerFactory.getLogger(PdfHtmlJob.class);
+    public final Logger log = LoggerFactory.getLogger(Html2PdfJob.class);
 
     private String html;
     private String headerHtml;

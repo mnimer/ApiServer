@@ -80,10 +80,9 @@ public class OptimizeController
 
 
     /**
-     *
-     For efficient access of PDF files over the web, linearize PDF documents.
-     A linearized PDF file is structured in a way that displays the first page of the PDF file in the browser
-     before the entire file is downloaded from the web server. As a result linear PDF documents open almost instantly.
+     * For efficient access of PDF files over the web, linearize PDF documents.
+     * A linearized PDF file is structured in a way that displays the first page of the PDF file in the browser
+     * before the entire file is downloaded from the web server. As a result linear PDF documents open almost instantly.
      * @param file
      * @return
      * @throws InterruptedException

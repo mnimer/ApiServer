@@ -26,6 +26,7 @@ import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,7 @@ import java.util.concurrent.*;
  * Date: 9/18/12
  */
 @Controller
+@Api(value = "/documents", description = "[Documents]")
 @RequestMapping("/documents")
 public class DocumentController
 {
@@ -74,7 +76,7 @@ public class DocumentController
      * @param tags list of metadata tags
      * @return cache ID
      */
-    @ApiOperation(value = "add an document to cache", multiValueResponse = true)
+    @ApiOperation(value = "add a document to cache", multiValueResponse = true)
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public WebAsyncTask<String> addDocument(
             @ApiParam(name = "uploadedFile", required = true)
@@ -114,7 +116,7 @@ public class DocumentController
      * @return byte[] array of cached file
      */
     @ResponseBody
-    @ApiOperation(value = "get an document out of cache")
+    @ApiOperation(value = "get a document out of cache")
     @RequestMapping(value = "/{documentId}", method = {RequestMethod.GET})
     public ResponseEntity<byte[]> getImage(
             @ApiParam(name = "documentId", required = true, defaultValue = "a3c8af38-82e3-4241-8162-28e17ebcbf52")
@@ -158,7 +160,7 @@ public class DocumentController
      * @param documentId id of document in the persistence/cache layer
      * @return TRUE if the item was deleted successfully
      */
-    @ApiOperation(value = "delete an document")
+    @ApiOperation(value = "delete a document")
     @RequestMapping(value = "/{documentId}", method = {RequestMethod.DELETE})
     public WebAsyncTask<Boolean> deleteImage(
             @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId)

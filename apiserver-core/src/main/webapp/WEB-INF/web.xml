@@ -16,12 +16,13 @@
 
   You should have received a copy of the GNU General Public License
   along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
-		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
-		 version="3.1">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+         metadata-complete="true"
+         version="3.1">
+
 	<display-name>ApiServer</display-name>
 	<description></description>
 
@@ -51,7 +52,7 @@
     </filter>
     <filter-mapping>
         <filter-name>etagFilter</filter-name>
-        <url-pattern>/rest/*</url-pattern>
+        <path-pattern>/rest/*</path-pattern>
     </filter-mapping>
     -->
 

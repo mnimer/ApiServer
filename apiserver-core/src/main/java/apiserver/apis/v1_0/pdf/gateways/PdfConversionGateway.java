@@ -19,7 +19,8 @@ package apiserver.apis.v1_0.pdf.gateways;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -30,5 +31,7 @@ import java.util.concurrent.Future;
  */
 public interface PdfConversionGateway
 {
-    Future<Map> convertHtmlToPdf(PdfHtmlJob args);
+    Future<Map> convertUrlToPdf(Url2PdfJob args);
+
+    Future<Map> convertHtmlToPdf(Html2PdfJob args);
 }

@@ -20,7 +20,8 @@ package apiserver.apis.v1_0.pdf.controllers;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.exceptions.NotImplementedException;
 import com.wordnik.swagger.annotations.Api;
@@ -51,8 +52,8 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-convert")
-public class ConvertController
+@RequestMapping("/pdf")
+public class ConvertHtmlController
 {
     @Qualifier("convertHtmlToPdfChannelApiGateway")
     @Autowired
@@ -63,8 +64,9 @@ public class ConvertController
 
     /**
      * Convert an HTML string into a PDF document.
-     * @param html String of html to generate into a pdf
-     * @param supportFiles multiple files that are referenced in the html to generate the html (css, js, etc.)
+     * @param html
+     * @param headerHtml
+     * @param footerHtml
      * @return
      * @throws InterruptedException
      * @throws java.util.concurrent.ExecutionException
@@ -73,107 +75,25 @@ public class ConvertController
      */
     @ApiOperation(value = "Convert an HTML string into a PDF document.")
     @Produces("application/pdf")
-    @RequestMapping(value = "/html", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/convert/html", method = {RequestMethod.POST, RequestMethod.GET})
     public ResponseEntity<byte[]> html2pdf(
             @ApiParam(name="html", required = true) @RequestParam(value = "html") String html,
             @ApiParam(name="headerHtml", required = false) @RequestParam(value = "headerHtml", required = false) String headerHtml,
             @ApiParam(name="footerHtml", required = false) @RequestParam(value = "footerHtml", required = false) String footerHtml
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException
     {
-        PdfHtmlJob args = new PdfHtmlJob();
+        Html2PdfJob args = new Html2PdfJob();
         args.setHtml(html);
         args.setHeaderHtml(headerHtml);
         args.setFooterHtml(footerHtml);
 
         Future<Map> future = pdfHtmlGateway.convertHtmlToPdf(args);
-        PdfHtmlJob payload = (PdfHtmlJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        Html2PdfJob payload = (Html2PdfJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] fileBytes = payload.getPdfBytes();
         String contentType = "application/pdf";
         ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
         return result;
-    }
-
-
-    /**
-     * Convert an PPT file into a PDF document.
-     * @param file String of html to generate into a pdf
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @ApiOperation(value = "Convert an PPT file into a PDF document.")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/ppt", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> ppt2pdf(
-            @ApiParam(name="pptFile", required = true) @RequestPart("pptFile") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-    }
-
-
-    /**
-     * Convert a cached PPT file into a PDF document.
-     * @param documentId
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @ApiOperation(value = "Convert an cached PPT file into a PDF document.")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/ppt", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> cachedPpt2pdf(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-    }
-
-
-
-    /**
-     * Convert an WORD file into a PDF document.
-     * @param file String of html to generate into a pdf
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @ApiOperation(value = "Convert an WORD file into a PDF document.")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/word", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> word2pdf(
-            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-    }
-
-
-
-    /**
-     * Convert an cached WORD file into a PDF document.
-     * @param file
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @ApiOperation(value = "Convert an cached WORD file into a PDF document.")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/word", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> cachedWord2pdf(
-            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
     }
 
 

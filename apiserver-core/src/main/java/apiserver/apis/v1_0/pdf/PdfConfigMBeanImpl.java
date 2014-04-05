@@ -55,6 +55,9 @@ public class PdfConfigMBeanImpl implements PdfConfigMBean
     //convert HTML to PDF
     private String convertHTMLPath = "api-pdf-convert.cfc?method=htmlToPdf";
     private String convertHTMLMethod = "POST";
+    //convert URL to PDF
+    private String convertUrlPath = "api-pdf-convert.cfc?method=urlToPdf";
+    private String convertUrlMethod = "POST";
 
     public PdfConfigMBeanImpl()
     {
@@ -75,30 +78,51 @@ public class PdfConfigMBeanImpl implements PdfConfigMBean
         }
     }
 
-    @ManagedAttribute(description = "get convert html to PDF cfc path")
+    @ManagedAttribute(description = "get cfc PATH for HTML to PDF")
     public String getConvertHtmlToPdfPath()
     {
         return convertHTMLPath;
     }
 
-
-    @ManagedAttribute(description = "get convert html to PDF cfc path", persistPolicy = "OnUpdate")
+    @ManagedAttribute(description = "set cfc PATH for HTML to PDF", persistPolicy = "OnUpdate")
     public void setConvertHtmlToPdfPath(String convertHTMLPath)
     {
         this.convertHTMLPath = convertHTMLPath;
     }
 
-
-    @ManagedAttribute(description = "get convert html to PDF HTTP method")
+    @ManagedAttribute(description = "get HTTP method for HTML to PDF")
     public String getConvertHtmlToPdfMethod()
     {
         return convertHTMLMethod;
     }
 
-
-    @ManagedAttribute(description = "get convert html to PDF cfc method", persistPolicy = "OnUpdate")
+    @ManagedAttribute(description = "set HTTP method for HTML to PDF", persistPolicy = "OnUpdate")
     public void setConvertHtmlToPdfMethod(String convertHTMLMethod)
     {
         this.convertHTMLMethod = convertHTMLMethod;
+    }
+
+
+
+    @ManagedAttribute(description = "get cfc PATH for URL to PDF")
+    public String getConvertUrlToPdfPath() {
+        return convertUrlPath;
+    }
+
+    @ManagedAttribute(description = "set cfc PATH for URL to PDF", persistPolicy = "OnUpdate")
+    public void setConvertUrlToPdfPath(String path) {
+        this.convertUrlPath = path;
+    }
+
+    @ManagedAttribute(description = "get HTTP method for URL to PDF")
+    public String getConvertUrlToPdfMethod()
+    {
+        return convertUrlMethod;
+    }
+
+    @ManagedAttribute(description = "set HTTP method for URL to PDF", persistPolicy = "OnUpdate")
+    public void setConvertUrlToPdfMethod(String convertHTMLMethod)
+    {
+        this.convertUrlMethod = convertUrlMethod;
     }
 }

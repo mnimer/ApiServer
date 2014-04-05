@@ -74,34 +74,4 @@ public class PdfController
         //
     }
 
-
-
-    @ApiOperation(value = "TODO")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/extract/text", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> extractTextFromPdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
-    }
-
-
-
-
-    @ApiOperation(value = "TODO")
-    @Produces("application/pdf")
-    @RequestMapping(value = "/extract/image", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> extractImageFromPdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
-    {
-        throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
-    }
-
-
-
-
 }

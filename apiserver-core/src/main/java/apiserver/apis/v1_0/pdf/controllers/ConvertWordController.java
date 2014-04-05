@@ -19,21 +19,30 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
+import apiserver.core.common.ResponseEntityHelper;
+import apiserver.exceptions.NotImplementedException;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import apiserver.exceptions.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -43,58 +52,50 @@ import java.util.concurrent.TimeoutException;
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
 @RequestMapping("/pdf")
-public class PagesController
+public class ConvertWordController
 {
-    //@Autowired
-    //public PdfConversionGateway pdfConversionGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
     /**
-     * Delete one or more pages from a pdf
-     * @param file
+     * Convert an WORD file into a PDF document.
+     * @param file String of html to generate into a pdf
      * @return
      * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
+     * @throws java.util.concurrent.ExecutionException
+     * @throws java.util.concurrent.TimeoutException
+     * @throws java.io.IOException
      */
-    @ApiOperation(value = "Delete one or more pages from a pdf")
+    @ApiOperation(value = "Convert an WORD file into a PDF document.")
     @Produces("application/pdf")
-    @RequestMapping(value = "/modify/pages", method = RequestMethod.DELETE)
-    public ResponseEntity<byte[]> deletePagesFromPdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+    @RequestMapping(value = "/convert/word", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> word2pdf(
+            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        // add image to pdf as watermark
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
     }
 
 
 
     /**
-     * Delete one or more pages from a pdf
-     * @param documentId
+     * Convert an cached WORD file into a PDF document.
+     * @param file
      * @return
      * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
+     * @throws java.util.concurrent.ExecutionException
+     * @throws java.util.concurrent.TimeoutException
+     * @throws java.io.IOException
      */
-    @ApiOperation(value = "Delete one or more pages from a pdf")
+    @ApiOperation(value = "Convert an cached WORD file into a PDF document.")
     @Produces("application/pdf")
-    @RequestMapping(value = "/modify/{documentId}/pages", method = RequestMethod.DELETE)
-    public ResponseEntity<byte[]> deletePagesFromCachedPdf(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    @RequestMapping(value = "/convert/{documentId}/word", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> cachedWord2pdf(
+            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        // add image to pdf as watermark
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11e6d-7fff.html
     }
 
 

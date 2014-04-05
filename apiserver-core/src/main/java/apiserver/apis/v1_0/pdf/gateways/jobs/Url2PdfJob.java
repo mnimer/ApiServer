@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.pdf;
+package apiserver.apis.v1_0.pdf.gateways.jobs;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,22 +19,35 @@ package apiserver.apis.v1_0.pdf;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
+
 /**
- * User: mnimer
- * Date: 10/19/12
+ * User: mikenimer
+ * Date: 9/16/13
  */
-public interface PdfConfigMBean
+public class Url2PdfJob implements Serializable
 {
-    public String getConvertHtmlToPdfPath();
-    public void setConvertHtmlToPdfPath(String path);
+    public final Logger log = LoggerFactory.getLogger(Url2PdfJob.class);
 
-    public String getConvertHtmlToPdfMethod();
-    public void setConvertHtmlToPdfMethod(String method);
+    private String path;
+    private byte[] pdfBytes;
 
+    public String getPath() {
+        return path;
+    }
 
-    public String getConvertUrlToPdfPath();
-    public void setConvertUrlToPdfPath(String path);
+    public void setPath(String path) {
+        this.path = path;
+    }
 
-    public String getConvertUrlToPdfMethod();
-    public void setConvertUrlToPdfMethod(String method);
+    public byte[] getPdfBytes() {
+        return pdfBytes;
+    }
+
+    public void setPdfBytes(byte[] pdfBytes) {
+        this.pdfBytes = pdfBytes;
+    }
 }

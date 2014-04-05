@@ -42,7 +42,7 @@ import java.util.concurrent.TimeoutException;
  */
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf-manipulate")
+@RequestMapping("/pdf")
 public class MergeController
 {
     //@Autowired

@@ -20,28 +20,23 @@ package apiserver.apis.v1_0.pdf.service;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.PdfConfigMBean;
-import apiserver.apis.v1_0.pdf.gateways.jobs.PdfHtmlJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
-import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.integration.Message;
-import org.springframework.integration.support.MessageBuilder;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.util.Map;
 
 /**
  * User: mikenimer
  * Date: 9/16/13
  */
-public class PdfHtmlService
+public class Html2PdfService
 {
-    public final Logger log = LoggerFactory.getLogger(PdfHtmlService.class);
+    public final Logger log = LoggerFactory.getLogger(Html2PdfService.class);
 
     @Autowired
     private PdfConfigMBean pdfConfigMBean;
@@ -57,7 +52,7 @@ public class PdfHtmlService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        PdfHtmlJob props = (PdfHtmlJob)message.getPayload();
+        Html2PdfJob props = (Html2PdfJob)message.getPayload();
 
         try
         {
@@ -66,9 +61,6 @@ public class PdfHtmlService
 
             // extract properties
             Map<String, Object> methodArgs = coldFusionBridge.extractPropertiesFromPayload(props);
-            //methodArgs.put("html", props.getHtml());
-            //methodArgs.put("headerHtml", props.getHeaderHtml());
-            //methodArgs.put("footerHtml", props.getFooterHtml());
 
             // execute
             byte[] cfcResult = (byte[])coldFusionBridge.invoke(cfcPath, method, methodArgs);
@@ -80,10 +72,6 @@ public class PdfHtmlService
         {
             e.printStackTrace(); //todo use logging library
             throw new RuntimeException(e);
-        }
-        finally
-        {
-
         }
     }
 

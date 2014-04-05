@@ -26,6 +26,7 @@ import apiserver.apis.v1_0.images.gateways.images.ImageDrawTextGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileBorderJob;
 import apiserver.apis.v1_0.images.gateways.jobs.images.FileTextJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,6 +50,7 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/18/12
  */
 //Controller
+@Api(value = "/image", description = "[IMAGE]")
 @RequestMapping("/image")
 public class TextController
 {
@@ -59,57 +61,6 @@ public class TextController
     private ImageDrawTextGateway imageDrawTextGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
-
-
-
-    /**
-     * Overlay text onto an image
-     *
-     * @param documentId
-     * @param text
-     * @param color
-     * @param fontSize
-     * @param fontStyle
-     * @param angle
-     * @param x
-     * @param y
-     * @return
-     * @throws InterruptedException
-     * @throws java.util.concurrent.ExecutionException
-     * @throws java.util.concurrent.TimeoutException
-     * @throws java.io.IOException
-     */
-    @RequestMapping(value = "/{documentId}/text", method = {RequestMethod.GET})
-    public ResponseEntity<byte[]> drawTextByImage(
-            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
-            , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
-            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
-            , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
-            , @ApiParam(name="fontStyle", required = true) @RequestParam(required = true) String fontStyle
-            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
-            , @ApiParam(name="x", required = true) @RequestParam(required = true) Integer x
-            , @ApiParam(name="y", required = true) @RequestParam(required = true) Integer y
-    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
-    {
-        FileTextJob args = new FileTextJob();
-        args.setDocumentId(documentId);
-        args.setText(text);
-        args.setColor(color);
-        args.setFontSize(fontSize);
-        args.setFontStyle(fontStyle);
-        args.setAngle(angle);
-        args.setX(x);
-        args.setY(y);
-
-        Future<Map> imageFuture = imageDrawTextGateway.imageDrawTextFilter(args);
-        FileTextJob payload = (FileTextJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
-
-        BufferedImage bufferedImage = payload.getBufferedImage();
-        String contentType = payload.getDocument().getContentType().name();
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
-        return result;
-
-    }
 
 
 
@@ -132,7 +83,7 @@ public class TextController
      * @throws java.util.concurrent.TimeoutException
      * @throws java.io.IOException
      */
-    @RequestMapping(value = "/text", method = {RequestMethod.POST})
+    @RequestMapping(value = "/modify/text", method = {RequestMethod.POST})
     public ResponseEntity<byte[]> drawTextByImage(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
             , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
@@ -167,5 +118,58 @@ public class TextController
         return result;
 
     }
+
+
+    /**
+     * Overlay text onto an image
+     *
+     * @param documentId
+     * @param text
+     * @param color
+     * @param fontSize
+     * @param fontStyle
+     * @param angle
+     * @param x
+     * @param y
+     * @return
+     * @throws InterruptedException
+     * @throws java.util.concurrent.ExecutionException
+     * @throws java.util.concurrent.TimeoutException
+     * @throws java.io.IOException
+     */
+    @RequestMapping(value = "/modify/{documentId}/text", method = {RequestMethod.GET})
+    public ResponseEntity<byte[]> drawTextByImage(
+            @ApiParam(name = "documentId", required = true) @PathVariable(value = "documentId") String documentId
+            , @ApiParam(name="text", required = true) @RequestParam(required = true) String text
+            , @ApiParam(name="color", required = true) @RequestParam(required = true) String color
+            , @ApiParam(name="fontSize", required = true) @RequestParam(required = true) String fontSize
+            , @ApiParam(name="fontStyle", required = true) @RequestParam(required = true) String fontStyle
+            , @ApiParam(name="angle", required = true) @RequestParam(required = true) Integer angle
+            , @ApiParam(name="x", required = true) @RequestParam(required = true) Integer x
+            , @ApiParam(name="y", required = true) @RequestParam(required = true) Integer y
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException
+    {
+        FileTextJob args = new FileTextJob();
+        args.setDocumentId(documentId);
+        args.setText(text);
+        args.setColor(color);
+        args.setFontSize(fontSize);
+        args.setFontStyle(fontStyle);
+        args.setAngle(angle);
+        args.setX(x);
+        args.setY(y);
+
+        Future<Map> imageFuture = imageDrawTextGateway.imageDrawTextFilter(args);
+        FileTextJob payload = (FileTextJob)imageFuture.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        BufferedImage bufferedImage = payload.getBufferedImage();
+        String contentType = payload.getDocument().getContentType().name();
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processImage(bufferedImage, contentType, false);
+        return result;
+
+    }
+
+
+
 
 }

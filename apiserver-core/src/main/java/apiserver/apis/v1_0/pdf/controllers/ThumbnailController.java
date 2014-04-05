@@ -63,7 +63,7 @@ public class ThumbnailController
      */
     @ApiOperation(value = "Generate thumbnails from the pages of a PDF")
     @Produces("application/pdf")
-    @RequestMapping(value = "/thumbnails", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/thumbnails", method = RequestMethod.POST)
     public ResponseEntity<byte[]> thumbnailPdf(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
@@ -86,7 +86,7 @@ public class ThumbnailController
      */
     @ApiOperation(value = "Generate thumbnails from the pages of a cached PDF")
     @Produces("application/pdf")
-    @RequestMapping(value = "/{documentId}/thumbnails", method = RequestMethod.GET)
+    @RequestMapping(value = "/modify/{documentId}/thumbnails", method = RequestMethod.GET)
     public ResponseEntity<byte[]> thumbnailCachedPdf(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentID
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception

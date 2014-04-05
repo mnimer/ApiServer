@@ -25,6 +25,7 @@ import apiserver.apis.v1_0.images.gateways.filters.ApiImageFilterOilGateway;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.apis.v1_0.images.gateways.jobs.filters.OilJob;
 import apiserver.core.common.ResponseEntityHelper;
+import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -49,7 +50,8 @@ import java.util.concurrent.TimeoutException;
  * Date: 9/16/13
  */
 @Controller
-@RequestMapping("/image-filters")
+@Api(value = "/image", description = "[IMAGE]")
+@RequestMapping("/image")
 public class OilBlurController
 {
     public final Logger log = LoggerFactory.getLogger(OilBlurController.class);
@@ -76,7 +78,7 @@ public class OilBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
-    @RequestMapping(value = "/{documentId}/oil", method = {RequestMethod.GET})
+    @RequestMapping(value = "/filter/{documentId}/oil", method = {RequestMethod.GET})
     @ResponseBody
     public ResponseEntity<byte[]> imageOilBlurByFile(
             @ApiParam(name = "documentId", required = true, defaultValue = "8D981024-A297-4169-8603-E503CC38EEDA") @PathVariable(value = "documentId") String documentId
@@ -117,7 +119,7 @@ public class OilBlurController
      * @throws IOException
      */
     @ApiOperation(value = "This filter produces an oil painting effect as described in the book \"Beyond Photography - The Digital Darkroom\". You can specify the smearing radius. It's quite a slow filter especially with a large radius.")
-    @RequestMapping(value = "/oil", method = {RequestMethod.POST})
+    @RequestMapping(value = "/filter/oil", method = {RequestMethod.POST})
     @ResponseBody
     public ResponseEntity<byte[]> imageOilBlurByFile(
             @ApiParam(name = "file", required = true) @RequestParam(value = "file", required = true) MultipartFile file
