@@ -19,25 +19,34 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Ppt2PdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 import apiserver.core.common.ResponseEntityHelper;
-import apiserver.exceptions.NotImplementedException;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.apache.commons.codec.binary.Base64;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
+import sun.misc.IOUtils;
 
 import javax.ws.rs.Produces;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -54,8 +63,13 @@ import java.util.concurrent.TimeoutException;
 @RequestMapping("/pdf")
 public class ConvertPPTController
 {
-    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
+    private final Logger log = LoggerFactory.getLogger(ConvertPPTController.class);
 
+    @Qualifier("convertPptToPdfApiGateway")
+    @Autowired
+    public PdfConversionGateway pdfPptGateway;
+
+    private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
     /**
      * Convert an PPT file into a PDF document.
@@ -70,10 +84,38 @@ public class ConvertPPTController
     @Produces("application/pdf")
     @RequestMapping(value = "/convert/ppt", method = RequestMethod.POST)
     public ResponseEntity<byte[]> ppt2pdf(
-            @ApiParam(name="pptFile", required = true) @RequestPart("pptFile") MultipartFile file
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
+        File f1 = new File("/Users/mnimer/Downloads/First user test.ppt");
+        File f2 = File.createTempFile("tmp", ".ppt");
+        //org.apache.commons.io.IOUtils.copy(new FileInputStream(f1), new FileOutputStream(f2));
+        //org.apache.commons.io.IOUtils.write(file.getBytes(), new FileWriter(f2));
+        //file.transferTo(f2);
+
+        Ppt2PdfJob job = new Ppt2PdfJob();
+        job.setDocumentId(null);
+        //job.setFile("/Users/mnimer/Downloads/First user test.ppt");
+        job.setFile(new Document(file));
+        job.getFile().setContentType(MimeType.getMimeType(file.getContentType()) );
+        job.getFile().setFileName( file.getOriginalFilename() );
+
+
+        Future<Map> future = pdfPptGateway.convertPptToPdf(job);
+        Ppt2PdfJob payload = (Ppt2PdfJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        File f = File.createTempFile("out", ".pdf");
+        System.out.println(f.getAbsolutePath());
+        FileOutputStream fos = new FileOutputStream(f);
+        fos.write(payload.getPdfBytes());
+        fos.close();
+
+
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = MimeType.pdf.contentType;
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
     }
 
 
@@ -93,7 +135,17 @@ public class ConvertPPTController
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
+        Ppt2PdfJob job = new Ppt2PdfJob();
+        job.setDocumentId(documentId);
+
+        Future<Map> future = pdfPptGateway.convertPptToPdf(job);
+        Ppt2PdfJob payload = (Ppt2PdfJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
+
     }
 
 

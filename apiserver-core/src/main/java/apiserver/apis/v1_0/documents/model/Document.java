@@ -100,6 +100,7 @@ public class Document implements Serializable
         {
             fileName = ((MultipartFile)file).getOriginalFilename();
             this.setFileBytes(((MultipartFile)file).getBytes());
+            this.setSize( new Integer(this.getFileBytes().length).longValue() );
         }
         else if (file instanceof BufferedImage)
         {
@@ -202,17 +203,24 @@ public class Document implements Serializable
     {
         if( this.file != null && this.file instanceof File && ((File)file).exists() )
         {
-            return (File)this.file;
+            //return (File)this.file;
         }
 
 
         FileOutputStream outputStream = null;
-        String filePath = System.getProperty("java.io.tmpdir") +"/" + getId() +"." +getFileName().split("\\.")[1];
+
+        String filePath = null;
+        if( getId() != null )
+        {
+            filePath = System.getProperty("java.io.tmpdir") +"/" + getId() +"." +getFileName().split("\\.")[1];
+        }else{
+            filePath = System.getProperty("java.io.tmpdir") +"/" + getFileName();
+        }
 
         file = new File(filePath);
         FileUtils.writeByteArrayToFile((File)file, getFileBytes());
 
-        ((File)file).deleteOnExit();
+        //((File)file).deleteOnExit();
         return (File)this.file;
     }
 

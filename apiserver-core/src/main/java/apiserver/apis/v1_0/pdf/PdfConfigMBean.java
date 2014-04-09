@@ -37,4 +37,16 @@ public interface PdfConfigMBean
 
     public String getConvertUrlToPdfMethod();
     public void setConvertUrlToPdfMethod(String method);
+
+    public String getConvertPptToPdfPath();
+    public void setConvertPptToPdfPath(String path);
+
+    public String getConvertPptToPdfMethod();
+    public void setConvertPptToPdfMethod(String method);
+
+    public String getConvertWordToPdfPath();
+    public void setConvertWordToPdfPath(String path);
+
+    public String getConvertWordToPdfMethod();
+    public void setConvertWordToPdfMethod(String method);
 }

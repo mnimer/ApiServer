@@ -20,7 +20,9 @@ package apiserver.apis.v1_0.pdf.gateways;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Ppt2PdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Word2PdfJob;
 
 import java.util.Map;
 import java.util.concurrent.Future;
@@ -34,4 +36,8 @@ public interface PdfConversionGateway
     Future<Map> convertUrlToPdf(Url2PdfJob args);
 
     Future<Map> convertHtmlToPdf(Html2PdfJob args);
+
+    Future<Map> convertPptToPdf(Ppt2PdfJob args);
+
+    Future<Map> convertWordToPdf(Word2PdfJob args);
 }

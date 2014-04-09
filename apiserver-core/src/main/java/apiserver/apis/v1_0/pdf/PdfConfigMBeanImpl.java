@@ -58,6 +58,12 @@ public class PdfConfigMBeanImpl implements PdfConfigMBean
     //convert URL to PDF
     private String convertUrlPath = "api-pdf-convert.cfc?method=urlToPdf";
     private String convertUrlMethod = "POST";
+    //convert PPT to PDF
+    private String convertPptPath = "api-pdf-convert.cfc?method=docToPdf";
+    private String convertPptMethod = "POST";
+    //convert WORD to PDF
+    private String convertWordPath = "api-pdf-convert.cfc?method=docToPdf";
+    private String convertWordMethod = "POST";
 
     public PdfConfigMBeanImpl()
     {
@@ -124,5 +130,55 @@ public class PdfConfigMBeanImpl implements PdfConfigMBean
     public void setConvertUrlToPdfMethod(String convertHTMLMethod)
     {
         this.convertUrlMethod = convertUrlMethod;
+    }
+
+
+
+
+    @ManagedAttribute(description = "get cfc PATH for PPT to PDF")
+    public String getConvertPptToPdfPath() {
+        return convertPptPath;
+    }
+
+    @ManagedAttribute(description = "set cfc PATH for PPT to PDF", persistPolicy = "OnUpdate")
+    public void setConvertPptToPdfPath(String path) {
+        this.convertPptPath = path;
+    }
+
+    @ManagedAttribute(description = "get HTTP method for PPT to PDF")
+    public String getConvertPptToPdfMethod()
+    {
+        return convertPptMethod;
+    }
+
+    @ManagedAttribute(description = "set HTTP method for PPT to PDF", persistPolicy = "OnUpdate")
+    public void setConvertPptToPdfMethod(String convertHTMLMethod)
+    {
+        this.convertPptMethod = convertPptMethod;
+    }
+
+
+
+
+    @ManagedAttribute(description = "get cfc PATH for WORD to PDF")
+    public String getConvertWordToPdfPath() {
+        return convertWordPath;
+    }
+
+    @ManagedAttribute(description = "set cfc PATH for WORD to PDF", persistPolicy = "OnUpdate")
+    public void setConvertWordToPdfPath(String path) {
+        this.convertWordPath = path;
+    }
+
+    @ManagedAttribute(description = "get HTTP method for WORD to PDF")
+    public String getConvertWordToPdfMethod()
+    {
+        return convertWordMethod;
+    }
+
+    @ManagedAttribute(description = "set HTTP method for WORD to PDF", persistPolicy = "OnUpdate")
+    public void setConvertWordToPdfMethod(String convertHTMLMethod)
+    {
+        this.convertWordMethod = convertWordMethod;
     }
 }

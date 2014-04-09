@@ -71,7 +71,7 @@ public class ConvertWordController
     @Produces("application/pdf")
     @RequestMapping(value = "/convert/word", method = RequestMethod.POST)
     public ResponseEntity<byte[]> word2pdf(
-            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
@@ -92,7 +92,7 @@ public class ConvertWordController
     @Produces("application/pdf")
     @RequestMapping(value = "/convert/{documentId}/word", method = RequestMethod.GET)
     public ResponseEntity<byte[]> cachedWord2pdf(
-            @ApiParam(name="wordFile", required = true) @RequestPart("wordFile") MultipartFile file
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();

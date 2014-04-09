@@ -51,4 +51,68 @@
     </cffunction>
 
 
+
+    <cffunction name="docToPdf" output="true" access="remote" returntype="ANY" >
+        <cfargument name="file" type="STRING">
+        <cfargument name="contentType" type="STRING">
+        <cfargument name="name" type="STRING">
+
+        <cfset path = getTempDirectory() &createUUID() &"_" &name>
+        <cfdump var="#path#" output="console"/>
+
+        <cftry>
+            <cffile action="write"
+                    nameconflict="overwrite"
+                    file="#path#" output="#toBinary(file)#"/>
+
+            <cfoutput>
+            <cfdocument
+                    srcFile="#path#"
+                    format="pdf" >
+            </cfdocument>
+            </cfoutput>
+
+            <cfcatch type="any">
+                <cfdump var="#cfcatch#" output="console"/>
+            </cfcatch>
+
+            <cffinally>
+                <cffile action="delete" file="#path#"/>
+            </cffinally>
+        </cftry>
+    </cffunction>
+
+
+
+
+    <cffunction name="TESTPdf" output="true" access="remote" returntype="ANY" >
+
+        <cftry>
+            <cfoutput>
+                <cfdocument
+                        srcFile="/Users/mnimer/Downloads/First user test.ppt"
+                        format="pdf" >
+                </cfdocument>
+            </cfoutput>
+
+            <cfcatch type="any">
+                <cfdump var="#cfcatch#" output="console"/>
+            </cfcatch>
+
+            <cffinally>
+            </cffinally>
+        </cftry>
+    </cffunction>
+
+
+
+
+
+    <cffunction name="wordToPdf" output="false" access="remote" returntype="ANY" >
+        <cfargument name="path" type="string">
+
+        <cfoutput>
+            <cfdocument src="#path#" format="pdf" ></cfdocument>
+        </cfoutput>
+    </cffunction>
 </cfcomponent>

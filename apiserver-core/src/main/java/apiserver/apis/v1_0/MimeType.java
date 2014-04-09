@@ -53,6 +53,8 @@ public enum MimeType
     vcf ("text/x-vcard"),
     vcs ("text/x-vcalendar"),
 
+    pdf ("application/pdf"),
+    ppt ("application/vnd.ms-powerpoint"),
     xhtml ("application/xhtml+xml"),
     xls ("application/vnd.ms-excel"),
     xml ("application/xml"),

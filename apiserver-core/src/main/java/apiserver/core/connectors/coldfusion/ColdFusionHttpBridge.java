@@ -20,6 +20,7 @@ package apiserver.core.connectors.coldfusion;
  ******************************************************************************/
 
 import apiserver.ApiServerConstants;
+import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -35,12 +36,16 @@ import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.ByteArrayBody;
 import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.xerces.impl.dv.util.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -104,21 +109,32 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 {
                     Object obj = methodArgs_.get(s);
 
-                    if( obj instanceof String )
+                    if( obj != null )
                     {
-                        me.addPart(s, new StringBody( (String)obj, "text/plain", Charset.forName( "UTF-8" ) ));
-                    }
-                    else if( obj instanceof Integer )
-                    {
-                        me.addPart(s, new StringBody( ((Integer)obj).toString(), "text/plain", Charset.forName( "UTF-8" ) ));
-                    }
-                    else if( obj instanceof File )
-                    {
-                        me.addPart(s, new FileBody( (File)obj ));
-                    }
-                    else if( obj instanceof byte[])
-                    {
-                        me.addPart(s, new ByteArrayBody( (byte[])obj, (String)methodArgs_.get("name") ));
+                        if (obj instanceof String)
+                        {
+                            me.addPart(s, new StringBody((String) obj, "text/plain", Charset.forName("UTF-8")));
+                        }
+                        else if (obj instanceof Integer)
+                        {
+                            me.addPart(s, new StringBody(((Integer) obj).toString(), "text/plain", Charset.forName("UTF-8")));
+                        }
+                        else if (obj instanceof File)
+                        {
+                            me.addPart(s, new FileBody((File) obj));
+                        }
+                        else if (obj instanceof Document)
+                        {
+                            me.addPart(s, new StringBody( Base64.encode( ((Document) obj).getFileBytes() )));
+                            me.addPart("name",  new StringBody( ((Document) obj).getFileName() ) );
+                            me.addPart("contentType",  new StringBody( ((Document) obj).getContentType().contentType ) );
+                            //me.addPart(s, new FileBody(((Document) obj).getFile()));
+                            //me.addPart(s, new ByteArrayBody( ((Document) obj).getFileBytes(), ((Document) obj).getContentType().contentType, ((Document) obj).getFileName() ));
+                        }
+                        else if (obj instanceof byte[])
+                        {
+                            me.addPart(s, new ByteArrayBody((byte[]) obj, (String) methodArgs_.get("name")));
+                        }
                     }
                 }
             }

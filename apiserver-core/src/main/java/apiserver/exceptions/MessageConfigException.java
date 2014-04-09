@@ -20,6 +20,7 @@ package apiserver.exceptions;
  ******************************************************************************/
 
 /**
+ * invalid message property
  * User: mnimer
  * Date: 9/16/12
  */
