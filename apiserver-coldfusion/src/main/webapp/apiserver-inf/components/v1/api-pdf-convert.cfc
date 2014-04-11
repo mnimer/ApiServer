@@ -21,9 +21,21 @@
 
     <cffunction name="urlToPdf" output="false" access="remote" returntype="ANY" >
         <cfargument name="path" type="string">
+        <cfargument name="options" type="any" default="#structNew()#">
+
+        <cfdump var="#options#" output="console"/>
+        <cfscript>
+            if( isJSON(arguments.options) )
+            {
+                arguments.options = DeserializeJSON(arguments.options);
+            }
+        </cfscript>
 
         <cfoutput>
-        <cfdocument src="#path#" format="pdf" ></cfdocument>
+        <cfdocument
+                format="pdf"
+                src="#path#"
+                attributeCollection="#arguments.options#"></cfdocument>
         </cfoutput>
     </cffunction>
 
@@ -33,9 +45,17 @@
         <cfargument name="html" type="string">
         <cfargument name="headerHtml" type="string" required="false">
         <cfargument name="footerHtml" type="string" required="false">
+        <cfargument name="options" type="STRUCT" default="#structNew()#">
+
+        <cfscript>
+            if( isJSON(arguments.options) )
+            {
+                arguments.options = DeserializeJSON(arguments.options);
+            }
+        </cfscript>
 
         <cfoutput>
-        <cfdocument format="pdf" >
+        <cfdocument format="pdf" attributeCollection="#arguments.options#">
             <cfif isDefined("headerHtml")>
                 <cfdocumentitem type="header">#headerHtml#</cfdocumentitem>
             </cfif>
@@ -56,6 +76,14 @@
         <cfargument name="file" type="STRING">
         <cfargument name="contentType" type="STRING">
         <cfargument name="name" type="STRING">
+        <cfargument name="options" type="STRUCT" default="#structNew()#">
+
+        <cfscript>
+            if( isJSON(arguments.options) )
+            {
+                arguments.options = DeserializeJSON(arguments.options);
+            }
+        </cfscript>
 
         <cfset path = getTempDirectory() &createUUID() &"_" &name>
         <cfdump var="#path#" output="console"/>
@@ -67,8 +95,9 @@
 
             <cfoutput>
             <cfdocument
+                    format="pdf"
                     srcFile="#path#"
-                    format="pdf" >
+                    attributeCollection="#arguments.options#">
             </cfdocument>
             </cfoutput>
 
@@ -82,37 +111,4 @@
         </cftry>
     </cffunction>
 
-
-
-
-    <cffunction name="TESTPdf" output="true" access="remote" returntype="ANY" >
-
-        <cftry>
-            <cfoutput>
-                <cfdocument
-                        srcFile="/Users/mnimer/Downloads/First user test.ppt"
-                        format="pdf" >
-                </cfdocument>
-            </cfoutput>
-
-            <cfcatch type="any">
-                <cfdump var="#cfcatch#" output="console"/>
-            </cfcatch>
-
-            <cffinally>
-            </cffinally>
-        </cftry>
-    </cffunction>
-
-
-
-
-
-    <cffunction name="wordToPdf" output="false" access="remote" returntype="ANY" >
-        <cfargument name="path" type="string">
-
-        <cfoutput>
-            <cfdocument src="#path#" format="pdf" ></cfdocument>
-        </cfoutput>
-    </cffunction>
 </cfcomponent>

@@ -92,8 +92,7 @@
     <!-- PDF -->
     <import resource="flows/pdf/htmlToPdf-flow.xml"/>
     <import resource="flows/pdf/urlToPdf-flow.xml"/>
-    <import resource="flows/pdf/pptToPdf-flow.xml"/>
-    <import resource="flows/pdf/wordToPdf-flow.xml"/>
+    <import resource="flows/pdf/documentToPdf-flow.xml"/>
 
 
 

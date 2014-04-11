@@ -1,15 +1,18 @@
 package apiserver.apis.v1_0.pdf.gateways.jobs;
 
 import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.Serializable;
 
 /**
  * Created by mnimer on 4/7/14.
  */
-public class Ppt2PdfJob
+public class Document2PdfJob  extends CFDocumentJob implements Serializable
 {
-    private final Logger log = LoggerFactory.getLogger(Ppt2PdfJob.class);
+    private final Logger log = LoggerFactory.getLogger(Document2PdfJob.class);
 
     private String documentId;
     private Document file;

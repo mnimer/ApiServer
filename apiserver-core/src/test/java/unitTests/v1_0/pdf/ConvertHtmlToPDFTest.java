@@ -21,6 +21,7 @@ package unitTests.v1_0.pdf;
 
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -65,6 +66,18 @@ public class ConvertHtmlToPDFTest
         {
             Html2PdfJob args = new Html2PdfJob();
             args.setHtml("<b>Hello World</b>");
+            args.setFontEmbed(true);
+            args.setMarginBottom(2);
+            args.setMarginTop(2);
+            args.setMarginLeft(2);
+            args.setMarginRight(2);
+
+            CFDocumentJob.Permission[] permissions = new CFDocumentJob.Permission[]{
+                    CFDocumentJob.Permission.AllowCopy,
+                    CFDocumentJob.Permission.AllowPrinting,
+                    CFDocumentJob.Permission.AllowScreenReaders
+            };
+            args.setPermissions(permissions);
 
             Future<Map> resultFuture = pdfHtmlGateway.convertHtmlToPdf(args);
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );

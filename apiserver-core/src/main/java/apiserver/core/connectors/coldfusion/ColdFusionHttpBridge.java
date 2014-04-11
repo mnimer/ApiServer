@@ -135,6 +135,13 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                         {
                             me.addPart(s, new ByteArrayBody((byte[]) obj, (String) methodArgs_.get("name")));
                         }
+                        else if (obj instanceof Map)
+                        {
+                            ObjectMapper mapper = new ObjectMapper();
+                            String _json = mapper.writeValueAsString(obj);
+
+                            me.addPart(s, new StringBody(_json) );
+                        }
                     }
                 }
             }

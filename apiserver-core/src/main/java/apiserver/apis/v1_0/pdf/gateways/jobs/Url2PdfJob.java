@@ -19,21 +19,27 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * User: mikenimer
  * Date: 9/16/13
  */
-public class Url2PdfJob implements Serializable
+public class Url2PdfJob extends CFDocumentJob implements Serializable
 {
-    public final Logger log = LoggerFactory.getLogger(Url2PdfJob.class);
 
+    private final Logger log = LoggerFactory.getLogger(Url2PdfJob.class);
+
+    // Url to load and save as pdf
     private String path;
+    // generated PDF bytes
     private byte[] pdfBytes;
+
 
     public String getPath() {
         return path;
@@ -49,5 +55,19 @@ public class Url2PdfJob implements Serializable
 
     public void setPdfBytes(byte[] pdfBytes) {
         this.pdfBytes = pdfBytes;
+    }
+
+
+    @Override
+    public Map getOptions()
+    {
+        return super.getOptions();
+    }
+
+
+    @Override
+    public void setOptions(Map _options)
+    {
+        super.setOptions(_options);
     }
 }

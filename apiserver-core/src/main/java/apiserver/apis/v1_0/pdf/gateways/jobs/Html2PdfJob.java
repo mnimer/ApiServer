@@ -19,6 +19,7 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,9 +29,9 @@ import java.io.Serializable;
  * User: mikenimer
  * Date: 9/16/13
  */
-public class Html2PdfJob implements Serializable
+public class Html2PdfJob extends CFDocumentJob implements Serializable
 {
-    public final Logger log = LoggerFactory.getLogger(Html2PdfJob.class);
+    private final Logger log = LoggerFactory.getLogger(Html2PdfJob.class);
 
     private String html;
     private String headerHtml;
@@ -38,32 +39,45 @@ public class Html2PdfJob implements Serializable
     private byte[] pdfBytes;
 
 
+
     public String getHtml()
     {
         return html;
     }
 
+
+    /**
+     * Html to convert to pdf
+     * @param html
+     */
     public void setHtml(String html)
     {
         this.html = html;
     }
 
-    public String getHeaderHtml() {
-        return headerHtml;
-    }
 
+    /**
+     * HTML to use for the header of all pages in the PDF
+     * @param headerHtml
+     */
     public void setHeaderHtml(String headerHtml) {
         this.headerHtml = headerHtml;
     }
 
-    public String getFooterHtml() {
-        return footerHtml;
-    }
 
+    /**
+     * HTML to use for the footer of all pages in the PDF
+     * @param footerHtml
+     */
     public void setFooterHtml(String footerHtml) {
         this.footerHtml = footerHtml;
     }
 
+
+    /**
+     * bytes of generated pdf to return
+     * @return
+     */
     public byte[] getPdfBytes() {
         return pdfBytes;
     }
@@ -71,4 +85,6 @@ public class Html2PdfJob implements Serializable
     public void setPdfBytes(byte[] pdfBytes) {
         this.pdfBytes = pdfBytes;
     }
+
+
 }

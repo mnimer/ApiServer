@@ -20,8 +20,7 @@ package apiserver.apis.v1_0.pdf.service;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.PdfConfigMBean;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Ppt2PdfJob;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.Document2PdfJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import org.slf4j.Logger;
@@ -35,9 +34,9 @@ import java.util.Map;
  * User: mikenimer
  * Date: 9/16/13
  */
-public class Ppt2PdfService
+public class Document2PdfService
 {
-    public final Logger log = LoggerFactory.getLogger(Ppt2PdfService.class);
+    public final Logger log = LoggerFactory.getLogger(Document2PdfService.class);
 
     @Autowired
     private PdfConfigMBean pdfConfigMBean;
@@ -53,7 +52,7 @@ public class Ppt2PdfService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        Ppt2PdfJob props = (Ppt2PdfJob)message.getPayload();
+        Document2PdfJob props = (Document2PdfJob)message.getPayload();
 
         try
         {

@@ -29,29 +29,29 @@
 
 
 
-    <si:channel id="convertWordToPdfChannelRequestChannel"/>
+    <si:channel id="convertDocumentToPdfChannelRequestChannel"/>
 
-    <si:channel id="convertWordToPdfChannelReplyChannel"/>
+    <si:channel id="convertDocumentToPdfChannelReplyChannel"/>
 
 
-    <si:gateway id="convertWordToPdfChannelApiGateway"
+    <si:gateway id="convertDocumentToPdfApiGateway"
                 service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
-                default-reply-channel="convertWordToPdfChannelReplyChannel"
+                default-reply-channel="convertDocumentToPdfChannelReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="convertWordToPdf"
-                   request-channel="convertWordToPdfChannelRequestChannel"/>
+        <si:method name="convertDocumentToPdf"
+                   request-channel="convertDocumentToPdfChannelRequestChannel"/>
 
     </si:gateway>
 
 
 
-    <si:chain input-channel="convertWordToPdfChannelRequestChannel"
-              output-channel="convertWordToPdfChannelReplyChannel">
+    <si:chain input-channel="convertDocumentToPdfChannelRequestChannel"
+              output-channel="convertDocumentToPdfChannelReplyChannel">
 
         <si:service-activator
                 method="execute">
-            <bean class="apiserver.apis.v1_0.pdf.service.Word2PdfService"/>
+            <bean class="apiserver.apis.v1_0.pdf.service.Document2PdfService"/>
         </si:service-activator>
 
     </si:chain>

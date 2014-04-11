@@ -21,6 +21,7 @@ package unitTests.v1_0.pdf;
 
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -64,13 +65,25 @@ public class ConvertUrlToPDFTest
         try
         {
             Url2PdfJob args = new Url2PdfJob();
-            args.setPath("http://www.google.com");
+            args.setPath("http://www.mikenimer.com");
+            args.setFontEmbed(true);
+            args.setMarginBottom(2);
+            args.setMarginTop(2);
+            args.setMarginLeft(2);
+            args.setMarginRight(2);
+
+            CFDocumentJob.Permission[] permissions = new CFDocumentJob.Permission[]{
+                CFDocumentJob.Permission.AllowCopy,
+                CFDocumentJob.Permission.AllowPrinting,
+                CFDocumentJob.Permission.AllowScreenReaders
+            };
+            args.setPermissions(permissions);
 
             Future<Map> resultFuture = pdfUrlGateway.convertUrlToPdf(args);
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
             Assert.assertTrue(result != null);
-            Assert.assertTrue( ((Url2PdfJob)result).getPdfBytes().length > 0 );
+            Assert.assertTrue( ((Url2PdfJob)result).getPdfBytes().length > 500000 );
         }
         catch (Exception ex){
             ex.printStackTrace();
