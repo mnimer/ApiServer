@@ -24,6 +24,7 @@ import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Document2PdfJob;
 import apiserver.core.common.ResponseEntityHelper;
+import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -37,6 +38,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -44,6 +46,8 @@ import javax.ws.rs.Produces;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -80,7 +84,33 @@ public class ConvertDocumentController
     @Produces("application/pdf")
     @RequestMapping(value = "/convert/document", method = RequestMethod.POST)
     public ResponseEntity<byte[]> document2pdf(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
+            // Optional arguments
+            @ApiParam(name="backgroundVisible", required = false, defaultValue = "true") @RequestParam(value = "backgroundVisible") Boolean backgroundVisible,
+            @ApiParam(name="encryption", required = false, defaultValue = "none", allowableValues = "128-bit,40-bit,none") @RequestParam(value = "encryption") CFDocumentJob.Encryption encryption,
+            @ApiParam(name="fontEmbed", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "fontEmbed") Boolean fontEmbed,
+            @ApiParam(name="marginBottom", required = false, defaultValue = "0") @RequestParam(value = "marginBottom", defaultValue = "0") int marginBottom,
+            @ApiParam(name="marginTop", required = false, defaultValue = "0") @RequestParam(value = "marginTop", defaultValue = "0") int marginTop,
+            @ApiParam(name="marginLeft", required = false, defaultValue = "0") @RequestParam(value = "marginLeft", defaultValue = "0") int marginLeft,
+            @ApiParam(name="marginRight", required = false, defaultValue = "0") @RequestParam(value = "marginRight", defaultValue = "0") int marginRight,
+            @ApiParam(name="orientation", required = false, defaultValue = "portrait", allowableValues = "portrait,landscape") @RequestParam(value = "orientation", defaultValue = "0") CFDocumentJob.Orientation orientation,
+            @ApiParam(name="ownerPassword", required = false) @RequestParam(value = "ownerPassword") String ownerPassword,
+            @ApiParam(name="pageHeight", required = false) @RequestParam(value = "pageHeight") int pageHeight,
+            @ApiParam(name="pageWidth", required = false) @RequestParam(value = "pageWidth") int pageWidth,
+            @ApiParam(name="pageType", required = false, defaultValue = "letter", allowableValues = "legal,letter,a4,a5,b4,b5,b4-jis,b5-jis,custom") @RequestParam(value = "pageType", defaultValue = "letter") CFDocumentJob.PageType pageType,
+            @ApiParam(name="scale", required = false) @RequestParam(value = "scale") int scale,
+            @ApiParam(name="unit", required = false) @RequestParam(value = "unit") CFDocumentJob.Unit unit,
+            @ApiParam(name="userPassword", required = false) @RequestParam(value = "userPassword") String userPassword,
+            // Permisions[] items
+            @ApiParam(name="allowPrinting", required = false, defaultValue = "false") @RequestParam(value = "allowPrinting", defaultValue = "false") Boolean allowPrinting,
+            @ApiParam(name="allowModifyContents", required = false, defaultValue = "false") @RequestParam(value = "allowModifyContents", defaultValue = "false") Boolean allowModifyContents,
+            @ApiParam(name="allowCopy", required = false, defaultValue = "false") @RequestParam(value = "allowCopy", defaultValue = "false") Boolean allowCopy,
+            @ApiParam(name="allowModifyAnnotations", required = false, defaultValue = "false") @RequestParam(value = "allowModifyAnnotations", defaultValue = "false") Boolean allowModifyAnnotations,
+            @ApiParam(name="allowFillIn", required = false, defaultValue = "false") @RequestParam(value = "allowFillIn", defaultValue = "false") Boolean allowFillIn,
+            @ApiParam(name="allowScreenReaders", required = false, defaultValue = "false") @RequestParam(value = "allowScreenReaders", defaultValue = "false") Boolean allowScreenReaders,
+            @ApiParam(name="allowAssembly", required = false, defaultValue = "false") @RequestParam(value = "allowAssembly", defaultValue = "false") Boolean allowAssembly,
+            @ApiParam(name="allowDegradedPrinting", required = false, defaultValue = "false") @RequestParam(value = "allowDegradedPrinting", defaultValue = "false") Boolean allowDegradedPrinting
+
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
 
@@ -90,6 +120,35 @@ public class ConvertDocumentController
         job.setFile(new Document(file));
         job.getFile().setContentType(MimeType.getMimeType(file.getContentType()) );
         job.getFile().setFileName(file.getOriginalFilename());
+
+        //Optional Arguments
+        job.setBackgroundVisible(backgroundVisible);
+        job.setEncryption(encryption);
+        job.setFontEmbed(fontEmbed);
+        job.setMarginBottom(marginBottom);
+        job.setMarginTop(marginTop);
+        job.setMarginLeft(marginLeft);
+        job.setMarginRight(marginRight);
+        job.setOrientation(orientation);
+        job.setOwnerPassword(ownerPassword);
+        job.setPageHeight(pageHeight);
+        job.setPageWidth(pageWidth);
+        job.setPageType(pageType);
+        job.setScale(scale);
+        job.setUnit(unit);
+        job.setUserPassword(userPassword);
+
+        List<CFDocumentJob.Permission> permissionsArray = new ArrayList();
+        if( allowAssembly ) permissionsArray.add(CFDocumentJob.Permission.AllowAssembly);
+        if( allowCopy ) permissionsArray.add(CFDocumentJob.Permission.AllowCopy);
+        if( allowDegradedPrinting ) permissionsArray.add(CFDocumentJob.Permission.AllowDegradedPrinting);
+        if( allowFillIn  ) permissionsArray.add(CFDocumentJob.Permission.AllowFillIn);
+        if( allowModifyAnnotations ) permissionsArray.add(CFDocumentJob.Permission.AllowModifyAnnotations);
+        if( allowModifyContents ) permissionsArray.add(CFDocumentJob.Permission.AllowModifyContents);
+        if( allowScreenReaders ) permissionsArray.add(CFDocumentJob.Permission.AllowScreenReaders);
+        if( allowPrinting ) permissionsArray.add(CFDocumentJob.Permission.AllowPrinting);
+        job.setPermissions( (CFDocumentJob.Permission[])permissionsArray.toArray() );
+
 
 
         Future<Map> future = pdfPptGateway.convertDocumentToPdf(job);
@@ -116,11 +175,66 @@ public class ConvertDocumentController
     @Produces("application/pdf")
     @RequestMapping(value = "/convert/{documentId}", method = RequestMethod.GET)
     public ResponseEntity<byte[]> cachedPpt2pdf(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
+            // Optional arguments
+            @ApiParam(name="backgroundVisible", required = false, defaultValue = "true") @RequestParam(value = "backgroundVisible") Boolean backgroundVisible,
+            @ApiParam(name="encryption", required = false, defaultValue = "none", allowableValues = "128-bit,40-bit,none") @RequestParam(value = "encryption") CFDocumentJob.Encryption encryption,
+            @ApiParam(name="fontEmbed", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "fontEmbed") Boolean fontEmbed,
+            @ApiParam(name="marginBottom", required = false, defaultValue = "0") @RequestParam(value = "marginBottom", defaultValue = "0") int marginBottom,
+            @ApiParam(name="marginTop", required = false, defaultValue = "0") @RequestParam(value = "marginTop", defaultValue = "0") int marginTop,
+            @ApiParam(name="marginLeft", required = false, defaultValue = "0") @RequestParam(value = "marginLeft", defaultValue = "0") int marginLeft,
+            @ApiParam(name="marginRight", required = false, defaultValue = "0") @RequestParam(value = "marginRight", defaultValue = "0") int marginRight,
+            @ApiParam(name="orientation", required = false, defaultValue = "portrait", allowableValues = "portrait,landscape") @RequestParam(value = "orientation", defaultValue = "0") CFDocumentJob.Orientation orientation,
+            @ApiParam(name="ownerPassword", required = false) @RequestParam(value = "ownerPassword") String ownerPassword,
+            @ApiParam(name="pageHeight", required = false) @RequestParam(value = "pageHeight") int pageHeight,
+            @ApiParam(name="pageWidth", required = false) @RequestParam(value = "pageWidth") int pageWidth,
+            @ApiParam(name="pageType", required = false, defaultValue = "letter", allowableValues = "legal,letter,a4,a5,b4,b5,b4-jis,b5-jis,custom") @RequestParam(value = "pageType", defaultValue = "letter") CFDocumentJob.PageType pageType,
+            @ApiParam(name="scale", required = false) @RequestParam(value = "scale") int scale,
+            @ApiParam(name="unit", required = false) @RequestParam(value = "unit") CFDocumentJob.Unit unit,
+            @ApiParam(name="userPassword", required = false) @RequestParam(value = "userPassword") String userPassword,
+            // Permisions[] items
+            @ApiParam(name="allowPrinting", required = false, defaultValue = "false") @RequestParam(value = "allowPrinting", defaultValue = "false") Boolean allowPrinting,
+            @ApiParam(name="allowModifyContents", required = false, defaultValue = "false") @RequestParam(value = "allowModifyContents", defaultValue = "false") Boolean allowModifyContents,
+            @ApiParam(name="allowCopy", required = false, defaultValue = "false") @RequestParam(value = "allowCopy", defaultValue = "false") Boolean allowCopy,
+            @ApiParam(name="allowModifyAnnotations", required = false, defaultValue = "false") @RequestParam(value = "allowModifyAnnotations", defaultValue = "false") Boolean allowModifyAnnotations,
+            @ApiParam(name="allowFillIn", required = false, defaultValue = "false") @RequestParam(value = "allowFillIn", defaultValue = "false") Boolean allowFillIn,
+            @ApiParam(name="allowScreenReaders", required = false, defaultValue = "false") @RequestParam(value = "allowScreenReaders", defaultValue = "false") Boolean allowScreenReaders,
+            @ApiParam(name="allowAssembly", required = false, defaultValue = "false") @RequestParam(value = "allowAssembly", defaultValue = "false") Boolean allowAssembly,
+            @ApiParam(name="allowDegradedPrinting", required = false, defaultValue = "false") @RequestParam(value = "allowDegradedPrinting", defaultValue = "false") Boolean allowDegradedPrinting
+
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         Document2PdfJob job = new Document2PdfJob();
         job.setDocumentId(documentId);
+
+        //Optional Arguments
+        job.setBackgroundVisible(backgroundVisible);
+        job.setEncryption(encryption);
+        job.setFontEmbed(fontEmbed);
+        job.setMarginBottom(marginBottom);
+        job.setMarginTop(marginTop);
+        job.setMarginLeft(marginLeft);
+        job.setMarginRight(marginRight);
+        job.setOrientation(orientation);
+        job.setOwnerPassword(ownerPassword);
+        job.setPageHeight(pageHeight);
+        job.setPageWidth(pageWidth);
+        job.setPageType(pageType);
+        job.setScale(scale);
+        job.setUnit(unit);
+        job.setUserPassword(userPassword);
+
+        List<CFDocumentJob.Permission> permissionsArray = new ArrayList();
+        if( allowAssembly ) permissionsArray.add(CFDocumentJob.Permission.AllowAssembly);
+        if( allowCopy ) permissionsArray.add(CFDocumentJob.Permission.AllowCopy);
+        if( allowDegradedPrinting ) permissionsArray.add(CFDocumentJob.Permission.AllowDegradedPrinting);
+        if( allowFillIn  ) permissionsArray.add(CFDocumentJob.Permission.AllowFillIn);
+        if( allowModifyAnnotations ) permissionsArray.add(CFDocumentJob.Permission.AllowModifyAnnotations);
+        if( allowModifyContents ) permissionsArray.add(CFDocumentJob.Permission.AllowModifyContents);
+        if( allowScreenReaders ) permissionsArray.add(CFDocumentJob.Permission.AllowScreenReaders);
+        if( allowPrinting ) permissionsArray.add(CFDocumentJob.Permission.AllowPrinting);
+        job.setPermissions( (CFDocumentJob.Permission[])permissionsArray.toArray() );
+
 
         Future<Map> future = pdfPptGateway.convertDocumentToPdf(job);
         Document2PdfJob payload = (Document2PdfJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
