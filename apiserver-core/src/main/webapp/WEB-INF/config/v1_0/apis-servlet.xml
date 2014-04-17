@@ -23,12 +23,11 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:http="http://www.springframework.org/schema/integration/http"
-       xmlns:si="http://www.springframework.org/schema/integration"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-           http://www.springframework.org/schema/integration/http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
-           http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+           /http http://www.springframework.org/schema/integration/http/spring-integration-http.xsd
+           http://www.springframework.org/schema/integration">
 
 	<!--context:annotation-config /-->
     <context:annotation-config />
@@ -90,9 +89,18 @@
     <import resource="flows/image/filters/filterOil-flow.xml"/>
 
     <!-- PDF -->
-    <import resource="flows/pdf/htmlToPdf-flow.xml"/>
-    <import resource="flows/pdf/urlToPdf-flow.xml"/>
     <import resource="flows/pdf/documentToPdf-flow.xml"/>
+    <import resource="flows/pdf/extractPdfForm-flow.xml"/>
+    <import resource="flows/pdf/extractPdfImage-flow.xml"/>
+    <import resource="flows/pdf/extractPdfText-flow.xml"/>
+    <import resource="flows/pdf/htmlToPdf-flow.xml"/>
+    <import resource="flows/pdf/mergePdf-flow.xml"/>
+    <import resource="flows/pdf/optimizePdf-flow.xml"/>
+    <import resource="flows/pdf/populatePdfForm-flow.xml"/>
+    <import resource="flows/pdf/processDDX-flow.xml"/>
+    <import resource="flows/pdf/urlToPdf-flow.xml"/>
+
+
 
 
 

@@ -29,32 +29,32 @@
 
 
 
-    <si:channel id="convertUrlToPdfChannelRequestChannel"/>
+    <si:channel id="optimizePdfFormRequestChannel"/>
 
-    <si:channel id="convertUrlToPdfChannelReplyChannel"/>
+    <si:channel id="optimizePdfFormReplyChannel"/>
 
 
-    <si:gateway id="convertUrlToPdfChannelApiGateway"
-                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
-                default-reply-channel="convertUrlToPdfChannelReplyChannel"
+    <si:gateway id="optimizePdfFormApiGateway"
+                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfFormGateway"
+                default-reply-channel="optimizePdfFormReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="convertUrlToPdf"
-                   request-channel="convertUrlToPdfChannelRequestChannel"/>
+        <si:method name="populatePdfForm"
+                   request-channel="optimizePdfFormRequestChannel"/>
 
     </si:gateway>
 
 
 
-    <si:chain input-channel="convertUrlToPdfChannelRequestChannel"
-              output-channel="convertUrlToPdfChannelReplyChannel">
+    <si:chain input-channel="optimizePdfFormRequestChannel"
+              output-channel="optimizePdfFormReplyChannel">
 
         <si:service-activator
                 method="execute">
             <bean class="apiserver.core.connectors.coldfusion.services.BinaryCFCService">
-                <property name="cfcPath" value="api-pdf-convert.cfc?method=urlToPdf"/>
+                <property name="cfcPath" value="api-pdf.cfc?method=optimizePdf"/>
                 <property name="cfcMethod" value="POST"/>
-            </bean>
+            </bean>                                                                                                                              "/>
         </si:service-activator>
 
     </si:chain>

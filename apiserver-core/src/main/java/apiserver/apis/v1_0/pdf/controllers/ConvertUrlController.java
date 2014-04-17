@@ -20,11 +20,10 @@ package apiserver.apis.v1_0.pdf.controllers;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Html2PdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 import apiserver.core.common.ResponseEntityHelper;
 import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
-import apiserver.exceptions.NotImplementedException;
+import apiserver.core.connectors.coldfusion.services.BinaryJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
@@ -36,10 +35,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.ws.rs.Produces;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +56,7 @@ public class ConvertUrlController
 {
     @Qualifier("convertUrlToPdfChannelApiGateway")
     @Autowired
-    public PdfConversionGateway pdfUrlGateway;
+    public PdfConversionGateway gateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
@@ -82,16 +78,16 @@ public class ConvertUrlController
             @ApiParam(name="backgroundVisible", required = false, defaultValue = "true") @RequestParam(value = "backgroundVisible") Boolean backgroundVisible,
             @ApiParam(name="encryption", required = false, defaultValue = "none", allowableValues = "128-bit,40-bit,none") @RequestParam(value = "encryption") CFDocumentJob.Encryption encryption,
             @ApiParam(name="fontEmbed", required = false, defaultValue = "true", allowableValues = "true,false") @RequestParam(value = "fontEmbed") Boolean fontEmbed,
-            @ApiParam(name="marginBottom", required = false, defaultValue = "0") @RequestParam(value = "marginBottom", defaultValue = "0") int marginBottom,
-            @ApiParam(name="marginTop", required = false, defaultValue = "0") @RequestParam(value = "marginTop", defaultValue = "0") int marginTop,
-            @ApiParam(name="marginLeft", required = false, defaultValue = "0") @RequestParam(value = "marginLeft", defaultValue = "0") int marginLeft,
-            @ApiParam(name="marginRight", required = false, defaultValue = "0") @RequestParam(value = "marginRight", defaultValue = "0") int marginRight,
+            @ApiParam(name="marginBottom", required = false, defaultValue = "0") @RequestParam(value = "marginBottom", defaultValue = "0") Integer marginBottom,
+            @ApiParam(name="marginTop", required = false, defaultValue = "0") @RequestParam(value = "marginTop", defaultValue = "0") Integer marginTop,
+            @ApiParam(name="marginLeft", required = false, defaultValue = "0") @RequestParam(value = "marginLeft", defaultValue = "0") Integer marginLeft,
+            @ApiParam(name="marginRight", required = false, defaultValue = "0") @RequestParam(value = "marginRight", defaultValue = "0") Integer marginRight,
             @ApiParam(name="orientation", required = false, defaultValue = "portrait", allowableValues = "portrait,landscape") @RequestParam(value = "orientation", defaultValue = "0") CFDocumentJob.Orientation orientation,
             @ApiParam(name="ownerPassword", required = false) @RequestParam(value = "ownerPassword") String ownerPassword,
-            @ApiParam(name="pageHeight", required = false) @RequestParam(value = "pageHeight") int pageHeight,
-            @ApiParam(name="pageWidth", required = false) @RequestParam(value = "pageWidth") int pageWidth,
+            @ApiParam(name="pageHeight", required = false) @RequestParam(value = "pageHeight") Integer pageHeight,
+            @ApiParam(name="pageWidth", required = false) @RequestParam(value = "pageWidth") Integer pageWidth,
             @ApiParam(name="pageType", required = false, defaultValue = "letter", allowableValues = "legal,letter,a4,a5,b4,b5,b4-jis,b5-jis,custom") @RequestParam(value = "pageType", defaultValue = "letter") CFDocumentJob.PageType pageType,
-            @ApiParam(name="scale", required = false) @RequestParam(value = "scale") int scale,
+            @ApiParam(name="scale", required = false) @RequestParam(value = "scale") Integer scale,
             @ApiParam(name="unit", required = false) @RequestParam(value = "unit") CFDocumentJob.Unit unit,
             @ApiParam(name="userPassword", required = false) @RequestParam(value = "userPassword") String userPassword,
             // Permisions[] items
@@ -108,21 +104,21 @@ public class ConvertUrlController
         Url2PdfJob args = new Url2PdfJob();
         args.setPath(path);
 
-        args.setBackgroundVisible(backgroundVisible);
-        args.setEncryption(encryption);
-        args.setFontEmbed(fontEmbed);
-        args.setMarginBottom(marginBottom);
-        args.setMarginTop(marginTop);
-        args.setMarginLeft(marginLeft);
-        args.setMarginRight(marginRight);
-        args.setOrientation(orientation);
-        args.setOwnerPassword(ownerPassword);
-        args.setPageHeight(pageHeight);
-        args.setPageWidth(pageWidth);
-        args.setPageType(pageType);
-        args.setScale(scale);
-        args.setUnit(unit);
-        args.setUserPassword(userPassword);
+        if( backgroundVisible != null) args.setBackgroundVisible(backgroundVisible);
+        if( encryption != null ) args.setEncryption(encryption);
+        if( fontEmbed != null) args.setFontEmbed(fontEmbed);
+        if( marginBottom != null) args.setMarginBottom(marginBottom);
+        if( marginTop != null) args.setMarginTop(marginTop);
+        if( marginLeft != null) args.setMarginLeft(marginLeft);
+        if( marginRight != null) args.setMarginRight(marginRight);
+        if( orientation != null) args.setOrientation(orientation);
+        if( ownerPassword != null) args.setOwnerPassword(ownerPassword);
+        if( pageHeight != null) args.setPageHeight(pageHeight);
+        if( pageWidth != null) args.setPageWidth(pageWidth);
+        if( pageType != null) args.setPageType(pageType);
+        if( scale != null) args.setScale(scale);
+        if( unit != null) args.setUnit(unit);
+        if( userPassword != null) args.setUserPassword(userPassword);
 
         List<CFDocumentJob.Permission> permissionsArray = new ArrayList();
         if( allowAssembly ) permissionsArray.add(CFDocumentJob.Permission.AllowAssembly);
@@ -135,8 +131,8 @@ public class ConvertUrlController
         if( allowPrinting ) permissionsArray.add(CFDocumentJob.Permission.AllowPrinting);
         args.setPermissions( (CFDocumentJob.Permission[])permissionsArray.toArray() );
 
-        Future<Map> future = pdfUrlGateway.convertUrlToPdf(args);
-        Url2PdfJob payload = (Url2PdfJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        Future<Map> future = gateway.convertUrlToPdf(args);
+        BinaryJob payload = (BinaryJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] fileBytes = payload.getPdfBytes();
         String contentType = "application/pdf";

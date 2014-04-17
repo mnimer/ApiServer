@@ -1,5 +1,6 @@
 package apiserver.core.connectors.coldfusion.jobs;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +9,7 @@ import java.util.Map;
  * Abstract class to manage all of the additional properties that can be used with CFDOCUMENT
  * Created by mnimer
  */
-public abstract class CFDocumentJob
+public abstract class CFDocumentJob implements Serializable
 {
     public enum Encryption{
         BIT128("128-bit"),

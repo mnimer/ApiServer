@@ -20,11 +20,11 @@
 <cfcomponent>
 
     <cffunction name="pdfForm">
-        <cfargument name="PolicyNum"/>
+        <cfargument name="policyNum"/>
         <cfargument name="strInsuredName"/>
         <cfargument name="address1"/>
-        <cfargument name="State"/>
-        <cfargument name="Zip"/>
+        <cfargument name="state"/>
+        <cfargument name="zip"/>
         <cfargument name="city"/>
         <cfargument name="phone"/>
         <cfargument name="bankName"/>
@@ -60,25 +60,70 @@
     </cffunction>
 
 
-    <cffunction name="readPdf">
-        <cfpdfform
-                action="read"
-                source="#expandPath('/demos-inf/pdfs/populatedForm.pdfs')#"
-                result="pdfResult"/>
+
+
+    <cffunction name="extractPdfForm">
+        <cfargument name="file" type="STRING">
+
+        <cftry>
+            <cffile action="write"
+                    nameconflict="overwrite"
+                    file="#path#" output="#toBinary(file)#"/>
+
+            <cfoutput>
+                    <cfpdfform
+                            action="read"
+                            source="#path#"
+                            result="pdfResult"/>
+            </cfoutput>
+
+            <cfcatch type="any">
+                <cfdump var="#cfcatch#" output="console"/>
+            </cfcatch>
+
+            <cffinally>
+                <cffile action="delete" file="#path#"/>
+            </cffinally>
+        </cftry>
 
         <cfset results = structNew()>
-        <cfset results['pdfs'] = pdfResult>
+        <cfset results['data'] = pdfResult>
         <cfreturn results>
     </cffunction>
 
 
-    <cffunction name="dump">
-        <cfargument name="data">
 
-        <cfsavecontent variable="dump">
-            <cfdump var="#data#" expand="true"/>
-        </cfsavecontent>
 
-        <cfreturn dump>
+    <cffunction name="populatePdfForm">
+        <cfargument name="file" type="STRING">
+        <cfargument name="xfdf" type="STRING">
+
+        <cftry>
+            <cffile action="write"
+                    nameconflict="overwrite"
+                    file="#path#" output="#toBinary(file)#"/>
+
+            <cfoutput>
+                <cfpdfform
+                        action="populate"
+                        source="#path#"
+                        xmldata="#arguments.xfdf#"
+                        attributeCollection="#arguments.options#"/>
+            </cfoutput>
+
+            <cfcatch type="any">
+                <cfdump var="#cfcatch#" output="console"/>
+            </cfcatch>
+
+            <cffinally>
+                <cffile action="delete" file="#path#"/>
+            </cffinally>
+        </cftry>
+
+        <cfset results = structNew()>
+        <cfset results['data'] = pdfResult>
+        <cfreturn results>
     </cffunction>
+
+
 </cfcomponent>

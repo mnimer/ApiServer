@@ -19,7 +19,8 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.core.connectors.coldfusion.jobs.CFPDFFormJob;
 import apiserver.core.connectors.coldfusion.services.BinaryJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,62 +29,47 @@ import org.slf4j.LoggerFactory;
  * User: mikenimer
  * Date: 9/16/13
  */
-public class Html2PdfJob extends CFDocumentJob implements BinaryJob
+public class ExtractPdfFormJob extends CFPDFFormJob implements BinaryJob
 {
-    private final Logger log = LoggerFactory.getLogger(Html2PdfJob.class);
+    private final Logger log = LoggerFactory.getLogger(ExtractPdfFormJob.class);
 
-    private String html;
-    private String headerHtml;
-    private String footerHtml;
+    private String documentId;
+    private Document file;
     private byte[] pdfBytes;
 
 
-
-    public String getHtml()
+    public String getDocumentId()
     {
-        return html;
+        return documentId;
     }
 
 
-    /**
-     * Html to convert to pdf
-     * @param html
-     */
-    public void setHtml(String html)
+    public void setDocumentId(String documentId)
     {
-        this.html = html;
+        this.documentId = documentId;
     }
 
 
-    /**
-     * HTML to use for the header of all pages in the PDF
-     * @param headerHtml
-     */
-    public void setHeaderHtml(String headerHtml) {
-        this.headerHtml = headerHtml;
+    public Document getFile()
+    {
+        return file;
     }
 
 
-    /**
-     * HTML to use for the footer of all pages in the PDF
-     * @param footerHtml
-     */
-    public void setFooterHtml(String footerHtml) {
-        this.footerHtml = footerHtml;
+    public void setFile(Document file)
+    {
+        this.file = file;
     }
 
 
-    /**
-     * bytes of generated pdf to return
-     * @return
-     */
-    public byte[] getPdfBytes() {
+    public byte[] getPdfBytes()
+    {
         return pdfBytes;
     }
 
-    public void setPdfBytes(byte[] pdfBytes) {
+
+    public void setPdfBytes(byte[] pdfBytes)
+    {
         this.pdfBytes = pdfBytes;
     }
-
-
 }

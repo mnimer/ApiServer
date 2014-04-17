@@ -1,4 +1,6 @@
-<!---~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+package apiserver.apis.v1_0.pdf.service;
+
+/*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
 
  This file is part of ApiServer Project.
@@ -15,23 +17,18 @@
 
  You should have received a copy of the GNU General Public License
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--->
+ ******************************************************************************/
 
-<cfcomponent>
+import apiserver.core.connectors.coldfusion.services.BinaryCFCService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    <cffunction name= 'urltopdf'>
-        <cfargument name="path" type="string"/>
+/**
+ * User: mikenimer
+ * Date: 9/16/13
+ */
+public class ExtractFormService extends BinaryCFCService
+{
+    public final Logger log = LoggerFactory.getLogger(ExtractFormService.class);
 
-
-<!--- Call a webpage--->
-        <cfhttp path="#arguments.path#" method="get" resolveurl="yes">
-<!--- Convert content of webpage to PDF and Scale it --->
-        <cfdocument name="pdf" format="PDF" localurl="no">
-            <cfoutput>#cfhttp.fileContent#</cfoutput>
-        </cfdocument>
-
-        <cfset results = structNew()>
-        <cfset results['pdfs'] = pdf>
-        <cfreturn results>
-    </cffunction>
-</cfcomponent>
+}

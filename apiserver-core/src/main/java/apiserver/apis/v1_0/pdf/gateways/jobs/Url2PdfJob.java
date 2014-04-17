@@ -20,17 +20,17 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  ******************************************************************************/
 
 import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
+import apiserver.core.connectors.coldfusion.services.BinaryJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.Serializable;
 import java.util.Map;
 
 /**
  * User: mikenimer
  * Date: 9/16/13
  */
-public class Url2PdfJob extends CFDocumentJob implements Serializable
+public class Url2PdfJob extends CFDocumentJob implements BinaryJob
 {
 
     private final Logger log = LoggerFactory.getLogger(Url2PdfJob.class);

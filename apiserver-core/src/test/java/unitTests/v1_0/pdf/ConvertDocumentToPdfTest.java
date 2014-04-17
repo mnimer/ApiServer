@@ -3,7 +3,6 @@ package unitTests.v1_0.pdf;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway;
 import apiserver.apis.v1_0.pdf.gateways.jobs.Document2PdfJob;
-import apiserver.apis.v1_0.pdf.gateways.jobs.Url2PdfJob;
 import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
 import org.junit.Assert;
 import org.junit.Ignore;
@@ -25,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * User: mikenimer
+ * TODO write more tests around the cfdocument options.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
@@ -100,7 +100,11 @@ public class ConvertDocumentToPdfTest
 
             Document2PdfJob args = new Document2PdfJob();
             args.setFile(new Document(file) );
+
+            // set a few random arguments, to spot check it's working.
             args.setFontEmbed(true);
+            args.setOrientation(CFDocumentJob.Orientation.LANDSCAPE);
+            args.setPermissions(new CFDocumentJob.Permission[]{CFDocumentJob.Permission.AllowPrinting});
 
             CFDocumentJob.Permission[] permissions = new CFDocumentJob.Permission[]{
                     CFDocumentJob.Permission.AllowCopy,

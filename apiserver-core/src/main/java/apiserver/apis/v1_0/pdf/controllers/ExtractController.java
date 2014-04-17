@@ -22,13 +22,15 @@ package apiserver.apis.v1_0.pdf.controllers;
 import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.MergePdfJob;
-import apiserver.apis.v1_0.pdf.gateways.jobs.PopulatePdfFormJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.ExtractImageJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.ExtractTextJob;
 import apiserver.core.common.ResponseEntityHelper;
+import apiserver.core.connectors.coldfusion.services.ObjectJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -52,52 +54,66 @@ import java.util.concurrent.TimeoutException;
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
 @RequestMapping("/pdf")
-public class MergeController
+public class ExtractController
 {
+    @Qualifier("extractPdfTextApiGateway")
     @Autowired
-    public PdfGateway gateway;
+    public PdfGateway textGateway;
+    @Qualifier("extractPdfImageApiGateway")
+    @Autowired
+    public PdfGateway imageGateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
-    /**
-     * Merge two pdf files into one.
-     * @param file1
-     * @param file2
-     * @return
-     * @throws InterruptedException
-     * @throws ExecutionException
-     * @throws TimeoutException
-     * @throws IOException
-     * @throws Exception
-     */
-    @ApiOperation(value = "Merge two pdf files into one.")
+    @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/merge", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> mergePdfDocuments(
-            @ApiParam(name="file1", required = true) @RequestPart("file1") MultipartFile file1,
-            @ApiParam(name="file2", required = true) @RequestPart("file2") MultipartFile file2
+    @RequestMapping(value = "/extract/text", method = RequestMethod.POST)
+    public ResponseEntity<Object> extractTextFromPdf(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        MergePdfJob job = new MergePdfJob();
-        //file 1
-        job.setFile1( new Document(file1) );
-        job.getFile1().setContentType( MimeType.getMimeType(file1.getContentType()) );
-        job.getFile1().setFileName( file1.getOriginalFilename() );
-        //file 1
-        job.setFile2( new Document(file2) );
-        job.getFile2().setContentType( MimeType.getMimeType(file2.getContentType()) );
-        job.getFile2().setFileName( file2.getOriginalFilename() );
+        ExtractTextJob job = new ExtractTextJob();
+        job.setFile(new Document(file));
+        job.getFile().setContentType(  MimeType.getMimeType(file.getContentType())  );
+        job.getFile().setFileName(file.getOriginalFilename());
 
 
-        Future<Map> future = gateway.mergePdf(job);
-        PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+        Future<Map> future = textGateway.extractText(job);
+        ObjectJob payload = (ObjectJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
-        byte[] fileBytes = payload.getPdfBytes();
-        String contentType = "application/pdf";
-        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
-        return result;
+
+        Object result = payload.getResult();
+        String contentType = MimeType.pdf.contentType;
+        return ResponseEntityHelper.processObject(result);
     }
+
+
+
+
+    @ApiOperation(value = "TODO")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/extract/image", method = RequestMethod.POST)
+    public ResponseEntity<Object> extractImageFromPdf(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
+    {
+        ExtractImageJob job = new ExtractImageJob();
+        job.setFile(new Document(file));
+        job.getFile().setContentType(  MimeType.getMimeType(file.getContentType())  );
+        job.getFile().setFileName(file.getOriginalFilename());
+
+
+        Future<Map> future = imageGateway.extractImage(job);
+        ObjectJob payload = (ObjectJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+
+        Object result = payload.getResult();
+        String contentType = MimeType.pdf.contentType;
+        return ResponseEntityHelper.processObject(result);
+    }
+
+
 
 
 }

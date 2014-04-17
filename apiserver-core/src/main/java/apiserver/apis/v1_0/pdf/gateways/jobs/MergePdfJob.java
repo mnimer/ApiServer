@@ -1,20 +1,21 @@
 package apiserver.apis.v1_0.pdf.gateways.jobs;
 
 import apiserver.apis.v1_0.documents.model.Document;
-import apiserver.core.connectors.coldfusion.jobs.CFDocumentJob;
+import apiserver.core.connectors.coldfusion.jobs.CFPdfJob;
 import apiserver.core.connectors.coldfusion.services.BinaryJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Created by mnimer on 4/7/14.
+ * Created by mnimer on 4/13/14.
  */
-public class Document2PdfJob  extends CFDocumentJob implements BinaryJob
+public class MergePdfJob extends CFPdfJob implements BinaryJob
 {
-    private final Logger log = LoggerFactory.getLogger(Document2PdfJob.class);
+    private final Logger log = LoggerFactory.getLogger(MergePdfJob.class);
 
     private String documentId;
-    private Document file;
+    private Document file1;
+    private Document file2;
     private byte[] pdfBytes;
 
 
@@ -30,15 +31,27 @@ public class Document2PdfJob  extends CFDocumentJob implements BinaryJob
     }
 
 
-    public Document getFile()
+    public Document getFile1()
     {
-        return file;
+        return file1;
     }
 
 
-    public void setFile(Document file)
+    public void setFile1(Document file)
     {
-        this.file = file;
+        this.file1 = file;
+    }
+
+
+    public Document getFile2()
+    {
+        return file2;
+    }
+
+
+    public void setFile2(Document file2)
+    {
+        this.file2 = file2;
     }
 
 

@@ -19,9 +19,16 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.apis.v1_0.MimeType;
+import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.apis.v1_0.pdf.gateways.PdfFormGateway;
+import apiserver.apis.v1_0.pdf.gateways.jobs.ExtractPdfFormJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.PopulatePdfFormJob;
+import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -29,11 +36,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
-import apiserver.exceptions.NotImplementedException;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -45,8 +54,8 @@ import java.util.concurrent.TimeoutException;
 @RequestMapping("/pdf")
 public class FormController
 {
-    //@Autowired
-    //public PdfConversionGateway pdfConversionGateway;
+    @Autowired
+    public PdfFormGateway gateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
@@ -64,14 +73,19 @@ public class FormController
     @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
     @RequestMapping(value = "/form/extract", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> extractFormFields(
+    public ResponseEntity<Object> extractFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11c2b-7ffa.html
+        ExtractPdfFormJob job = new ExtractPdfFormJob();
+        job.setFile(new Document(file));
+        job.getFile().setContentType( MimeType.getMimeType(file.getContentType()) );
+        job.getFile().setFileName( file.getOriginalFilename() );
 
+        Future<Map> future = gateway.extractPdfForm(job);
+        ExtractPdfFormJob payload = (ExtractPdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        return ResponseEntityHelper.processObject(payload);
     }
 
 
@@ -88,21 +102,24 @@ public class FormController
     @ApiOperation(value = "Extract the value of the form fields in a pdf")
     @Produces("application/pdf")
     @RequestMapping(value = "/form/{documentId}/extract", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> extractCachedFormFields(
+    public ResponseEntity<Object> extractCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec11c2b-7ffa.html
+        ExtractPdfFormJob job = new ExtractPdfFormJob();
+        job.setDocumentId(documentId);
 
+        Future<Map> future = gateway.extractPdfForm(job);
+        ExtractPdfFormJob payload = (ExtractPdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        return ResponseEntityHelper.processObject(payload);
     }
 
 
     /**
      * Populate the pdf form fields
      * @param file
-     * @param XFDF
+     * @param xfdf XML
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -115,20 +132,29 @@ public class FormController
     @RequestMapping(value = "/form/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
-            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7994.html
+        PopulatePdfFormJob job = new PopulatePdfFormJob();
+        job.setFile(new Document(file));
+        job.getFile().setContentType( MimeType.getMimeType(file.getContentType()) );
+        job.getFile().setFileName( file.getOriginalFilename() );
+        job.setXFDF(xfdf);
 
+        Future<Map> future = gateway.populatePdfForm(job);
+        PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
     }
 
 
     /**
      * Populate the pdf form fields
      * @param documentId
-     * @param XFDF
+     * @param xfdf XML
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -141,13 +167,20 @@ public class FormController
     @RequestMapping(value = "/form/{documentId}/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
-            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String XFDF
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //Take existing PDF and populate form fields with XML data
-        // http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-7994.html
+        PopulatePdfFormJob job = new PopulatePdfFormJob();
+        job.setDocumentId(documentId);
+        job.setXFDF(xfdf);
 
+        Future<Map> future = gateway.populatePdfForm(job);
+        PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
     }
 
 

@@ -43,7 +43,7 @@ import java.util.concurrent.TimeoutException;
 @Controller
 @Api(value = "/pdf", description = "[PDF]")
 @RequestMapping("/pdf")
-public class PdfExtractController
+public class InfoController
 {
     //@Autowired
     //public PdfConversionGateway pdfConversionGateway;
@@ -53,30 +53,49 @@ public class PdfExtractController
 
     @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/extract/text", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> extractTextFromPdf(
+    @RequestMapping(value = "/info/get", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> getPdfInfo(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
+        //
     }
-
-
 
 
     @ApiOperation(value = "TODO")
     @Produces("application/pdf")
-    @RequestMapping(value = "/extract/image", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> extractImageFromPdf(
+    @RequestMapping(value = "/{documentId}/info/get", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> getCachedPdfInfo(
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
+    {
+        throw new NotImplementedException();
+        //
+    }
+
+
+    @ApiOperation(value = "TODO")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/info/set", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> setPdfInfo(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         throw new NotImplementedException();
-        //http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WS79586299-88D8-4301-A5A9-78123AE16480.html
+        //
     }
 
 
-
+    @ApiOperation(value = "TODO")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/{documentId}/info/set", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> setCachedPdfInfo(
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
+    {
+        throw new NotImplementedException();
+        //
+    }
 
 }
