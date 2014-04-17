@@ -20,7 +20,7 @@ package apiserver.apis.v1_0.pdf.gateways.jobs;
  ******************************************************************************/
 
 import apiserver.apis.v1_0.documents.model.Document;
-import apiserver.core.connectors.coldfusion.jobs.CFPDFFormJob2;
+import apiserver.core.connectors.coldfusion.jobs.CFPDFFormJob;
 import apiserver.core.connectors.coldfusion.services.BinaryJob;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * User: mikenimer
  * Date: 9/16/13
  */
-public class ExtractPdfFormJob extends CFPDFFormJob2 implements BinaryJob
+public class ExtractPdfFormJob extends CFPDFFormJob implements BinaryJob
 {
     private final Logger log = LoggerFactory.getLogger(ExtractPdfFormJob.class);
 

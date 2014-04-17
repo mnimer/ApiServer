@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by mnimer on 4/13/14.
  */
-public class CFPDFFormJob2 implements Serializable
+public class CFPDFFormJob implements Serializable
 {
     private static final String OVERWRITEDATA = "overwriteDate";
 
