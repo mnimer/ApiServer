@@ -19,7 +19,6 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfFormGateway;
 import apiserver.apis.v1_0.pdf.gateways.jobs.ExtractPdfFormJob;
@@ -74,13 +73,13 @@ public class FormController
     @Produces("application/pdf")
     @RequestMapping(value = "/form/extract", method = RequestMethod.POST)
     public ResponseEntity<Object> extractFormFields(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
+            @ApiParam(name="password", required = false) @RequestPart("password") String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         ExtractPdfFormJob job = new ExtractPdfFormJob();
         job.setFile(new Document(file));
-        job.getFile().setContentType( MimeType.getMimeType(file.getContentType()) );
-        job.getFile().setFileName( file.getOriginalFilename() );
+        if( password != null ) job.setPassword(password);
 
         Future<Map> future = gateway.extractPdfForm(job);
         ExtractPdfFormJob payload = (ExtractPdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
@@ -103,11 +102,13 @@ public class FormController
     @Produces("application/pdf")
     @RequestMapping(value = "/form/{documentId}/extract", method = RequestMethod.GET)
     public ResponseEntity<Object> extractCachedFormFields(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
+            @ApiParam(name="password", required = false) @RequestPart("password") String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         ExtractPdfFormJob job = new ExtractPdfFormJob();
         job.setDocumentId(documentId);
+        if( password != null ) job.setPassword(password);
 
         Future<Map> future = gateway.extractPdfForm(job);
         ExtractPdfFormJob payload = (ExtractPdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
@@ -132,14 +133,14 @@ public class FormController
     @RequestMapping(value = "/form/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateFormFields(
             @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
-            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf,
+            @ApiParam(name="password", required = false) @RequestPart("password") String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         PopulatePdfFormJob job = new PopulatePdfFormJob();
         job.setFile(new Document(file));
-        job.getFile().setContentType( MimeType.getMimeType(file.getContentType()) );
-        job.getFile().setFileName( file.getOriginalFilename() );
         job.setXFDF(xfdf);
+        if( password != null ) job.setPassword(password);
 
         Future<Map> future = gateway.populatePdfForm(job);
         PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
@@ -167,12 +168,14 @@ public class FormController
     @RequestMapping(value = "/form/{documentId}/populate", method = RequestMethod.POST)
     public ResponseEntity<byte[]> populateCachedFormFields(
             @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
-            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf
+            @ApiParam(name="XFDF", required = true) @RequestPart("XFDF") String xfdf,
+            @ApiParam(name="password", required = false) @RequestPart("password") String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
         PopulatePdfFormJob job = new PopulatePdfFormJob();
         job.setDocumentId(documentId);
         job.setXFDF(xfdf);
+        if( password != null ) job.setPassword(password);
 
         Future<Map> future = gateway.populatePdfForm(job);
         PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);

@@ -59,6 +59,7 @@ public class ExtractController
     @Qualifier("extractPdfTextApiGateway")
     @Autowired
     public PdfGateway textGateway;
+
     @Qualifier("extractPdfImageApiGateway")
     @Autowired
     public PdfGateway imageGateway;
@@ -75,8 +76,6 @@ public class ExtractController
     {
         ExtractTextJob job = new ExtractTextJob();
         job.setFile(new Document(file));
-        job.getFile().setContentType(  MimeType.getMimeType(file.getContentType())  );
-        job.getFile().setFileName(file.getOriginalFilename());
 
 
         Future<Map> future = textGateway.extractText(job);
@@ -100,8 +99,6 @@ public class ExtractController
     {
         ExtractImageJob job = new ExtractImageJob();
         job.setFile(new Document(file));
-        job.getFile().setContentType(  MimeType.getMimeType(file.getContentType())  );
-        job.getFile().setFileName(file.getOriginalFilename());
 
 
         Future<Map> future = imageGateway.extractImage(job);

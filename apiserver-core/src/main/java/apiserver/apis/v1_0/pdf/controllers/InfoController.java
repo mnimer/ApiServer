@@ -19,10 +19,17 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.exceptions.NotImplementedException;
+import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.apis.v1_0.pdf.gateways.PdfGateway;
+import apiserver.apis.v1_0.pdf.gateways.jobs.PdfInfoJob;
+import apiserver.core.common.ResponseEntityHelper;
+import apiserver.core.connectors.coldfusion.services.BinaryJob;
+import apiserver.core.connectors.coldfusion.services.ObjectJob;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -33,7 +40,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.ws.rs.Produces;
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -45,57 +55,142 @@ import java.util.concurrent.TimeoutException;
 @RequestMapping("/pdf")
 public class InfoController
 {
-    //@Autowired
-    //public PdfConversionGateway pdfConversionGateway;
+    @Qualifier("pdfInfoApiGateway")
+    @Autowired
+    public PdfGateway gateway;
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
 
+    /**
+     * Get information about document
+     * @param file  PDF to pull info from
+     * @param password  Password to open pdf
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
     @ApiOperation(value = "TODO")
     @Produces("application/pdf")
     @RequestMapping(value = "/info/get", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> getPdfInfo(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+    public ResponseEntity<Object> getPdfInfo(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
+            @ApiParam(name="password", required = false) @RequestPart(value = "password", required = false) String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //
+        PdfInfoJob job = new PdfInfoJob();
+        job.setFile(new Document(file));
+        if( password != null ) job.setPassword(password);
+
+        Future<Map> future = gateway.pdfInfo(job);
+        ObjectJob payload = (ObjectJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        return ResponseEntityHelper.processObject(payload.getResult());
     }
 
 
-    @ApiOperation(value = "TODO")
+    /**
+     * Get information about document
+     * @param documentId
+     * @param password  Password to open pdf
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Get information about document")
     @Produces("application/pdf")
     @RequestMapping(value = "/{documentId}/info/get", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> getCachedPdfInfo(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+    public ResponseEntity<Object> getCachedPdfInfo(
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
+            @ApiParam(name="password", required = false) @RequestPart(value = "password", required = false) String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //
+        PdfInfoJob job = new PdfInfoJob();
+        job.setDocumentId(documentId);
+        if( password != null ) job.setPassword(password);
+
+        Future<Map> future = gateway.pdfInfo(job);
+        ObjectJob payload = (ObjectJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        return ResponseEntityHelper.processObject(payload.getResult());
     }
 
 
-    @ApiOperation(value = "TODO")
+    /**
+     * Set information about document
+     * @param file  PDF to update
+     * @param info  Map of key/values to set
+     * @param password  Password to open pdf
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Set information about document")
     @Produces("application/pdf")
     @RequestMapping(value = "/info/set", method = RequestMethod.POST)
     public ResponseEntity<byte[]> setPdfInfo(
-            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
+            @ApiParam(name="info", required = true) @RequestPart("info") Map info,
+            @ApiParam(name="password", required = false) @RequestPart(value = "password", required = false) String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //
+        PdfInfoJob job = new PdfInfoJob();
+        job.setFile(new Document(file));
+        job.setInfo(info);
+        if( password != null ) job.setPassword(password);
+
+        Future<Map> future = gateway.pdfInfo(job);
+        BinaryJob payload = (BinaryJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
     }
 
 
-    @ApiOperation(value = "TODO")
+    /**
+     * Set information about cached document
+     * @param documentId  PDF to update
+     * @param info  Map of key/values to set
+     * @param password  Password to open pdf
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "Set information about cached document")
     @Produces("application/pdf")
     @RequestMapping(value = "/{documentId}/info/set", method = RequestMethod.GET)
     public ResponseEntity<byte[]> setCachedPdfInfo(
-            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId
+            @ApiParam(name="documentId", required = true) @RequestPart("documentId") String documentId,
+            @ApiParam(name="info", required = true) @RequestPart("info") Map info,
+            @ApiParam(name="password", required = false) @RequestPart(value = "password", required = false) String password
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        throw new NotImplementedException();
-        //
+        PdfInfoJob job = new PdfInfoJob();
+        job.setDocumentId(documentId);
+        job.setInfo(info);
+        if( password != null ) job.setPassword(password);
+
+        Future<Map> future = gateway.pdfInfo(job);
+        BinaryJob payload = (BinaryJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
     }
 
 }

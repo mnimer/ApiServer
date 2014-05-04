@@ -116,8 +116,6 @@ public class ConvertDocumentController
         job.setDocumentId(null);
         //job.setFile("/Users/mnimer/Downloads/First user test.ppt");
         job.setFile(new Document(file));
-        job.getFile().setContentType(MimeType.getMimeType(file.getContentType()) );
-        job.getFile().setFileName(file.getOriginalFilename());
 
         //Optional Arguments
         if( backgroundVisible != null) job.setBackgroundVisible(backgroundVisible);

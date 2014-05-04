@@ -29,25 +29,25 @@
 
 
 
-    <si:channel id="convertDocumentToPdfChannelRequestChannel"/>
+    <si:channel id="convertDocumentToPdfRequestChannel"/>
 
-    <si:channel id="convertDocumentToPdfChannelReplyChannel"/>
+    <si:channel id="convertDocumentToPdfReplyChannel"/>
 
 
     <si:gateway id="convertDocumentToPdfApiGateway"
                 service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
-                default-reply-channel="convertDocumentToPdfChannelReplyChannel"
+                default-reply-channel="convertDocumentToPdfReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
         <si:method name="convertDocumentToPdf"
-                   request-channel="convertDocumentToPdfChannelRequestChannel"/>
+                   request-channel="convertDocumentToPdfRequestChannel"/>
 
     </si:gateway>
 
 
 
-    <si:chain input-channel="convertDocumentToPdfChannelRequestChannel"
-              output-channel="convertDocumentToPdfChannelReplyChannel">
+    <si:chain input-channel="convertDocumentToPdfRequestChannel"
+              output-channel="convertDocumentToPdfReplyChannel">
 
         <si:service-activator
                 method="execute">

@@ -8,6 +8,7 @@ import org.springframework.integration.Message;
 import java.util.Map;
 
 /**
+ * Used to invoke CFC that returns data
  * Created by mnimer on 4/16/14.
  */
 public class ObjectCFCService

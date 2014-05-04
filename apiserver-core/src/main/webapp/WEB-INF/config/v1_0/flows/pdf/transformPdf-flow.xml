@@ -29,30 +29,30 @@
 
 
 
-    <si:channel id="extractPdfTextRequestChannel"/>
+    <si:channel id="transformPdfRequestChannel"/>
 
-    <si:channel id="extractPdfTextReplyChannel"/>
+    <si:channel id="transformPdfReplyChannel"/>
 
 
-    <si:gateway id="extractPdfTextApiGateway"
-                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfGateway"
-                default-reply-channel="extractPdfTextReplyChannel"
+    <si:gateway id="convertUrlToPdfChannelApiGateway"
+                service-interface="apiserver.apis.v1_0.pdf.gateways.PdfConversionGateway"
+                default-reply-channel="transformPdfReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
-        <si:method name="extractText"
-                   request-channel="extractPdfTextRequestChannel"/>
+        <si:method name="convertUrlToPdf"
+                   request-channel="transformPdfRequestChannel"/>
 
     </si:gateway>
 
 
 
-    <si:chain input-channel="extractPdfTextRequestChannel"
-              output-channel="extractPdfTextReplyChannel">
+    <si:chain input-channel="transformPdfRequestChannel"
+              output-channel="transformPdfReplyChannel">
 
         <si:service-activator
                 method="execute">
-            <bean class="apiserver.apis.v1_0.pdf.service.ExtractFormService">
-                <property name="cfcPath" value="api-pdf.cfc?method=extractText"/>
+            <bean class="apiserver.core.connectors.coldfusion.services.BinaryCFCService">
+                <property name="cfcPath" value="api-pdf.cfc?method=transformPdf"/>
                 <property name="cfcMethod" value="POST"/>
             </bean>
         </si:service-activator>

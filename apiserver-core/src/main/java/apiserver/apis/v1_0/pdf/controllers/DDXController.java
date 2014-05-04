@@ -50,6 +50,13 @@ public class DDXController
 
     /**
      * Apply a DDX file to a PDF for advanced manipulation
+     *
+     * The supported DDX Elements are:
+     * About,Author,Background,Center,DatePattern,DDX,DocumentInformation,DocumentText,Footer,Header,InitialViewProfile,Keyword,Keywords,Left,MasterPassword,Metadata,NoBookmarks,OpenPassword,PageLabel,Password,PasswordAccessProfile,PasswordEncryptionProfile,PDF (except: certification and mergeLayers ),PDFGroup,Permissions,Right,StyledText,StyleProfile,Subject,TableOfContents,TableOfContentsEntryPattern,TableOfContentsPagePattern,Title,Watermark
+     *
+     * The excluded DDX Elements are:
+     * ArtBox,AttachmentAppearance,Bookmarks,BlankPage,BleedBox,Comments,Description,FileAttachments,FilenameEncoding,LinkAlias,Links,NoBackgrounds,NoComments,NoFileAttchments,NoFooters,NoForms,NoHeaders,NoLinks,NoPageLabels,NoThumbnails,NoWatermarks,NoXFA,PageMargins,PageSize,PageRotation,PageOverlay,PageUnderlay,PDFsFromBookmarks,Transform,TrimBox
+     *
      * @param file
      * @param DDX
      * @return
@@ -69,8 +76,6 @@ public class DDXController
     {
         DDXPdfJob job = new DDXPdfJob();
         job.setFile(new Document(file));
-        job.getFile().setContentType(MimeType.getMimeType(file.getContentType()));
-        job.getFile().setFileName(file.getOriginalFilename());
         job.setDdx(DDX);
 
 

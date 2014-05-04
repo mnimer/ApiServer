@@ -19,9 +19,10 @@ package apiserver.apis.v1_0.pdf.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfGateway;
+import apiserver.apis.v1_0.pdf.gateways.jobs.FlattenPdfJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.LinerizePdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.OptimizePdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.PopulatePdfFormJob;
 import apiserver.core.common.ResponseEntityHelper;
@@ -29,6 +30,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -54,6 +56,7 @@ import java.util.concurrent.TimeoutException;
 @RequestMapping("/pdf")
 public class OptimizeController
 {
+    @Qualifier("pdfOptimizeApiGateway")
     @Autowired
     public PdfGateway gateway;
 
@@ -108,18 +111,16 @@ public class OptimizeController
         OptimizePdfJob job = new OptimizePdfJob();
         //file
         job.setFile(new Document(file));
-        job.getFile().setContentType( MimeType.getMimeType(file.getContentType()) );
-        job.getFile().setFileName( file.getOriginalFilename() );
 
         job.setAlgo(algo);
         job.setPages(pages);
-        if( vscale != null ) job.setVScale(vscale);
-        if( hscale != null ) job.setHScale(hscale);
+        if( vscale != null ) job.setVScale(new Double(vscale));
+        if( hscale != null ) job.setHScale(new Double(hscale));
         if( noattachments != null ) job.setNoAttachments(noattachments);
         if( nobookmarks != null ) job.setNoBookmarks(nobookmarks);
         if( nocomments != null ) job.setNoComments(nocomments);
         if( nofonts != null ) job.setNoFonts(nofonts);
-        if( nojavascripts != null ) job.setNoJavascripts(nojavascripts);
+        if( nojavascripts != null ) job.setNoJavaScripts(nojavascripts);
         if( nolinks != null ) job.setNoLinks(nolinks);
         if( nometadata != null ) job.setNoMetadata(nometadata);
         if( nothumbnails != null ) job.setNoThumbnails(nothumbnails);
@@ -165,19 +166,84 @@ public class OptimizeController
 
         job.setAlgo(algo);
         job.setPages(pages);
-        if( vscale != null ) job.setVScale(vscale);
-        if( hscale != null ) job.setHScale(hscale);
+        if( vscale != null ) job.setVScale(new Double(vscale));
+        if( hscale != null ) job.setHScale(new Double(hscale));
         if( noattachments != null ) job.setNoAttachments(noattachments);
         if( nobookmarks != null ) job.setNoBookmarks(nobookmarks);
         if( nocomments != null ) job.setNoComments(nocomments);
         if( nofonts != null ) job.setNoFonts(nofonts);
-        if( nojavascripts != null ) job.setNoJavascripts(nojavascripts);
+        if( nojavascripts != null ) job.setNoJavaScripts(nojavascripts);
         if( nolinks != null ) job.setNoLinks(nolinks);
         if( nometadata != null ) job.setNoMetadata(nometadata);
         if( nothumbnails != null ) job.setNoThumbnails(nothumbnails);
         if( password != null ) job.setPassword(password);
 
         Future<Map> future = gateway.optimizePdf(job);
+        PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
+    }
+
+
+
+
+    /**
+     * linearize PDF documents for faster web display
+     * @param file
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "TODO")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/linerize", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> linerizePdf(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
+    {
+        LinerizePdfJob job = new LinerizePdfJob();
+        //file
+        job.setFile(new Document(file));
+
+        Future<Map> future = gateway.linerizePdf(job);
+        PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
+
+        byte[] fileBytes = payload.getPdfBytes();
+        String contentType = "application/pdf";
+        ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
+        return result;
+    }
+
+
+
+    /**
+     * flatten PDF documents
+     * @param file
+     * @return
+     * @throws InterruptedException
+     * @throws ExecutionException
+     * @throws TimeoutException
+     * @throws IOException
+     * @throws Exception
+     */
+    @ApiOperation(value = "TODO")
+    @Produces("application/pdf")
+    @RequestMapping(value = "/flatten", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> flattenPdf(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file
+    ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
+    {
+        FlattenPdfJob job = new FlattenPdfJob();
+        //file
+        job.setFile(new Document(file));
+
+        Future<Map> future = gateway.flattenPdf(job);
         PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] fileBytes = payload.getPdfBytes();

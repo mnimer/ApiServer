@@ -25,7 +25,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.UUID;
 
 /**
@@ -90,6 +94,7 @@ public class Document implements Serializable
 
             fileName = ((File)file).getName();
             this.file = file;
+            this.setFileName(fileName);
             this.contentType = MimeType.getMimeType(fileName);
 
             byte[] bytes = FileUtils.readFileToByteArray(((File)file));
@@ -99,6 +104,8 @@ public class Document implements Serializable
         else if( file instanceof MultipartFile)
         {
             fileName = ((MultipartFile)file).getOriginalFilename();
+            this.setContentType(MimeType.getMimeType(((MultipartFile) file).getContentType()));
+            this.setFileName(((MultipartFile) file).getOriginalFilename());
             this.setFileBytes(((MultipartFile)file).getBytes());
             this.setSize( new Integer(this.getFileBytes().length).longValue() );
         }

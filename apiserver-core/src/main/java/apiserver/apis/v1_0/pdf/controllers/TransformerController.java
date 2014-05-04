@@ -1,37 +1,16 @@
 package apiserver.apis.v1_0.pdf.controllers;
 
-/*******************************************************************************
- Copyright (c) 2013 Mike Nimer.
-
- This file is part of ApiServer Project.
-
- The ApiServer Project is free software: you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation, either version 3 of the License, or
- (at your option) any later version.
-
- The ApiServer Project is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License
- along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
- ******************************************************************************/
-
 import apiserver.apis.v1_0.documents.model.Document;
 import apiserver.apis.v1_0.pdf.gateways.PdfGateway;
-import apiserver.apis.v1_0.pdf.gateways.jobs.MergePdfJob;
 import apiserver.apis.v1_0.pdf.gateways.jobs.PopulatePdfFormJob;
+import apiserver.apis.v1_0.pdf.gateways.jobs.SecurePdfJob;
 import apiserver.core.common.ResponseEntityHelper;
-import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -46,15 +25,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 /**
- * User: mnimer
- * Date: 9/15/12
+ * Created by mnimer on 4/18/14.
  */
-@Controller
-@Api(value = "/pdf", description = "[PDF]")
-@RequestMapping("/pdf")
-public class MergeController
+public class TransformerController
 {
-    @Qualifier("pdfMergeApiGateway")
+    @Qualifier("transformPdfApiGateway")
     @Autowired
     public PdfGateway gateway;
 
@@ -62,9 +37,9 @@ public class MergeController
 
 
     /**
-     * Merge two pdf files into one.
-     * @param file1
-     * @param file2
+     * Transform pages
+     * @param file
+     * @param password
      * @return
      * @throws InterruptedException
      * @throws ExecutionException
@@ -72,20 +47,28 @@ public class MergeController
      * @throws IOException
      * @throws Exception
      */
-    @ApiOperation(value = "Merge two pdf files into one.")
+    @ApiOperation(value = "Transform pages in pdf")
     @Produces("application/pdf")
-    @RequestMapping(value = "/merge", method = RequestMethod.POST)
-    public ResponseEntity<byte[]> mergePdfDocuments(
-            @ApiParam(name="file1", required = true) @RequestPart("file1") MultipartFile file1,
-            @ApiParam(name="file2", required = true) @RequestPart("file2") MultipartFile file2
+    @RequestMapping(value = "/protect", method = RequestMethod.POST)
+    public ResponseEntity<byte[]> transform(
+            @ApiParam(name="file", required = true) @RequestPart("file") MultipartFile file,
+            @ApiParam(name="password", required = false) @RequestPart("password") String password,
+            @ApiParam(name="hScale", required = false) @RequestPart("hScale") Double hScale,
+            @ApiParam(name="vScale", required = false) @RequestPart("vScale") Double vScale,
+            @ApiParam(name="position", required = false) @RequestPart("position") String position,
+            @ApiParam(name="rotation", required = false, allowableValues = "0, 90, 180, 270") @RequestPart("rotation") Integer rotation
     ) throws InterruptedException, ExecutionException, TimeoutException, IOException, Exception
     {
-        MergePdfJob job = new MergePdfJob();
-        job.setFile1( new Document(file1) );
-        job.setFile2( new Document(file2) );
+        SecurePdfJob job = new SecurePdfJob();
+        //file
+        job.setFile(new Document(file));
+        if( password != null ) job.setPassword(password);
+        if( hScale != null ) job.setHScale(hScale);
+        if( vScale != null ) job.setVScale(vScale);
+        if( position != null ) job.setPosition(position);
+        if( rotation != null ) job.setRotation(rotation);
 
-
-        Future<Map> future = gateway.mergePdf(job);
+        Future<Map> future = gateway.transformPdf(job);
         PopulatePdfFormJob payload = (PopulatePdfFormJob)future.get(defaultTimeout, TimeUnit.MILLISECONDS);
 
         byte[] fileBytes = payload.getPdfBytes();
@@ -93,6 +76,4 @@ public class MergeController
         ResponseEntity<byte[]> result = ResponseEntityHelper.processFile(fileBytes, contentType, false);
         return result;
     }
-
-
 }

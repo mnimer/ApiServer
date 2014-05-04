@@ -19,15 +19,12 @@
 
 <cfcomponent>
 
-
     <cffunction name= 'mergePdf'>
         <cfargument name="file1">
         <cfargument name="file2">
         <cfargument name="options">
 
     </cffunction>
-
-
 
     <cffunction name= 'optimizePdf'>
         <cfargument name="file">
@@ -38,6 +35,44 @@
     <cffunction name= 'processDDX'>
         <cfargument name="file">
         <cfargument name="ddx">
+
+    </cffunction>
+
+    <cffunction name= 'addFooter'>
+        <cfargument name="file">
+        <cfargument name="options">
+
+           <!--- check for image in options, and deserialize base64 --->
+    </cffunction>
+
+    <cffunction name= 'addHeader'>
+        <cfargument name="file">
+        <cfargument name="options">
+
+<!--- check for image in options, and deserialize base64 --->
+    </cffunction>
+
+    <cffunction name= 'pdfInfo'>
+        <cfargument name="file">
+        <cfargument name="options">
+
+    </cffunction>
+
+    <cffunction name= 'deletePdfPages'>
+        <cfargument name="file">
+        <cfargument name="options">
+
+    </cffunction>
+
+    <cffunction name= 'securePdf'>
+        <cfargument name="file">
+        <cfargument name="options">
+
+    </cffunction>
+
+    <cffunction name= 'transformPdf'>
+        <cfargument name="file">
+        <cfargument name="options">
 
     </cffunction>
 </cfcomponent>

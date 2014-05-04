@@ -36,7 +36,7 @@
 
     <si:gateway id="extractPdfFormApiGateway"
                 service-interface="apiserver.apis.v1_0.pdf.gateways.PdfFormGateway"
-                default-reply-channel="populatePdfFormRequestChannel"
+                default-reply-channel="populatePdfFormReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
         <si:method name="populatePdfForm"

@@ -36,7 +36,7 @@
 
     <si:gateway id="extractPdfImageApiGateway"
                 service-interface="apiserver.apis.v1_0.pdf.gateways.PdfGateway"
-                default-reply-channel="extractPdfImageRequestChannel"
+                default-reply-channel="extractPdfImageReplyChannel"
                 default-reply-timeout="#{applicationProperties.defaultReplyTimeout}">
 
         <si:method name="extractImage"
