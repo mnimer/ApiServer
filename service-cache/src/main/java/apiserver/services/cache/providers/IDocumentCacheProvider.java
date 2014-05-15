@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.gateway.jobs;
+package apiserver.services.cache.providers;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,26 +19,34 @@ package apiserver.apis.v1_0.documents.gateway.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.apis.v1_0.documents.model.Document;
 
 /**
- * User: mikenimer
- * Date: 7/19/13
+ * User: mnimer
+ * Date: 8/17/12
+ *
+ * A cache interface that could be implemented by a system like ehcache, or memcache - then exposed to applications through this interface.
  */
-public class DeleteDocumentJob extends DocumentJob
+public interface IDocumentCacheProvider
 {
+    /**
+     *
+     * @param obj
+     * @return  key
+     */
+    Document add(Document obj);
 
-    private String documentId;
+    /**
+     * Get an item out of the cache, based on KEY returned from add() method
+     * @param key
+     * @return  object in cache or NULL
+     */
+    Document get(String key);
 
-
-    public String getDocumentId()
-    {
-        return documentId;
-    }
-
-
-    public void setDocumentId(String documentId)
-    {
-        this.documentId = documentId;
-    }
+    /**
+     * Get an item out of the cache, based on KEY returned from add() method
+     * @param key
+     * @return  object in cache or NULL
+     */
+    Document delete(String key);
 }

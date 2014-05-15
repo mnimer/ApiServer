@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents;
+package apiserver.services.cache.providers;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,25 +19,18 @@ package apiserver.apis.v1_0.documents;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.model.Document;
-
 /**
  * User: mikenimer
- * Date: 10/24/13
+ * Date: 10/26/13
  */
-public class DocumentJob
+public class EhCacheProvider
 {
 
-    private Document document;
 
-
-    public Document getDocument()
+    public EhCacheProvider()
     {
-        return document;
-    }
+        //Cache _cache = new Cache(new CacheConfiguration(getCacheName(), 1000).eternal(true).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.CLOCK));
+        //_cache.initialise();
 
-    public void setDocument(Document document)
-    {
-        this.document = document;
     }
 }

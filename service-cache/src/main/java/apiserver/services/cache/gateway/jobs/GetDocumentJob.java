@@ -1,4 +1,4 @@
-package apiserver.core.providers.persistence;
+package apiserver.services.cache.gateway.jobs;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,11 +19,26 @@ package apiserver.core.providers.persistence;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.services.cache.DocumentJob;
+
 /**
  * User: mikenimer
- * Date: 10/24/13
+ * Date: 7/19/13
  */
-public class IDocumentPersistenceProvider
+public class  GetDocumentJob extends DocumentJob
 {
+    private String documentId;
+
+
+    public String getDocumentId()
+    {
+        return documentId;
+    }
+
+
+    public void setDocumentId(String documentId)
+    {
+        this.documentId = documentId;
+    }
 
 }

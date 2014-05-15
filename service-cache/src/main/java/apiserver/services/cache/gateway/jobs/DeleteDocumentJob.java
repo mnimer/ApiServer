@@ -1,4 +1,4 @@
-package apiserver.core.providers.cache;
+package apiserver.services.cache.gateway.jobs;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,18 +19,26 @@ package apiserver.core.providers.cache;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.services.cache.DocumentJob;
+
 /**
  * User: mikenimer
- * Date: 10/26/13
+ * Date: 7/19/13
  */
-public class EhCacheProvider
+public class DeleteDocumentJob extends DocumentJob
 {
 
+    private String documentId;
 
-    public EhCacheProvider()
+
+    public String getDocumentId()
     {
-        //Cache _cache = new Cache(new CacheConfiguration(getCacheName(), 1000).eternal(true).memoryStoreEvictionPolicy(MemoryStoreEvictionPolicy.CLOCK));
-        //_cache.initialise();
+        return documentId;
+    }
 
+
+    public void setDocumentId(String documentId)
+    {
+        this.documentId = documentId;
     }
 }

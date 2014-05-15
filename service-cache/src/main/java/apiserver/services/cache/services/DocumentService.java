@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.services;
+package apiserver.services.cache.services;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,10 +19,10 @@ package apiserver.apis.v1_0.documents.services;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.services.cache.DocumentJob;
 import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
 import apiserver.apis.v1_0.documents.model.Document;
-import apiserver.core.providers.cache.IDocumentCacheProvider;
+import apiserver.services.cache.providers.IDocumentCacheProvider;
 import apiserver.exceptions.MessageConfigException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;

@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.gateway.jobs;
+package apiserver.services.cache.gateway;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,26 +19,22 @@ package apiserver.apis.v1_0.documents.gateway.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
+import apiserver.services.cache.DocumentJob;
+import apiserver.services.cache.gateway.jobs.DeleteDocumentJob;
+import apiserver.services.cache.gateway.jobs.GetDocumentJob;
+import apiserver.services.cache.gateway.jobs.UploadDocumentJob;
+
+import java.util.concurrent.Future;
 
 /**
  * User: mikenimer
  * Date: 7/19/13
  */
-public class  GetDocumentJob extends DocumentJob
+public interface DocumentGateway
 {
-    private String documentId;
+    Future<DocumentJob> addDocument(UploadDocumentJob args);
 
+    Future<DocumentJob> deleteDocument(DeleteDocumentJob args);
 
-    public String getDocumentId()
-    {
-        return documentId;
-    }
-
-
-    public void setDocumentId(String documentId)
-    {
-        this.documentId = documentId;
-    }
-
+    Future<DocumentJob> getDocument(GetDocumentJob args);
 }

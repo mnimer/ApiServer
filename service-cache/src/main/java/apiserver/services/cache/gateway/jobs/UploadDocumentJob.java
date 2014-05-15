@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.gateway.jobs;
+package apiserver.services.cache.gateway.jobs;
 
 
 /*******************************************************************************
@@ -20,8 +20,8 @@ package apiserver.apis.v1_0.documents.gateway.jobs;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.services.cache.DocumentJob;
+import apiserver.services.cache.model.Document;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;

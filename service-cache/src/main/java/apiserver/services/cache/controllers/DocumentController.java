@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.controllers;
+package apiserver.services.cache.controllers;
 
 
 /*******************************************************************************
@@ -20,11 +20,11 @@ package apiserver.apis.v1_0.documents.controllers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.apis.v1_0.documents.gateway.DocumentGateway;
-import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
+import apiserver.services.cache.DocumentJob;
+import apiserver.services.cache.gateway.DocumentGateway;
+import apiserver.services.cache.gateway.jobs.DeleteDocumentJob;
+import apiserver.services.cache.gateway.jobs.GetDocumentJob;
+import apiserver.services.cache.gateway.jobs.UploadDocumentJob;
 import apiserver.core.common.ResponseEntityHelper;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;

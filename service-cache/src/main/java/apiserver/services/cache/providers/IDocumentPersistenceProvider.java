@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.gateway;
+package apiserver.services.cache.providers;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -19,22 +19,11 @@ package apiserver.apis.v1_0.documents.gateway;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.DeleteDocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.GetDocumentJob;
-import apiserver.apis.v1_0.documents.gateway.jobs.UploadDocumentJob;
-
-import java.util.concurrent.Future;
-
 /**
  * User: mikenimer
- * Date: 7/19/13
+ * Date: 10/24/13
  */
-public interface DocumentGateway
+public class IDocumentPersistenceProvider
 {
-    Future<DocumentJob> addDocument(UploadDocumentJob args);
 
-    Future<DocumentJob> deleteDocument(DeleteDocumentJob args);
-
-    Future<DocumentJob> getDocument(GetDocumentJob args);
 }

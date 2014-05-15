@@ -1,4 +1,4 @@
-package apiserver.apis.v1_0.documents.model;
+package apiserver.services.cache.model;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.

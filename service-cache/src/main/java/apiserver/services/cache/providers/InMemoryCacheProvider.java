@@ -1,4 +1,4 @@
-package apiserver.core.providers.cache;
+package apiserver.services.cache.providers;
 
 /*******************************************************************************
  Copyright (c) 2013 Mike Nimer.
@@ -21,7 +21,6 @@ package apiserver.core.providers.cache;
 
 import apiserver.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
