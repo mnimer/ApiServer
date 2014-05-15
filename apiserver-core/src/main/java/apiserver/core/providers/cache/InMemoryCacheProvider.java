@@ -19,10 +19,8 @@ package apiserver.core.providers.cache;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.MimeType;
+import apiserver.MimeType;
 import apiserver.apis.v1_0.documents.model.Document;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Collections;
@@ -36,7 +34,6 @@ import java.util.UUID;
  */
 public class InMemoryCacheProvider implements IDocumentCacheProvider
 {
-    private final Logger log = LoggerFactory.getLogger(InMemoryCacheProvider.class);
 
     // todo: replace with a better cache collection type
     private static Map<String, Object> cache = Collections.synchronizedMap(new LinkedHashMap<String, Object>());

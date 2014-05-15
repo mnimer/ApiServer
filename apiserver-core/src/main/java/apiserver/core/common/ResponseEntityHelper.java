@@ -20,8 +20,6 @@ package apiserver.core.common;
  ******************************************************************************/
 
 import com.adobe.xmp.impl.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -38,7 +36,6 @@ import java.io.IOException;
  */
 public class ResponseEntityHelper
 {
-    public final Logger log = LoggerFactory.getLogger(ResponseEntityHelper.class);
 
     /**
      * return a BufferedImage as byte[] array or as a base64 version of the image bytes

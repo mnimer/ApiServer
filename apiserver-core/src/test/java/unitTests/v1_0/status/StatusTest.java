@@ -23,8 +23,6 @@ import apiserver.apis.v1_0.status.gateways.ApiStatusGateway;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -45,7 +43,6 @@ import java.util.concurrent.TimeUnit;
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/apiserverHealth-flow.xml"})
 public class StatusTest
 {
-    public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
 
     @Autowired
     private ApiStatusGateway gateway;
@@ -55,7 +52,7 @@ public class StatusTest
     public void testApiServerHealth()
     {
         Map result = gateway.checkApiServerSync();
-        log.info("RESULT:\n\n" + result + "\n\n");
+        //log.info("RESULT:\n\n" + result + "\n\n");
 
         Assert.assertNotNull(result);
         Assert.assertTrue( result.get("status").toString().equals("ok") );
@@ -67,7 +64,7 @@ public class StatusTest
     {
         Future<Map> resultFuture = gateway.checkApiServerAsync();
         Map result = resultFuture.get(10000, TimeUnit.MILLISECONDS);
-        log.info("RESULT:\n\n" + result + "\n\n");
+        //log.info("RESULT:\n\n" + result + "\n\n");
 
         Assert.assertNotNull(result);
         Assert.assertTrue(result instanceof Map);

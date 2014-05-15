@@ -106,7 +106,8 @@
 	</servlet>
 
 
-	<servlet-mapping>
+
+    <servlet-mapping>
 		<servlet-name>PingServlet</servlet-name>
 		<url-pattern>/ping/*</url-pattern>
 	</servlet-mapping>
@@ -119,7 +120,6 @@
 
 
 	<welcome-file-list id="WelcomeFileList">
-		<welcome-file>index.jsp</welcome-file>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
 	</welcome-file-list>

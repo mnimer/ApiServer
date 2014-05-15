@@ -19,8 +19,6 @@ package apiserver.core.common.transformers;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.integration.Message;
 import org.springframework.integration.annotation.Transformer;
 import org.springframework.stereotype.Component;
@@ -35,8 +33,6 @@ import java.util.Map;
 @Component
 public class DebugTransformer
 {
-    public final Logger log = LoggerFactory.getLogger(DebugTransformer.class);
-
 
     @Transformer
     public Message<Map> transform(Message<Map> message)

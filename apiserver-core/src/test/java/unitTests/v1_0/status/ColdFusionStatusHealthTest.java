@@ -23,8 +23,6 @@ import apiserver.apis.v1_0.status.gateways.ApiStatusColdFusionGateway;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
@@ -47,7 +45,6 @@ import java.util.concurrent.TimeoutException;
         "file:apiserver-core/src/main/webapp/WEB-INF/config/v1_0/flows/status/coldFusionHealth-flow.xml"})
 public class ColdFusionStatusHealthTest
 {
-    public final Logger log = LoggerFactory.getLogger(ColdFusionStatusHealthTest.class);
 
     private @Value("#{applicationProperties.defaultReplyTimeout}") Integer defaultTimeout;
 
@@ -59,7 +56,7 @@ public class ColdFusionStatusHealthTest
     public void testColdFusionHealth()
     {
         Map result = gateway.checkColdfusionSync();
-        log.info("RESULT:\n\n" + result + "\n\n");
+        //log.info("RESULT:\n\n" + result + "\n\n");
 
         Assert.assertNotNull(result);
         Assert.assertEquals( 3, ((Map)result.get("coldfusion")).size() );
@@ -73,7 +70,7 @@ public class ColdFusionStatusHealthTest
             Future<Map> resultFuture = gateway.checkColdfusionAsync();
             Object result = resultFuture.get( defaultTimeout, TimeUnit.MILLISECONDS );
 
-            log.info("RESULT:\n\n" + result.toString() + "\n\n");
+            //log.info("RESULT:\n\n" + result.toString() + "\n\n");
 
             Assert.assertNotNull(result);
             Assert.assertTrue(result instanceof Map);
@@ -99,7 +96,7 @@ public class ColdFusionStatusHealthTest
         {
             Object result = gateway.checkColdfusionSync();
 
-            log.info("RESULT:\n\n" + result.toString() + "\n\n");
+            //log.info("RESULT:\n\n" + result.toString() + "\n\n");
 
             Assert.assertNotNull(result);
             Assert.assertTrue(result instanceof Map);

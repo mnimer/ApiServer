@@ -21,8 +21,6 @@ package apiserver.core.swagger;
 
 import com.mangofactory.swagger.OperationComparator;
 import com.wordnik.swagger.core.DocumentationOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -31,7 +29,6 @@ import org.slf4j.LoggerFactory;
  */
 public class NameOperationComparator implements OperationComparator
 {
-    private final Logger log = LoggerFactory.getLogger(NameOperationComparator.class);
 
     @Override
     public int compare(DocumentationOperation first, DocumentationOperation second) {

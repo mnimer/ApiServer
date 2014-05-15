@@ -22,8 +22,6 @@ package apiserver.apis.v1_0.documents.gateway.jobs;
 
 import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.documents.model.Document;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -35,8 +33,6 @@ import java.io.IOException;
  */
 public class UploadDocumentJob extends DocumentJob
 {
-    public final Logger log = LoggerFactory.getLogger(UploadDocumentJob.class);
-
 
     /**
      * create the object with the Multipart file that was uploaded

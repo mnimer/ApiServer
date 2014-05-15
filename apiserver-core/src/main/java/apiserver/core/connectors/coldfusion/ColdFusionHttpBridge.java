@@ -20,8 +20,8 @@ package apiserver.core.connectors.coldfusion;
  ******************************************************************************/
 
 import apiserver.ApiServerConstants;
+import apiserver.apis.v1_0.documents.DocumentJob;
 import apiserver.apis.v1_0.documents.model.Document;
-import apiserver.apis.v1_0.images.gateways.jobs.ImageDocumentJob;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -36,16 +36,11 @@ import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.ByteArrayBody;
 import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.xerces.impl.dv.util.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -60,7 +55,6 @@ import java.util.Map;
  */
 public class ColdFusionHttpBridge implements IColdFusionBridge
 {
-    public final Logger log = LoggerFactory.getLogger(ColdFusionHttpBridge.class);
 
     HashMap cfcPathCache = new HashMap();
 
@@ -251,9 +245,9 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 }
             }
 
-            if( props instanceof ImageDocumentJob)
+            if( props instanceof DocumentJob)
             {
-                methodArgs.put(ApiServerConstants.IMAGE, ((ImageDocumentJob)props).getDocument().getFile() );
+                methodArgs.put(ApiServerConstants.IMAGE, ((DocumentJob)props).getDocument().getFile() );
             }
         }
 

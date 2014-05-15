@@ -19,8 +19,6 @@ package apiserver.core.common.interceptors;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.integration.Message;
 import org.springframework.integration.MessageChannel;
 import org.springframework.integration.channel.ChannelInterceptor;
@@ -31,7 +29,6 @@ import org.springframework.integration.channel.ChannelInterceptor;
  */
 public class DebugTraceInterceptor implements ChannelInterceptor
 {
-    public final Logger log = LoggerFactory.getLogger(DebugTraceInterceptor.class);
 
 
     @Override

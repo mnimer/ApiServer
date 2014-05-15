@@ -1,9 +1,9 @@
 package apiserver.core.connectors.coldfusion.services;
 
-import apiserver.apis.v1_0.pdf.gateways.jobs.ExtractPdfFormJob;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.integration.Message;
 
 import java.util.Map;
@@ -14,6 +14,7 @@ import java.util.Map;
  */
 public class BinaryCFCService
 {
+    @Qualifier("ColdFusionHttpBridge")
     @Autowired
     public IColdFusionBridge coldFusionBridge;
 
@@ -53,7 +54,7 @@ public class BinaryCFCService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        ExtractPdfFormJob props = (ExtractPdfFormJob)message.getPayload();
+        BinaryJob props = (BinaryJob)message.getPayload();
 
         try
         {

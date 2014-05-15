@@ -19,7 +19,7 @@ package apiserver.apis.v1_0.documents.model;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import apiserver.apis.v1_0.MimeType;
+import apiserver.MimeType;
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 

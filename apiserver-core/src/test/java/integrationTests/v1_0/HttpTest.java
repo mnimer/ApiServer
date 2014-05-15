@@ -19,7 +19,6 @@ package integrationTests.v1_0;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
-import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;
 import org.apache.http.client.HttpClient;
@@ -45,7 +44,6 @@ import java.util.Map;
  * User: mnimer
  * Date: 9/26/12
  */
-@Slf4j
 public class HttpTest
 {
     static Map unitTestProperties = new HashMap();
