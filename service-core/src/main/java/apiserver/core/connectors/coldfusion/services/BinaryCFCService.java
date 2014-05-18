@@ -5,6 +5,7 @@ import apiserver.exceptions.ColdFusionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.Message;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
@@ -12,9 +13,10 @@ import java.util.Map;
  * Used to invoke CFC that returns a binary file
  * Created by mnimer on 4/16/14.
  */
+@Service
 public class BinaryCFCService
 {
-    @Qualifier("ColdFusionHttpBridge")
+
     @Autowired
     public IColdFusionBridge coldFusionBridge;
 

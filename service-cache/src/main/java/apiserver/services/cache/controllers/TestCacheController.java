@@ -1,4 +1,4 @@
-package apiserver.services.pdf.controllers;
+package apiserver.services.cache.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,9 @@ import java.util.Map;
  */
 @Controller
 @RestController
-public class TestController
+public class TestCacheController
 {
-    @RequestMapping(value = "/pdf/test", method= RequestMethod.GET)
+    @RequestMapping(value = "/cache/test", method= RequestMethod.GET)
     public ResponseEntity<Map> test()
     {
         HashMap<String, Object> m = new HashMap<String, Object>();

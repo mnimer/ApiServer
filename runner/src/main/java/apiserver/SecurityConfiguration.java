@@ -20,12 +20,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception
     {
         auth.inMemoryAuthentication()
-            .withUser("user")  // #1
-            .password("password")
-            .roles("USER")
-            .and()
             .withUser("admin") // #2
-            .password("password")
+            .password("admin")
             .roles("ADMIN", "USER");
     }
 
@@ -34,8 +30,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     public void configure(WebSecurity web) throws Exception
     {
         web
-                .ignoring()
-                .antMatchers("/resources/**"); // #3
+            .ignoring()
+            .antMatchers("/resources/**"); // #3
     }
 
 
@@ -43,9 +39,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     protected void configure(HttpSecurity http) throws Exception
     {
         http.authorizeRequests()
+            .antMatchers("/test/basic-auth/**").hasRole("USER") // #6
+            .antMatchers("/cache/**").permitAll() // #4
+            .antMatchers("/images/**").permitAll() // #4
             .antMatchers("/pdf/**").permitAll() // #4
-            .antMatchers("/admin/**").hasRole("ADMIN") // #6
-            .antMatchers("/images/**").hasRole("USER") // #6
             .anyRequest().authenticated() // 7
             .and().httpBasic();
     }

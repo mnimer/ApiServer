@@ -1,6 +1,7 @@
 package apiserver.core.connectors.coldfusion.jobs;
 
-import apiserver.apis.v1_0.documents.model.Document;
+
+import apiserver.core.model.IDocument;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -151,7 +152,7 @@ public class CFPdfJob implements Serializable
     }
 
 
-    public void setImage(Document image)
+    public void setImage(IDocument image)
     {
         this.getOptions().put(IMAGE, image);
     }

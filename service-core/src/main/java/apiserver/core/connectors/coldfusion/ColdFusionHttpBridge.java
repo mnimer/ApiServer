@@ -20,8 +20,8 @@ package apiserver.core.connectors.coldfusion;
  ******************************************************************************/
 
 import apiserver.ApiServerConstants;
-import apiserver.apis.v1_0.documents.DocumentJob;
-import apiserver.apis.v1_0.documents.model.Document;
+import apiserver.core.model.IDocument;
+import apiserver.core.model.IDocumentJob;
 import apiserver.exceptions.ColdFusionException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -39,6 +39,7 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.xerces.impl.dv.util.Base64;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -54,7 +55,7 @@ import java.util.Map;
  * User: mikenimer
  * Date: 3/24/13
  */
-@Service
+@Component
 public class ColdFusionHttpBridge implements IColdFusionBridge
 {
 
@@ -119,11 +120,11 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                         {
                             me.addPart(s, new FileBody((File) obj));
                         }
-                        else if (obj instanceof Document)
+                        else if (obj instanceof IDocument)
                         {
-                            me.addPart(s, new StringBody( Base64.encode( ((Document) obj).getFileBytes() )));
-                            me.addPart("name",  new StringBody( ((Document) obj).getFileName() ) );
-                            me.addPart("contentType",  new StringBody( ((Document) obj).getContentType().contentType ) );
+                            me.addPart(s, new StringBody( Base64.encode( ((IDocument) obj).getFileBytes() )));
+                            me.addPart("name",  new StringBody( ((IDocument) obj).getFileName() ) );
+                            me.addPart("contentType",  new StringBody( ((IDocument) obj).getContentType().contentType ) );
                             //me.addPart(s, new FileBody(((Document) obj).getFile()));
                             //me.addPart(s, new ByteArrayBody( ((Document) obj).getFileBytes(), ((Document) obj).getContentType().contentType, ((Document) obj).getFileName() ));
                         }
@@ -247,9 +248,9 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                 }
             }
 
-            if( props instanceof DocumentJob)
+            if( props instanceof IDocumentJob)
             {
-                methodArgs.put(ApiServerConstants.IMAGE, ((DocumentJob)props).getDocument().getFile() );
+                methodArgs.put(ApiServerConstants.IMAGE, ((IDocumentJob)props).getDocument().getFile() );
             }
         }
 

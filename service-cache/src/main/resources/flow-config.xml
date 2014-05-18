@@ -28,26 +28,9 @@
 
 
         <!-- status flows -->
-    <import resource="imageBorder-flow.xml"/>
-    <import resource="imageInfo-flow.xml"/>
-    <import resource="imageMetadata-flow.xml"/>
-    <import resource="imageResize-flow.xml"/>
-    <import resource="imageRotate-flow.xml"/>
-    <import resource="imageText-flow.xml"/>
-    <import resource="filters/filterBlur-flow.xml"/>
-    <import resource="filters/filterBoxBlur-flow.xml"/>
-    <import resource="filters/filterBump-flow.xml"/>
-    <import resource="filters/filterDespeckle-flow.xml"/>
-    <import resource="filters/filterGaussian-flow.xml"/>
-    <import resource="filters/filterGlow-flow.xml"/>
-    <import resource="filters/filterGrayScale-flow.xml"/>
-    <import resource="filters/filterLensBlur-flow.xml"/>
-    <import resource="filters/filterMask-flow.xml"/>
-    <import resource="filters/filterMaximum-flow.xml"/>
-    <import resource="filters/filterMedian-flow.xml"/>
-    <import resource="filters/filterMinimum-flow.xml"/>
-    <import resource="filters/filterMotionBlur-flow.xml"/>
-    <import resource="filters/filterOil-flow.xml"/>
+    <import resource="flows/documentAdd-flow.xml"/>
+    <import resource="flows/documentDelete-flow.xml"/>
+    <import resource="flows/documentGet-flow.xml"/>
 
 
 
