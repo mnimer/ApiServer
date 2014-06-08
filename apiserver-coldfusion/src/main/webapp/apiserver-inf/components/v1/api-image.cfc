@@ -19,53 +19,25 @@
 
 <cfcomponent output="false">
 
-    <cffunction name="imageInfo" access="remote" returntype="any" returnformat="plain">
-        <cfargument name="image" />
-
-        <cfimage
-                action="info"
-                source="#arguments.image#"
-                structname="imageInfo">
-
-        <cfset results = structNew()>
-        <cfset results['width'] = imageInfo.width>
-        <cfset results['height'] = imageInfo.height>
-
-        <cfreturn toBase64(results)/>
-    </cffunction>
-
-
-    <cffunction name="imageMetadata" access="remote" returntype="any" returnformat="plain">
+    <cffunction name="addBorder" output="no" access="remote" returnformat="plain">
         <cfargument name="image"/>
+        <cfargument name="color" default="black"/>
+        <cfargument name="thickness" default="10"/>
+
         <cfimage
-                action="read"
-                source="#arguments.image#"
+                action="border"
+                color="#arguments.color#"
+                thickness="#arguments.thickness#"
+                source="#ImageNew(image)#"
                 name="cfimage">
+
 
         <cfreturn toBase64(cfimage)/>
     </cffunction>
 
 
-    <cffunction name="imageConvert" access="remote" returnformat="json" returntype="Binary">
-        <cfthrow detail="Not Implemented Yet"/>
-    </cffunction>
 
-
-    <cffunction name="rotateImage" access="remote" returnformat="json">
-        <cfargument name="image"/>
-        <cfargument name="angle" default="90"/>
-
-        <cfimage
-                action="rotate"
-                angle="#arguments.angle#"
-                source="#arguments.image#"
-                name="cfimage">
-
-        <cfreturn toBase64( cfimage )/>
-    </cffunction>
-
-
-    <cffunction name="resizeImage" access="remote" returntype="any" returnformat="plain" >
+    <cffunction name="resizeImage" output="no" access="remote" returnformat="plain" >
         <cfargument name="image"/>
         <cfargument name="width" default="1024"/>
         <cfargument name="height" default="768"/>
@@ -76,28 +48,29 @@
                 action="resize"
                 width="#arguments.width#"
                 height="#arguments.height#"
-                source="#arguments.image#"
                 interpolation="#arguments.interpolation#"
+                source="#ImageNew(arguments.image)#"
                 name="cfimage">
 
         <cfreturn toBase64( cfimage ) />
     </cffunction>
 
 
-    <cffunction name="addBorder" access="remote" returntype="any" returnformat="plain">
+
+
+    <cffunction name="rotateImage" output="no" access="remote" returnformat="plain">
         <cfargument name="image"/>
-        <cfargument name="color" default="1024"/>
-        <cfargument name="thickness" default="10"/>
+        <cfargument name="angle" default="90"/>
 
         <cfimage
-                action="border"
-                color="#arguments.color#"
-                thickness="#arguments.thickness#"
-                source="#arguments.image#"
+                action="rotate"
+                angle="#arguments.angle#"
+                source="#imageNew(arguments.image)#"
                 name="cfimage">
 
-        <cfreturn toBase64(cfimage)/>
+        <cfreturn toBase64( cfimage )/>
     </cffunction>
+
 
 
     <cffunction name="addText" access="remote" returntype="any" returnformat="plain">
@@ -106,55 +79,73 @@
         <cfargument name="color"/>
         <cfargument name="fontSize"/>
         <cfargument name="fontStyle"/>
-        <cfargument name="angle" required="false"/>
-        <cfargument name="x"/>
-        <cfargument name="y"/>
+        <cfargument name="angle" type="numeric"/>
+        <cfargument name="x" type="numeric" />
+        <cfargument name="y" type="numeric"/>
 
         <CFIF arguments.angle gt 0>
             <cfthrow detail="Not Implemented Yet"/>
         </cfif>
 
-        <cfset myImage = ImageNew(expandPath(arguments.image))>
+        <cfset myImage = ImageNew(arguments.image)>
 
         <cfset ImageSetDrawingColor(myImage, arguments.color)>
         <cfset attr = StructNew()>
-        <cfset attr.size = arguments.fontSize>
+        <cfset attr.size = val(arguments.fontSize) & "">
         <cfset attr.style = arguments.fontStyle>
         <cfset ImageDrawText(myImage, text, arguments.x, arguments.y, attr)>
 
         <cfreturn toBase64(myImage)/>
     </cffunction>
 
+<!---
 
-    <cffunction name="generateCaptcha" access="remote" returntype="any" returnformat="plain">
-        <cfargument name="difficulty"/>
-        <cfargument name="width"/>
-        <cfargument name="height"/>
-        <cfargument name="text"/>
-        <cfargument name="fontSize" default="40"/>
-        <cfargument name="fontFamily" default="Verdana,Arial,Courier New,Courier"/>
+<cffunction name="imageMetadata" access="remote" returntype="any" returnformat="plain">
+    <cfargument name="image"/>
+    <cfimage
+            action="read"
+            source="#arguments.image#"
+            name="cfimage">
 
-        <cfimage
-                action="captcha"
-                difficulty="#arguments.difficulty#"
-                width="#arguments.width#"
-                height="#arguments.height#"
-                text="#arguments.text#"
-                fontSize="#fontSize#"
-                fonts="#fontFamily#"
-                name="cfimage">
-
-        <cfreturn toBase64(cfimage)/>
-    </cffunction>
+    <cfreturn toBase64(cfimage)/>
+</cffunction>
 
 
-    <cffunction name="dump" access="remote" returnformat="json" returntype="String">
-        <cfargument name="data">
 
-        <cfsavecontent variable="dump">
-            <cfdump var="#data#" expand="true"/>
-        </cfsavecontent>
 
-        <cfreturn dump>
-    </cffunction>
+
+
+<cffunction name="generateCaptcha" access="remote" returntype="any" returnformat="plain">
+    <cfargument name="difficulty"/>
+    <cfargument name="width"/>
+    <cfargument name="height"/>
+    <cfargument name="text"/>
+    <cfargument name="fontSize" default="40"/>
+    <cfargument name="fontFamily" default="Verdana,Arial,Courier New,Courier"/>
+
+    <cfimage
+            action="captcha"
+            difficulty="#arguments.difficulty#"
+            width="#arguments.width#"
+            height="#arguments.height#"
+            text="#arguments.text#"
+            fontSize="#fontSize#"
+            fonts="#fontFamily#"
+            name="cfimage">
+
+    <cfreturn toBase64(cfimage)/>
+</cffunction>
+
+
+<cffunction name="dump" access="remote" returnformat="json" returntype="String">
+    <cfargument name="data">
+
+    <cfsavecontent variable="dump">
+        <cfdump var="#data#" expand="true"/>
+    </cfsavecontent>
+
+    <cfreturn dump>
+</cffunction>
+
+--->
 </cfcomponent>
