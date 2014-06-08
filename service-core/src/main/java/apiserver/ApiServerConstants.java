@@ -24,11 +24,30 @@ package apiserver;
  */
 public class ApiServerConstants
 {
+
     public static String HTTP_REQUEST = "__request";
     public static String HTTP_RESPONSE = "__response";
 
     public static String IMAGE = "image";
 
+    public final static String FILE = "file";
+    public final static String FILE_NAME = "fileName";
+    public final static String CONTENT_TYPE = "content-type";
+
     public static String WIDTH = "width";
     public static String HEIGHT = "height";
+
+    // Controller arguments
+    public final static String ANGLE = "angle";
+    public final static String COLOR = "color";
+    public final static String THICKNESS = "thickness";
+    public static final Object INTERPOLATION = "interpolation";
+    public static final Object SCALE_TO_FIT = "scaleToFit";
+    public static final Object TEXT = "text";
+    public static final Object FONT_SIZE = "fontSize";
+    public static final Object FONT_STYLE = "fontStyle";
+    public static final Object X = "x";
+    public static final Object Y = "y";
+
+
 }

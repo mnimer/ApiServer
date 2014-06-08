@@ -19,6 +19,7 @@ package apiserver.core.common;
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
 
+import apiserver.MimeType;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -117,7 +118,7 @@ public class ResponseEntityHelper
 
 
 
-    public static ResponseEntity<byte[]> processImage(Object image, String contentType, Boolean returnAsBase64) throws IOException
+    public static ResponseEntity<byte[]> processImage(BufferedImage image, String contentType, Boolean returnAsBase64) throws IOException
     {
         // set content type
         String convertToType = "png";
@@ -126,28 +127,28 @@ public class ResponseEntityHelper
         {
             contentType = "application/octet-stream";
             contentType = contentType.toLowerCase();
+        }else{
+            convertToType = MimeType.getMimeType(contentType).getExtension();
         }
 
         //
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType(contentType));
 
+        if( returnAsBase64 )
+        {
+            headers.set("Content-Transfer-Encoding",  "base64");
+        }
+
 
         if (image instanceof BufferedImage)
         {
-            //DataBufferByte bytes = (DataBufferByte)((BufferedImage) image).getRaster().getDataBuffer();
-
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write((BufferedImage) image, convertToType, baos);
+            ImageIO.write(image, convertToType, baos);
             byte[] bytes = baos.toByteArray();
 
             return processFile(bytes, contentType, returnAsBase64);
-
-        } else if (image instanceof byte[])
-        {
-            return processFile((byte[]) image, contentType, returnAsBase64);
         }
-
         throw new RuntimeException("Invalid Image bytes");
     }
 

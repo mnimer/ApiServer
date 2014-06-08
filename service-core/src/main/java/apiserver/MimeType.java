@@ -73,6 +73,11 @@ public enum MimeType
         return this.name();
     }
 
+    public boolean isSupportedImage()
+    {
+        return this.contentType.startsWith("image");
+    }
+
     public static MimeType getMimeType(String fileName)
     {
         String extension = fileName.substring(fileName.lastIndexOf('.')+1);

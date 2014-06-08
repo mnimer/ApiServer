@@ -20,6 +20,7 @@ package apiserver.core.connectors.coldfusion;
  ******************************************************************************/
 
 import apiserver.ApiServerConstants;
+import apiserver.MimeType;
 import apiserver.core.model.IDocument;
 import apiserver.core.model.IDocumentJob;
 import apiserver.exceptions.ColdFusionException;
@@ -39,9 +40,13 @@ import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.xerces.impl.dv.util.Base64;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,10 +66,14 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
 
     HashMap cfcPathCache = new HashMap();
 
+    @Value("${CFHost}")
     private String ip;
+    @Value("${CFPort}")
     private int port;
+    @Value("${CFContextRoot}")
     private String contextRoot;
-    private String cfcPath = "/apiserver-inf/components/v1/"; //todo pull from properties
+    @Value("${CFPath}")
+    private String cfcPath;
 
 
     public void setIp(String ip)
@@ -122,11 +131,18 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                         }
                         else if (obj instanceof IDocument)
                         {
-                            me.addPart(s, new StringBody( Base64.encode( ((IDocument) obj).getFileBytes() )));
+                            me.addPart(s, new FileBody(((IDocument) obj).getFile()));// new StringBody( Base64.encode( ((IDocument) obj).getFileBytes() )));
                             me.addPart("name",  new StringBody( ((IDocument) obj).getFileName() ) );
                             me.addPart("contentType",  new StringBody( ((IDocument) obj).getContentType().contentType ) );
                             //me.addPart(s, new FileBody(((Document) obj).getFile()));
                             //me.addPart(s, new ByteArrayBody( ((Document) obj).getFileBytes(), ((Document) obj).getContentType().contentType, ((Document) obj).getFileName() ));
+                        }
+                        else if (obj instanceof BufferedImage)
+                        {
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            ImageIO.write((BufferedImage)obj, "jpg", baos);
+
+                            me.addPart(s, new ByteArrayBody( baos.toByteArray(), ((MimeType)methodArgs_.get(ApiServerConstants.CONTENT_TYPE)).getExtension(),  (String)methodArgs_.get(ApiServerConstants.FILE_NAME) ));
                         }
                         else if (obj instanceof byte[])
                         {
@@ -169,7 +185,7 @@ public class ColdFusionHttpBridge implements IColdFusionBridge
                     //return json;
                 }
             }
-            throw new ColdFusionException("Invalid Execution");
+            throw new ColdFusionException(response.getStatusLine().toString());
         }
         catch (Exception ex)
         {
