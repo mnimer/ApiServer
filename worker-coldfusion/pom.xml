@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mikenimer.apiserver</groupId>
+    <artifactId>worker-coldfusion</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>worker-coldfusion</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+
+        <!--
+        mvn install:install-file -Dfile=<local path>cfusion.jar -DgroupId=com.adobe -DartifactId=coldfusion -Dversion=10.0.0 -Dpackaging=jar
+        -->
+        <dependency>
+            <groupId>com.adobe</groupId>
+            <artifactId>coldfusion</artifactId>
+            <version>10.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gridgain</groupId>
+            <artifactId>gridgain-platform</artifactId>
+            <version>6.1.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-continuation</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-http</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-io</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--
+        <dependency>
+             <groupId>org.gridgain</groupId>
+             <artifactId>gridgain-hpc</artifactId>
+             <version>6.1.6</version>
+        </dependency>
+        <dependency>
+             <groupId>org.gridgain</groupId>
+             <artifactId>gridgain-datagrid</artifactId>
+             <version>6.1.6</version>
+        </dependency>
+
+         <dependency>
+             <groupId>org.gridgain</groupId>
+             <artifactId>gridgain-platform</artifactId>
+             <version>6.1.6</version>
+             <exclusions>
+                 <exclusion>
+                     <groupId>org.eclipse.jetty</groupId>
+                     <artifactId>jetty-continuation</artifactId>
+                 </exclusion>
+                 <exclusion>
+                     <groupId>org.eclipse.jetty</groupId>
+                     <artifactId>jetty-http</artifactId>
+                 </exclusion>
+                 <exclusion>
+                     <groupId>org.eclipse.jetty</groupId>
+                     <artifactId>jetty-io</artifactId>
+                 </exclusion>
+                 <exclusion>
+                     <groupId>org.eclipse.jetty</groupId>
+                     <artifactId>jetty-server</artifactId>
+                 </exclusion>
+                 <exclusion>
+                     <groupId>org.eclipse.jetty</groupId>
+                     <artifactId>jetty-server</artifactId>
+                 </exclusion>
+             </exclusions>
+        </dependency>
+         -->
+    </dependencies>
+
+    <build>
+        <finalName>worker-coldfusion-${project.version}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+            <!--
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+            -->
+
+        </plugins>
+    </build>
+</project>
