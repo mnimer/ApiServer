@@ -25,6 +25,7 @@ package apiserver;
 public class ApiServerConstants
 {
 
+
     public static String HTTP_REQUEST = "__request";
     public static String HTTP_RESPONSE = "__response";
 
@@ -50,4 +51,6 @@ public class ApiServerConstants
     public static final Object Y = "y";
 
 
+    //Grid Constants
+    public static final String GRID_NAME = "ApiServer";
 }
