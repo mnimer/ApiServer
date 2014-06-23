@@ -76,45 +76,4 @@
 
 
 
-    <cffunction name="docToPdf">
-        <cfargument name="file" type="STRING">
-        <cfargument name="contentType" type="STRING">
-        <cfargument name="name" type="STRING">
-        <cfargument name="options" type="STRUCT" default="#structNew()#">
-
-        <cfscript>
-            if( isJSON(arguments.options) )
-            {
-                arguments.options = DeserializeJSON(arguments.options);
-            }
-        </cfscript>
-
-        <cfset path = getTempDirectory() &createUUID() &"_" &name>
-        <cfdump var="#path#" output="console"/>
-
-        <cftry>
-            <cffile action="write"
-                    nameconflict="overwrite"
-                    file="#path#" output="#toBinary(file)#"/>
-
-
-            <cfdocument
-                    name="pdfResult"
-                    format="pdf"
-                    srcFile="#path#"
-                    attributeCollection="#arguments.options#">
-            </cfdocument>
-
-            <cfreturn pdfResult/>
-
-            <cfcatch type="any">
-                <cfrethrow/>
-            </cfcatch>
-
-            <cffinally>
-                <cffile action="delete" file="#path#"/>
-            </cffinally>
-        </cftry>
-    </cffunction>
-
 </cfcomponent>

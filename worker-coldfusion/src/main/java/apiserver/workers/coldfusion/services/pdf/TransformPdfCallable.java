@@ -5,7 +5,6 @@ import apiserver.workers.coldfusion.exceptions.ColdFusionException;
 import apiserver.workers.coldfusion.model.ByteArrayResult;
 import apiserver.workers.coldfusion.model.Stats;
 import coldfusion.cfc.CFCProxy;
-import coldfusion.image.Image;
 import org.gridgain.grid.lang.GridCallable;
 
 import java.util.Map;
@@ -13,32 +12,31 @@ import java.util.Map;
 /**
  * Created by mnimer on 6/10/14.
  */
-public class UrlToPdfCallable implements GridCallable
+public class TransformPdfCallable implements GridCallable
 {
 
-    private String url;
+    private byte[] file;
     private Map options;
 
 
-    public UrlToPdfCallable(String url, Map options) {
-        this.url = url;
+    public TransformPdfCallable(byte[] file, Map options) {
+        this.file = file;
         this.options = options;
     }
 
 
     @Override
     public ByteArrayResult call() throws Exception {
-        String cfcPath = GridManager.rootPath + "/apiserver-inf/components/v1/api-pdf-convert.cfc";
+        String cfcPath = GridManager.rootPath + "/apiserver-inf/components/v1/api-pdf.cfc";
         try {
             long startTime = System.nanoTime();
-            System.out.println("Invoking Grid Service: api-pdf-convert.cfc::urlToPdf ");
+            System.out.println("Invoking Grid Service: api-pdf.cfc::transformPdf ");
 
             // Invoke CFC
             CFCProxy proxy = new CFCProxy(cfcPath, false);
-            byte[] result = (byte[])proxy.invoke("urlToPdf", new Object[]{this.url, this.options});
+            byte[] result = (byte[])proxy.invoke("transformPdf", new Object[]{this.file, this.options});
 
-
-            // return the raw bytes of the pdf & stats
+            // return the raw bytes of the pdf
             long endTime = System.nanoTime();
             Stats stats = new Stats();
             stats.setExecutionTime(endTime-startTime);
@@ -47,7 +45,7 @@ public class UrlToPdfCallable implements GridCallable
         }
         catch (Throwable e) {
             //e.printStackTrace();
-            throw new ColdFusionException("Error Invoking URL2PDF Service on grid", e);
+            throw new ColdFusionException("Error Invoking TransformPDF Service on grid", e);
         }
     }
 }

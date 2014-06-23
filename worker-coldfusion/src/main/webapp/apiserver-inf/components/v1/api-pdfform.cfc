@@ -19,102 +19,30 @@
 
 <cfcomponent>
 
-    <cffunction name="pdfForm">
-        <cfargument name="policyNum"/>
-        <cfargument name="strInsuredName"/>
-        <cfargument name="address1"/>
-        <cfargument name="state"/>
-        <cfargument name="zip"/>
-        <cfargument name="city"/>
-        <cfargument name="phone"/>
-        <cfargument name="bankName"/>
-        <cfargument name="PaymentName"/>
-        <cfargument name="bankAcctNum"/>
-        <cfargument name="bankCity"/>
+    <cffunction name="populateFormFields">
+        <cfargument name="file"/>
+        <cfargument name="fields"/>
 
         <cfpdfform name="myForm"
                 action="populate"
-                source="#expandPath('/demos-inf/pdfs/EFTAuthorization.pdfs')#">
-            <cfpdfformparam name="ViewPolicy*PolicyNum" value="#PolicyNum#">
-            <cfpdfformparam name="ViewPolicy*strInsuredName" value="#strInsuredName#">
-            <cfpdfformparam name="ViewPolicy*address1" value="#address1#">
-            <cfpdfformparam name="ViewPolicy*State" value="#State#">
-            <cfpdfformparam name="ViewPolicy*Zip" value="#Zip#">
-            <cfpdfformparam name="ViewPolicy*city" value="#city#">
-            <cfpdfformparam name="ViewPolicy*phone" value="#phone#">
-            <cfpdfformparam name="EFTAuthorization*bankName" value="#bankName#">
-            <cfpdfformparam name="EFTAuthorization*PaymentName" value="#PaymentName#">
-            <cfpdfformparam name="EFTAuthorization*bankAcctNum" value="#bankAcctNum#">
-            <cfpdfformparam name="EFTAuthorization*bankCity" value="#bankCity#">
+                source="#file#">
+
+            <cfloop item="key" collection="#fields#">
+                <cfpdfformparam name="#key#" value="#fields[key]#">
+            </cfloop>
         </cfpdfform>
 
-        <cfset binaryPdf = ToBinary(myForm)>
-
-        <cffile action="write"
-                file="#expandPath('/demos-inf/pdfs/populatedForm.pdfs')#"
-                output="#binaryPdf#"/>
-
-        <cfreturn binaryPdf>
+        <cfreturn myForm>
     </cffunction>
 
 
-
-
-    <cffunction name="extractPdfForm">
+    <cffunction name="extractFormFields">
         <cfargument name="file" type="STRING">
 
-        <cftry>
-            <cffile action="write"
-                    nameconflict="overwrite"
-                    file="#path#" output="#toBinary(file)#"/>
-
-            <cfoutput>
-                    <cfpdfform
-                            action="read"
-                            source="#path#"
-                            result="pdfResult"/>
-            </cfoutput>
-
-            <cfcatch type="any">
-                <cfdump var="#cfcatch#" output="console"/>
-            </cfcatch>
-
-            <cffinally>
-                <cffile action="delete" file="#path#"/>
-            </cffinally>
-        </cftry>
-
-        <cfreturn pdfResult>
-    </cffunction>
-
-
-
-
-    <cffunction name="populatePdfForm">
-        <cfargument name="file" type="STRING">
-        <cfargument name="xfdf" type="STRING">
-
-        <cftry>
-            <cffile action="write"
-                    nameconflict="overwrite"
-                    file="#path#" output="#toBinary(file)#"/>
-
-            <cfoutput>
-                <cfpdfform
-                        action="populate"
-                        source="#path#"
-                        xmldata="#arguments.xfdf#"
-                        attributeCollection="#arguments.options#"/>
-            </cfoutput>
-
-            <cfcatch type="any">
-                <cfdump var="#cfcatch#" output="console"/>
-            </cfcatch>
-
-            <cffinally>
-                <cffile action="delete" file="#path#"/>
-            </cffinally>
-        </cftry>
+        <cfpdfform
+                action="read"
+                source="#path#"
+                result="pdfResult"/>
 
         <cfreturn pdfResult>
     </cffunction>
