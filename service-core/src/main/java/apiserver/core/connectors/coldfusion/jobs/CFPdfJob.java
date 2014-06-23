@@ -13,9 +13,10 @@ import java.util.Map;
 public class CFPdfJob implements Serializable
 {
 
+    private static final String ADDQUADS = "addQuads";
+    private static final String ASCENDING = "acending";
     private static final String ALGO = "algo";
-    private static final String PAGES = "pages";
-    private static final String VSCAPE = "vscape";
+    private static final Object ALIGN = "align";
     private static final String HSCAPE = "hscape";
     private static final String NOATTACHMENTS = "noAttachments";
     private static final String NOCOMMENTS = "noComments";
@@ -24,12 +25,14 @@ public class CFPdfJob implements Serializable
     private static final String NOLINKS = "noLinks";
     private static final String NOMETADATA = "noMetadata";
     private static final String NOTHUMBNAILS = "noThumbnails";
+    private static final String PAGES = "pages";
     private static final String PASSWORD = "password";
-    private static final Object ALIGN = "align";
+    private static final String VSCAPE = "vscape";
     private static final Object BOTTOMMARGIN = "bottomMargin";
     private static final Object IMAGE = "image";
     private static final Object INFO = "info";
     private static final Object ISBASE64 = "isBase64";
+    private static final Object KEEPBOOKMARK = "keepBookmark";
     private static final Object LEFTMARGIN = "leftMargin";
     private static final Object RIGHTMARGIN = "rightMargin";
     private static final Object OPACITY = "opacity";
@@ -47,8 +50,15 @@ public class CFPdfJob implements Serializable
     private static final Object ENCRYPT = "encrypt";
     private static final Object NEWUSERPASSWORD = "newUserPassword";
     private static final Object NEWOWNERPASSWORD = "newOwnerPassword";
+    private static final Object ORDER = "order";
+    private static final Object PACKAGEPDF = "package";
     private static final Object POSITION = "position";
     private static final Object ROTATION = "rotation";
+    private static final Object HONOURSPACES = "honourSpaces";
+    private static final Object USESTRUCTURE = "useStructure";
+    private static final Object TYPE = "type";
+    private static final Object FORMAT = "format";
+    private static final Object IMAGEPREFIX = "imagePrefix";
 
 
     // Map of options to pass through, will be set with an AttributeCollection argument.
@@ -295,6 +305,56 @@ public class CFPdfJob implements Serializable
     public void setVScale(Double vScale)
     {
         this.getOptions().put(VSCAPE, vScale);
+    }
+
+
+    public void setKeepBookmark(Boolean keepBookmark) {
+        this.getOptions().put(KEEPBOOKMARK, keepBookmark);
+    }
+
+
+    public void setAscending(Boolean ascending) {
+        this.getOptions().put(ASCENDING, ascending);
+    }
+
+
+    public void setPackagePdf(Boolean packagePdf) {
+        this.getOptions().put(PACKAGEPDF, packagePdf);
+    }
+
+
+    public void setOrder(String order) {
+        this.getOptions().put(ORDER, order);
+    }
+
+
+    public void setAddQuads(String addQuads) {
+        this.getOptions().put(ADDQUADS, addQuads);
+    }
+
+
+    public void setHonourSpaces(Boolean honourSpaces) {
+        this.getOptions().put(HONOURSPACES, honourSpaces);
+    }
+
+
+    public void setUseStructure(Boolean useStructure) {
+        this.getOptions().put(USESTRUCTURE, useStructure);
+    }
+
+
+    public void setType(String type) {
+        this.getOptions().put(TYPE, type);
+    }
+
+
+    public void setFormat(String format) {
+        this.getOptions().put(FORMAT, format);
+    }
+
+
+    public void setImagePrefix(String imagePrefix) {
+        this.getOptions().put(IMAGEPREFIX, imagePrefix);
     }
 
 

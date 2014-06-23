@@ -224,7 +224,7 @@ public abstract class CFDocumentJob implements Serializable
      * Sets one or more of the permissions enums:
      * @param permissions
      */
-    public void setPermissions(Permission[] permissions)
+    public void setPermissions(String[] permissions)
     {
         this.options.put(PERMISSION, Arrays.asList(permissions) );
     }
