@@ -3,6 +3,8 @@ package apiserver.workers.coldfusion;
 import org.gridgain.grid.Grid;
 import org.gridgain.grid.GridConfiguration;
 import org.gridgain.grid.GridGain;
+import org.gridgain.grid.marshaller.optimized.GridOptimizedMarshallable;
+import org.gridgain.grid.marshaller.optimized.GridOptimizedMarshaller;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -75,11 +77,15 @@ public class GridManager implements Servlet
         Map<String, String> userAttr = new HashMap<String, String>();
         userAttr.put("ROLE", "coldfusion-worker");
 
+        GridOptimizedMarshaller marshaller = new GridOptimizedMarshaller();
+        marshaller.setRequireSerializable(false);
+
         GridConfiguration gc = new GridConfiguration();
         gc.setGridName("ApiServer");
-        gc.setPeerClassLoadingEnabled(false);
+        gc.setPeerClassLoadingEnabled(true);
         gc.setRestEnabled(false);
         gc.setUserAttributes(userAttr);
+        gc.setMarshaller(marshaller);
 
 
         //GridCacheConfiguration gcc = new GridCacheConfiguration();

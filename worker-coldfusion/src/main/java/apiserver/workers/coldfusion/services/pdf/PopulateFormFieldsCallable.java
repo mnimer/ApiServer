@@ -16,12 +16,14 @@ public class PopulateFormFieldsCallable implements GridCallable
 {
 
     private byte[] file;
-    private Map fields;
+    private String fields;
+    private String password;
 
 
-    public PopulateFormFieldsCallable(byte[] file, Map fields) {
+    public PopulateFormFieldsCallable(byte[] file, String fields, String password) {
         this.file = file;
         this.fields = fields;
+        this.password = password;
     }
 
 
@@ -34,7 +36,7 @@ public class PopulateFormFieldsCallable implements GridCallable
 
             // Invoke CFC
             CFCProxy proxy = new CFCProxy(cfcPath, false);
-            byte[] result = (byte[])proxy.invoke("populateFormFields", new Object[]{this.file, this.fields});
+            byte[] result = (byte[])proxy.invoke("populateFormFields", new Object[]{this.file, this.fields, this.password});
 
             // return the raw bytes of the pdf
             long endTime = System.nanoTime();

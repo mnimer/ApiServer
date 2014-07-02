@@ -19,29 +19,48 @@
 
 <cfcomponent>
 
-    <cffunction name="populateFormFields">
+    <cffunction name="populateFormFields" access="remote" returntype="Any">
         <cfargument name="file"/>
-        <cfargument name="fields"/>
+        <cfargument name="fields" hint="xml packet of field name/values"/>
+        <cfargument name="password" required="false"/>
 
-        <cfpdfform name="myForm"
+        <cfset _options = structNew()>
+        <cfif isDefined("password") and len(password) gt 0>
+            <cfset _options["password"] = password>
+        </cfif>
+
+
+        <cfsavecontent variable="x1">
+            <?xml version="1.0" encoding="UTF-8"?><xfdf xmlns="http://ns.adobe.com/xfdf/" xml:space="preserve"><fields><field name="Check1"><value>Yes</value></field><field name="Email"><value>mike@foo.com</value></field><field name="FavoriteColor"><value>green</value><value>purple</value></field><field name="FirstName"><value>Mike</value></field><field name="LastName"><value>Nimer</value></field></fields><ids original="BEE1C4660EB520429C7654A7A02417CE" modified="2C87012FF28C4BF8AC0CA24ECF314DEB"></ids></xfdf>
+        </cfsavecontent>
+<!---
+       <cfsavecontent variable="x2">
+           <xfa:data xmlns:xfa="http://www.xfa.org/schema/xfa-data/1.0/">
+               <form1>
+                   <Check1>Yes</Check1>
+                   <Email>mike@foo.com</Email>
+                   <FavoriteColor>green</FavoriteColor>
+                   <FirstName>Mike</FirstName>
+                   <LastName>Nimer</LastName>
+               </form1>
+           </xfa:data>
+       </cfsavecontent>
+       --->
+        <cfpdfform
                 action="populate"
-                source="#file#">
-
-            <cfloop item="key" collection="#fields#">
-                <cfpdfformparam name="#key#" value="#fields[key]#">
-            </cfloop>
+                source="#file#"
+                xmldata="#trim(x1)#">
         </cfpdfform>
 
-        <cfreturn myForm>
     </cffunction>
 
 
-    <cffunction name="extractFormFields">
-        <cfargument name="file" type="STRING">
+    <cffunction name="extractFormFields" access="remote" returntype="struct">
+        <cfargument name="file">
 
         <cfpdfform
                 action="read"
-                source="#path#"
+                source="#file#"
                 result="pdfResult"/>
 
         <cfreturn pdfResult>
