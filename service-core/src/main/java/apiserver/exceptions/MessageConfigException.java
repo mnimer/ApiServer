@@ -26,10 +26,6 @@ package apiserver.exceptions;
  */
 public class MessageConfigException extends Exception
 {
-    public static String MISSING_PROPERTY = "missingProperty";
-    public static String MISSING_REQUEST_PROPERTY = "missingRequestProperty";
-    public static String MISSING_RESPONSE_PROPERTY = "missingResponseProperty";
-
 
     public MessageConfigException()
     {

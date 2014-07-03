@@ -19,9 +19,9 @@
 
 <cfcomponent>
 
-    <!---
-        Add footer
-    --->
+<!---
+    Add footer
+--->
     <cffunction name="addFooter">
         <cfargument name="file">
         <cfargument name="options">
@@ -36,9 +36,9 @@
     </cffunction>
 
 
-    <!---
-        Add Header
-    --->
+<!---
+    Add Header
+--->
     <cffunction name="addHeader">
         <cfargument name="file">
         <cfargument name="options">
@@ -53,9 +53,9 @@
     </cffunction>
 
 
-    <!---
-        Add a watermark to a PDF document
-    --->
+<!---
+    Add a watermark to a PDF document
+--->
     <cffunction name="addWatermark">
         <cfargument name="file">
         <cfargument name="options">
@@ -70,9 +70,9 @@
     </cffunction>
 
 
-    <!---
-        Delete pages from a PDF document
-    --->
+<!---
+    Delete pages from a PDF document
+--->
     <cffunction name="deletePages">
         <cfargument name="file">
         <cfargument name="options">
@@ -87,9 +87,9 @@
     </cffunction>
 
 
-    <!---
-        extract all the words in the PDF.
-    --->
+<!---
+    extract all the words in the PDF.
+--->
     <cffunction name="extractText">
         <cfargument name="file">
         <cfargument name="options">
@@ -103,9 +103,9 @@
         <cfreturn pdfResult>
     </cffunction>
 
-    <!---
-        extract all the images in the PDF.
-    --->
+<!---
+    extract all the images in the PDF.
+--->
     <cffunction name="extractImage">
         <cfargument name="file">
         <cfargument name="options">
@@ -120,9 +120,9 @@
     </cffunction>
 
 
-    <!---
-        Retrieve information about a PDF document
-    --->
+<!---
+    Retrieve information about a PDF document
+--->
     <cffunction name= 'getInfo'>
         <cfargument name="file">
         <cfargument name="options">
@@ -137,9 +137,9 @@
     </cffunction>
 
 
-    <!---
-        Generate thumbnails from pages in a PDF document
-    --->
+<!---
+    Generate thumbnails from pages in a PDF document
+--->
     <cffunction name= 'generateThumbnail'>
         <cfargument name="file">
         <cfargument name="options">
@@ -154,9 +154,9 @@
     </cffunction>
 
 
-    <!---
-        Merge PDF documents into an output PDF file
-    --->
+<!---
+    Merge PDF documents into an output PDF file
+--->
     <cffunction name= 'mergePdf'>
         <cfargument name="file">
         <cfargument name="options">
@@ -170,9 +170,9 @@
         <cfreturn pdfResult>
     </cffunction>
 
-    <!---
-        Reduce the quality of a PDF document
-    --->
+<!---
+    Reduce the quality of a PDF document
+--->
     <cffunction name= 'optimizePdf'>
         <cfargument name="file">
         <cfargument name="options">
@@ -187,9 +187,9 @@
     </cffunction>
 
 
-    <!---
-        Use DDX instructions to manipulate PDF documents
-    --->
+<!---
+    Use DDX instructions to manipulate PDF documents
+--->
     <cffunction name= 'processDDX'>
         <cfargument name="file">
         <cfargument name="ddx">
@@ -207,23 +207,34 @@
     <!---
         Set passwords and encrypt PDF documnets
     --->
-    <cffunction name= 'protectPdf'>
+    <cffunction name="protectPdf" access="remote" returntype="any">
         <cfargument name="file">
         <cfargument name="options">
 
-        <cfpdf
-                action="protect"
-                name="pdfResult"
-                source="#file#"
-                attributeCollection="#options#">
+        <cftry>
+            <cfset tmpFile = GetTempFile(GetTempDirectory(),"#createUUID()#.pdf")>
+            <cffile action="write" file="#tmpFile#" output="#BinaryDecode(file, "Base64")#"/>
 
-        <cfreturn pdfResult>
+            <cfpdf
+                    action="protect"
+                    name="protectedPdf"
+                    source="#tmpFile#"
+                    newUserPassword="admin">
+
+            <cfreturn BinaryEncode(toBinary(protectedPdf), "Base64")>
+
+            <cffinally>
+                <cfif fileExists(tmpFile)>
+                    <cfset fileDelete(tmpFile)>
+                </cfif>
+            </cffinally>
+        </cftry>
     </cffunction>
 
 
-    <!---
-        Remove a watermark from a PDF document
-    --->
+<!---
+    Remove a watermark from a PDF document
+--->
     <cffunction name="removeWatermark">
         <cfargument name="file">
         <cfargument name="options">
@@ -238,9 +249,9 @@
     </cffunction>
 
 
-    <!---
-        Delete headers and footers .
-    --->
+<!---
+    Delete headers and footers .
+--->
     <cffunction name="removeHeaderFooter">
         <cfargument name="file">
         <cfargument name="options">
@@ -255,9 +266,9 @@
     </cffunction>
 
 
-    <!---
-        Set information about a PDF document
-    --->
+<!---
+    Set information about a PDF document
+--->
     <cffunction name= 'setPdfInfo'>
         <cfargument name="file">
         <cfargument name="options">
@@ -272,9 +283,9 @@
     </cffunction>
 
 
-    <!---
-        Page level transformations
-    --->
+<!---
+    Page level transformations
+--->
     <cffunction name= 'transformPdf'>
         <cfargument name="file">
         <cfargument name="options">
