@@ -3,7 +3,6 @@ package apiserver.core.connectors.coldfusion.services;
 import apiserver.core.connectors.coldfusion.IColdFusionBridge;
 import apiserver.exceptions.ColdFusionException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Service;
 
@@ -56,7 +55,7 @@ public class BinaryCFCService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        BinaryJob props = (BinaryJob)message.getPayload();
+        BinaryResult props = (BinaryResult)message.getPayload();
 
         try
         {
@@ -65,7 +64,7 @@ public class BinaryCFCService
 
             // execute
             byte[] cfcResult = (byte[])coldFusionBridge.invoke(cfcPath, cfcMethod, methodArgs);
-            props.setPdfBytes(cfcResult);
+            props.setResult(cfcResult);
 
             return message;
         }

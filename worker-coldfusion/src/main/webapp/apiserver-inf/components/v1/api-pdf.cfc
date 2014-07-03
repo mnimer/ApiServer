@@ -103,20 +103,68 @@
         <cfreturn pdfResult>
     </cffunction>
 
-<!---
-    extract all the images in the PDF.
---->
-    <cffunction name="extractImage">
+
+    <!---
+        extract all the images in the PDF.
+    --->
+    <cffunction name="extractImage" access="remote">
         <cfargument name="file">
         <cfargument name="options">
+        <cfscript>
+            var images = arrayNew(1);
+            var tmpDir = GetTempDirectory();
+            var tmpDir = "#tmpDir##createUUID()#";
 
-        <cfpdf
-                action="extractimage"
-                name="pdfResult"
-                source="#file#"
-                attributeCollection="#options#">
+        // create tmp dir.
+            directoryCreate(tmpDir);
 
-        <cfreturn pdfResult>
+            if (not isDefined("options")) {
+                //options = structNew();
+            }
+        </cfscript>
+
+        <cftry>
+            <cfparam name="options['pages']" default="*"/>
+            <cfparam name="options['format']" default="jpg"/>
+
+            <cfset tmpFile = GetTempFile(tmpDir, "#createUUID()#.pdf")>
+<!---
+            <cfif not isBinary(file)>
+                <cfset tmpFile = file>
+            <cfelse>
+            </cfif>
+            --->
+            <cffile action="write" file="#tmpFile#" output="#BinaryDecode(file, "Base64")#"/>
+
+
+            <cfpdf
+                    action="extractimage"
+                    overwrite="true"
+                    destination="#tmpDir#"
+                    pages="*"
+                    format="#options['format']#"
+                    source="#tmpFile#">
+
+            <cfdirectory name="fileList" action="list" directory="#tmpDir#" filter="*.#options['format']#">
+            <cfloop query="#fileList#">
+                <cfscript>
+                    file = fileReadBinary("#directory#/#name#");
+                    fileStruct = structNew();
+                    fileStruct.name = name;
+                    fileStruct.file = BinaryEncode(file, "Base64");
+                    arrayAppend(images, fileStruct);
+                    //fileDelete("#directory#/#name#");
+                </cfscript>
+            </cfloop>
+            <cfreturn images>
+
+            <cffinally>
+                <cfif directoryExists(tmpDir)>
+                    <cfset directoryDelete(tmpDir, true)>
+                </cfif>
+            </cffinally>
+        </cftry>
+
     </cffunction>
 
 
@@ -204,28 +252,29 @@
     </cffunction>
 
 
-    <!---
-        Set passwords and encrypt PDF documnets
-    --->
+<!---
+    Set passwords and encrypt PDF documnets
+--->
     <cffunction name="protectPdf" access="remote" returntype="any">
         <cfargument name="file">
         <cfargument name="options">
 
         <cftry>
-            <cfset tmpFile = GetTempFile(GetTempDirectory(),"#createUUID()#.pdf")>
+            <cfset tmpDir = "#GetTempDirectory()##createUUID()#">
+            <cfset tmpFile = GetTempFile(tmpDir, "#createUUID()#.pdf")>
             <cffile action="write" file="#tmpFile#" output="#BinaryDecode(file, "Base64")#"/>
 
             <cfpdf
                     action="protect"
                     name="protectedPdf"
                     source="#tmpFile#"
-                    newUserPassword="admin">
+                    attributeCollection="#options#">
 
             <cfreturn BinaryEncode(toBinary(protectedPdf), "Base64")>
 
             <cffinally>
-                <cfif fileExists(tmpFile)>
-                    <cfset fileDelete(tmpFile)>
+                <cfif directoryExists(tmpDir)>
+                    <cfset directoryDelete(tmpDir, true)>
                 </cfif>
             </cffinally>
         </cftry>

@@ -52,7 +52,7 @@ public class ObjectCFCService
     public Object execute(Message<?> message) throws ColdFusionException
     {
 
-        ObjectJob props = (ObjectJob)message.getPayload();
+        ObjectResult props = (ObjectResult)message.getPayload();
 
         try
         {
