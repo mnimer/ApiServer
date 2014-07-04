@@ -17,7 +17,7 @@
  along with the ApiServer Project.  If not, see <http://www.gnu.org/licenses/>.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--->
 
-<cfcomponent>
+<cfcomponent extends="utils">
 
 <!---
     Add footer
@@ -90,19 +90,54 @@
 <!---
     extract all the words in the PDF.
 --->
-    <cffunction name="extractText">
+    <cffunction name="extractText" access="remote">
         <cfargument name="file">
-        <cfargument name="options">
+        <cfargument name="options" default="#structNew()#">
 
-        <cfpdf
-                action="extracttext"
-                name="pdfResult"
-                source="#file#"
-                attributeCollection="#options#">
+        <cfscript>
+            var images = arrayNew(1);
+            var tmpDir = GetTempDirectory();
+            var tmpDir = "#tmpDir##createUUID()#";
+            var tmpFile = "";//init
 
-        <cfreturn pdfResult>
+            // create tmp dir.
+            directoryCreate(tmpDir);
+
+            var tmpFile = GetTempFile(tmpDir, "#createUUID()#.pdf");
+
+        </cfscript>
+
+
+        <cfset _options = transformMapToStruct(options)>
+        <cfparam name="_options.type" default="xml">
+        <cfparam name="_options.pages" default="*">
+
+
+        <cftry>
+            <cfif isBase64(file)>
+                <cffile action="write" file="#tmpFile#" output="#BinaryDecode(file, "Base64")#"/>
+            <cfelse>
+                <cfset tmpFile = file>
+            </cfif>
+
+
+            <cfpdf
+                    action="extracttext"
+                    name="pdfResult"
+                    source="#tmpFile#"
+                    attributeCollection="#_options#">
+
+            <cfdump var="#pdfResult#" output="console"/>
+            <cfreturn pdfResult>
+
+            <cffinally>
+                <cfif directoryExists(tmpDir)>
+                    <cfset directoryDelete(tmpDir, true)>
+                </cfif>
+            </cffinally>
+        </cftry>
+
     </cffunction>
-
 
     <!---
         extract all the images in the PDF.
@@ -114,6 +149,7 @@
             var images = arrayNew(1);
             var tmpDir = GetTempDirectory();
             var tmpDir = "#tmpDir##createUUID()#";
+            var tmpFile = GetTempFile(tmpDir, "#createUUID()#.pdf");
 
         // create tmp dir.
             directoryCreate(tmpDir);
@@ -127,8 +163,7 @@
             <cfparam name="options['pages']" default="*"/>
             <cfparam name="options['format']" default="jpg"/>
 
-            <cfset tmpFile = GetTempFile(tmpDir, "#createUUID()#.pdf")>
-<!---
+            <!---
             <cfif not isBinary(file)>
                 <cfset tmpFile = file>
             <cfelse>
